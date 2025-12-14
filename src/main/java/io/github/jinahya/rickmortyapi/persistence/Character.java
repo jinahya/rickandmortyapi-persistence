@@ -100,7 +100,7 @@ public class Character extends _BaseEntity {
                ",origin=" + origin +
                ",location=" + location +
                ",image=" + image +
-//               ",episode=" + episode +
+               ",episode=" + episode +
                ",url=" + url +
                ",created=" + created +
                '}';
@@ -119,7 +119,7 @@ public class Character extends _BaseEntity {
         return Objects.hashCode(getId());
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------------- id
     public Integer getId() {
         return id;
     }
@@ -128,7 +128,7 @@ public class Character extends _BaseEntity {
         this.id = id;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------ name
     public String getName() {
         return name;
     }
@@ -137,7 +137,7 @@ public class Character extends _BaseEntity {
         this.name = name;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------- status
     public String getStatus() {
         return status;
     }
@@ -146,7 +146,7 @@ public class Character extends _BaseEntity {
         this.status = status;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- species
     public String getSpecies() {
         return species;
     }
@@ -155,7 +155,7 @@ public class Character extends _BaseEntity {
         this.species = species;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------ type
     @Nullable
     public String getType() {
         return type;
@@ -165,7 +165,7 @@ public class Character extends _BaseEntity {
         this.type = type;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------- gender
     public String getGender() {
         return gender;
     }
@@ -174,7 +174,7 @@ public class Character extends _BaseEntity {
         this.gender = gender;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------- origin
     public NameAndUrl getOrigin() {
         return origin;
     }
@@ -183,7 +183,7 @@ public class Character extends _BaseEntity {
         this.origin = origin;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------- location
     public NameAndUrl getLocation() {
         return location;
     }
@@ -192,7 +192,7 @@ public class Character extends _BaseEntity {
         this.location = location;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------- image
     public String getImage() {
         return image;
     }
@@ -201,7 +201,7 @@ public class Character extends _BaseEntity {
         this.image = image;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- episode
     public List<URL> getEpisode() {
         return episode;
     }
@@ -210,7 +210,7 @@ public class Character extends _BaseEntity {
         this.episode = episode;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------- url
     public URL getUrl() {
         return url;
     }
@@ -219,7 +219,7 @@ public class Character extends _BaseEntity {
         this.url = url;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- created
     public Instant getCreated() {
         return created;
     }
@@ -228,27 +228,27 @@ public class Character extends _BaseEntity {
         this.created = created;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- origin_
     @Nullable
-    public Location getOriginLocation_() {
-        return originLocation_;
+    public Location getOrigin_() {
+        return origin_;
     }
 
-    void setOriginLocation_(@Nullable final Location originLocation_) {
-        this.originLocation_ = originLocation_;
+    void setOrigin_(@Nullable final Location originLocation_) {
+        this.origin_ = originLocation_;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------- location_
     @Nullable
-    public Location getLocationLocation_() {
-        return locationLocation_;
+    public Location getLocation_() {
+        return location_;
     }
 
-    void setLocationLocation_(@Nullable final Location locationLocation_) {
-        this.locationLocation_ = locationLocation_;
+    void setLocation_(@Nullable final Location locationLocation_) {
+        this.location_ = locationLocation_;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------- episodes
     public List<Episode> getEpisodes_() {
         return episodes_;
     }
@@ -306,11 +306,10 @@ public class Character extends _BaseEntity {
     )
     @AttributeOverride(
             name = NameAndUrl.ATTRIBUTE_NAME_URL,
-            column = @Column(
-                    name = COLUMN_NAME_ORIGIN_URL,
-                    nullable = false,
-                    insertable = false,
-                    updatable = false
+            column = @Column(name = COLUMN_NAME_ORIGIN_URL,
+                             nullable = false,
+                             insertable = false,
+                             updatable = false
             )
     )
     private NameAndUrl origin;
@@ -328,11 +327,10 @@ public class Character extends _BaseEntity {
     )
     @AttributeOverride(
             name = NameAndUrl.ATTRIBUTE_NAME_URL,
-            column = @Column(
-                    name = COLUMN_NAME_LOCATION_URL,
-                    nullable = false,
-                    insertable = false,
-                    updatable = false
+            column = @Column(name = COLUMN_NAME_LOCATION_URL,
+                             nullable = false,
+                             insertable = false,
+                             updatable = false
             )
     )
     private NameAndUrl location;
@@ -367,13 +365,13 @@ public class Character extends _BaseEntity {
     @Valid
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_ORIGIN_ID_, nullable = true, insertable = false, updatable = false)
-    private Location originLocation_;
+    private Location origin_;
 
     @Nullable
     @Valid
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_LOCATION_ID_, nullable = true, insertable = false, updatable = false)
-    private Location locationLocation_;
+    private Location location_;
 
     // -----------------------------------------------------------------------------------------------------------------
     @ManyToMany(fetch = FetchType.LAZY,

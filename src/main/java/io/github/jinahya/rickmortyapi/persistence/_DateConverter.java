@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Converter
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
 public class _DateConverter implements AttributeConverter<LocalDate, String> {
 
     public static final String DATE_TIME_FORMAT_AIR_DATE = "MMMM d, uuuu";
@@ -16,8 +19,7 @@ public class _DateConverter implements AttributeConverter<LocalDate, String> {
 
     // -----------------------------------------------------------------------------------------------------------------
     //    protected
-    public
-    _DateConverter() {
+    public _DateConverter() {
         super();
     }
 

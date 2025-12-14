@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Converter
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
 public class _LocalDateConverter implements AttributeConverter<LocalDate, String> {
 
     // -----------------------------------------------------------------------------------------------------------------

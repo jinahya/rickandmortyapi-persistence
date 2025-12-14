@@ -6,6 +6,9 @@ import jakarta.persistence.Converter;
 import java.time.Instant;
 
 @Converter
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
 public class _InstantConverter implements AttributeConverter<Instant, String> {
 
 //    protected

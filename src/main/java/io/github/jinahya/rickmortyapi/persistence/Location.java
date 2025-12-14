@@ -198,11 +198,19 @@ public class Location extends _BaseEntity {
     @NotNull
     @Convert(converter = _InstantConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_CREATED, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_CREATED,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private Instant created;
 
     // -----------------------------------------------------------------------------------------------------------------
-    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = false)
+    @OneToMany(fetch = FetchType.LAZY,
+               cascade = {
+               },
+               orphanRemoval = false
+    )
     @JoinTable(name = LocationResident.TABLE_NAME,
                joinColumns = @JoinColumn(
                        name = LocationResident.COLUMN_NAME_LOCATION_ID,
@@ -217,5 +225,5 @@ public class Location extends _BaseEntity {
                        updatable = false
                )
     )
-    private List<Character> residents_;
+    private List<Character> residents_; // List of character who have been last seen in the location
 }

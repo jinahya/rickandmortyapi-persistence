@@ -188,6 +188,7 @@ public class Episode extends _BaseEntity {
     @Column(name = COLUMN_NAME_NAME, nullable = false, insertable = false, updatable = false)
     private String name;
 
+    @Past
     @NotNull
     @Convert(converter = _DateConverter.class)
     @Basic(optional = false)

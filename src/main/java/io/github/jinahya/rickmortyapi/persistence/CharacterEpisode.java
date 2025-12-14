@@ -60,7 +60,7 @@ public class CharacterEpisode extends _BaseEntity {
         return Objects.hash(characterId, episodeId);
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------- characterId
     public Integer getCharacterId() {
         return characterId;
     }
@@ -69,6 +69,7 @@ public class CharacterEpisode extends _BaseEntity {
         this.characterId = characterId;
     }
 
+    // ------------------------------------------------------------------------------------------------------- character
     public Character getCharacter() {
         return character;
     }
@@ -77,7 +78,7 @@ public class CharacterEpisode extends _BaseEntity {
         this.character = character;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------- episodeId
     public Integer getEpisodeId() {
         return episodeId;
     }
@@ -86,6 +87,7 @@ public class CharacterEpisode extends _BaseEntity {
         this.episodeId = episodeId;
     }
 
+    // --------------------------------------------------------------------------------------------------------- episode
     public Episode getEpisode() {
         return episode;
     }

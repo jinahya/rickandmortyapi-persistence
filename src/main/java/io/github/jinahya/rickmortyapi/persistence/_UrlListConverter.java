@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 
 @Converter
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
 public class _UrlListConverter implements AttributeConverter<List<URL>, String> {
 
     //    protected

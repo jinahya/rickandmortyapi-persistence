@@ -8,7 +8,7 @@ import jakarta.persistence.MappedSuperclass;
 })
 abstract class _BaseEntity {
 
-    protected _BaseEntity() {
+    _BaseEntity() {
         super();
     }
 }

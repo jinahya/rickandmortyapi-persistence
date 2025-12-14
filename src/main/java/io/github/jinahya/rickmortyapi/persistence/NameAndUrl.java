@@ -12,6 +12,7 @@ import java.util.Objects;
 @Embeddable
 public class NameAndUrl {
 
+    // -----------------------------------------------------------------------------------------------------------------
     static final String COLUMN_NAME_NAME = "name";
 
     static final String ATTRIBUTE_NAME_NAME = "name";
