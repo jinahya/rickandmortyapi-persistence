@@ -1,5 +1,7 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -10,7 +12,8 @@ import java.net.URL;
 import java.util.Objects;
 
 /**
- * An embeddable class for {@link Character#getOrigin()} and {@link Character#getLocation()} attributes.
+ * An embeddable class for {@link Character_#origin origin} and {@link Character_#location location} attributes of the
+ * {@link Character} entity.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @see Character#getOrigin()
@@ -30,7 +33,15 @@ public class NameAndUrl {
     static final String ATTRIBUTE_NAME_URL = "url";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
-    public static NameAndUrl of(final String name, final URL url) {
+
+    /**
+     * Creates a new instance with specified values.
+     *
+     * @param name a value for {@value NameAndUrl_#NAME} attribute.
+     * @param url  a value for {@value NameAndUrl_#URL} attribute.
+     * @return a new instance of {@code name} and {@code url}.
+     */
+    public static NameAndUrl of(@Nonnull final String name, @Nullable final URL url) {
         final var instance = new NameAndUrl();
         instance.setName(name);
         instance.setUrl(url);
@@ -70,6 +81,12 @@ public class NameAndUrl {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns current value of {@value NameAndUrl_#NAME} attribute.
+     *
+     * @return current value of the {@value NameAndUrl_#NAME} attribute.
+     */
     public String getName() {
         return name;
     }
@@ -79,11 +96,18 @@ public class NameAndUrl {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns current value of {@value NameAndUrl_#URL} attribute.
+     *
+     * @return current value of the {@value NameAndUrl_#URL} attribute.
+     */
+    @Nullable
     public URL getUrl() {
         return url;
     }
 
-    void setUrl(final URL url) {
+    void setUrl(@Nullable final URL url) {
         this.url = url;
     }
 
@@ -93,6 +117,7 @@ public class NameAndUrl {
     @Column(name = COLUMN_NAME_NAME, nullable = false, insertable = false, updatable = false)
     private String name;
 
+    @Nullable
     @Convert(converter = _UrlConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_URL, nullable = true, insertable = false, updatable = false)

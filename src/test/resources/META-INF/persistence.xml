@@ -35,8 +35,10 @@
     <class>io.github.jinahya.rickmortyapi.persistence._UrlConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence._UrlListConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.Character$StatusConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.CharacterEpisode</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Episode</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
     <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
     <shared-cache-mode>NONE</shared-cache-mode>
@@ -50,6 +52,10 @@
       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// eclipselink -->
       <!-- https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
       <!--      <property name="eclipselink.logging.level" value="FINE"/>-->
+      <!-- java.sql.SQLException: SQLite only supports TYPE_FORWARD_ONLY cursors -->
+      <!--      <property name="eclipselink.cursor.scrollable.result-set-type" value="1003"/>-->
+      <property name="eclipselink.cursor.scrollable" value="true"/>
+      <property name="eclipselink.cursor.scrollable.result-set-type" value="ForwardOnly"/>
       <property name="eclipselink.logging.level.sql" value="FINE"/>
       <property name="eclipselink.logging.parameters" value="true"/>
       <!--      <property name="eclipselink.weaving" value="true"/>-->
@@ -80,8 +86,10 @@
     <class>io.github.jinahya.rickmortyapi.persistence._UrlConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence._UrlListConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.Character$StatusConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.CharacterEpisode</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Episode</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
     <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
     <shared-cache-mode>NONE</shared-cache-mode>
@@ -96,6 +104,12 @@
       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// eclipselink -->
       <!-- https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
       <!--      <property name="eclipselink.logging.level" value="FINE"/>-->
+      <!-- java.sql.SQLException: SQLite only supports TYPE_FORWARD_ONLY cursors -->
+      <!--      <property name="eclipselink.cursor.scrollable.result-set-type" value="1003"/>-->
+<!--      <property name="eclipselink.cursor.scrollable.result-set-type" value="TYPE_FORWARD_ONLY"/>-->
+      <property name="eclipselink.cursor.scrollable" value="true"/>
+<!--      <property name="eclipselink.cursor.scrollable.result-set-type" value="ForwardOnly"/>-->
+      <property name="eclipselink.cursor.scrollable.result-set-type" value="Forward"/>
       <property name="eclipselink.ddl-generation" value="none"/>
       <property name="eclipselink.logging.level.sql" value="FINE"/>
       <property name="eclipselink.logging.parameters" value="true"/>

@@ -9,22 +9,26 @@ import jakarta.validation.constraints.Positive;
 import java.util.Objects;
 
 /**
- * The primary key class for {@link LocationResident}.
+ * The primary key class for {@link EpisodeCharacter}.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Embeddable
-public class LocationResidentId {
+public class EpisodeCharacterId {
 
     // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_LOCATION_ID = "location_id";
+    public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
 
-    public static final String ATTRIBUTE_NAME_LOCATION_ID = "locationId";
+    public static final String ATTRIBUTE_NAME_EPISODE_ID = "episodeId";
+
+    public static final String ATTRIBUTE_NAME_EPISODE = "episode";
 
     // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_RESIDENT_ID = "resident_id";
+    public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
 
-    public static final String ATTRIBUTE_NAME_RESIDENT_ID = "residentId";
+    public static final String ATTRIBUTE_NAME_CHARACTER_ID = "characterId";
+
+    public static final String ATTRIBUTE_NAME_CHARACTER = "character";
 
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
@@ -33,14 +37,14 @@ public class LocationResidentId {
     /**
      * Creates a new instance with specified values.
      *
-     * @param locationId a value for the {@value #ATTRIBUTE_NAME_LOCATION_ID} attribute.
-     * @param residentId a value for the {@value #ATTRIBUTE_NAME_RESIDENT_ID} attribute.
+     * @param episodeId   a value for the {@value #ATTRIBUTE_NAME_EPISODE_ID} attribute.
+     * @param characterId a value for the {@value #ATTRIBUTE_NAME_CHARACTER_ID} attribute.
      * @return a new instance of {@code characterId} and {@code episodeId}
      */
-    public static LocationResidentId of(final Integer locationId, final Integer residentId) {
-        final var instance = new LocationResidentId();
-        instance.setLocationId(locationId);
-        instance.setResidentId(residentId);
+    public static EpisodeCharacterId of(final Integer episodeId, final Integer characterId) {
+        final var instance = new EpisodeCharacterId();
+        instance.setEpisodeId(episodeId);
+        instance.setCharacterId(characterId);
         return instance;
     }
 
@@ -49,7 +53,7 @@ public class LocationResidentId {
     /**
      * Creates a new instance.
      */
-    protected LocationResidentId() {
+    protected EpisodeCharacterId() {
         super();
     }
 
@@ -57,61 +61,61 @@ public class LocationResidentId {
     @Override
     public String toString() {
         return super.toString() + '{' +
-               "id=" + locationId +
-               ",name=" + residentId +
+               "id=" + episodeId +
+               ",name=" + characterId +
                '}';
     }
 
     @Override
     public final boolean equals(final Object obj) {
-        if (!(obj instanceof LocationResidentId that)) return false;
-        return Objects.equals(locationId, that.locationId) &&
-               Objects.equals(residentId, that.residentId);
+        if (!(obj instanceof EpisodeCharacterId that)) return false;
+        return Objects.equals(episodeId, that.episodeId) &&
+               Objects.equals(characterId, that.characterId);
     }
 
     @Override
     public final int hashCode() {
-        return Objects.hash(locationId, residentId);
+        return Objects.hash(episodeId, characterId);
     }
 
-    // ------------------------------------------------------------------------------------------------------ locationId
-    public Integer getLocationId() {
-        return locationId;
+    // ------------------------------------------------------------------------------------------------------- episodeId
+    public Integer getEpisodeId() {
+        return episodeId;
     }
 
-    void setLocationId(final Integer locationId) {
-        this.locationId = locationId;
+    void setEpisodeId(final Integer episodeId) {
+        this.episodeId = episodeId;
     }
 
-    // ------------------------------------------------------------------------------------------------------ residentId
-    public Integer getResidentId() {
-        return residentId;
+    // ----------------------------------------------------------------------------------------------------- characterId
+    public Integer getCharacterId() {
+        return characterId;
     }
 
-    void setResidentId(final Integer residentId) {
-        this.residentId = residentId;
+    void setCharacterId(final Integer characterId) {
+        this.characterId = characterId;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_LOCATION_ID, nullable = false,
+    @Column(name = COLUMN_NAME_EPISODE_ID, nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink
             updatable = false
     )
-    private Integer locationId;
+    private Integer episodeId;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_RESIDENT_ID,
+    @Column(name = COLUMN_NAME_CHARACTER_ID,
             nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink
             updatable = false
     )
-    private Integer residentId;
+    private Integer characterId;
 }

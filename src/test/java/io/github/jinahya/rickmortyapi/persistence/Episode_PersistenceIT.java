@@ -1,6 +1,5 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import jakarta.persistence.criteria.JoinType;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,49 +17,6 @@ class Episode_PersistenceIT extends _BaseEntity_PersistenceIT<Episode, Integer> 
     // -----------------------------------------------------------------------------------------------------------------
     Episode_PersistenceIT() {
         super(Episode.class, Integer.class);
-    }
-
-    // -----------------------------------------------------------------------------------------------------------------
-    @Test
-    void selectAll__() {
-        // -------------------------------------------------------------------------------------------------------- when
-        final List<Episode> result = applyEntityManager(em -> {
-            final var builder = em.getCriteriaBuilder();
-            final var query = builder.createQuery(entityClass);
-            final var root = query.from(entityClass);
-            query.select(root);
-            root.fetch(Episode_.characters_, JoinType.LEFT);
-            final var resultList = em.createQuery(query).getResultList();
-            if (false) {
-                final var characterQuery = builder.createQuery(Character.class);
-                final var characterRoot = characterQuery.from(Character.class);
-                characterRoot.fetch(Character_.episodes_, JoinType.LEFT);
-                em.createQuery(characterQuery).getResultList();
-            }
-            if (true) {
-                final var characters =
-                        resultList.stream()
-                                .flatMap(e -> e.getCharacters_().stream())
-                                .distinct()
-                                .toList();
-                if (!characters.isEmpty()) {
-                    final var characterQuery = builder.createQuery(Character.class);
-                    final var characterRoot = characterQuery.from(Character.class);
-                    characterQuery.where(characterRoot.in(characters));
-                    characterRoot.fetch(Character_.episodes_, JoinType.LEFT);
-                    em.createQuery(characterQuery).getResultList();
-                }
-            }
-            return resultList;
-        });
-        // -------------------------------------------------------------------------------------------------------- then
-        assertThat(result).
-                isNotEmpty().
-                allSatisfy(e -> {
-                    assertThat(e.getCharacters_()).isNotNull().allSatisfy(c -> {
-                        assertThat(c.getEpisodes_()).contains(e);
-                    });
-                });
     }
 
     // -----------------------------------------------------------------------------------------------------------------

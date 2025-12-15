@@ -1,10 +1,12 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
 import jakarta.annotation.Nullable;
+import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
+import jakarta.persistence.Converter;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -59,6 +61,74 @@ public class Character extends _BaseEntity {
 
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_STATUS = "status";
+
+    public static final String COLUMN_VALUE_STATUS_ALIVE = "Alive";
+
+    public static final String COLUMN_VALUE_STATUS_DEAD = "Dead";
+
+    public static final String COLUMN_VALUE_STATUS_UNKNOWN = "unknown";
+
+    /**
+     * Constants for {@value Character_#STATUS} attribute.
+     */
+    public enum Status {
+
+        /**
+         * A value for {@value #COLUMN_VALUE_STATUS_ALIVE} column value.
+         */
+        ALIVE(COLUMN_VALUE_STATUS_ALIVE),
+
+        /**
+         * A value for {@value #COLUMN_VALUE_STATUS_DEAD} column value.
+         */
+        DEAD(COLUMN_VALUE_STATUS_DEAD),
+
+        /**
+         * A value for {@value #COLUMN_VALUE_STATUS_UNKNOWN} column value.
+         */
+        UNKNOWN(COLUMN_VALUE_STATUS_UNKNOWN);
+
+        /**
+         * Returns the value for the specified column value.
+         *
+         * @param columnValue the column value.
+         * @return the value for the {@code columnValue}.
+         */
+        public static Status valueOfColumnValue(final String columnValue) {
+            for (final Status value : values()) {
+                if (value.columnValue.equals(columnValue)) {
+                    return value;
+                }
+            }
+            throw new IllegalArgumentException("no value for column value: " + columnValue);
+        }
+
+        Status(final String columnValue) {
+            this.columnValue = Objects.requireNonNull(columnValue, "columnValue is null");
+        }
+
+        private final String columnValue;
+    }
+
+    @Converter
+    public static class StatusConverter implements AttributeConverter<Status, String> {
+
+        @Override
+        public String convertToDatabaseColumn(final Status attribute) {
+            if (attribute == null) {
+                return null;
+            }
+            return attribute.columnValue;
+        }
+
+        @Override
+        public Status convertToEntityAttribute(final String dbData) {
+            if (dbData == null) {
+                return null;
+            }
+            return Status.valueOfColumnValue(dbData);
+        }
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_SPECIES = "species";
@@ -181,11 +251,11 @@ public class Character extends _BaseEntity {
     }
 
     // ---------------------------------------------------------------------------------------------------------- status
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    void setStatus(final String status) {
+    void setStatus(final Status status) {
         this.status = status;
     }
 
@@ -218,6 +288,13 @@ public class Character extends _BaseEntity {
     }
 
     // ---------------------------------------------------------------------------------------------------------- origin
+
+    /**
+     * Returns the name and url of this character's origin location.
+     *
+     * @return the name and url of this character's origin location
+     * @see #getOrigin_()
+     */
     public NameAndUrl getOrigin() {
         return origin;
     }
@@ -227,6 +304,13 @@ public class Character extends _BaseEntity {
     }
 
     // -------------------------------------------------------------------------------------------------------- location
+
+    /**
+     * Returns the name and url of this character's last known location.
+     *
+     * @return the name and url of this character's last known location.
+     * @see #getLocation_()
+     */
     public NameAndUrl getLocation() {
         return location;
     }
@@ -245,6 +329,13 @@ public class Character extends _BaseEntity {
     }
 
     // --------------------------------------------------------------------------------------------------------- episode
+
+    /**
+     * Returns a list of episodes' links in which this character appeared.
+     *
+     * @return a list of episodes' links in which this character appeared.
+     * @see #getEpisodes_()
+     */
     public List<URL> getEpisode() {
         return episode;
     }
@@ -272,6 +363,13 @@ public class Character extends _BaseEntity {
     }
 
     // --------------------------------------------------------------------------------------------------------- origin_
+
+    /**
+     * Returns this character's origin location.
+     *
+     * @return this character's origin location; may be {@code null}.
+     * @see #getOrigin()
+     */
     @Nullable
     public Location getOrigin_() {
         return origin_;
@@ -282,6 +380,13 @@ public class Character extends _BaseEntity {
     }
 
     // ------------------------------------------------------------------------------------------------------- location_
+
+    /**
+     * Returns this character's last known location.
+     *
+     * @return this character's last known location; may be {@code null}.
+     * @see #getLocation()
+     */
     @Nullable
     public Location getLocation_() {
         return location_;
@@ -292,6 +397,13 @@ public class Character extends _BaseEntity {
     }
 
     // ------------------------------------------------------------------------------------------------------- episodes_
+
+    /**
+     * Returns a list of mapped episodes in which this character appeared.
+     *
+     * @return a list of mapped episodes in which this character appeared.
+     * @see #getEpisode()
+     */
     public List<Episode> getEpisodes_() {
         return episodes_;
     }
@@ -316,10 +428,17 @@ public class Character extends _BaseEntity {
     @Column(name = COLUMN_NAME_NAME, nullable = false, insertable = false, updatable = false)
     private String name;
 
-    @NotBlank
+    //    @NotBlank
+    @NotNull
+    @Convert(converter = StatusConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_STATUS, nullable = false, insertable = false, updatable = false)
-    private String status;
+    @Column(name = COLUMN_NAME_STATUS,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
+//    private String status;
+    private Status status;
 
     @NotBlank
     @Basic(optional = false)

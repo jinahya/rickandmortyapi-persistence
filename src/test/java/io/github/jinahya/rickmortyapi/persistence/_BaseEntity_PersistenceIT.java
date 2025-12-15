@@ -1,10 +1,11 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import com.github.jinahya.persistence.mapped.test.___JakartaPersistence_TestUtils;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 @SuppressWarnings({
@@ -17,13 +18,16 @@ abstract class _BaseEntity_PersistenceIT<ENTITY extends _BaseEntity, ID> extends
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-
     @Test
-    void selectRandom() {
+    void selectAll__() {
         final var selected = applyEntityManager(em -> {
-            return ___JakartaPersistence_TestUtils.selectRandom(em, entityClass);
+            final var builder = em.getCriteriaBuilder();
+            final var query = builder.createQuery(entityClass);
+            final var root = query.from(entityClass);
+            query.select(root);
+            return em.createQuery(query).getResultList();
         });
-        log.debug("selected: {}", selected.orElse(null));
+        assertThat(selected).isNotEmpty();
     }
 
     // -----------------------------------------------------------------------------------------------------------------
