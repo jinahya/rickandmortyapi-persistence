@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.jinahya</groupId>
-  <artifactId>rickandmortyapi-entities</artifactId>
+  <artifactId>rickandmortyapi-persistence</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
