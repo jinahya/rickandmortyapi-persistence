@@ -27,6 +27,12 @@ import java.util.Objects;
 
 @Entity
 @Table(name = Character.TABLE_NAME)
+@SuppressWarnings({
+        "java:S100", // Method names should comply with a naming convention
+        "java:S115", // Constant names should comply with a naming convention
+        "java:S116", // Field names should comply with a naming convention
+        "java:S117"  // Local variable and method parameter names should comply with a naming convention
+})
 public class Character extends _BaseEntity {
 
     public static final String TABLE_NAME = "character";
