@@ -77,7 +77,9 @@ public class Episode extends _BaseEntity {
     public static final String COLUMN_NAME_AIR_DATE_ISO_ = "air_date_iso_";
 
     // -----------------------------------------------------------------------------------------------------------------
-    public static final Comparator<Episode> COMPARATOR_BY_AIR_DATE_ISO_ = Comparator.comparing(Episode::getAirDateIso_);
+    public static final Comparator<Episode> COMPARING_ID = Comparator.comparing(Episode::getId);
+
+    public static final Comparator<Episode> COMPARING_AIR_DATE_ISO_ = Comparator.comparing(Episode::getAirDateIso_);
 
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
