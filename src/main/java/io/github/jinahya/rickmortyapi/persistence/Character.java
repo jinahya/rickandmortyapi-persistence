@@ -285,7 +285,7 @@ public class Character extends _BaseEntity {
 
     @Nullable
     @Basic(optional = true)
-    @Column(name = COLUMN_NAME_GENDER, nullable = true, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_TYPE, nullable = true, insertable = false, updatable = false)
     private String type;
 
     @NotBlank
@@ -364,13 +364,21 @@ public class Character extends _BaseEntity {
     @Nullable
     @Valid
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = COLUMN_NAME_ORIGIN_ID_, nullable = true, insertable = false, updatable = false)
+    @JoinColumn(name = COLUMN_NAME_ORIGIN_ID_,
+                nullable = true,
+                insertable = false,
+                updatable = false
+    )
     private Location origin_;
 
     @Nullable
     @Valid
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = COLUMN_NAME_LOCATION_ID_, nullable = true, insertable = false, updatable = false)
+    @JoinColumn(name = COLUMN_NAME_LOCATION_ID_,
+                nullable = true,
+                insertable = false,
+                updatable = false
+    )
     private Location location_;
 
     // -----------------------------------------------------------------------------------------------------------------

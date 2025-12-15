@@ -4,8 +4,10 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -20,8 +22,32 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
+@NamedQuery(name = "Episode.SelectList__OrderByAirDateIso_Asc",
+            query = """
+                    SELECT e
+                    FROM Episode e
+                    ORDER BY e.airDateIso_ ASC"""
+)
+@NamedQuery(name = "Episode.SelectList__OrderByIdAsc",
+            query = """
+                    SELECT e
+                    FROM Episode e
+                    ORDER BY e.id ASC"""
+)
+@NamedQuery(name = "Episode.SelectOne_WhereEpisodeEqual_",
+            query = """
+                    SELECT e
+                    FROM Episode e
+                    WHERE e.episode = :episode"""
+)
 @Entity
 @Table(name = Episode.TABLE_NAME)
+@SuppressWarnings({
+        "java:S100", // Method names should comply with a naming convention
+        "java:S115", // Constant names should comply with a naming convention
+        "java:S116", // Field names should comply with a naming convention
+        "java:S117"  // Local variable and method parameter names should comply with a naming convention
+})
 public class Episode extends _BaseEntity {
 
     public static final String TABLE_NAME = "episode";
@@ -51,7 +77,7 @@ public class Episode extends _BaseEntity {
     public static final String COLUMN_NAME_AIR_DATE_ISO_ = "air_date_iso_";
 
     // -----------------------------------------------------------------------------------------------------------------
-    public static final Comparator<Episode> COMPARATOR_BY_AIR_DATE_ISO = Comparator.comparing(Episode::getAirDateIso_);
+    public static final Comparator<Episode> COMPARATOR_BY_AIR_DATE_ISO_ = Comparator.comparing(Episode::getAirDateIso_);
 
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
@@ -70,10 +96,10 @@ public class Episode extends _BaseEntity {
                ",name=" + name +
                ",status=" + airDate +
                ",species=" + episode +
-//               ",characters=" + characters +
+               ",characters=" + characters +
                ",url=" + url +
                ",created=" + created +
-               ",_airDateIso=" + airDateIso_ +
+               ",airDateIso_=" + airDateIso_ +
                '}';
     }
 
@@ -90,7 +116,7 @@ public class Episode extends _BaseEntity {
         return Objects.hashCode(getId());
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------------- id
     public Integer getId() {
         return id;
     }
@@ -99,7 +125,7 @@ public class Episode extends _BaseEntity {
         this.id = id;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------ name
     public String getName() {
         return name;
     }
@@ -108,7 +134,7 @@ public class Episode extends _BaseEntity {
         this.name = name;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- airDate
     public LocalDate getAirDate() {
         return airDate;
     }
@@ -117,7 +143,7 @@ public class Episode extends _BaseEntity {
         this.airDate = status;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- episode
     public String getEpisode() {
         return episode;
     }
@@ -126,7 +152,7 @@ public class Episode extends _BaseEntity {
         this.episode = episode;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------ characters
     public List<URL> getCharacters() {
         return characters;
     }
@@ -135,7 +161,7 @@ public class Episode extends _BaseEntity {
         this.characters = characters;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------- url
     public URL getUrl() {
         return url;
     }
@@ -144,7 +170,7 @@ public class Episode extends _BaseEntity {
         this.url = url;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- created
     public Instant getCreated() {
         return created;
     }
@@ -153,7 +179,7 @@ public class Episode extends _BaseEntity {
         this.created = created;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------- airDateIso_
     public LocalDate getAirDateIso_() {
         return airDateIso_;
     }
@@ -162,7 +188,7 @@ public class Episode extends _BaseEntity {
         this.airDateIso_ = _airDateIso;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------- characters_
     public List<Character> getCharacters_() {
         return characters_;
     }
@@ -185,39 +211,66 @@ public class Episode extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     @NotBlank
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_NAME, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_NAME,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private String name;
 
     @Past
     @NotNull
     @Convert(converter = _DateConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_AIR_DATE, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_AIR_DATE,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private LocalDate airDate;
 
     @NotBlank
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_EPISODE, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_EPISODE,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
+    @SuppressWarnings({
+            "java:S1700" // A field should not duplicate the name of its containing class
+    })
     private String episode;
 
     @NotNull
     @Convert(converter = _UrlListConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_CHARACTERS, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_CHARACTERS,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private List<@NotNull URL> characters;
 
     // -----------------------------------------------------------------------------------------------------------------
     @NotNull
     @Convert(converter = _UrlConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_URL,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private URL url;
 
     @Past
     @NotNull
     @Convert(converter = _InstantConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_CREATED, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_CREATED,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private Instant created;
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -225,10 +278,16 @@ public class Episode extends _BaseEntity {
     @NotNull
     @Convert(converter = _LocalDateConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_AIR_DATE_ISO_, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_AIR_DATE_ISO_,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private LocalDate airDateIso_;
 
     // -----------------------------------------------------------------------------------------------------------------
-    @ManyToMany(mappedBy = Character_.EPISODES_, fetch = jakarta.persistence.FetchType.LAZY)
+    @ManyToMany(mappedBy = Character_.EPISODES_,
+                fetch = FetchType.LAZY
+    )
     private List<@Valid @NotNull Character> characters_; // List of characters who have been seen in the episode.
 }

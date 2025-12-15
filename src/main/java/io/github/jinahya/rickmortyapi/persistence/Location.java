@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -21,13 +22,30 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * An entity class for mapping {@value Location#TABLE_NAME} table.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
 @Entity
 @Table(name = Location.TABLE_NAME)
+@SuppressWarnings({
+        "java:S100", // Method names should comply with a naming convention
+        "java:S116", // Field names should comply with a naming convention
+        "java:S117"  // Local variable and method parameter names should comply with a naming convention
+})
 public class Location extends _BaseEntity {
 
+    /**
+     * The name of the database table to which this entity class maps. The value is {@value}.
+     */
     public static final String TABLE_NAME = "location";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Location_#ID} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_ID = "id";
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -48,13 +66,20 @@ public class Location extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_CREATED = "created";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------- BUILDERS
+
+    // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
+
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance.
+     */
     protected Location() {
         super();
     }
 
     // ------------------------------------------------------------------------------------------------ java.lang.Obejct
-
     @Override
     public String toString() {
         return super.toString() + '{' +
@@ -62,7 +87,7 @@ public class Location extends _BaseEntity {
                ",name=" + name +
                ",type=" + type +
                ",dimension=" + dimension +
-//                 ",residents=" + residents +
+               ",residents=" + residents +
                ",url=" + url +
                ",created=" + created +
                '}';
@@ -73,12 +98,12 @@ public class Location extends _BaseEntity {
         if (!(obj instanceof Location location)) {
             return false;
         }
-        return Objects.equals(id, location.id);
+        return Objects.equals(getId(), location.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(getId());
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
@@ -90,7 +115,7 @@ public class Location extends _BaseEntity {
         this.id = id;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------ name
     public String getName() {
         return name;
     }
@@ -99,7 +124,7 @@ public class Location extends _BaseEntity {
         this.name = name;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------ type
     @Nullable
     public String getType() {
         return type;
@@ -109,7 +134,7 @@ public class Location extends _BaseEntity {
         this.type = type;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------- dimension
     @Nullable
     public String getDimension() {
         return dimension;
@@ -119,7 +144,7 @@ public class Location extends _BaseEntity {
         this.dimension = dimension;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------- residents
     @Nullable
     public List<URL> getResidents() {
         return residents;
@@ -129,7 +154,7 @@ public class Location extends _BaseEntity {
         this.residents = residents;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------- url
     public URL getUrl() {
         return url;
     }
@@ -138,7 +163,7 @@ public class Location extends _BaseEntity {
         this.url = url;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- created
     public Instant getCreated() {
         return created;
     }
@@ -147,13 +172,31 @@ public class Location extends _BaseEntity {
         this.created = created;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------ residents_
     public List<Character> getResidents_() {
         return residents_;
     }
 
     void setResidents_(final List<Character> residents_) {
         this.residents_ = residents_;
+    }
+
+    // ----------------------------------------------------------------------------------------------- originCharacters_
+    public List<Character> getOriginCharacters_() {
+        return originCharacters_;
+    }
+
+    void setOriginCharacters_(final List<Character> originCharacters_) {
+        this.originCharacters_ = originCharacters_;
+    }
+
+    // --------------------------------------------------------------------------------------------- locationCharacters_
+    public List<Character> getLocationCharacters_() {
+        return locationCharacters_;
+    }
+
+    void setLocationCharacters_(final List<Character> locationCharacters_) {
+        this.locationCharacters_ = locationCharacters_;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -169,29 +212,49 @@ public class Location extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     @NotBlank
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_NAME, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_NAME,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private String name;
 
     @Nullable
     @Basic(optional = true)
-    @Column(name = COLUMN_NAME_TYPE, nullable = true, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_TYPE,
+            nullable = true,
+            insertable = false,
+            updatable = false
+    )
     private String type;
 
     @Nullable
     @Basic(optional = true)
-    @Column(name = COLUMN_NAME_DIMENSION, nullable = true, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_DIMENSION,
+            nullable = true,
+            insertable = false,
+            updatable = false
+    )
     private String dimension;
 
     @Nullable
     @Convert(converter = _UrlListConverter.class)
-    @Basic(optional = false)
-    @Column(name = COLUMN_NAME_RESIDENTS, nullable = true, insertable = false, updatable = false)
+    @Basic(optional = true)
+    @Column(name = COLUMN_NAME_RESIDENTS,
+            nullable = true,
+            insertable = false,
+            updatable = false
+    )
     private List<URL> residents;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Convert(converter = _UrlConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_URL,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private URL url;
 
     @Past
@@ -225,5 +288,22 @@ public class Location extends _BaseEntity {
                        updatable = false
                )
     )
-    private List<Character> residents_; // List of character who have been last seen in the location
+    private List<@Valid @NotNull Character> residents_; // List of character who have been last seen in the location
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @OneToMany(mappedBy = Character_.ORIGIN_,
+               fetch = FetchType.LAZY,
+               cascade = {
+               },
+               orphanRemoval = false
+    )
+    private List<@Valid @NotNull Character> originCharacters_;
+
+    @OneToMany(mappedBy = Character_.LOCATION_,
+               fetch = FetchType.LAZY,
+               cascade = {
+               },
+               orphanRemoval = false
+    )
+    private List<@Valid @NotNull Character> locationCharacters_;
 }
