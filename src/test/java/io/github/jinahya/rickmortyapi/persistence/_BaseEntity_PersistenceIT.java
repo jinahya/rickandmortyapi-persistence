@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
+@SuppressWarnings({
+        "java:S119" // Type parameter names should comply with a naming convention
+})
 abstract class _BaseEntity_PersistenceIT<ENTITY extends _BaseEntity, ID> extends _BaseEntity_Persistence_<ENTITY, ID> {
 
     _BaseEntity_PersistenceIT(final Class<ENTITY> entityClass, final Class<ID> idClass) {

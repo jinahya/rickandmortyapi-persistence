@@ -88,9 +88,9 @@
     <validation-mode>CALLBACK</validation-mode>
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-      <!-- https://github.com/eclipse-ee4j/eclipselink/issues/1393 -->
-<!--      <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite::resource:rickandmortyapi.db"/>-->
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite:${project.basedir}/rickandmortyapi-db/rickandmortyapi.db"/>
+      <!-- https://github.com/xerial/sqlite-jdbc/blob/master/USAGE.md -->
+      <property name="jakarta.persistence.jdbc.url"
+                value="jdbc:sqlite:${project.basedir}/rickandmortyapi-db/rickandmortyapi.db?jdbc.explicit_readonly=true"/>
       <property name="jakarta.persistence.jdbc.user" value=""/>
       <property name="jakarta.persistence.jdbc.password" value=""/>
       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// eclipselink -->
@@ -101,7 +101,7 @@
       <property name="eclipselink.logging.parameters" value="true"/>
       <!--      <property name="eclipselink.weaving" value="true"/>-->
       <!-- https://wiki.eclipse.org/EclipseLink/Examples/JPA/DDL -->
-<!--      <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.OraclePlatform"/>-->
+      <!--      <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.OraclePlatform"/>-->
       <!-- /////////////////////////////////////////////////////////////////////////////////////////////// hibernate -->
       <!--      <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>-->
       <property name="hibernate.format_sql" value="true"/>
