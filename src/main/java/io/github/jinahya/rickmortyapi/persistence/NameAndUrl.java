@@ -9,6 +9,13 @@ import jakarta.validation.constraints.NotBlank;
 import java.net.URL;
 import java.util.Objects;
 
+/**
+ * An embeddable class for {@link Character#getOrigin()} and {@link Character#getLocation()} attributes.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @see Character#getOrigin()
+ * @see Character#getLocation()
+ */
 @Embeddable
 public class NameAndUrl {
 
@@ -22,7 +29,19 @@ public class NameAndUrl {
 
     static final String ATTRIBUTE_NAME_URL = "url";
 
+    // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
+    public static NameAndUrl of(final String name, final URL url) {
+        final var instance = new NameAndUrl();
+        instance.setName(name);
+        instance.setUrl(url);
+        return instance;
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Creates a new instance.
+     */
     protected NameAndUrl() {
         super();
     }
@@ -75,7 +94,7 @@ public class NameAndUrl {
     private String name;
 
     @Convert(converter = _UrlConverter.class)
-    @Basic(optional = false)
-    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false)
+    @Basic(optional = true)
+    @Column(name = COLUMN_NAME_URL, nullable = true, insertable = false, updatable = false)
     private URL url;
 }

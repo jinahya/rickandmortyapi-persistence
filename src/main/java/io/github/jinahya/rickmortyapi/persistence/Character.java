@@ -25,6 +25,13 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * An entity class for mapping {@value Character#TABLE_NAME} table.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @see Location
+ * @see Episode
+ */
 @Entity
 @Table(name = Character.TABLE_NAME)
 @SuppressWarnings({
@@ -35,9 +42,16 @@ import java.util.Objects;
 })
 public class Character extends _BaseEntity {
 
+    /**
+     * The name of the database table to which this entity class maps. The value is {@value}.
+     */
     public static final String TABLE_NAME = "character";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Character_#ID} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_ID = "id";
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -56,12 +70,22 @@ public class Character extends _BaseEntity {
     public static final String COLUMN_NAME_GENDER = "gender";
 
     // -----------------------------------------------------------------------------------------------------------------
+    static final String PROPERTY_PATH_ORIGIN_NAME = "$.origin.name";
+
     public static final String COLUMN_NAME_ORIGIN_NAME = "origin_name";
+
+    // -----------------------------------------------------------------------------------------------------------------
+    static final String PROPERTY_PATH_ORIGIN_URL = "$.origin.url";
 
     public static final String COLUMN_NAME_ORIGIN_URL = "origin_url";
 
     // -----------------------------------------------------------------------------------------------------------------
+    static final String PROPERTY_PATH_LOCATION_NAME = "$.location.name";
+
     public static final String COLUMN_NAME_LOCATION_NAME = "location_name";
+
+    // -----------------------------------------------------------------------------------------------------------------
+    static final String PROPERTY_PATH_LOCATION_URL = "$.location.url";
 
     public static final String COLUMN_NAME_LOCATION_URL = "location_url";
 
@@ -80,20 +104,27 @@ public class Character extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_ORIGIN_ID_ = "origin_id_";
 
+    public static final String ATTRIBUTE_NAME_ORIGIN_ = "origin_";
+
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_LOCATION_ID_ = "location_id_";
+
+    public static final String ATTRIBUTE_NAME_LOCATION_ = "location_";
 
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance.
+     */
     protected Character() {
         super();
     }
 
     // ------------------------------------------------------------------------------------------------ java.lang.Object
-
     @Override
     public String toString() {
         return super.toString() + '{' +
@@ -126,6 +157,12 @@ public class Character extends _BaseEntity {
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * Returns current value of {@value Character_#ID} attribute.
+     *
+     * @return current value of the {@value Character_#ID} attribute.
+     */
     public Integer getId() {
         return id;
     }
@@ -254,7 +291,7 @@ public class Character extends _BaseEntity {
         this.location_ = locationLocation_;
     }
 
-    // -------------------------------------------------------------------------------------------------------- episodes
+    // ------------------------------------------------------------------------------------------------------- episodes_
     public List<Episode> getEpisodes_() {
         return episodes_;
     }
