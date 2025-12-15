@@ -1,3 +1,6 @@
 [submodule ".idea/codeStyles"]
 	path = .idea/codeStyles
 	url = git@github.com:onacit/dot-idea-codestyles.git
+[submodule "rickandmortyapi-db"]
+	path = rickandmortyapi-db
+	url = git@github.com:jinahya/rickandmortyapi-db.git

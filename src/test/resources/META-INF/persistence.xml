@@ -89,7 +89,8 @@
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
       <!-- https://github.com/eclipse-ee4j/eclipselink/issues/1393 -->
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite::resource:rickandmortyapi.db"/>
+<!--      <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite::resource:rickandmortyapi.db"/>-->
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite:${project.basedir}/rickandmortyapi-db/rickandmortyapi.db"/>
       <property name="jakarta.persistence.jdbc.user" value=""/>
       <property name="jakarta.persistence.jdbc.password" value=""/>
       <!-- ///////////////////////////////////////////////////////////////////////////////////////////// eclipselink -->

@@ -562,6 +562,9 @@
   <profiles>
     <profile>
       <id>failsafe</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <build>
         <plugins>
           <plugin>
@@ -587,7 +590,6 @@
         </plugins>
       </build>
     </profile>
-
     <profile>
       <id>eclipselink</id>
       <properties>
