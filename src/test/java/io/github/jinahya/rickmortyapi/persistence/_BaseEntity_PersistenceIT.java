@@ -1,9 +1,13 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
+import com.github.jinahya.persistence.mapped.test.___JakartaValidation_TestUtils;
 import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,9 +29,17 @@ abstract class _BaseEntity_PersistenceIT<ENTITY extends _BaseEntity, ID> extends
             final var query = builder.createQuery(entityClass);
             final var root = query.from(entityClass);
             query.select(root);
-            return em.createQuery(query).getResultList();
+            final var resultList = em.createQuery(query).getResultList();
+            selectAll__(em, resultList);
+            return resultList;
         });
         assertThat(selected).isNotEmpty();
+    }
+
+    void selectAll__(final EntityManager entityManager, final List<ENTITY> all) {
+        all.forEach(e -> {
+            ___JakartaValidation_TestUtils.requireValid(e);
+        });
     }
 
     // -----------------------------------------------------------------------------------------------------------------

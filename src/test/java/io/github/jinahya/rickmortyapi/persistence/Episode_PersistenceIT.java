@@ -1,13 +1,15 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
+import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
+import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.api.TestInstance;
 
-import java.util.stream.Stream;
+import java.util.List;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,54 +22,198 @@ class Episode_PersistenceIT extends _BaseEntity_PersistenceIT<Episode, Integer> 
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @DisplayName("SelectOne_WhereEpisodeEqual_")
+
+    @Override
+    void selectAll__(final EntityManager entityManager, final List<Episode> all) {
+        super.selectAll__(entityManager, all);
+        all.forEach(e -> {
+//            ___JakartaValidation_TestUtils.requireValid(e);
+            final var seasonNumber = e.getSeasonNumber();
+            assertThat(seasonNumber).isNotNull();
+            final var episodeNumber = e.getEpisodeNumber();
+            assertThat(episodeNumber).isNotNull();
+            log.debug("seasonNumber: {}, episodeNumber: {}", seasonNumber, episodeNumber);
+            final var episode = Episode.formatEpisode(seasonNumber, episodeNumber);
+            assertThat(episode).isEqualTo(e.getEpisode());
+        });
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
     @Nested
-    class SelectOne_WhereEpisodeEqual__IT {
+    class FetchAll_IT {
 
-        private static Stream<String> episodeStream() {
-            return Stream.of(
-                    "S01E01", "S01E02", "S01E03", "S01E04", "S01E05", "S01E06", "S01E07", "S01E08",
-                    "S01E09", "S01E10", "S01E11", "S02E01", "S02E02", "S02E03", "S02E04", "S02E05",
-                    "S02E06", "S02E07", "S02E08", "S02E09", "S02E10", "S03E01", "S03E02", "S03E03",
-                    "S03E04", "S03E05", "S03E06", "S03E07", "S03E08", "S03E09", "S03E10", "S04E01",
-                    "S04E02", "S04E03", "S04E04", "S04E05", "S04E06", "S04E07", "S04E08", "S04E09",
-                    "S04E10", "S05E01", "S05E02", "S05E03", "S05E04", "S05E05", "S05E06", "S05E07",
-                    "S05E08", "S05E09", "S05E10"
-            ).sorted();
-        }
-
-        @MethodSource("episodeStream")
-        @ParameterizedTest
-        void NamedQuery__(final String episode) {
-            // ---------------------------------------------------------------------------------------------------- when
-            final var result = applyEntityManager(em -> {
-                final var query = em.createNamedQuery("Episode.SelectOne_WhereEpisodeEqual_", entityClass);
-                query.setParameter("episode", episode);
-                return query.getSingleResult(); // NoResultException
+        @Test
+        void queryLangauge__() {
+            final List<Episode> result = applyEntityManager(em -> {
+                final var query = em.createQuery(
+                        """
+                                SELECT DISTINCT e
+                                FROM Episode e
+                                JOIN FETCH e.characters_ c
+                                LEFT JOIN FETCH c.origin_
+                                LEFT JOIN FETCH c.location_
+                                """,
+                        Episode.class
+                );
+                final var episodes = query.getResultList();
+                // fetch episodes[*].characters_[*].episodes_
+                {
+                    final var ids = episodes.stream()
+                            .flatMap(e -> e.getCharacters_().stream())
+                            .map(Character::getId)
+                            .distinct()
+                            .toList();
+                    final var q = em.createQuery(
+                            """
+                                    SELECT DISTINCT c
+                                    FROM Character c
+                                    JOIN FETCH c.episodes_ e
+                                    WHERE c.id IN ?1
+                                    """,
+                            Character.class
+                    );
+                    final var characters = q.setParameter(1, ids).getResultList();
+                }
+                // fetch episodes[*].characters_[*].location_.residents_
+                {
+                    final var ids =
+                            episodes.stream()
+                                    .flatMap(e -> e.getCharacters_().stream())
+                                    .map(Character::getLocation_)
+                                    .filter(Objects::nonNull)
+                                    .map(Location::getId)
+                                    .distinct()
+                                    .toList();
+                    final var q = em.createQuery(
+                            """
+                                    SELECT DISTINCT l
+                                    FROM Location l
+                                    JOIN FETCH l.residents_ r
+                                    WHERE l.id IN ?1
+                                    """,
+                            Location.class
+                    );
+                    final var locations = q.setParameter(1, ids).getResultList();
+                }
+                return episodes;
             });
-            // ---------------------------------------------------------------------------------------------------- then
-            assertThat(result.getEpisode()).isEqualTo(episode);
+            // ---------------------------------------------------------------------------------------------------------
+            assertThat(result)
+                    .isNotEmpty()
+                    .doesNotContainNull()
+                    .doesNotHaveDuplicates()
+                    .allSatisfy((Episode e) -> {
+                        assertThat(e.getCharacters_())
+                                .as("episode(%d).characters_", e.getId())
+                                .isNotEmpty()
+                                .doesNotContainNull()
+                                .doesNotHaveDuplicates()
+                                .allSatisfy((Character c) -> {
+                                    // character.origin - location
+                                    assertThat(c.getOrigin())
+                                            .as("episode(%d).characters_[%d].origin", e.getId(), c.getId())
+                                            .isNotNull()
+                                            .satisfies(o -> {
+                                                assertThat(o.getUrl() == null)
+                                                        .isEqualTo(c.getOrigin_() == null);
+                                            });
+                                    // character.location - location
+                                    assertThat(c.getLocation())
+                                            .as("episode(%d).characters_[%d].location", e.getId(), c.getId())
+                                            .isNotNull()
+                                            .satisfies(l -> {
+                                                assertThat(l.getUrl() == null)
+                                                        .isEqualTo(c.getLocation_() == null);
+                                            });
+                                    // character.location_
+                                    assertThat(c.getLocation_())
+                                            .as("episode(%d).characters_[%d].location_", e.getId(), c.getId())
+                                            .satisfiesAnyOf(
+                                                    l -> {
+                                                        assertThat(l).isNull();
+                                                    },
+                                                    l -> {
+                                                        if (!l.getResidents_().contains(c)) {
+                                                            log.error(
+                                                                    "location_({}).residents does not contain character({})",
+                                                                    l.getId(), c.getId());
+                                                        }
+                                                        // https://github.com/afuh/rick-and-morty-api/issues/140
+                                                        if (!Objects.equals(c.getId(), 125)) {
+                                                            assertThat(l).isNotNull()
+                                                                    .extracting(Location::getResidents_,
+                                                                                InstanceOfAssertFactories.LIST)
+                                                                    .as("episode(%d).characters_[%d].location_(%d).residents",
+                                                                        e.getId(), c.getId(), l.getId())
+                                                                    .isNotEmpty()
+                                                                    .doesNotContainNull()
+                                                                    .doesNotHaveDuplicates()
+                                                                    .contains(c)
+                                                            ;
+                                                        }
+                                                    }
+                                            );
+                                    // character.episodes_
+                                    assertThat(c.getEpisodes_())
+                                            .as("episode(%d).characters_[%d].episodes_", e.getId(), c.getId())
+                                            .isNotNull()
+                                            .isNotEmpty()
+                                            .doesNotContainNull()
+                                            .doesNotHaveDuplicates()
+                                            .contains(e);
+                                });
+                    });
+        }
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @DisplayName("SelectSingle_WhereEpisodeEqual_")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    @Nested
+    class SelectSingle_WhereEpisodeEqual__IT {
+
+        @Test
+        void NamedQuery__() {
+            applyEntityManager(em -> {
+                final var query = em.createNamedQuery("Episode.SelectSingle_WhereEpisodeEqual_", entityClass);
+                for (final var episodeValue : Episode_PersistenceITUtils.getEpisodeList(em)) {
+                    query.setParameter("episode", episodeValue);
+                    // -------------------------------------------------------------------------------------------- when
+                    final var selected = query.getSingleResult(); // NoResultException
+                    // -------------------------------------------------------------------------------------------- then
+                    assertThat(selected)
+                            .isNotNull()
+                            .extracting(Episode::getEpisode)
+                            .isEqualTo(episodeValue);
+                }
+                return null;
+            });
         }
 
-        @MethodSource("episodeStream")
-        @ParameterizedTest
-        void QueryLanguage__(final String episode) {
+        @Test
+        void QueryLanguage__() {
         }
 
-        @MethodSource("episodeStream")
-        @ParameterizedTest
-        void CriteriaApi__(final String episode) {
-            // ---------------------------------------------------------------------------------------------------- when
-            final var result = applyEntityManager(em -> {
+        @Test
+        void CriteriaApi__() {
+            applyEntityManager(em -> {
                 final var builder = em.getCriteriaBuilder();
                 final var query = builder.createQuery(entityClass);
                 final var root = query.from(entityClass);
                 query.select(root);
-                query.where(builder.equal(root.get(Episode_.episode), episode));
-                return em.createQuery(query).getSingleResult();
+                final var episodePath = root.get(Episode_.episode);
+                for (final var episodeValue : Episode_PersistenceITUtils.getEpisodeList(em)) {
+                    query.where(builder.equal(episodePath, episodeValue));
+                    // -------------------------------------------------------------------------------------------- when
+                    final var selected = em.createQuery(query).getSingleResult(); // NoResultException
+                    // -------------------------------------------------------------------------------------------- then
+                    assertThat(selected)
+                            .isNotNull()
+                            .extracting(Episode::getEpisode)
+                            .isEqualTo(episodeValue);
+                }
+                return null;
             });
-            // ---------------------------------------------------------------------------------------------------- then
-            assertThat(result.getEpisode()).isEqualTo(episode);
         }
     }
 
@@ -78,7 +224,7 @@ class Episode_PersistenceIT extends _BaseEntity_PersistenceIT<Episode, Integer> 
         @Test
         void NamedQuery__() {
             // ---------------------------------------------------------------------------------------------------- when
-            final var result = applyEntityManager(em -> {
+            final List<Episode> result = applyEntityManager(em -> {
                 final var query = em.createNamedQuery("Episode.SelectList__OrderByIdAsc", entityClass);
                 return query.getResultList();
             });
@@ -110,15 +256,54 @@ class Episode_PersistenceIT extends _BaseEntity_PersistenceIT<Episode, Integer> 
         }
     }
 
-    @DisplayName("SelectList__OrderByAirDateIso_Asc")
+    @DisplayName("SelectList__OrderByEpisodeAsc")
     @Nested
-    class SelectList__OrderByIdAriDateIso_Asc_IT {
+    class SelectList__OrderByEpisode_Asc_IT {
 
         @Test
         void NamedQuery__() {
             // ---------------------------------------------------------------------------------------------------- when
             final var result = applyEntityManager(em -> {
-                final var query = em.createNamedQuery("Episode.SelectList__OrderByAirDateIso_Asc", entityClass);
+                final var query = em.createNamedQuery("Episode.SelectList__OrderByEpisodeAsc", entityClass);
+                return query.getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            assertThat(result)
+                    .isNotEmpty()
+                    .isSortedAccordingTo(Episode.COMPARING_EPISODE);
+        }
+
+        @Test
+        void QueryLanguage__() {
+        }
+
+        @Test
+        void CriteriaApi__() {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var result = applyEntityManager(em -> {
+                final var builder = em.getCriteriaBuilder();
+                final var query = builder.createQuery(entityClass);
+                final var root = query.from(entityClass);
+                query.select(root);
+                query.orderBy(builder.asc(root.get(Episode_.episode)));
+                return em.createQuery(query).getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            assertThat(result)
+                    .isNotEmpty()
+                    .isSortedAccordingTo(Episode.COMPARING_EPISODE);
+        }
+    }
+
+    @DisplayName("SelectList__OrderByAirDateIso__Asc")
+    @Nested
+    class SelectList__OrderByIdAriDateIso__Asc_IT {
+
+        @Test
+        void NamedQuery__() {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var result = applyEntityManager(em -> {
+                final var query = em.createNamedQuery("Episode.SelectList__OrderByAirDateIso__Asc", entityClass);
                 return query.getResultList();
             });
             // ---------------------------------------------------------------------------------------------------- then

@@ -75,9 +75,9 @@
     <!-- https://hibernate.org/orm/releases/ -->
     <!-- https://central.sonatype.com/artifact/org.hibernate.orm/hibernate-platform/versions -->
     <version.org.hibernate.orm>7.1.10.Final</version.org.hibernate.orm>
-    <!-- https://hibernate.org/validator/releases/9.1/ -->
-    <!-- https://central.sonatype.com/artifact/org.hibernate.validator/hibernate-validator/versions -->
-    <version.org.hibernate.validator>9.1.0.Final</version.org.hibernate.validator>
+<!--    &lt;!&ndash; https://hibernate.org/validator/releases/9.1/ &ndash;&gt;-->
+<!--    &lt;!&ndash; https://central.sonatype.com/artifact/org.hibernate.validator/hibernate-validator/versions &ndash;&gt;-->
+<!--    <version.org.hibernate.validator>9.1.0.Final</version.org.hibernate.validator>-->
     <!-- https://central.sonatype.com/artifact/org.jboss.weld/weld-junit5 -->
     <version.org.jboss.weld>5.0.3.Final</version.org.jboss.weld>
     <!-- https://search.maven.org/search?q=g:org.junit -->
@@ -263,6 +263,8 @@
     <dependency>
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
+      <!-- https://hibernate.org/validator/releases/ -->
+      <!-- https://central.sonatype.com/artifact/org.hibernate.validator/hibernate-validator/versions -->
       <version>9.1.0.Final</version>
       <scope>test</scope>
     </dependency>

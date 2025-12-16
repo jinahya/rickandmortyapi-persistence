@@ -1,11 +1,29 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
+import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 class LocationResident_PersistenceIT extends _BaseEntity_PersistenceIT<LocationResident, LocationResidentId> {
 
     LocationResident_PersistenceIT() {
         super(LocationResident.class, LocationResidentId.class);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    @Override
+    void selectAll__(final EntityManager entityManager, final List<LocationResident> all) {
+        super.selectAll__(entityManager, all);
+        // LocationResident.location == LocationResident.resident.location_
+        all.forEach(lr -> {
+            final var resident = lr.getResident();
+            log.debug("resident: {}", resident);
+            assertThat(resident.getLocation_()).isEqualTo(lr.getLocation());
+        });
     }
 }

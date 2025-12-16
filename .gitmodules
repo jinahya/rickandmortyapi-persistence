@@ -4,3 +4,4 @@
 [submodule "rickandmortyapi-db"]
 	path = rickandmortyapi-db
 	url = git@github.com:jinahya/rickandmortyapi-db.git
+	branch = delveop

@@ -428,7 +428,6 @@ public class Character extends _BaseEntity {
     @Column(name = COLUMN_NAME_NAME, nullable = false, insertable = false, updatable = false)
     private String name;
 
-    //    @NotBlank
     @NotNull
     @Convert(converter = StatusConverter.class)
     @Basic(optional = false)
@@ -437,7 +436,6 @@ public class Character extends _BaseEntity {
             insertable = false,
             updatable = false
     )
-//    private String status;
     private Status status;
 
     @NotBlank

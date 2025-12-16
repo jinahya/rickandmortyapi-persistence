@@ -21,12 +21,19 @@ import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
-@NamedQuery(name = "Episode.SelectList__OrderByAirDateIso_Asc",
+@NamedQuery(name = "Episode.SelectList__OrderByAirDateIso__Asc",
             query = """
                     SELECT e
                     FROM Episode e
                     ORDER BY e.airDateIso_ ASC"""
+)
+@NamedQuery(name = "Episode.SelectList__OrderByEpisodeAsc",
+            query = """
+                    SELECT e
+                    FROM Episode e
+                    ORDER BY e.episode ASC"""
 )
 @NamedQuery(name = "Episode.SelectList__OrderByIdAsc",
             query = """
@@ -34,7 +41,7 @@ import java.util.Objects;
                     FROM Episode e
                     ORDER BY e.id ASC"""
 )
-@NamedQuery(name = "Episode.SelectOne_WhereEpisodeEqual_",
+@NamedQuery(name = "Episode.SelectSingle_WhereEpisodeEqual_",
             query = """
                     SELECT e
                     FROM Episode e
@@ -64,6 +71,30 @@ public class Episode extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_EPISODE = "episode";
 
+    static final String REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER = "seasonNumber";
+
+    static final String REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER = "episodeNumber";
+
+    //    public static final String REGEXP_EPISODE = "S(?<seasonNumber>\\d{2})E(?<episodeNumber>\\d{2})";
+    public static final String REGEXP_EPISODE = "S(?<%s>\\d{2})E(?<%s>\\d{2})".formatted(
+            REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER,
+            REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER
+    );
+
+    public static final java.util.regex.Pattern PATTERN_EPISODE = java.util.regex.Pattern.compile(REGEXP_EPISODE);
+
+    static final String FORMAT_EPISODE = "S%02dE%02d";
+
+    static String formatEpisode(final int seasonNumber, final int episodeNumber) {
+        if (seasonNumber < 1 || seasonNumber > 99) {
+            throw new IllegalArgumentException("invalid seasonNumber: " + seasonNumber);
+        }
+        if (episodeNumber < 1 || episodeNumber > 99) {
+            throw new IllegalArgumentException("invalid episodeNumber: " + episodeNumber);
+        }
+        return String.format(FORMAT_EPISODE, seasonNumber, episodeNumber);
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_CHARACTERS = "characters";
 
@@ -79,6 +110,8 @@ public class Episode extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     public static final Comparator<Episode> COMPARING_ID = Comparator.comparing(Episode::getId);
 
+    public static final Comparator<Episode> COMPARING_EPISODE = Comparator.comparing(Episode::getEpisode);
+
     public static final Comparator<Episode> COMPARING_AIR_DATE_ISO_ = Comparator.comparing(Episode::getAirDateIso_);
 
     // -------------------------------------------------------------------------------------------------------- BUILDERS
@@ -86,6 +119,10 @@ public class Episode extends _BaseEntity {
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance.
+     */
     protected Episode() {
         super();
     }
@@ -119,6 +156,12 @@ public class Episode extends _BaseEntity {
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * Returns current value of {@value Episode_#ID} attribute.
+     *
+     * @return current value of the {@value Episode_#ID} attribute.
+     */
     public Integer getId() {
         return id;
     }
@@ -146,6 +189,12 @@ public class Episode extends _BaseEntity {
     }
 
     // --------------------------------------------------------------------------------------------------------- episode
+
+    /**
+     * Returns current value of {@value Episode_#EPISODE} attribute.
+     *
+     * @return current value of the {@value Episode_#EPISODE} attribute.
+     */
     public String getEpisode() {
         return episode;
     }
@@ -154,7 +203,39 @@ public class Episode extends _BaseEntity {
         this.episode = episode;
     }
 
+    public Integer getSeasonNumber() {
+        return Optional.ofNullable(getEpisode())
+                .map(v -> {
+                    final var matcher = PATTERN_EPISODE.matcher(v);
+                    if (!matcher.matches()) {
+                        throw new IllegalStateException("invalid episode: " + v);
+                    }
+                    return matcher.group(REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER);
+                })
+                .map(Integer::valueOf)
+                .orElse(null);
+    }
+
+    public Integer getEpisodeNumber() {
+        return Optional.ofNullable(getEpisode())
+                .map(v -> {
+                    final var matcher = PATTERN_EPISODE.matcher(v);
+                    if (!matcher.matches()) {
+                        throw new IllegalStateException("invalid episode: " + v);
+                    }
+                    return matcher.group(REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
+                })
+                .map(Integer::valueOf)
+                .orElse(null);
+    }
+
     // ------------------------------------------------------------------------------------------------------ characters
+
+    /**
+     * Returns current value of {@value Episode_#CHARACTERS} attribute.
+     *
+     * @return current value of the {@value Episode_#CHARACTERS} attribute.
+     */
     public List<URL> getCharacters() {
         return characters;
     }
@@ -182,6 +263,12 @@ public class Episode extends _BaseEntity {
     }
 
     // ----------------------------------------------------------------------------------------------------- airDateIso_
+
+    /**
+     * Returns current value of {@value Episode_#AIR_DATE_ISO_} attribute.
+     *
+     * @return current value of the {@value Episode_#AIR_DATE_ISO_} attribute.
+     */
     public LocalDate getAirDateIso_() {
         return airDateIso_;
     }
@@ -191,6 +278,12 @@ public class Episode extends _BaseEntity {
     }
 
     // ----------------------------------------------------------------------------------------------------- characters_
+
+    /**
+     * Returns current value of {@value Episode_#CHARACTERS_} attribute.
+     *
+     * @return current value of the {@value Episode_#CHARACTERS_} attribute.
+     */
     public List<Character> getCharacters_() {
         return characters_;
     }
