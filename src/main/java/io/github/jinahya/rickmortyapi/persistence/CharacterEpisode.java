@@ -13,6 +13,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @IdClass(CharacterEpisodeId.class)
 @Entity
@@ -60,6 +61,12 @@ public class CharacterEpisode extends _BaseEntity {
     }
 
     // ----------------------------------------------------------------------------------------------------- characterId
+
+    /**
+     * Returns current value of {@value CharacterEpisode_#CHARACTER_ID} attribute.
+     *
+     * @return current value of the {@value CharacterEpisode_#CHARACTER_ID} attribute.
+     */
     public Integer getCharacterId() {
         return characterId;
     }
@@ -69,12 +76,23 @@ public class CharacterEpisode extends _BaseEntity {
     }
 
     // ------------------------------------------------------------------------------------------------------- character
+
+    /**
+     * Returns current value of {@value CharacterEpisode_#CHARACTER} attribute.
+     *
+     * @return current value of the {@value CharacterEpisode_#CHARACTER} attribute.
+     */
     public Character getCharacter() {
         return character;
     }
 
     void setCharacter(final Character character) {
         this.character = character;
+        setCharacterId(
+                Optional.ofNullable(this.character)
+                        .map(Character::getId)
+                        .orElse(null)
+        );
     }
 
     // ------------------------------------------------------------------------------------------------------- episodeId
@@ -93,6 +111,11 @@ public class CharacterEpisode extends _BaseEntity {
 
     void setEpisode(final Episode episode) {
         this.episode = episode;
+        setEpisodeId(
+                Optional.ofNullable(this.episode)
+                        .map(Episode::getId)
+                        .orElse(null)
+        );
     }
 
     // -----------------------------------------------------------------------------------------------------------------

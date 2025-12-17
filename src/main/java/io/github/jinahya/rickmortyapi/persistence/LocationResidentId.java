@@ -16,16 +16,6 @@ import java.util.Objects;
 @Embeddable
 public class LocationResidentId {
 
-    // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_LOCATION_ID = "location_id";
-
-    public static final String ATTRIBUTE_NAME_LOCATION_ID = "locationId";
-
-    // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_RESIDENT_ID = "resident_id";
-
-    public static final String ATTRIBUTE_NAME_RESIDENT_ID = "residentId";
-
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -33,8 +23,8 @@ public class LocationResidentId {
     /**
      * Creates a new instance with specified values.
      *
-     * @param locationId a value for the {@value #ATTRIBUTE_NAME_LOCATION_ID} attribute.
-     * @param residentId a value for the {@value #ATTRIBUTE_NAME_RESIDENT_ID} attribute.
+     * @param locationId a value for the {@value LocationResidentId_#LOCATION_ID} attribute.
+     * @param residentId a value for the {@value LocationResidentId_#RESIDENT_ID} attribute.
      * @return a new instance of {@code characterId} and {@code episodeId}
      */
     public static LocationResidentId of(final Integer locationId, final Integer residentId) {
@@ -96,7 +86,7 @@ public class LocationResidentId {
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_LOCATION_ID, nullable = false,
+    @Column(name = LocationResident.COLUMN_NAME_LOCATION_ID, nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink
             updatable = false
@@ -107,7 +97,7 @@ public class LocationResidentId {
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_RESIDENT_ID,
+    @Column(name = LocationResident.COLUMN_NAME_RESIDENT_ID,
             nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink

@@ -42,10 +42,9 @@ public class LocationResident extends _BaseEntity {
 
     @Override
     public final boolean equals(final Object obj) {
-        if (obj == null || getClass() != obj.getClass()) {
+        if (!(obj instanceof LocationResident that)) {
             return false;
         }
-        LocationResident that = (LocationResident) obj;
         return Objects.equals(getId(), that.getId());
     }
 
@@ -63,15 +62,6 @@ public class LocationResident extends _BaseEntity {
         this.id = id;
     }
 
-//    // -----------------------------------------------------------------------------------------------------------------
-//    public Integer getLocationId() {
-//        return locationId;
-//    }
-//
-//    void setLocationId(final Integer locationId) {
-//        this.locationId = locationId;
-//    }
-
     // -------------------------------------------------------------------------------------------------------- location
     public Location getLocation() {
         return location;
@@ -80,15 +70,6 @@ public class LocationResident extends _BaseEntity {
     void setLocation(final Location location) {
         this.location = location;
     }
-
-//    // -----------------------------------------------------------------------------------------------------------------
-//    public Integer getResidentId() {
-//        return residentId;
-//    }
-//
-//    void setResidentId(final Integer residentId) {
-//        this.residentId = residentId;
-//    }
 
     // -------------------------------------------------------------------------------------------------------- resident
     public Character getResident() {
@@ -104,17 +85,8 @@ public class LocationResident extends _BaseEntity {
     @NotNull
     @EmbeddedId
     private LocationResidentId id;
+
     // -----------------------------------------------------------------------------------------------------------------
-//    @Positive
-//    @Id
-//    @Basic(optional = false)
-//    @Column(name = COLUMN_NAME_LOCATION_ID, nullable = false,
-
-    /// /            insertable = false,
-//            insertable = true, // eclipselink
-//            updatable = false)
-//    private Integer locationId;
-
     @Valid
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
@@ -122,16 +94,6 @@ public class LocationResident extends _BaseEntity {
     private Location location;
 
     // -----------------------------------------------------------------------------------------------------------------
-//    @NotBlank
-//    @Id
-//    @Basic(optional = false)
-//    @Column(name = COLUMN_NAME_RESIDENT_ID, nullable = false,
-
-    /// /            insertable = false,
-//            insertable = true, // eclipselink
-//            updatable = false)
-//    private Integer residentId;
-
     @Valid
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

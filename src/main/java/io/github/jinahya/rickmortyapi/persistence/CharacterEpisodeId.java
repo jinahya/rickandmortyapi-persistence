@@ -16,16 +16,6 @@ import java.util.Objects;
 @Embeddable
 public class CharacterEpisodeId {
 
-    // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
-
-    public static final String ATTRIBUTE_NAME_CHARACTER_ID = "characterId";
-
-    // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
-
-    public static final String ATTRIBUTE_NAME_EPISODE_ID = "episodeId";
-
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -33,8 +23,8 @@ public class CharacterEpisodeId {
     /**
      * Creates a new instance with specified values.
      *
-     * @param characterId a value for the {@value #ATTRIBUTE_NAME_CHARACTER_ID} attribute.
-     * @param episodeId   a value for the {@value #ATTRIBUTE_NAME_EPISODE_ID} attribute.
+     * @param characterId a value for the {@value CharacterEpisodeId_#CHARACTER_ID} attribute.
+     * @param episodeId   a value for the {@value CharacterEpisodeId_#EPISODE_ID} attribute.
      * @return a new instance of {@code characterId} and {@code episodeId}
      */
     public static CharacterEpisodeId of(final Integer characterId, final Integer episodeId) {
@@ -64,9 +54,11 @@ public class CharacterEpisodeId {
 
     @Override
     public final boolean equals(final Object obj) {
-        if (!(obj instanceof CharacterEpisodeId that)) return false;
-        return Objects.equals(characterId, that.characterId) &&
-               Objects.equals(episodeId, that.episodeId);
+        if (!(obj instanceof CharacterEpisodeId that)) {
+            return false;
+        }
+        return Objects.equals(characterId, that.characterId)
+               && Objects.equals(episodeId, that.episodeId);
     }
 
     @Override
@@ -75,6 +67,12 @@ public class CharacterEpisodeId {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns current value of {@value CharacterEpisodeId_#CHARACTER_ID} attribute.
+     *
+     * @return current value of the {@value CharacterEpisodeId_#CHARACTER_ID} attribute.
+     */
     public Integer getCharacterId() {
         return characterId;
     }
@@ -84,6 +82,12 @@ public class CharacterEpisodeId {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns current value of {@value CharacterEpisodeId_#EPISODE_ID} attribute.
+     *
+     * @return current value of the {@value CharacterEpisodeId_#EPISODE_ID} attribute.
+     */
     public Integer getEpisodeId() {
         return episodeId;
     }
@@ -96,13 +100,13 @@ public class CharacterEpisodeId {
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_CHARACTER_ID, nullable = false, insertable = false, updatable = false)
+    @Column(name = CharacterEpisode.COLUMN_NAME_CHARACTER_ID, nullable = false, insertable = false, updatable = false)
     private Integer characterId;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_EPISODE_ID, nullable = false, insertable = false, updatable = false)
+    @Column(name = CharacterEpisode.COLUMN_NAME_EPISODE_ID, nullable = false, insertable = false, updatable = false)
     private Integer episodeId;
 }
