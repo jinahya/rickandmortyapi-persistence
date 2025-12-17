@@ -11,19 +11,13 @@ import java.util.List;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _UrlListConverter implements AttributeConverter<List<URL>, String> {
+public class _UrlListConverter extends __ReadOnlyConverter<List<URL>> {
 
-    //    protected
     public _UrlListConverter() {
         super();
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @Override
-    public String convertToDatabaseColumn(final List<URL> attribute) {
-        throw new UnsupportedOperationException("not implemented");
-    }
-
     @Override
     public List<URL> convertToEntityAttribute(final String dbData) {
         if (dbData == null) {

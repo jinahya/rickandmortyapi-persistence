@@ -63,7 +63,7 @@ import java.util.Optional;
         "java:S116", // Field names should comply with a naming convention
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
-public class Episode extends _BaseEntity {
+public class Episode extends __BaseEntity {
 
     public static final String TABLE_NAME = "episode";
 

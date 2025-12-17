@@ -1,6 +1,5 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 import java.net.MalformedURLException;
@@ -11,19 +10,15 @@ import java.net.URL;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _UrlConverter implements AttributeConverter<URL, String> {
+public class _UrlConverter extends __ReadOnlyConverter<URL> {
 
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     //    protected
     public _UrlConverter() {
         super();
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @Override
-    public String convertToDatabaseColumn(final URL attribute) {
-        throw new UnsupportedOperationException("not implemented");
-    }
-
     @Override
     public URL convertToEntityAttribute(final String dbData) {
         if (dbData == null) {

@@ -34,7 +34,7 @@ import java.util.Objects;
         "java:S116", // Field names should comply with a naming convention
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
-public class Location extends _BaseEntity {
+public class Location extends __BaseEntity {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.

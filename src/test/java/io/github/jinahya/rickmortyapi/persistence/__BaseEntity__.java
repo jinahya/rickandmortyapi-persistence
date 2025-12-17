@@ -2,9 +2,9 @@ package io.github.jinahya.rickmortyapi.persistence;
 
 import java.util.Objects;
 
-abstract class _BaseEntity__<ENTITY extends _BaseEntity, ID> {
+abstract class __BaseEntity__<ENTITY extends __BaseEntity, ID> {
 
-    _BaseEntity__(final Class<ENTITY> entityClass, final Class<ID> idClass) {
+    __BaseEntity__(final Class<ENTITY> entityClass, final Class<ID> idClass) {
         super();
         this.entityClass = Objects.requireNonNull(entityClass, "entityClass is null");
         this.idClass = Objects.requireNonNull(idClass, "idClass is null");

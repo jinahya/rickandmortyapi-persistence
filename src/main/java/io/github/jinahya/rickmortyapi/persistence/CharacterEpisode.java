@@ -25,7 +25,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @IdClass(CharacterEpisodeId.class)
 @Entity
 @Table(name = CharacterEpisode.TABLE_NAME)
-public class CharacterEpisode extends _BaseEntity {
+public class CharacterEpisode extends __BaseEntity {
 
     /**
      * The name of the database table to which this entity is mapped. The value is {@value}.

@@ -1,6 +1,5 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 import java.time.LocalDate;
@@ -10,25 +9,25 @@ import java.time.format.DateTimeFormatter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _DateConverter implements AttributeConverter<LocalDate, String> {
+public class _DateConverter extends __ReadOnlyConverter<LocalDate> {
 
-    public static final String DATE_TIME_FORMAT_AIR_DATE = "MMMM d, uuuu";
+    private static final String DATE_TIME_FORMAT_AIR_DATE = "MMMM d, uuuu";
 
+    /**
+     * A date time formatter for parsing {@value #DATE_TIME_FORMAT_AIR_DATE} pattern.
+     */
     public static final DateTimeFormatter DATE_TIME_PATTERN_AIR_DATE =
             DateTimeFormatter.ofPattern(DATE_TIME_FORMAT_AIR_DATE);
 
-    // -----------------------------------------------------------------------------------------------------------------
-    //    protected
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+    /**
+     * Creates a new instance.
+     */
     public _DateConverter() {
         super();
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
-    @Override
-    public String convertToDatabaseColumn(final LocalDate attribute) {
-        throw new UnsupportedOperationException("not implemented");
-    }
-
+    // -------------------------------------------------------------------------- jakarta.persistence.AttributeConverter
     @Override
     public LocalDate convertToEntityAttribute(final String dbData) {
         if (dbData == null) {

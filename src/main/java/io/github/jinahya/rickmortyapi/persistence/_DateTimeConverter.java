@@ -3,6 +3,7 @@ package io.github.jinahya.rickmortyapi.persistence;
 import jakarta.persistence.Converter;
 
 import java.time.Instant;
+import java.time.format.DateTimeFormatter;
 
 /**
  * .
@@ -14,14 +15,14 @@ import java.time.Instant;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _InstantConverter extends __ReadOnlyConverter<Instant> {
+abstract class _DateTimeConverter extends __ReadOnlyConverter<Instant> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
      * Creates a new instance.
      */
-    public _InstantConverter() {
+    _DateTimeConverter() {
         super();
     }
 
@@ -33,4 +34,6 @@ public class _InstantConverter extends __ReadOnlyConverter<Instant> {
         }
         return Instant.parse(dbData);
     }
+
+    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_INSTANT;
 }

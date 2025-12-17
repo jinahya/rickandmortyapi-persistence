@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = EpisodeCharacter.TABLE_NAME)
-public class EpisodeCharacter extends _BaseEntity {
+public class EpisodeCharacter extends __BaseEntity {
 
     public static final String TABLE_NAME = "episode_character";
 

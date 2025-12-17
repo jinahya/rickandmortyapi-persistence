@@ -1,27 +1,23 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
+import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @Converter
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _LocalDateConverter extends __ReadOnlyConverter<LocalDate> {
+abstract class __ReadOnlyConverter<X> implements AttributeConverter<X, String> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    public _LocalDateConverter() {
+    //    protected
+    __ReadOnlyConverter() {
         super();
     }
 
     // -----------------------------------------------------------------------------------------------------------------
     @Override
-    public LocalDate convertToEntityAttribute(final String dbData) {
-        if (dbData == null) {
-            return null;
-        }
-        return LocalDate.parse(dbData, DateTimeFormatter.ISO_LOCAL_DATE);
+    public final String convertToDatabaseColumn(final X attribute) {
+        throw new UnsupportedOperationException("not implemented");
     }
 }

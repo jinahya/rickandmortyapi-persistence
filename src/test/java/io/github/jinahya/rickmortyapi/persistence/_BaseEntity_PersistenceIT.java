@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SuppressWarnings({
         "java:S119" // Type parameter names should comply with a naming convention
 })
-abstract class _BaseEntity_PersistenceIT<ENTITY extends _BaseEntity, ID> extends _BaseEntity_Persistence_<ENTITY, ID> {
+abstract class _BaseEntity_PersistenceIT<ENTITY extends __BaseEntity, ID> extends _BaseEntity_Persistence_<ENTITY, ID> {
 
     _BaseEntity_PersistenceIT(final Class<ENTITY> entityClass, final Class<ID> idClass) {
         super(entityClass, idClass);
