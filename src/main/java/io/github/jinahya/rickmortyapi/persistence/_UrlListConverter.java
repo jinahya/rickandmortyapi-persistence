@@ -14,8 +14,7 @@ import java.util.List;
 public class _UrlListConverter implements AttributeConverter<List<URL>, String> {
 
     //    protected
-    public
-    _UrlListConverter() {
+    public _UrlListConverter() {
         super();
     }
 

@@ -14,8 +14,7 @@ public class _LocalDateConverter implements AttributeConverter<LocalDate, String
 
     // -----------------------------------------------------------------------------------------------------------------
     //    protected
-    public
-    _LocalDateConverter() {
+    public _LocalDateConverter() {
         super();
     }
 

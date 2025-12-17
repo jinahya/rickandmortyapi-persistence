@@ -11,9 +11,8 @@ import java.time.Instant;
 })
 public class _InstantConverter implements AttributeConverter<Instant, String> {
 
-//    protected
-    public
-    _InstantConverter() {
+    //    protected
+    public _InstantConverter() {
         super();
     }
 

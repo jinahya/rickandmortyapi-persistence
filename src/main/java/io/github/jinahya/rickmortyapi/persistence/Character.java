@@ -31,8 +31,9 @@ import java.util.Objects;
  * An entity class for mapping {@value Character#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see Location
+ * @see CharacterEpisode
  * @see Episode
+ * @see Location
  */
 @Entity
 @Table(name = Character.TABLE_NAME)
@@ -130,14 +131,162 @@ public class Character extends _BaseEntity {
         }
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------------- species
+
+    /**
+     * The name of the table column to which the {@value Character_#SPECIES} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_SPECIES = "species";
+
+    /**
+     * A column value of {@value} for the {@link #COLUMN_NAME_SPECIES} column.
+     */
+    public static final String COLUMN_VALUE_SPECIES_ALIEN = "Alien";
+
+    public static final String COLUMN_VALUE_SPECIES_ANIMAL = "Animal";
+
+    public static final String COLUMN_VALUE_SPECIES_CRONENBERG = "Cronenberg";
+
+    public static final String COLUMN_VALUE_SPECIES_DISEASE = "Disease";
+
+    public static final String COLUMN_VALUE_SPECIES_HUMAN = "Human";
+
+    public static final String COLUMN_VALUE_SPECIES_HUMANOID = "Humanoid";
+
+    public static final String COLUMN_VALUE_SPECIES_MYTHOLOGICAL_CREATURE = "Mythological Creature";
+
+    public static final String COLUMN_VALUE_SPECIES_POOPYBUTTHOLE = "Poopybutthole";
+
+    public static final String COLUMN_VALUE_SPECIES_ROBOT = "Robot";
+
+    public static final String COLUMN_VALUE_SPECIES_UNKNOWN = "unknown";
+
+    /**
+     * Constants for {@value Character_#SPECIES} attribute.
+     */
+    public enum Species {
+
+        /**
+         * A constant for {@value #COLUMN_VALUE_SPECIES_ALIEN} column value.
+         */
+        ALIEN(COLUMN_VALUE_SPECIES_ALIEN),
+
+        ANIMAL(COLUMN_VALUE_SPECIES_ANIMAL),
+
+        CRONENBERG(COLUMN_VALUE_SPECIES_CRONENBERG),
+
+        DISEASE(COLUMN_VALUE_SPECIES_DISEASE),
+
+        HUMAN(COLUMN_VALUE_SPECIES_HUMAN),
+
+        HUMANOID(COLUMN_VALUE_SPECIES_HUMANOID),
+
+        MYTHOLOGICAL_CREATURE(COLUMN_VALUE_SPECIES_MYTHOLOGICAL_CREATURE),
+
+        POOPYBUTTHOLE(COLUMN_VALUE_SPECIES_POOPYBUTTHOLE),
+
+        ROBOT(COLUMN_VALUE_SPECIES_ROBOT),
+
+        UNKNOWN(COLUMN_VALUE_SPECIES_UNKNOWN);
+
+        public static Species valueOfColumnValue(final String columnValue) {
+            for (final var value : values()) {
+                if (value.columnValue.equals(columnValue)) {
+                    return value;
+                }
+            }
+            throw new IllegalArgumentException("no value for column value: " + columnValue);
+        }
+
+        private Species(String columnValue) {
+            this.columnValue = Objects.requireNonNull(columnValue, "columnValue is null");
+        }
+
+        private final String columnValue;
+    }
+
+    @Converter
+    public static class SpeciesConverter implements AttributeConverter<Species, String> {
+
+        @Override
+        public String convertToDatabaseColumn(final Species attribute) {
+            if (attribute == null) {
+                return null;
+            }
+            return attribute.columnValue;
+        }
+
+        @Override
+        public Species convertToEntityAttribute(final String dbData) {
+            if (dbData == null) {
+                return null;
+            }
+            return Species.valueOfColumnValue(dbData);
+        }
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_TYPE = "type";
 
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_GENDER = "gender";
+
+    /**
+     * A column value of {@value} for the {@link #COLUMN_NAME_GENDER} column.
+     */
+    public static final String COLUMN_VALUE_GENDER_FEMALE = "Female";
+
+    public static final String COLUMN_VALUE_GENDER_GENDERLESS = "Genderless";
+
+    public static final String COLUMN_VALUE_GENDER_MALE = "Male";
+
+    public static final String COLUMN_VALUE_GENDER_UNKNOWN = "unknown";
+
+    public enum Gender {
+
+        GENDER_FEMALE(COLUMN_VALUE_GENDER_FEMALE),
+
+        GENDER_GENDERLESS(COLUMN_VALUE_GENDER_GENDERLESS),
+
+        GENDER_MALE(COLUMN_VALUE_GENDER_MALE),
+
+        GENDER_UNKNOWN(COLUMN_VALUE_GENDER_UNKNOWN);
+
+        public static Gender valueOfColumnValue(final String columnValue) {
+            for (final var value : values()) {
+                if (value.columnValue.equals(columnValue)) {
+                    return value;
+                }
+            }
+            throw new IllegalArgumentException("no value for column value: " + columnValue);
+        }
+
+        private Gender(String columnValue) {
+            this.columnValue = Objects.requireNonNull(columnValue, "columnValue is null");
+        }
+
+        private final String columnValue;
+    }
+
+    @Converter
+    public static class GenderConverter implements AttributeConverter<Gender, String> {
+
+        @Override
+        public String convertToDatabaseColumn(final Gender attribute) {
+            if (attribute == null) {
+                return null;
+            }
+            return attribute.columnValue;
+        }
+
+        @Override
+        public Gender convertToEntityAttribute(final String dbData) {
+            if (dbData == null) {
+                return null;
+            }
+            return Gender.valueOfColumnValue(dbData);
+        }
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
     static final String PROPERTY_PATH_ORIGIN_NAME = "$.origin.name";
@@ -260,11 +409,11 @@ public class Character extends _BaseEntity {
     }
 
     // --------------------------------------------------------------------------------------------------------- species
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    void setSpecies(final String species) {
+    void setSpecies(final Species species) {
         this.species = species;
     }
 
@@ -274,16 +423,16 @@ public class Character extends _BaseEntity {
         return type;
     }
 
-    void setType(@Nullable String type) {
+    void setType(@Nullable final String type) {
         this.type = type;
     }
 
     // ---------------------------------------------------------------------------------------------------------- gender
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    void setGender(final String gender) {
+    void setGender(final Gender gender) {
         this.gender = gender;
     }
 
@@ -416,7 +565,8 @@ public class Character extends _BaseEntity {
     @Positive
     @Id
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_ID, nullable = false,
+    @Column(name = COLUMN_NAME_ID,
+            nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink
             updatable = false)
@@ -425,7 +575,11 @@ public class Character extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     @NotBlank
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_NAME, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_NAME,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private String name;
 
     @NotNull
@@ -438,60 +592,70 @@ public class Character extends _BaseEntity {
     )
     private Status status;
 
-    @NotBlank
+    @NotNull
+    @Convert(converter = SpeciesConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_SPECIES, nullable = false, insertable = false, updatable = false)
-    private String species;
+    @Column(name = COLUMN_NAME_SPECIES,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
+    private Species species;
 
     @Nullable
     @Basic(optional = true)
-    @Column(name = COLUMN_NAME_TYPE, nullable = true, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_TYPE,
+            nullable = true,
+            insertable = false,
+            updatable = false
+    )
     private String type;
 
-    @NotBlank
+    @NotNull
+    @Convert(converter = GenderConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_GENDER, nullable = false, insertable = false, updatable = false)
-    private String gender;
+    @Column(name = COLUMN_NAME_GENDER,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
+    private Gender gender;
 
     @Valid
     @NotNull
     @Embedded
-    @AttributeOverride(
-            name = NameAndUrl.ATTRIBUTE_NAME_NAME,
-            column = @Column(name = COLUMN_NAME_ORIGIN_NAME,
-                             nullable = false,
-                             insertable = false,
-                             updatable = false
-            )
+    @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_NAME,
+                       column = @Column(name = COLUMN_NAME_ORIGIN_NAME,
+                                        nullable = false,
+                                        insertable = false,
+                                        updatable = false
+                       )
     )
-    @AttributeOverride(
-            name = NameAndUrl.ATTRIBUTE_NAME_URL,
-            column = @Column(name = COLUMN_NAME_ORIGIN_URL,
-                             nullable = false,
-                             insertable = false,
-                             updatable = false
-            )
+    @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_URL,
+                       column = @Column(name = COLUMN_NAME_ORIGIN_URL,
+                                        nullable = false,
+                                        insertable = false,
+                                        updatable = false
+                       )
     )
     private NameAndUrl origin;
 
     @Valid
     @NotNull
     @Embedded
-    @AttributeOverride(
-            name = NameAndUrl.ATTRIBUTE_NAME_NAME,
-            column = @Column(name = COLUMN_NAME_LOCATION_NAME,
-                             nullable = false,
-                             insertable = false,
-                             updatable = false
-            )
+    @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_NAME,
+                       column = @Column(name = COLUMN_NAME_LOCATION_NAME,
+                                        nullable = false,
+                                        insertable = false,
+                                        updatable = false
+                       )
     )
-    @AttributeOverride(
-            name = NameAndUrl.ATTRIBUTE_NAME_URL,
-            column = @Column(name = COLUMN_NAME_LOCATION_URL,
-                             nullable = false,
-                             insertable = false,
-                             updatable = false
-            )
+    @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_URL,
+                       column = @Column(name = COLUMN_NAME_LOCATION_URL,
+                                        nullable = false,
+                                        insertable = false,
+                                        updatable = false
+                       )
     )
     private NameAndUrl location;
 

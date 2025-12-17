@@ -14,8 +14,7 @@ import java.net.URL;
 public class _UrlConverter implements AttributeConverter<URL, String> {
 
     //    protected
-    public
-    _UrlConverter() {
+    public _UrlConverter() {
         super();
     }
 

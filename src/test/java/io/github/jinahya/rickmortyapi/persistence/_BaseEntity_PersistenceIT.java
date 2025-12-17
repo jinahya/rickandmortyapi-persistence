@@ -44,7 +44,7 @@ abstract class _BaseEntity_PersistenceIT<ENTITY extends _BaseEntity, ID> extends
 
     // -----------------------------------------------------------------------------------------------------------------
     @Override
-    EntityManagerFactory getEntityManagerFactory() {
+    final EntityManagerFactory getEntityManagerFactory() {
         return entityManagerFactory;
     }
 

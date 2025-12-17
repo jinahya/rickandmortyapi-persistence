@@ -23,6 +23,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * An entity class for mapping {@value Episode#TABLE_NAME} table.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @see Character
+ * @see EpisodeCharacter
+ * @see Location
+ */
 @NamedQuery(name = "Episode.SelectList__OrderByAirDateIso__Asc",
             query = """
                     SELECT e

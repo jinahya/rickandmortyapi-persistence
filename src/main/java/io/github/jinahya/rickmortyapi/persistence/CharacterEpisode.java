@@ -15,14 +15,29 @@ import jakarta.validation.constraints.Positive;
 import java.util.Objects;
 import java.util.Optional;
 
+import static jakarta.persistence.FetchType.LAZY;
+
+/**
+ * An entity class for mapping {@value CharacterEpisode#TABLE_NAME} table.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
 @IdClass(CharacterEpisodeId.class)
 @Entity
 @Table(name = CharacterEpisode.TABLE_NAME)
 public class CharacterEpisode extends _BaseEntity {
 
+    /**
+     * The name of the database table to which this entity is mapped. The value is {@value}.
+     */
     public static final String TABLE_NAME = "character_episode";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value CharacterEpisode_#CHARACTER_ID} attribute maps. The value is
+     * {@value}.
+     */
     public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -33,6 +48,10 @@ public class CharacterEpisode extends _BaseEntity {
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance.
+     */
     protected CharacterEpisode() {
         super();
     }
@@ -122,31 +141,43 @@ public class CharacterEpisode extends _BaseEntity {
     @Positive
     @Id
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_CHARACTER_ID, nullable = false,
+    @Column(name = COLUMN_NAME_CHARACTER_ID,
+            nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink
-            updatable = false)
+            updatable = false
+    )
     private Integer characterId;
 
     @Valid
     @NotNull
-    @ManyToOne(optional = false, fetch = jakarta.persistence.FetchType.LAZY)
-    @JoinColumn(name = COLUMN_NAME_CHARACTER_ID, nullable = false, insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = LAZY)
+    @JoinColumn(name = COLUMN_NAME_CHARACTER_ID,
+                nullable = false,
+                insertable = false,
+                updatable = false
+    )
     private Character character;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Positive
     @Id
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_EPISODE_ID, nullable = false,
+    @Column(name = COLUMN_NAME_EPISODE_ID,
+            nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink
-            updatable = false)
+            updatable = false
+    )
     private Integer episodeId;
 
     @Valid
     @NotNull
-    @ManyToOne(optional = false, fetch = jakarta.persistence.FetchType.LAZY)
-    @JoinColumn(name = COLUMN_NAME_EPISODE_ID, nullable = false, insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = LAZY)
+    @JoinColumn(name = COLUMN_NAME_EPISODE_ID,
+                nullable = false,
+                insertable = false,
+                updatable = false
+    )
     private Episode episode;
 }

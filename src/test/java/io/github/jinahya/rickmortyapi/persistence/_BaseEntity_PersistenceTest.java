@@ -3,6 +3,9 @@ package io.github.jinahya.rickmortyapi.persistence;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManagerFactory;
 
+@SuppressWarnings({
+        "java:S119" // Type parameter names should comply with a naming convention
+})
 abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity, ID>
         extends _BaseEntity_Persistence_<ENTITY, ID> {
 
@@ -12,7 +15,7 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity, ID>
 
     // -----------------------------------------------------------------------------------------------------------------
     @Override
-    EntityManagerFactory getEntityManagerFactory() {
+    final EntityManagerFactory getEntityManagerFactory() {
         return entityManagerFactory;
     }
 
