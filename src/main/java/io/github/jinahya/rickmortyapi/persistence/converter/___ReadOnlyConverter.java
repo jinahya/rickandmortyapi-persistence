@@ -1,4 +1,4 @@
-package io.github.jinahya.rickmortyapi.persistence;
+package io.github.jinahya.rickmortyapi.persistence.converter;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -7,11 +7,11 @@ import jakarta.persistence.Converter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-abstract class __ReadOnlyConverter<X> implements AttributeConverter<X, String> {
+abstract class ___ReadOnlyConverter<X> implements AttributeConverter<X, String> {
 
     // -----------------------------------------------------------------------------------------------------------------
     //    protected
-    __ReadOnlyConverter() {
+    ___ReadOnlyConverter() {
         super();
     }
 

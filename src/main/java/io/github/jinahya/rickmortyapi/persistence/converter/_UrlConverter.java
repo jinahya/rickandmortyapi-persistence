@@ -1,4 +1,4 @@
-package io.github.jinahya.rickmortyapi.persistence;
+package io.github.jinahya.rickmortyapi.persistence.converter;
 
 import jakarta.persistence.Converter;
 
@@ -10,7 +10,7 @@ import java.net.URL;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _UrlConverter extends __ReadOnlyConverter<URL> {
+public class _UrlConverter extends ___ReadOnlyConverter<URL> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     //    protected

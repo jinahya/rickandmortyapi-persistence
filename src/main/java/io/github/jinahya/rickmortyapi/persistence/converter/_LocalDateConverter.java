@@ -1,4 +1,4 @@
-package io.github.jinahya.rickmortyapi.persistence;
+package io.github.jinahya.rickmortyapi.persistence.converter;
 
 import jakarta.persistence.Converter;
 
@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _LocalDateConverter extends __ReadOnlyConverter<LocalDate> {
+public class _LocalDateConverter extends ___ReadOnlyConverter<LocalDate> {
 
     // -----------------------------------------------------------------------------------------------------------------
     public _LocalDateConverter() {

@@ -1,5 +1,8 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
+import io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.AttributeOverride;

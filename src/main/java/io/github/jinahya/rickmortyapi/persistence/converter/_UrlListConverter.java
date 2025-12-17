@@ -1,4 +1,4 @@
-package io.github.jinahya.rickmortyapi.persistence;
+package io.github.jinahya.rickmortyapi.persistence.converter;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -11,7 +11,7 @@ import java.util.List;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _UrlListConverter extends __ReadOnlyConverter<List<URL>> {
+public class _UrlListConverter extends ___ReadOnlyConverter<List<URL>> {
 
     public _UrlListConverter() {
         super();

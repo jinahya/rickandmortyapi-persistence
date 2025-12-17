@@ -29,11 +29,6 @@
     <!--        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
     <!--    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
     <provider>${persistence-unit.provider}</provider>
-    <class>io.github.jinahya.rickmortyapi.persistence._DateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence._InstantConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence._LocalDateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence._UrlConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence._UrlListConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$GenderConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$StatusConverter</class>
@@ -43,6 +38,11 @@
     <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
     <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._DateConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._LocalDateConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <validation-mode>CALLBACK</validation-mode>
     <properties>
@@ -86,11 +86,6 @@
     <!--    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
     <!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
     <provider>${persistence-unit.provider}</provider>
-    <class>io.github.jinahya.rickmortyapi.persistence._DateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence._InstantConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence._LocalDateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence._UrlConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence._UrlListConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$GenderConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$StatusConverter</class>
@@ -100,6 +95,11 @@
     <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
     <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._DateConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._LocalDateConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <validation-mode>CALLBACK</validation-mode>
     <properties>
@@ -126,7 +126,7 @@
       <!-- https://wiki.eclipse.org/EclipseLink/Examples/JPA/DDL -->
       <!--      <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.OraclePlatform"/>-->
       <!-- =============================================================================================== hibernate -->
-<!--      <property name="hibernate.dialect" value="org.hibernate.community.dialect.SQLiteDialect"/>-->
+      <!--      <property name="hibernate.dialect" value="org.hibernate.community.dialect.SQLiteDialect"/>-->
       <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.hbm2ddl.auto" value="none"/>
       <property name="hibernate.highlight_sql" value="true"/>

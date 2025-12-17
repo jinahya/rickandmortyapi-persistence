@@ -1,5 +1,10 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
+import io.github.jinahya.rickmortyapi.persistence.converter._DateConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter._LocalDateConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
