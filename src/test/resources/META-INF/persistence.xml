@@ -33,6 +33,7 @@
     <class>io.github.jinahya.rickmortyapi.persistence.Character$GenderConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$StatusConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$SpeciesConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.Character_TypeConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.CharacterEpisode</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Episode</class>
     <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>

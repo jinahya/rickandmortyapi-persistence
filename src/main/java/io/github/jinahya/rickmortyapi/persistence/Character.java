@@ -243,10 +243,349 @@ public class Character extends _BaseEntity {
         }
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------------- type
     public static final String COLUMN_NAME_TYPE = "type";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    static final String COLUMN_VALUE_TYPE_ALLIGATOR_PERSON = "Alligator-Person";
+
+    static final String COLUMN_VALUE_TYPE_ALPHABETRIAN = "Alphabetrian";
+
+    static final String COLUMN_VALUE_TYPE_AMOEBA_PERSON = "Amoeba-Person";
+
+    static final String COLUMN_VALUE_TYPE_ANIMAL = "Animal";
+
+    static final String COLUMN_VALUE_TYPE_ANIME = "Anime";
+
+    static final String COLUMN_VALUE_TYPE_ARTIFICIAL_INTELLIGENCE = "Artificial Intelligence";
+
+    static final String COLUMN_VALUE_TYPE_BEPISIAN = "Bepisian";
+
+    static final String COLUMN_VALUE_TYPE_BIRD_PERSON = "Bird-Person";
+
+    static final String COLUMN_VALUE_TYPE_BIRD_PERSON_HUMAN_MIX = "Bird-Person Human Mix";
+
+    static final String COLUMN_VALUE_TYPE_BLUE_APE_ALIEN = "Blue ape alien";
+
+    static final String COLUMN_VALUE_TYPE_BOOBLE_BUYER_REPTILIAN = "Boobie buyer reptilian";
+
+    static final String COLUMN_VALUE_TYPE_BOOBLOOSIAN = "Boobloosian";
+
+    static final String COLUMN_VALUE_TYPE_BREAD = "Bread";
+
+    static final String COLUMN_VALUE_TYPE_CHUD = "CHUD";
+
+    static final String COLUMN_VALUE_TYPE_CHUD_HUMAN_MIX = "CHUD Human Mix";
+
+    static final String COLUMN_VALUE_TYPE_CAT = "Cat";
+
+    static final String COLUMN_VALUE_TYPE_CAT_CONTROLLED_DEAD_LADY = "Cat controlled dead lady";
+
+    static final String COLUMN_VALUE_TYPE_CAT_PERSON = "Cat-Person";
+
+    static final String COLUMN_VALUE_TYPE_CATERPILLAR = "Caterpillar";
+
+    static final String COLUMN_VALUE_TYPE_CENTAUR = "Centaur";
+
+    static final String COLUMN_VALUE_TYPE_CHAIR = "Chair";
+
+    static final String COLUMN_VALUE_TYPE_CHANGEFORMER = "Changeformer";
+
+    static final String COLUMN_VALUE_TYPE_CLAY_PERSON = "Clay-Person";
+
+    static final String COLUMN_VALUE_TYPE_CLONE = "Clone";
+
+    static final String COLUMN_VALUE_TYPE_CONE_NIPPLED_ALIEN = "Cone-nippled alien";
+
+    static final String COLUMN_VALUE_TYPE_CONJOINED_TWIN = "Conjoined twin";
+
+    static final String COLUMN_VALUE_TYPE_COOKIE = "Cookie";
+
+    static final String COLUMN_VALUE_TYPE_CORN_PERSON = "Corn-person";
+
+    static final String COLUMN_VALUE_TYPE_CROMULON = "Cromulon";
+
+    static final String COLUMN_VALUE_TYPE_CRONENBERG = "Cronenberg";
+
+    static final String COLUMN_VALUE_TYPE_CROW = "Crow";
+
+    static final String COLUMN_VALUE_TYPE_CROW_HORSE = "Crow Horse";
+
+    static final String COLUMN_VALUE_TYPE_CYBORG = "Cyborg";
+
+    static final String COLUMN_VALUE_TYPE_DECOY = "Decoy";
+
+    static final String COLUMN_VALUE_TYPE_DEMON = "Demon";
+
+    static final String COLUMN_VALUE_TYPE_DOG = "Dog";
+
+    static final String COLUMN_VALUE_TYPE_DOOPIDOO = "Doopidoo";
+
+    static final String COLUMN_VALUE_TYPE_DRAGON = "Dragon";
+
+    static final String COLUMN_VALUE_TYPE_DRUMBLOXIAN = "Drumbloxian";
+
+    static final String COLUMN_VALUE_TYPE_DUMMY = "Dummy";
+
+    static final String COLUMN_VALUE_TYPE_EAT_SHITER_PERSON = "Eat shiter-Person";
+
+    static final String COLUMN_VALUE_TYPE_EEL = "Eel";
+
+    static final String COLUMN_VALUE_TYPE_ELEPHANT_PERSON = "Elephant-Person";
+
+    static final String COLUMN_VALUE_TYPE_FERKUSIAN = "Ferkusian";
+
+    static final String COLUMN_VALUE_TYPE_FERRET_ROBOT = "Ferret Robot";
+
+    static final String COLUMN_VALUE_TYPE_FISH_PERSON = "Fish-Person";
+
+    static final String COLUMN_VALUE_TYPE_FLANSIAN = "Flansian";
+
+    static final String COLUMN_VALUE_TYPE_FLOOP_FLOOPIAN = "Floop Floopian";
+
+    static final String COLUMN_VALUE_TYPE_FLY = "Fly";
+
+    static final String COLUMN_VALUE_TYPE_GAME = "Game";
+
+    static final String COLUMN_VALUE_TYPE_GARBLOVIAN = "Garblovian";
+
+    static final String COLUMN_VALUE_TYPE_GAZORPIAN = "Gazorpian";
+
+    static final String COLUMN_VALUE_TYPE_GAZORPIAN_REPRODUCTION_ROBOT = "Gazorpian reproduction robot";
+
+    static final String COLUMN_VALUE_TYPE_GEAR_PERSON = "Gear-Person";
+
+    static final String COLUMN_VALUE_TYPE_GENETIC_EXPERIMENT = "Genetic experiment";
+
+    static final String COLUMN_VALUE_TYPE_GIANT = "Giant";
+
+    static final String COLUMN_VALUE_TYPE_GIANT_CAT_MONSTER = "Giant Cat Monster";
+
+    static final String COLUMN_VALUE_TYPE_GIANT_INCEST_BABY = "Giant Incest Baby";
+
+    static final String COLUMN_VALUE_TYPE_GLORZO = "Glorzo";
+
+    static final String COLUMN_VALUE_TYPE_GOD = "God";
+
+    static final String COLUMN_VALUE_TYPE_GODDESS = "Goddess";
+
+    static final String COLUMN_VALUE_TYPE_GRAMUFLAKIAN = "Gramuflackian";
+
+    static final String COLUMN_VALUE_TYPE_GRANDMA = "Grandma";
+
+    static final String COLUMN_VALUE_TYPE_GREEBYBOBE = "Greebybobe";
+
+    static final String COLUMN_VALUE_TYPE_GROMFLOMITE = "Gromflomite";
+
+    static final String COLUMN_VALUE_TYPE_GUINEA_PIG_FOR_THE_POLIO_VACCINE = "Guinea Pig for the Polio Vaccine";
+
+    static final String COLUMN_VALUE_TYPE_HAIRY_ALIEN = "Hairy alien";
+
+    static final String COLUMN_VALUE_TYPE_HALF_SOULLESS_PUPPET = "Half Soulless Puppet";
+
+    static final String COLUMN_VALUE_TYPE_HAMMERHEAD_PERSON = "Hammerhead-Person";
+
+    static final String COLUMN_VALUE_TYPE_HIVEMIND = "Hivemind";
+
+    static final String COLUMN_VALUE_TYPE_HOLE = "Hole";
+
+    static final String COLUMN_VALUE_TYPE_HOLOGRAM = "Hologram";
+
+    static final String COLUMN_VALUE_TYPE_HUMAN_GAZORPIAN = "Human Gazorpian";
+
+    static final String COLUMN_VALUE_TYPE_HUMAN_WITH_A_FLOWER_IN_HIS_HEAD = "Human with a flower in his head";
+
+    static final String COLUMN_VALUE_TYPE_HUMAN_WITH_ANTENNAE = "Human with antennae";
+
+    static final String COLUMN_VALUE_TYPE_HUMAN_WITH_ANTS_IN_HIS_EYES = "Human with ants in his eyes";
+
+    static final String COLUMN_VALUE_TYPE_HUMAN_WITH_BABY_LEGS = "Human with baby legs";
+
+    static final String COLUMN_VALUE_TYPE_HUMAN_WITH_GIANT_HEAD = "Human with giant head";
+
+    static final String COLUMN_VALUE_TYPE_HUMAN_WITH_TUSKS = "Human with tusks";
+
+    static final String COLUMN_VALUE_TYPE_HUMAN_SNAKE_HYBRID = "Human-Snake hybrid";
+
+    static final String COLUMN_VALUE_TYPE_INTERDIMENSIONAL_GASEOUS_BEING = "Interdimensional gaseous being";
+
+    static final String COLUMN_VALUE_TYPE_JELLYBEAN = "Jellybean";
+
+    static final String COLUMN_VALUE_TYPE_KORBLOCK = "Korblock";
+
+    static final String COLUMN_VALUE_TYPE_KROOTABULAN = "Krootabulan";
+
+    static final String COLUMN_VALUE_TYPE_LARVA_ALIEN = "Larva alien";
+
+    static final String COLUMN_VALUE_TYPE_LEPRECHAUN = "Leprechaun";
+
+    static final String COLUMN_VALUE_TYPE_LIGHT_BULB_ALIEN = "Light bulb-Alien";
+
+    static final String COLUMN_VALUE_TYPE_LITTLE_HUMAN = "Little Human";
+
+    static final String COLUMN_VALUE_TYPE_LIZARD = "Lizard";
+
+    static final String COLUMN_VALUE_TYPE_LIZARD_PERSON = "Lizard-Person";
+
+    static final String COLUMN_VALUE_TYPE_LOBSTER_ALIEN = "Lobster-Alien";
+
+    static final String COLUMN_VALUE_TYPE_MANNIE = "Mannie";
+
+    static final String COLUMN_VALUE_TYPE_MASCOT = "Mascot";
+
+    static final String COLUMN_VALUE_TYPE_MEESEEKS = "Meeseeks";
+
+    static final String COLUMN_VALUE_TYPE_MEGA_GARGANTUAN = "Mega Gargantuan";
+
+    static final String COLUMN_VALUE_TYPE_MEMORY = "Memory";
+
+    static final String COLUMN_VALUE_TYPE_MEXICAN = "Mexican";
+
+    static final String COLUMN_VALUE_TYPE_MICROVERSE_INHABITANT = "Microverse inhabitant";
+
+    static final String COLUMN_VALUE_TYPE_MINIVERSE_INHABITANT = "Miniverse inhabitant";
+
+    static final String COLUMN_VALUE_TYPE_MONOGATRON = "Monogatron";
+
+    static final String COLUMN_VALUE_TYPE_MONSTER = "Monster";
+
+    static final String COLUMN_VALUE_TYPE_MORGLUTZIAN = "Morglutzian";
+
+    static final String COLUMN_VALUE_TYPE_MORTYS_TOXIC_SIDE = "Morty's toxic side";
+
+    static final String COLUMN_VALUE_TYPE_MYTHOLOG = "Mytholog";
+
+    static final String COLUMN_VALUE_TYPE_NANO_ALIEN = "Nano Alien";
+
+    static final String COLUMN_VALUE_TYPE_NARNIAN = "Narnian";
+
+    static final String COLUMN_VALUE_TYPE_NECROPHILIAC = "Necrophiliac";
+
+    static final String COLUMN_VALUE_TYPE_NORMAL_SIZE_BUG = "Normal Size Bug";
+
+    static final String COLUMN_VALUE_TYPE_NUMBERICON = "Numbericon";
+
+    static final String COLUMN_VALUE_TYPE_OCTOPUS_PERSON = "Octopus-Person";
+
+    static final String COLUMN_VALUE_TYPE_OLD_AMAZONS = "Old Amazons";
+
+    static final String COLUMN_VALUE_TYPE_OMNISCIENT_BEING = "Omniscient being";
+
+    static final String COLUMN_VALUE_TYPE_ORGANIC_GUN = "Organic gun";
+
+    static final String COLUMN_VALUE_TYPE_PARASITE = "Parasite";
+
+    static final String COLUMN_VALUE_TYPE_PASSING_BUTTER_ROBOT = "Passing Butter Robot";
+
+    static final String COLUMN_VALUE_TYPE_PHONE = "Phone";
+
+    static final String COLUMN_VALUE_TYPE_PHONE_PERSON = "Phone-Person";
+
+    static final String COLUMN_VALUE_TYPE_PICKLE = "Pickle";
+
+    static final String COLUMN_VALUE_TYPE_PIZZA = "Pizza";
+
+    static final String COLUMN_VALUE_TYPE_PLANET = "Planet";
+
+    static final String COLUMN_VALUE_TYPE_PLUTONIAN = "Plutonian";
+
+    static final String COLUMN_VALUE_TYPE_PRIPUDLIAN = "Pripudlian";
+
+    static final String COLUMN_VALUE_TYPE_RAT = "Rat";
+
+    static final String COLUMN_VALUE_TYPE_RICKS_TOXIC_SIDE = "Rick's toxic side";
+
+    static final String COLUMN_VALUE_TYPE_RING_NIPPLED_ALIEN = "Ring-nippled alien";
+
+    static final String COLUMN_VALUE_TYPE_ROBOT = "Robot";
+
+    static final String COLUMN_VALUE_TYPE_ROBOT_CROCODILE_HYBRID = "Robot-Crocodile hybrid";
+
+    static final String COLUMN_VALUE_TYPE_SCARECROW = "Scarecrow";
+
+    static final String COLUMN_VALUE_TYPE_SCROTIAN = "Scrotian";
+
+    static final String COLUMN_VALUE_TYPE_SELF_AWARE_ARM = "Self-aware arm";
+
+    static final String COLUMN_VALUE_TYPE_SENTIENT_ANT_COLONY = "Sentient ant colony";
+
+    static final String COLUMN_VALUE_TYPE_SEXY_AQUAMAN = "Sexy Aquaman";
+
+    static final String COLUMN_VALUE_TYPE_SHAPESHIFTER = "Shapeshifter";
+
+    static final String COLUMN_VALUE_TYPE_SHIMSHAMIAN = "Shimshamian";
+
+    static final String COLUMN_VALUE_TYPE_SHRIMP = "Shrimp";
+
+    static final String COLUMN_VALUE_TYPE_SLARTIVARTIAN = "Slartivartian";
+
+    static final String COLUMN_VALUE_TYPE_SLUG = "Slug";
+
+    static final String COLUMN_VALUE_TYPE_SNAIL_ALIEN = "Snail alien";
+
+    static final String COLUMN_VALUE_TYPE_SNAKE = "Snake";
+
+    static final String COLUMN_VALUE_TYPE_SOULLESS_PUPPET = "Soulless Puppet";
+
+    static final String COLUMN_VALUE_TYPE_SQUID = "Squid";
+
+    static final String COLUMN_VALUE_TYPE_STAIR_GOBLIN = "Stair goblin";
+
+    static final String COLUMN_VALUE_TYPE_STARFISH = "Starfish";
+
+    static final String COLUMN_VALUE_TYPE_SUMMON = "Summon";
+
+    static final String COLUMN_VALUE_TYPE_SUPER_SPERM_MONSTER = "Super Sperm Monster";
+
+    static final String COLUMN_VALUE_TYPE_SUPERHUMAN = "Superhuman";
+
+    static final String COLUMN_VALUE_TYPE_SUPERHUMAN_GHOST_TRAINS_SUMMONER = "Superhuman (Ghost trains summoner)";
+
+    static final String COLUMN_VALUE_TYPE_TEDDY_BEAR = "Teddy Bear";
+
+    static final String COLUMN_VALUE_TYPE_TEENYVERSE_INHABITANT = "Teenyverse inhabitant";
+
+    static final String COLUMN_VALUE_TYPE_TENTACLE_ALIEN = "Tentacle alien";
+
+    static final String COLUMN_VALUE_TYPE_THE_DEVIL = "The Devil";
+
+    static final String COLUMN_VALUE_TYPE_TIGER = "Tiger";
+
+    static final String COLUMN_VALUE_TYPE_TIME_GOD = "Time God";
+
+    static final String COLUMN_VALUE_TYPE_TINYMOUTH = "Tinymouth";
+
+    static final String COLUMN_VALUE_TYPE_TOY = "Toy";
+
+    static final String COLUMN_VALUE_TYPE_TRAFLORKIAN = "Traflorkian";
+
+    static final String COLUMN_VALUE_TYPE_TRUNK_PERSON = "Trunk-Person";
+
+    static final String COLUMN_VALUE_TYPE_TUMBLORKIAN = "Tumblorkian";
+
+    static final String COLUMN_VALUE_TYPE_TURKEY = "Turkey";
+
+    static final String COLUMN_VALUE_TYPE_TURKEY_HUMAN_MIX = "Turkey Human Mix";
+
+    static final String COLUMN_VALUE_TYPE_TUSKFISH = "Tuskfish";
+
+    static final String COLUMN_VALUE_TYPE_UNKNOWN_NIPPLED_ALIEN = "Unknown-nippled alien";
+
+    static final String COLUMN_VALUE_TYPE_VAMPIRE = "Vampire";
+
+    static final String COLUMN_VALUE_TYPE_WASP = "Wasp";
+
+    static final String COLUMN_VALUE_TYPE_WEASEL = "Weasel";
+
+    static final String COLUMN_VALUE_TYPE_WHENWOLF = "Whenwolf";
+
+    static final String COLUMN_VALUE_TYPE_ZEUS = "Zeus";
+
+    static final String COLUMN_VALUE_TYPE_ZIGERION = "Zigerion";
+
+    static final String COLUMN_VALUE_TYPE_ZOMBODIAN = "Zombodian";
+
+    // ----------------------------------------------------------------------------------------------------------
+    // gender
     public static final String COLUMN_NAME_GENDER = "gender";
 
     /**
@@ -348,16 +687,19 @@ public class Character extends _BaseEntity {
 
     public static final String ATTRIBUTE_NAME_LOCATION_ = "location_";
 
-    // -------------------------------------------------------------------------------------------------------- BUILDERS
+    // --------------------------------------------------------------------------------------------------------
+    // BUILDERS
 
-    // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
+    // ------------------------------------------------------------------------------------------
+    // STATIC_FACTORY_METHODS
     static Character of(final int id) {
         final var character = new Character();
         character.setId(id);
         return character;
     }
 
-    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+    // ----------------------------------------------------------------------------------------------------
+    // CONSTRUCTORS
 
     /**
      * Creates a new instance.
@@ -366,7 +708,8 @@ public class Character extends _BaseEntity {
         super();
     }
 
-    // ------------------------------------------------------------------------------------------------ java.lang.Object
+    // ------------------------------------------------------------------------------------------------ java.lang
+    // .Object
     @Override
     public String toString() {
         return super.toString() + '{' +
@@ -422,7 +765,8 @@ public class Character extends _BaseEntity {
         this.name = name;
     }
 
-    // ---------------------------------------------------------------------------------------------------------- status
+    // ----------------------------------------------------------------------------------------------------------
+    // status
     public Status getStatus() {
         return status;
     }
@@ -431,7 +775,8 @@ public class Character extends _BaseEntity {
         this.status = status;
     }
 
-    // --------------------------------------------------------------------------------------------------------- species
+    // ---------------------------------------------------------------------------------------------------------
+    // species
     public Species getSpecies() {
         return species;
     }
@@ -442,15 +787,16 @@ public class Character extends _BaseEntity {
 
     // ------------------------------------------------------------------------------------------------------------ type
     @Nullable
-    public String getType() {
+    public Character_Type getType() {
         return type;
     }
 
-    void setType(@Nullable final String type) {
+    void setType(@Nullable final Character_Type type) {
         this.type = type;
     }
 
-    // ---------------------------------------------------------------------------------------------------------- gender
+    // ----------------------------------------------------------------------------------------------------------
+    // gender
     public Gender getGender() {
         return gender;
     }
@@ -459,7 +805,8 @@ public class Character extends _BaseEntity {
         this.gender = gender;
     }
 
-    // ---------------------------------------------------------------------------------------------------------- origin
+    // ----------------------------------------------------------------------------------------------------------
+    // origin
 
     /**
      * Returns the name and url of this character's origin location.
@@ -475,7 +822,8 @@ public class Character extends _BaseEntity {
         this.origin = origin;
     }
 
-    // -------------------------------------------------------------------------------------------------------- location
+    // --------------------------------------------------------------------------------------------------------
+    // location
 
     /**
      * Returns the name and url of this character's last known location.
@@ -500,7 +848,8 @@ public class Character extends _BaseEntity {
         this.image = image;
     }
 
-    // --------------------------------------------------------------------------------------------------------- episode
+    // ---------------------------------------------------------------------------------------------------------
+    // episode
 
     /**
      * Returns a list of episodes' links in which this character appeared.
@@ -525,7 +874,8 @@ public class Character extends _BaseEntity {
         this.url = url;
     }
 
-    // --------------------------------------------------------------------------------------------------------- created
+    // ---------------------------------------------------------------------------------------------------------
+    // created
     public Instant getCreated() {
         return created;
     }
@@ -534,7 +884,8 @@ public class Character extends _BaseEntity {
         this.created = created;
     }
 
-    // --------------------------------------------------------------------------------------------------------- origin_
+    // ---------------------------------------------------------------------------------------------------------
+    // origin_
 
     /**
      * Returns this character's origin location.
@@ -551,7 +902,8 @@ public class Character extends _BaseEntity {
         this.origin_ = originLocation_;
     }
 
-    // ------------------------------------------------------------------------------------------------------- location_
+    // -------------------------------------------------------------------------------------------------------
+    // location_
 
     /**
      * Returns this character's last known location.
@@ -568,7 +920,8 @@ public class Character extends _BaseEntity {
         this.location_ = locationLocation_;
     }
 
-    // ------------------------------------------------------------------------------------------------------- episodes_
+    // -------------------------------------------------------------------------------------------------------
+    // episodes_
 
     /**
      * Returns a list of mapped episodes in which this character appeared.
@@ -626,13 +979,14 @@ public class Character extends _BaseEntity {
     private Species species;
 
     @Nullable
+    @Convert(converter = Character_TypeConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_TYPE,
             nullable = true,
             insertable = false,
             updatable = false
     )
-    private String type;
+    private Character_Type type;
 
     @NotNull
     @Convert(converter = GenderConverter.class)
