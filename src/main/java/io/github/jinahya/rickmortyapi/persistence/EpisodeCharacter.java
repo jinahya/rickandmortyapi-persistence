@@ -10,24 +10,43 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
+import java.util.Optional;
 
+/**
+ * An entity class for mapping {@value EpisodeCharacter#TABLE_NAME} table.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
 @Entity
 @Table(name = EpisodeCharacter.TABLE_NAME)
 public class EpisodeCharacter extends _BaseEntity {
 
+    /**
+     * The name of the database table to which this entity is mapped. The value is {@value}.
+     */
     public static final String TABLE_NAME = "episode_character";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------ episode_id
+
+    /**
+     * The name of the column to which the {@link EpisodeCharacterId_#EPISODE_ID} attribute maps.
+     */
     public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
 
-    // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
+    // ---------------------------------------------------------------------------------------------------- character_id
 
-    // -------------------------------------------------------------------------------------------------------- BUILDERS
+    /**
+     * The name of the column to which the {@link EpisodeCharacterId_#CHARACTER_ID} attribute maps.
+     */
+    public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance.
+     */
     protected EpisodeCharacter() {
         super();
     }
@@ -42,10 +61,9 @@ public class EpisodeCharacter extends _BaseEntity {
 
     @Override
     public final boolean equals(final Object obj) {
-        if (obj == null || getClass() != obj.getClass()) {
+        if (!(obj instanceof EpisodeCharacter that)) {
             return false;
         }
-        EpisodeCharacter that = (EpisodeCharacter) obj;
         return Objects.equals(getId(), that.getId());
     }
 
@@ -55,6 +73,12 @@ public class EpisodeCharacter extends _BaseEntity {
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * Returns current value of {@value EpisodeCharacter_#ID} attribute.
+     *
+     * @return current value of the {@value EpisodeCharacter_#ID} attribute.
+     */
     public EpisodeCharacterId getId() {
         return id;
     }
@@ -63,22 +87,53 @@ public class EpisodeCharacter extends _BaseEntity {
         this.id = id;
     }
 
+    EpisodeCharacter id(final EpisodeCharacterId id) {
+        setId(id);
+        return this;
+    }
+
     // --------------------------------------------------------------------------------------------------------- episode
+
+    /**
+     * Returns current value of {@value EpisodeCharacter_#EPISODE} attribute.
+     *
+     * @return current value of the {@value EpisodeCharacter_#EPISODE} attribute.
+     */
     public Episode getEpisode() {
         return episode;
     }
 
     void setEpisode(final Episode episode) {
         this.episode = episode;
+        Optional.ofNullable(getId())
+                .orElseGet(() -> id(new EpisodeCharacterId()).getId())
+                .setEpisodeId(
+                        Optional.ofNullable(this.episode)
+                                .map(Episode::getId)
+                                .orElse(null)
+                );
     }
 
     // ------------------------------------------------------------------------------------------------------- character
+
+    /**
+     * Returns current value of {@value EpisodeCharacter_#CHARACTER} attribute.
+     *
+     * @return current value of the {@value EpisodeCharacter_#CHARACTER} attribute.
+     */
     public Character getCharacter() {
         return character;
     }
 
     void setCharacter(final Character character) {
         this.character = character;
+        Optional.ofNullable(getId())
+                .orElseGet(() -> id(new EpisodeCharacterId()).getId())
+                .setEpisodeId(
+                        Optional.ofNullable(this.character)
+                                .map(Character::getId)
+                                .orElse(null)
+                );
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -91,13 +146,21 @@ public class EpisodeCharacter extends _BaseEntity {
     @Valid
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = COLUMN_NAME_EPISODE_ID, nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = COLUMN_NAME_EPISODE_ID,
+                nullable = false,
+                insertable = false,
+                updatable = false
+    )
     private Episode episode;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Valid
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = COLUMN_NAME_CHARACTER_ID, nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = COLUMN_NAME_CHARACTER_ID,
+                nullable = false,
+                insertable = false,
+                updatable = false
+    )
     private Character character;
 }

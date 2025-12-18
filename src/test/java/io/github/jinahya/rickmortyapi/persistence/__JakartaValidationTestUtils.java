@@ -37,7 +37,7 @@ final class __JakartaValidationTestUtils {
         return applyValidator(v -> v.validate(object, groups));
     }
 
-    private static <T> T requireValid(final T object, final Class<?>... groups) {
+    static <T> T requireValid(final T object, final Class<?>... groups) {
         final var violations = validate(object, groups);
         assertThat(violations)
                 .as("constraint violations of %s, targeted %s", object, Arrays.toString(groups)).isEmpty();

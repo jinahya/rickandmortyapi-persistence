@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Slf4j
 class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, Integer> {
 
@@ -92,6 +94,15 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     Character_PersistenceTest() {
         super(Character.class, Integer.class);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @Override
+    void selectAll__(final EntityManager entityManager, final List<Character> characters) {
+        super.selectAll__(entityManager, characters);
+        assertThat(characters)
+                .as("all characters")
+                .hasSize(_PersistenceConstants.NUMBER_OF_ALL_CHARACTERS);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

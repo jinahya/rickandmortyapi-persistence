@@ -16,10 +16,9 @@ class LocationResident_PersistenceTest extends _BaseEntity_PersistenceTest<Locat
 
     // -----------------------------------------------------------------------------------------------------------------
     @Override
-    void selectAll__(final EntityManager entityManager, final List<LocationResident> all) {
-        super.selectAll__(entityManager, all);
-        // LocationResident.location == LocationResident.resident.location_
-        all.forEach(lr -> {
+    void selectAll__(final EntityManager entityManager, final List<LocationResident> entityList) {
+        super.selectAll__(entityManager, entityList);
+        entityList.forEach(lr -> {
             final var resident = lr.getResident();
             log.debug("resident: {}", resident);
             assertThat(resident.getLocation_()).isEqualTo(lr.getLocation());

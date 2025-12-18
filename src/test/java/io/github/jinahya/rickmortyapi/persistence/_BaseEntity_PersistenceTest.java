@@ -4,10 +4,6 @@ import jakarta.annotation.Nonnull;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.TypedQuery;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
 import org.jboss.weld.junit5.auto.WeldJunit5AutoExtension;
 import org.junit.jupiter.api.Test;
@@ -15,8 +11,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @AddBeanClasses({
         __PersistenceUnitProducer.class
@@ -36,26 +33,27 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity, ID> exten
     @Test
     void selectAll__() {
         applyEntityManager(em -> {
-            final List<ENTITY> entityList;
-            if (ThreadLocalRandom.current().nextBoolean()) {
-                final TypedQuery<ENTITY> query = em.createQuery(
-                        "SELECT e FROM %s e".formatted(getEntityName()),
-                        entityClass
-                );
-                entityList = query.getResultList();
-            } else {
-                final CriteriaBuilder builder = em.getCriteriaBuilder();
-                final CriteriaQuery<ENTITY> query = builder.createQuery(entityClass);
-                final Root<ENTITY> root = query.from(entityClass);
-                query.select(root);
-                entityList = em.createQuery(query).getResultList();
-            }
+            final var entityList = __JakartaPersistenceTestUtils.selectAll(em, entityClass);
             selectAll__(em, entityList);
             return entityList;
         });
     }
 
+    /**
+     * Gets notified from {@link #selectAll__()} method with an entity manager and a list of slected entities.
+     *
+     * @param entityManager the entity manager used to select entities.
+     * @param entityList    the list of selected entities.
+     */
     void selectAll__(final EntityManager entityManager, final List<ENTITY> entityList) {
+        assertThat(entityList)
+                .isNotNull()
+                .isNotEmpty()
+                .doesNotContainNull()
+                .doesNotHaveDuplicates()
+                .allSatisfy(e -> {
+                    __JakartaValidationTestUtils.requireValid(e);
+                });
     }
 
     // --------------------------------------------------------------------------------------------------- entityManager

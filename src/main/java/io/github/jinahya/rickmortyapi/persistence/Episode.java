@@ -221,6 +221,11 @@ public class Episode extends _BaseEntity {
         this.episode = episode;
     }
 
+    /**
+     * Returns the season number of this episode.
+     *
+     * @return the season number of this episode.
+     */
     public Integer getSeasonNumber() {
         return Optional.ofNullable(getEpisode())
                 .map(v -> {
@@ -234,6 +239,11 @@ public class Episode extends _BaseEntity {
                 .orElse(null);
     }
 
+    /**
+     * Returns the episode number of this episode.
+     *
+     * @return the episode number of this episode.
+     */
     public Integer getEpisodeNumber() {
         return Optional.ofNullable(getEpisode())
                 .map(v -> {

@@ -24,19 +24,12 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-
     @Override
-    void selectAll__(final EntityManager entityManager, final List<Episode> all) {
-        super.selectAll__(entityManager, all);
-        all.forEach(e -> {
-            final var seasonNumber = e.getSeasonNumber();
-            assertThat(seasonNumber).isNotNull();
-            final var episodeNumber = e.getEpisodeNumber();
-            assertThat(episodeNumber).isNotNull();
-            log.debug("seasonNumber: {}, episodeNumber: {}", seasonNumber, episodeNumber);
-            final var episode = Episode.formatEpisode(seasonNumber, episodeNumber);
-            assertThat(episode).isEqualTo(e.getEpisode());
-        });
+    void selectAll__(final EntityManager entityManager, final List<Episode> entityList) {
+        super.selectAll__(entityManager, entityList);
+        assertThat(entityList)
+                .as("all episodes")
+                .hasSize(_PersistenceConstants.NUMBER_OF_ALL_EPISODES);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

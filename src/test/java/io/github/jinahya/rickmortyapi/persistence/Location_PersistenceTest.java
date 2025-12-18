@@ -16,6 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Slf4j
 class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Integer> {
 
@@ -68,5 +70,14 @@ class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Int
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     Location_PersistenceTest() {
         super(Location.class, Integer.class);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @Override
+    void selectAll__(final EntityManager entityManager, final List<Location> entityList) {
+        super.selectAll__(entityManager, entityList);
+        assertThat(entityList)
+                .as("all locations")
+                .hasSize(_PersistenceConstants.NUMBER_OF_ALL_LOCATIONS);
     }
 }
