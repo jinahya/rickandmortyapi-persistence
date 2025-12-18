@@ -1,6 +1,6 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.UrlConverter;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
@@ -119,7 +119,7 @@ public class NameAndUrl {
     private String name;
 
     @Nullable
-    @Convert(converter = _UrlConverter.class)
+    @Convert(converter = UrlConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_URL, nullable = true, insertable = false, updatable = false)
     private URL url;

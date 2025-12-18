@@ -10,5 +10,4 @@ class _PersistenceUnit_IT extends __PersistenceUnit_IT {
     protected void printDatabaseInfo__() {
         super.printDatabaseInfo__();
     }
-
 }

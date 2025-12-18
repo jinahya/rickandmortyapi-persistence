@@ -61,7 +61,7 @@ public class __PersistenceProducer {
     }
 
     /**
-     * A qualifier for the {@value com.github.jinahya.persistence.mapped.test.__PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_TEST_PU} persistence unit.
+     * A qualifier for the {@value __PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_TEST_PU} persistence unit.
      */
     @Qualifier
     @Documented
@@ -72,7 +72,7 @@ public class __PersistenceProducer {
     }
 
     /**
-     * A qualifier for the {@value com.github.jinahya.persistence.mapped.test.__PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_IT_PU} persistence unit.
+     * A qualifier for the {@value __PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_IT_PU} persistence unit.
      */
     @__PU
     @Qualifier
@@ -95,10 +95,10 @@ public class __PersistenceProducer {
 
     /**
      * Produces an entity manager factory for the
-     * {@value com.github.jinahya.persistence.mapped.test.__PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_TEST_PU} persistence unit.
+     * {@value __PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_TEST_PU} persistence unit.
      *
      * @return an entity manager factory for the
-     *         {@value com.github.jinahya.persistence.mapped.test.__PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_TEST_PU} persistence unit
+     *         {@value __PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_TEST_PU} persistence unit
      * @see #disposeTestEntityManagerFactory(EntityManagerFactory)
      */
     @__testPU
@@ -123,10 +123,10 @@ public class __PersistenceProducer {
 
     /**
      * Produces an entity manager factory for the
-     * {@value com.github.jinahya.persistence.mapped.test.__PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_IT_PU}.
+     * {@value __PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_IT_PU}.
      *
      * @return an entity manager factory for the
-     *         {@value com.github.jinahya.persistence.mapped.test.__PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_IT_PU}.
+     *         {@value __PersistenceProducer_TestConstants#PERSISTENCE_UNIT_NAME_IT_PU}.
      * @see __PersistenceProducer_TestUtils#assertSchemagenDatabaseActionNone(EntityManagerFactory)
      * @see __PersistenceProducer_TestUtils#assertEclipselinkDdlGenerationNone(EntityManagerFactory)
      * @see __PersistenceProducer_TestUtils#assertHibernateHbm2ddlAutoNone(EntityManagerFactory)

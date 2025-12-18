@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = LocationResident.TABLE_NAME)
-public class LocationResident extends __BaseEntity {
+public class LocationResident extends _BaseEntity {
 
     public static final String TABLE_NAME = "location_resident";
 

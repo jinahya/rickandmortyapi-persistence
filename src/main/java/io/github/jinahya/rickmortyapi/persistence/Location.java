@@ -1,8 +1,8 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter;
-import io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter;
-import io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.UrlConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.UrlListConverter;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -37,7 +37,7 @@ import java.util.Objects;
         "java:S116", // Field names should comply with a naming convention
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
-public class Location extends __BaseEntity {
+public class Location extends _BaseEntity {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.
@@ -241,7 +241,7 @@ public class Location extends __BaseEntity {
     private String dimension;
 
     @Nullable
-    @Convert(converter = _UrlListConverter.class)
+    @Convert(converter = UrlListConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_RESIDENTS,
             nullable = true,
@@ -251,7 +251,7 @@ public class Location extends __BaseEntity {
     private List<URL> residents;
 
     // -----------------------------------------------------------------------------------------------------------------
-    @Convert(converter = _UrlConverter.class)
+    @Convert(converter = UrlConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_URL,
             nullable = false,
@@ -262,7 +262,7 @@ public class Location extends __BaseEntity {
 
     @Past
     @NotNull
-    @Convert(converter = _InstantConverter.class)
+    @Convert(converter = InstantConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_CREATED,
             nullable = false,

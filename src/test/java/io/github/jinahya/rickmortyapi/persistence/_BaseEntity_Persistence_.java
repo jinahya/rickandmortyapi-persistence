@@ -18,7 +18,7 @@ import java.util.function.Function;
 @SuppressWarnings({
         "java:S119" // Type parameter names should comply with a naming convention
 })
-abstract class _BaseEntity_Persistence_<ENTITY extends __BaseEntity, ID> extends __BaseEntity__<ENTITY, ID> {
+abstract class _BaseEntity_Persistence_<ENTITY extends _BaseEntity, ID> extends __BaseEntity__<ENTITY, ID> {
 
     _BaseEntity_Persistence_(final Class<ENTITY> entityClass, final Class<ID> idClass) {
         super(entityClass, idClass);

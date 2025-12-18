@@ -1,8 +1,8 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter;
-import io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter;
-import io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.UrlConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.UrlListConverter;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.AttributeOverride;
@@ -46,7 +46,7 @@ import java.util.Objects;
         "java:S116", // Field names should comply with a naming convention
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
-public class Character extends __BaseEntity {
+public class Character extends _BaseEntity {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.
@@ -668,21 +668,21 @@ public class Character extends __BaseEntity {
     private String image;
 
     @NotNull
-    @Convert(converter = _UrlListConverter.class)
+    @Convert(converter = UrlListConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_EPISODE, nullable = false, insertable = false, updatable = false)
     private List<@NotNull URL> episode;
 
     // -----------------------------------------------------------------------------------------------------------------
     @NotNull
-    @Convert(converter = _UrlConverter.class)
+    @Convert(converter = UrlConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false)
     private URL url;
 
     @Past
     @NotNull
-    @Convert(converter = _InstantConverter.class)
+    @Convert(converter = InstantConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_CREATED, nullable = false, insertable = false, updatable = false)
     private Instant created;

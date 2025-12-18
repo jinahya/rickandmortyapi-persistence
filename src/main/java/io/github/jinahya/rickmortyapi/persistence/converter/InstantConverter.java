@@ -15,14 +15,14 @@ import java.time.Instant;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _InstantConverter extends __DateTimeConverter<Instant> {
+public class InstantConverter extends _BaseConverter<Instant> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
      * Creates a new instance.
      */
-    public _InstantConverter() {
+    public InstantConverter() {
         super(Instant::parse);
     }
 }

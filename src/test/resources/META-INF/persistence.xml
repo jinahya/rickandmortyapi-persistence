@@ -38,11 +38,11 @@
     <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
     <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._DateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._LocalDateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.DateConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.LocalDateConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.UrlConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.UrlListConverter</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <validation-mode>CALLBACK</validation-mode>
     <properties>
@@ -95,11 +95,11 @@
     <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
     <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._DateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._LocalDateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.DateConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.LocalDateConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.UrlConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.converter.UrlListConverter</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <validation-mode>CALLBACK</validation-mode>
     <properties>

@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class _DateConverter extends __DateTimeConverter<LocalDate> {
+public class DateConverter extends _BaseConverter<LocalDate> {
 
     private static final String PATTERN = "MMMM d, uuuu";
 
@@ -23,7 +23,7 @@ public class _DateConverter extends __DateTimeConverter<LocalDate> {
     /**
      * Creates a new instance.
      */
-    public _DateConverter() {
+    public DateConverter() {
         super(dd -> LocalDate.parse(dd, FORMATTER));
     }
 }

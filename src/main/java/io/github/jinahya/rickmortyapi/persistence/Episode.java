@@ -1,10 +1,10 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import io.github.jinahya.rickmortyapi.persistence.converter._DateConverter;
-import io.github.jinahya.rickmortyapi.persistence.converter._InstantConverter;
-import io.github.jinahya.rickmortyapi.persistence.converter._LocalDateConverter;
-import io.github.jinahya.rickmortyapi.persistence.converter._UrlConverter;
-import io.github.jinahya.rickmortyapi.persistence.converter._UrlListConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.DateConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.LocalDateConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.UrlConverter;
+import io.github.jinahya.rickmortyapi.persistence.converter.UrlListConverter;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -68,7 +68,7 @@ import java.util.Optional;
         "java:S116", // Field names should comply with a naming convention
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
-public class Episode extends __BaseEntity {
+public class Episode extends _BaseEntity {
 
     public static final String TABLE_NAME = "episode";
 
@@ -328,7 +328,7 @@ public class Episode extends __BaseEntity {
 
     @Past
     @NotNull
-    @Convert(converter = _DateConverter.class)
+    @Convert(converter = DateConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_AIR_DATE,
             nullable = false,
@@ -350,7 +350,7 @@ public class Episode extends __BaseEntity {
     private String episode;
 
     @NotNull
-    @Convert(converter = _UrlListConverter.class)
+    @Convert(converter = UrlListConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_CHARACTERS,
             nullable = false,
@@ -361,7 +361,7 @@ public class Episode extends __BaseEntity {
 
     // -----------------------------------------------------------------------------------------------------------------
     @NotNull
-    @Convert(converter = _UrlConverter.class)
+    @Convert(converter = UrlConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_URL,
             nullable = false,
@@ -372,7 +372,7 @@ public class Episode extends __BaseEntity {
 
     @Past
     @NotNull
-    @Convert(converter = _InstantConverter.class)
+    @Convert(converter = InstantConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_CREATED,
             nullable = false,
@@ -384,7 +384,7 @@ public class Episode extends __BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     @Past
     @NotNull
-    @Convert(converter = _LocalDateConverter.class)
+    @Convert(converter = LocalDateConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_AIR_DATE_ISO_,
             nullable = false,

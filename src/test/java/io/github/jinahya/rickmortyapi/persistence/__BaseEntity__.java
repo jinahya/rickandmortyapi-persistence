@@ -2,7 +2,7 @@ package io.github.jinahya.rickmortyapi.persistence;
 
 import java.util.Objects;
 
-abstract class __BaseEntity__<ENTITY extends __BaseEntity, ID> {
+abstract class __BaseEntity__<ENTITY extends _BaseEntity, ID> {
 
     __BaseEntity__(final Class<ENTITY> entityClass, final Class<ID> idClass) {
         super();
