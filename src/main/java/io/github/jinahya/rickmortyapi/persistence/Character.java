@@ -18,6 +18,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -38,6 +40,19 @@ import java.util.Objects;
  * @see Episode
  * @see Location
  */
+@NamedQueries({
+        @NamedQuery(name = "Character.selectList_NameEqual_",
+                    query = """
+                            SELECT c
+                            FROM Character c
+                            WHERE c.name = :name
+                            ORDER BY c.id ASC"""),
+        @NamedQuery(name = "Character.selectList__OrderByIdAsc",
+                    query = """
+                            SELECT c
+                            FROM Character c
+                            ORDER BY c.id ASC""")
+})
 @Entity
 @Table(name = Character.TABLE_NAME)
 @SuppressWarnings({
