@@ -72,6 +72,11 @@ public class Location extends _BaseEntity {
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
+    static Location of(final int id) {
+        final var location = new Location();
+        location.setId(id);
+        return location;
+    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
@@ -97,15 +102,15 @@ public class Location extends _BaseEntity {
     }
 
     @Override
-    public boolean equals(final Object obj) {
-        if (!(obj instanceof Location location)) {
+    public final boolean equals(final Object obj) {
+        if (!(obj instanceof Location that)) {
             return false;
         }
-        return Objects.equals(getId(), location.getId());
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return Objects.hashCode(getId());
     }
 
@@ -291,7 +296,8 @@ public class Location extends _BaseEntity {
                        updatable = false
                )
     )
-    private List<@Valid @NotNull Character> residents_; // List of character who have been last seen in the location
+    private List<@Valid @NotNull Character> residents_;
+    // List of character who have been last seen in the location
 
     // -----------------------------------------------------------------------------------------------------------------
     @OneToMany(mappedBy = Character_.ORIGIN_,

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-class Location_PersistenceIT extends _BaseEntity_PersistenceIT<Location, Integer> {
+class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Integer> {
 
     @AllArgsConstructor(access = AccessLevel.PACKAGE)
     @SuperBuilder
@@ -29,7 +29,7 @@ class Location_PersistenceIT extends _BaseEntity_PersistenceIT<Location, Integer
         @Size(min = 1)
         List<@Positive @NotNull Integer> ids;
 
-        Character_PersistenceIT.FetchAllParameters residents_FetchAllParameters;
+        Character_PersistenceTest.FetchAllParameters residents_FetchAllParameters;
     }
 
     static List<Location> fetchAll(@Nonnull @NotNull final EntityManager entityManager,
@@ -59,14 +59,14 @@ class Location_PersistenceIT extends _BaseEntity_PersistenceIT<Location, Integer
                 v.fetchOrigin_ = false;
                 v.fetchLocation_ = false;
                 v.ids = ids;
-                final var residents = Character_PersistenceIT.fetchAll(entityManager, v);
+                final var residents = Character_PersistenceTest.fetchAll(entityManager, v);
             });
         }
         return locations;
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    Location_PersistenceIT() {
+    Location_PersistenceTest() {
         super(Location.class, Integer.class);
     }
 }

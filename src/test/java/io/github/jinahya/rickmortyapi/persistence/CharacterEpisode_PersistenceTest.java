@@ -3,9 +3,9 @@ package io.github.jinahya.rickmortyapi.persistence;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-class CharacterEpisode_PersistenceIT extends _BaseEntity_PersistenceIT<CharacterEpisode, CharacterEpisodeId> {
+class CharacterEpisode_PersistenceTest extends _BaseEntity_PersistenceTest<CharacterEpisode, CharacterEpisodeId> {
 
-    CharacterEpisode_PersistenceIT() {
+    CharacterEpisode_PersistenceTest() {
         super(CharacterEpisode.class, CharacterEpisodeId.class);
     }
 }

@@ -16,10 +16,10 @@ import java.util.Objects;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-class Episode_PersistenceIT extends _BaseEntity_PersistenceIT<Episode, Integer> {
+class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integer> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    Episode_PersistenceIT() {
+    Episode_PersistenceTest() {
         super(Episode.class, Integer.class);
     }
 

@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j
-class Character_PersistenceIT extends _BaseEntity_PersistenceIT<Character, Integer> {
+class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, Integer> {
 
     @AllArgsConstructor(access = AccessLevel.PACKAGE)
     @SuperBuilder
@@ -31,13 +31,13 @@ class Character_PersistenceIT extends _BaseEntity_PersistenceIT<Character, Integ
 
         @Nullable
         @Size(min = 1)
-         List<@Positive @NotNull Integer> ids;
+        List<@Positive @NotNull Integer> ids;
 
         @Nullable
-        final Location_PersistenceIT.FetchAllParameters origin_FetchAllParameters;
+        final Location_PersistenceTest.FetchAllParameters origin_FetchAllParameters;
 
         @Nullable
-        final Location_PersistenceIT.FetchAllParameters location_FetchAllParameters;
+        final Location_PersistenceTest.FetchAllParameters location_FetchAllParameters;
 
 //        @Nullable
 //        final Episode_PersistenceIT.FetchAllParameters episodes_FetchAllParameters;
@@ -71,7 +71,7 @@ class Character_PersistenceIT extends _BaseEntity_PersistenceIT<Character, Integ
             }
             v.fetchResidents_ = false;
             v.ids = ids;
-            Location_PersistenceIT.fetchAll(entityManager, v);
+            Location_PersistenceTest.fetchAll(entityManager, v);
         });
         Optional.ofNullable(parameters.location_FetchAllParameters).ifPresent(v -> {
             final var ids = characters.stream()
@@ -84,13 +84,13 @@ class Character_PersistenceIT extends _BaseEntity_PersistenceIT<Character, Integ
             }
             v.fetchResidents_ = false;
             v.ids = ids;
-            Location_PersistenceIT.fetchAll(entityManager, v);
+            Location_PersistenceTest.fetchAll(entityManager, v);
         });
         return characters;
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    Character_PersistenceIT() {
+    Character_PersistenceTest() {
         super(Character.class, Integer.class);
     }
 

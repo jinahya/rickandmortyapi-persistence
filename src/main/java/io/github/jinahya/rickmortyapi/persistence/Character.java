@@ -351,6 +351,11 @@ public class Character extends _BaseEntity {
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
+    static Character of(final int id) {
+        final var character = new Character();
+        character.setId(id);
+        return character;
+    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
@@ -382,10 +387,10 @@ public class Character extends _BaseEntity {
 
     @Override
     public final boolean equals(final Object obj) {
-        if (!(obj instanceof Character character)) {
+        if (!(obj instanceof Character that)) {
             return false;
         }
-        return Objects.equals(getId(), character.getId());
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override

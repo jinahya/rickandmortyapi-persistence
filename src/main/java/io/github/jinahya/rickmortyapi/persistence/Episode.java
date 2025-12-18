@@ -130,6 +130,11 @@ public class Episode extends _BaseEntity {
     // -------------------------------------------------------------------------------------------------------- BUILDERS
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
+    public static Episode of(final int id) {
+        final var episode = new Episode();
+        episode.setId(id);
+        return episode;
+    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 

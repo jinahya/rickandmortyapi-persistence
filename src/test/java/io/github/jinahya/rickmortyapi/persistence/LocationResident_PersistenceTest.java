@@ -8,14 +8,13 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-class LocationResident_PersistenceIT extends _BaseEntity_PersistenceIT<LocationResident, LocationResidentId> {
+class LocationResident_PersistenceTest extends _BaseEntity_PersistenceTest<LocationResident, LocationResidentId> {
 
-    LocationResident_PersistenceIT() {
+    LocationResident_PersistenceTest() {
         super(LocationResident.class, LocationResidentId.class);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-
     @Override
     void selectAll__(final EntityManager entityManager, final List<LocationResident> all) {
         super.selectAll__(entityManager, all);
