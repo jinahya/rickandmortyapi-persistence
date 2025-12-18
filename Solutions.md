@@ -2,7 +2,7 @@
 
 ## Character
 
-**Select all charcters order by `id`**
+### Select all charcters order by `id`
 
 ```sql
 SELECT *
