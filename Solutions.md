@@ -2,7 +2,7 @@
 
 ## Character
 
-### Select all charcters order by `id`
+### Select all charcters, order by `id`
 
 ```sql
 SELECT *
@@ -16,7 +16,7 @@ FROM Character c
 ORDER BY c.id ASC
 ```
 
-**Select all characters which each `name` equals to given value**
+### Select all characters, whose `name` attributes equal to given value
 
 Note that the `name` column is not a `UNIQUE` column.
 
@@ -34,7 +34,7 @@ WHERE c.name = :name
 ORDER BY c.id ASC
 ```
 
-**Select all characters which each `name` matches to given pattern**
+### Select all characters, whose `name` attributes match to given pattern
 
 ```sqlite
 SELECT *
@@ -49,7 +49,7 @@ WHERE c.name LIKE :namePattern
 ORDER BY c.id ASC
 ```
 
-**Select all characters which each `status` equals to given value**
+## Select all characters, whose `status` attributes equals to given value
 
 ```sqlite
 SELECT *
@@ -69,7 +69,7 @@ FROM Character c
 WHERE c.status = io.github.jinahya.rickmortyapi.persistence.Character.Status.ALIVE
 ```
 
-**Select all characters which each `status` is in**
+## Select all characters, whose `status` attributes are in specified values
 
 ```sqlite
 SELECT *
