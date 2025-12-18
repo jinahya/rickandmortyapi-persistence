@@ -220,7 +220,7 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
         void NamedQuery__() {
             applyEntityManager(em -> {
                 final var query = em.createNamedQuery("Episode.SelectSingle_WhereEpisodeEqual_", entityClass);
-                for (final var episodeValue : Episode_PersistenceITUtils.getEpisodeList(em)) {
+                for (final var episodeValue : Episode_PersistenceTestUtils.getEpisodeList(em)) {
                     query.setParameter("episode", episodeValue);
                     // -------------------------------------------------------------------------------------------- when
                     final var selected = query.getSingleResult(); // NoResultException
@@ -246,7 +246,7 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
                 final var root = query.from(entityClass);
                 query.select(root);
                 final var episodePath = root.get(Episode_.episode);
-                for (final var episodeValue : Episode_PersistenceITUtils.getEpisodeList(em)) {
+                for (final var episodeValue : Episode_PersistenceTestUtils.getEpisodeList(em)) {
                     query.where(builder.equal(episodePath, episodeValue));
                     // -------------------------------------------------------------------------------------------- when
                     final var selected = em.createQuery(query).getSingleResult(); // NoResultException

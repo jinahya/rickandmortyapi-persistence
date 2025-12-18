@@ -1,6 +1,7 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -11,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 final class __JakartaPersistenceTestUtils {
@@ -24,6 +26,24 @@ final class __JakartaPersistenceTestUtils {
                 entityClass,
                 k -> entityManager.getMetamodel().entity(k).getName()
         );
+    }
+
+    static <R> R applyEntityManager(final EntityManagerFactory entityManagerFactory,
+                                    final Function<? super EntityManager, ? extends R> mapper) {
+        Objects.requireNonNull(entityManagerFactory, "entityManagerFactory is null");
+        Objects.requireNonNull(mapper, "mapper is null");
+        try (final EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            return mapper.apply(entityManager);
+        }
+    }
+
+    static void acceptEntityManager(final EntityManagerFactory entityManagerFactory,
+                                    final Consumer<? super EntityManager> consumer) {
+        Objects.requireNonNull(consumer, "mapper is null");
+        applyEntityManager(entityManagerFactory, em -> {
+            consumer.accept(em);
+            return null;
+        });
     }
 
     static <T, R> R selectAll(final EntityManager entityManager, final Class<T> entityClass,

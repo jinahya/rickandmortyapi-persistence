@@ -1,9 +1,6 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
-import jakarta.annotation.Nonnull;
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
 import org.jboss.weld.junit5.auto.WeldJunit5AutoExtension;
 import org.junit.jupiter.api.Test;
@@ -11,7 +8,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,11 +18,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SuppressWarnings({
         "java:S119" // Type parameter names should comply with a naming convention
 })
-abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity, ID> extends __BaseEntity__<ENTITY, ID> {
+abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity, ID> extends __Base_PersistenceTest<ENTITY> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance for testing the specified entity class and it's id class.
+     *
+     * @param entityClass the entity class.
+     * @param idClass     the id class of the {@code entityClass}.
+     */
     _BaseEntity_PersistenceTest(final Class<ENTITY> entityClass, final Class<ID> idClass) {
-        super(entityClass, idClass);
+        super(entityClass);
+        this.idClass = Objects.requireNonNull(idClass, "idClass is null");
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -56,34 +60,6 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity, ID> exten
                 });
     }
 
-    // --------------------------------------------------------------------------------------------------- entityManager
-
-    /**
-     * Returns the result of the specified functino applied to an entity manager.
-     *
-     * @param function the function.
-     * @param <R>      result type parameter
-     * @return the result of the {@code function}.
-     */
-    final <R> R applyEntityManager(final @Nonnull Function<? super EntityManager, ? extends R> function) {
-        Objects.requireNonNull(function, "function is null");
-        try (final var entityManager = entityManagerFactory.createEntityManager()) {
-            return function.apply(entityManager);
-        }
-    }
-
-    // ------------------------------------------------------------------------------------------------------ entityName
-    final String getEntityName() {
-        var result = entityName;
-        if (result == null) {
-            entityName = result = entityManagerFactory.getMetamodel().entity(entityClass).getName();
-        }
-        return result;
-    }
-
     // -----------------------------------------------------------------------------------------------------------------
-    @Inject
-    private EntityManagerFactory entityManagerFactory;
-
-    private volatile String entityName;
+    final Class<ID> idClass;
 }

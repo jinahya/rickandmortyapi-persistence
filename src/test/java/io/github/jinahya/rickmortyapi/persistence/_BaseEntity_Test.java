@@ -1,59 +1,20 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
 import lombok.extern.slf4j.Slf4j;
-import nl.jqno.equalsverifier.EqualsVerifier;
-import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
-import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import java.util.Objects;
 
 @Slf4j
 @SuppressWarnings({
         "java:S119" // Type parameter names should comply with a naming convention
 })
-abstract class _BaseEntity_Test<ENTITY extends _BaseEntity, ID> extends __BaseEntity__<ENTITY, ID> {
+abstract class _BaseEntity_Test<ENTITY extends _BaseEntity, ID> extends __Base_Test<ENTITY> {
 
-    _BaseEntity_Test(final Class<ENTITY> entityClass, final Class<ID> idClass) {
-        super(entityClass, idClass);
+    _BaseEntity_Test(final Class<ENTITY> typeClass, final Class<ID> idClass) {
+        super(typeClass);
+        this.idClass = Objects.requireNonNull(idClass, "idClass is null");
     }
 
-    // ------------------------------------------------------------------------------------ toString
-    @Test
-    void toString_NotBlank_() {
-        // ----------------------------------------------------------------------------------- given
-        final var instance = newEntityInstance();
-        // ------------------------------------------------------------------------------------ when
-        final var string = instance.toString();
-        // ------------------------------------------------------------------------------------ then
-        assertThat(string).isNotBlank();
-    }
-
-    // --------------------------------------------------------------------------- equals / hashCode
-    @Test
-    void equals_Verity_() {
-        final var verifier = createEqualsVerifier();
-        configureEqualsVerifier(verifier);
-        verifier.verify();
-    }
-
-    SingleTypeEqualsVerifierApi<ENTITY> createEqualsVerifier() {
-        return EqualsVerifier.forClass(entityClass);
-    }
-
-    SingleTypeEqualsVerifierApi<ENTITY> configureEqualsVerifier(final SingleTypeEqualsVerifierApi<ENTITY> verifier) {
-        return verifier;
-    }
-
-    // --------------------------------------------------------------------------- super.entityClass
-    ENTITY newEntityInstance() {
-        try {
-            final var constructor = entityClass.getDeclaredConstructor();
-            if (!constructor.canAccess(null)) {
-                constructor.setAccessible(true);
-            }
-            return constructor.newInstance();
-        } catch (final ReflectiveOperationException roe) {
-            throw new RuntimeException("failed to instantiate " + entityClass, roe);
-        }
-    }
+    // -----------------------------------------------------------------------------------------------------------------
+    final Class<ID> idClass;
 }

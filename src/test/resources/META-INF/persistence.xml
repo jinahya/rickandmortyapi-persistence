@@ -27,7 +27,7 @@
   <persistence-unit name="rickandmortyPU" transaction-type="RESOURCE_LOCAL">
     <description>Persistence Unit for a Physical Database</description>
     <!--    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
-    <!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+    <!--    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
     <provider>${persistence-unit.provider}</provider>
     <class>io.github.jinahya.rickmortyapi.persistence.Character</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$GenderConverter</class>
@@ -39,6 +39,7 @@
     <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
     <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.NameAndUrl</class>
     <class>io.github.jinahya.rickmortyapi.persistence.converter.DateConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.converter.LocalDateConverter</class>
