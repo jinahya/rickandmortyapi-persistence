@@ -35,8 +35,8 @@ public class EpisodeCharacterId {
     /**
      * Creates a new instance with specified values.
      *
-     * @param episodeId   a value for the {@value #ATTRIBUTE_NAME_EPISODE_ID} attribute.
-     * @param characterId a value for the {@value #ATTRIBUTE_NAME_CHARACTER_ID} attribute.
+     * @param episodeId   a value for the {@value EpisodeCharacterId_#EPISODE_ID} attribute.
+     * @param characterId a value for the {@value EpisodeCharacterId_#CHARACTER_ID} attribute.
      * @return a new instance of {@code characterId} and {@code episodeId}
      */
     public static EpisodeCharacterId of(final Integer episodeId, final Integer characterId) {
