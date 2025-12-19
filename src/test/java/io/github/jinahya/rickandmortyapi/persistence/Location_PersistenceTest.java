@@ -13,7 +13,9 @@ import lombok.AllArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -79,5 +81,29 @@ class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Int
         assertThat(entityList)
                 .as("all locations")
                 .hasSize(_PersistenceConstants.NUMBER_OF_ALL_LOCATIONS);
+        {
+            final var types = EnumSet.allOf(Location.Type.class);
+            entityList.forEach(l -> {
+                types.remove(l.getType());
+            });
+            assertThat(types).isEmpty();
+        }
+        {
+            final var values = EnumSet.allOf(Location.Dimension.class);
+            final var mapped =
+                    entityList.stream()
+                            .map(Location::getDimension)
+                            .filter(Objects::nonNull)
+                            .distinct()
+                            .toList();
+            assertThat(values).containsAll(mapped);
+            assertThat(mapped).containsAll(values);
+            entityList.forEach(l -> {
+                values.remove(l.getDimension());
+            });
+            assertThat(values)
+                    .as("remaining values")
+                    .isEmpty();
+        }
     }
 }

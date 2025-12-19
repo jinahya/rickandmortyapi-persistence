@@ -38,6 +38,8 @@
     <class>io.github.jinahya.rickandmortyapi.persistence.Episode</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.Location</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Location$DimensionConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Location$TypeConverter</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.LocationResident</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.NameAndUrl</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.converter.DateConverter</class>
