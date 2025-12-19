@@ -29,22 +29,22 @@
     <!--    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
     <!--    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
     <provider>${persistence-unit.provider}</provider>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character$GenderConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character$StatusConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character$SpeciesConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character$TypeConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.CharacterEpisode</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Episode</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.NameAndUrl</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.DateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.LocalDateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.UrlConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.UrlListConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Character</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Character$GenderConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Character$StatusConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Character$SpeciesConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Character$TypeConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Episode</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Location</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.LocationResident</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.NameAndUrl</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.converter.DateConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.converter.InstantConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.converter.UrlConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.converter.UrlListConverter</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <validation-mode>CALLBACK</validation-mode>
     <properties>
