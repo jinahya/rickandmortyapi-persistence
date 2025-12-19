@@ -85,7 +85,7 @@
     <version.org.junit>6.0.1</version.org.junit>
     <!-- https://search.maven.org/artifact/org.mockito/mockito-junit-jupiter -->
     <!-- https://central.sonatype.com/artifact/org.mockito/mockito-junit-jupiter/versions -->
-    <version.org.mockito>5.20.0</version.org.mockito>
+    <version.org.mockito>5.21.0</version.org.mockito>
     <eclipselink.woven>false</eclipselink.woven>
   </properties>
 
@@ -240,6 +240,12 @@
       <groupId>org.jboss.weld</groupId>
       <artifactId>weld-junit5</artifactId>
       <version>5.0.3.Final</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${version.org.mockito}</version>
       <scope>test</scope>
     </dependency>
     <dependency>

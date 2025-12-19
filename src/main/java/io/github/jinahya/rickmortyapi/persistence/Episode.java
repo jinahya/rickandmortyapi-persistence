@@ -70,25 +70,31 @@ import java.util.Optional;
 })
 public class Episode extends _BaseEntity {
 
+    /**
+     * The name of the database table to which this entity class maps. The value is {@value}.
+     */
     public static final String TABLE_NAME = "episode";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * The name of the table column to which the {@value Episode_#ID} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_ID = "id";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------ name
     public static final String COLUMN_NAME_NAME = "name";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------- air_date
     public static final String COLUMN_NAME_AIR_DATE = "air_date";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- episode
     public static final String COLUMN_NAME_EPISODE = "episode";
 
     static final String REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER = "seasonNumber";
 
     static final String REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER = "episodeNumber";
 
-    //    public static final String REGEXP_EPISODE = "S(?<seasonNumber>\\d{2})E(?<episodeNumber>\\d{2})";
     public static final String REGEXP_EPISODE = "S(?<%s>\\d{2})E(?<%s>\\d{2})".formatted(
             REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER,
             REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER
