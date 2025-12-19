@@ -11,9 +11,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Location_Test extends _BaseEntity_Test<Location, Integer> {
 
-    static final Location RED = Location.of(1);
+    static final Location RED = new Location().id(1);
 
-    static final Location BLUE = Location.of(2);
+    static final Location BLUE = new Location().id(2);
 
     // -----------------------------------------------------------------------------------------------------------------
     Location_Test() {
@@ -37,7 +37,8 @@ class Location_Test extends _BaseEntity_Test<Location, Integer> {
         void __() {
             assertThat(Arrays.stream(Location.Dimension.values()).map(Location.Dimension::columnValue))
                     .isNotEmpty()
-                    .doesNotContainNull().doesNotHaveDuplicates();
+                    .doesNotContainNull()
+                    .doesNotHaveDuplicates();
         }
     }
 }
