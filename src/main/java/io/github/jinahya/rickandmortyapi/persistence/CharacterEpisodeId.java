@@ -9,16 +9,15 @@ import jakarta.validation.constraints.Positive;
 import java.util.Objects;
 
 /**
- * The id class for {@link CharacterEpisode}.
+ * The id class for the {@link CharacterEpisode} entity.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Embeddable
 public class CharacterEpisodeId {
 
-    // -------------------------------------------------------------------------------------------------------- BUILDERS
-
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
+
     /**
      * Creates a new instance with specified values.
      *

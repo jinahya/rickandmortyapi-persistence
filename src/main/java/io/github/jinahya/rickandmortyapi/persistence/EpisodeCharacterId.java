@@ -30,8 +30,6 @@ public class EpisodeCharacterId {
 
     public static final String ATTRIBUTE_NAME_CHARACTER = "character";
 
-    // -------------------------------------------------------------------------------------------------------- BUILDERS
-
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
     /**

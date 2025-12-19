@@ -133,8 +133,6 @@ public class Episode extends _BaseEntity {
 
     public static final Comparator<Episode> COMPARING_AIR_DATE_ISO_ = Comparator.comparing(Episode::getAirDateIso_);
 
-    // -------------------------------------------------------------------------------------------------------- BUILDERS
-
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
     public static Episode of(final int id) {
         final var episode = new Episode();

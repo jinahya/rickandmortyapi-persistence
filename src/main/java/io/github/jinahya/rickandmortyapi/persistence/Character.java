@@ -2004,27 +2004,27 @@ public class Character extends _BaseEntity {
     // ---------------------------------------------------------------------------------------------------------- gender
 
     /**
-     * The name of the table column to which the {@link Character_#GENDER} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@value Character_#GENDER} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_GENDER = "gender";
 
     /**
-     * A column value of {@value} for the {@link #COLUMN_NAME_GENDER} column.
+     * A column value of {@value} for the {@value  #COLUMN_NAME_GENDER} column.
      */
     public static final String COLUMN_VALUE_GENDER_FEMALE = "Female";
 
     /**
-     * A column value of {@value} for the {@link #COLUMN_NAME_GENDER} column.
+     * A column value of {@value} for the {@value #COLUMN_NAME_GENDER} column.
      */
     public static final String COLUMN_VALUE_GENDER_GENDERLESS = "Genderless";
 
     /**
-     * A column value of {@value} for the {@link #COLUMN_NAME_GENDER} column.
+     * A column value of {@value} for the {@value #COLUMN_NAME_GENDER} column.
      */
     public static final String COLUMN_VALUE_GENDER_MALE = "Male";
 
     /**
-     * A column value of {@value} for the {@link #COLUMN_NAME_GENDER} column.
+     * A column value of {@value} for the {@value #COLUMN_NAME_GENDER} column.
      */
     public static final String COLUMN_VALUE_GENDER_UNKNOWN = "unknown";
 
@@ -2124,14 +2124,26 @@ public class Character extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     static final String PROPERTY_PATH_LOCATION_NAME = "$.location.name";
 
+    /**
+     * The name of the table column to which the {@value Character_#LOCATION}.{@value NameAndUrl_#NAME} attribute maps.
+     * The value is {@value}.
+     */
     public static final String COLUMN_NAME_LOCATION_NAME = "location_name";
 
     // -----------------------------------------------------------------------------------------------------------------
     static final String PROPERTY_PATH_LOCATION_URL = "$.location.url";
 
+    /**
+     * The name of the table column to which the {@value Character_#LOCATION}.{@value NameAndUrl_#URL} attribute maps.
+     * The value is {@value}.
+     */
     public static final String COLUMN_NAME_LOCATION_URL = "location_url";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Character_#IMAGE} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_IMAGE = "image";
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -2155,9 +2167,7 @@ public class Character extends _BaseEntity {
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
     static Character of(final int id) {
-        final var character = new Character();
-        character.setId(id);
-        return character;
+        return new Character().id(id);
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
@@ -2215,6 +2225,11 @@ public class Character extends _BaseEntity {
 
     void setId(final Integer id) {
         this.id = id;
+    }
+
+    Character id(final Integer id) {
+        setId(id);
+        return this;
     }
 
     // ------------------------------------------------------------------------------------------------------------ name

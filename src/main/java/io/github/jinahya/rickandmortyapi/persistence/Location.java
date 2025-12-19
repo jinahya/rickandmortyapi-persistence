@@ -953,8 +953,6 @@ public class Location extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_CREATED = "created";
 
-    // -------------------------------------------------------------------------------------------------------- BUILDERS
-
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
     static Location of(final int id) {
         final var location = new Location();
