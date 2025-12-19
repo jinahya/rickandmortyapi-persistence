@@ -24,77 +24,22 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
              version="3.2">
-  <persistence-unit name="__testPU" transaction-type="RESOURCE_LOCAL">
-    <description>Persistence Unit for an In-Memory DB</description>
-    <!--        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
+  <persistence-unit name="rickandmortyPU" transaction-type="RESOURCE_LOCAL">
+    <description>Persistence Unit for a Physical Database</description>
+    <!--    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
     <!--    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
     <provider>${persistence-unit.provider}</provider>
     <class>io.github.jinahya.rickmortyapi.persistence.Character</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$GenderConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$StatusConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Character$SpeciesConverter</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.Character$TypeConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.CharacterEpisode</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Episode</class>
     <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
     <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.DateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.LocalDateConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.UrlConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.converter.UrlListConverter</class>
-    <shared-cache-mode>NONE</shared-cache-mode>
-    <validation-mode>CALLBACK</validation-mode>
-    <properties>
-      <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
-      <!-- ///////////////////////////////////////////////// https://github.com/eclipse-ee4j/eclipselink/issues/1393 -->
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:;database_to_upper=false;MODE=LEGACY"/>
-      <property name="jakarta.persistence.jdbc.user" value="sa"/>
-      <property name="jakarta.persistence.jdbc.password" value="password"/>
-      <!--      <property name="jakarta.persistence.validation.group.pre-persist" value="callback"/>-->
-      <!--      <property name="jakarta.persistence.validation.group.pre-update" value="callback"/>-->
-      <!--      <property name="jakarta.persistence.validation.group.pre-remote" value="callback"/>-->
-      <property name="jakarta.persistence.validation.mode" value="callback"/>
-      <!-- ///////////////////////////////////////////////////////////////////////////////////////////// eclipselink -->
-      <!-- https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
-      <!--      <property name="eclipselink.logging.level" value="FINE"/>-->
-      <!-- java.sql.SQLException: SQLite only supports TYPE_FORWARD_ONLY cursors -->
-      <!--      <property name="eclipselink.cursor.scrollable.result-set-type" value="1003"/>-->
-      <property name="eclipselink.cursor.scrollable" value="true"/>
-      <property name="eclipselink.cursor.scrollable.result-set-type" value="ForwardOnly"/>
-      <property name="eclipselink.logging.level.sql" value="FINE"/>
-      <property name="eclipselink.logging.parameters" value="true"/>
-      <!--      <property name="eclipselink.weaving" value="true"/>-->
-      <!-- https://wiki.eclipse.org/EclipseLink/Examples/JPA/DDL -->
-      <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>
-      <property name="eclipselink.ddl-generation" value="create-tables"/>
-      <!-- /////////////////////////////////////////////////////////////////////////////////////////////// hibernate -->
-      <!--      <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>-->
-      <property name="hibernate.format_sql" value="true"/>
-      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-      <property name="hibernate.highlight_sql" value="true"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.use_sql_comment" value="true"/>
-      <!-- ///////////////////////////////////////////////////////////////////////////////////////////////// jinahya -->
-      <property name="jinahya.persistence.table_catalog" value="UNNAMED"/>
-      <property name="jinahya.persistence.table_schema" value="PUBLIC"/>
-      <property name="jinahya.persistence.table_types" value=""/>
-    </properties>
-  </persistence-unit>
-  <persistence-unit name="__itPU" transaction-type="RESOURCE_LOCAL">
-    <description>Persistence Unit for a Physical Database</description>
-    <!--    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
-    <!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
-    <provider>${persistence-unit.provider}</provider>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character$GenderConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character$StatusConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Character$SpeciesConverter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.CharacterEpisode</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Episode</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.EpisodeCharacter</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.Location</class>
-    <class>io.github.jinahya.rickmortyapi.persistence.LocationResident</class>
+    <class>io.github.jinahya.rickmortyapi.persistence.NameAndUrl</class>
     <class>io.github.jinahya.rickmortyapi.persistence.converter.DateConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.converter.InstantConverter</class>
     <class>io.github.jinahya.rickmortyapi.persistence.converter.LocalDateConverter</class>
@@ -104,37 +49,24 @@
     <validation-mode>CALLBACK</validation-mode>
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-      <!-- https://github.com/xerial/sqlite-jdbc/blob/master/USAGE.md -->
       <property name="jakarta.persistence.jdbc.url"
-                value="jdbc:sqlite:${project.basedir}/rickandmortyapi-db/rickandmortyapi.db?jdbc.explicit_readonly=true"/>
+                value="jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true"/>
       <property name="jakarta.persistence.jdbc.user" value=""/>
       <property name="jakarta.persistence.jdbc.password" value=""/>
       <property name="jakarta.persistence.validation.mode" value="callback"/> <!-- default: auto -->
       <!-- ============================================================================================= eclipselink -->
-      <!-- https://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
-      <!--      <property name="eclipselink.logging.level" value="FINE"/>-->
-      <!-- java.sql.SQLException: SQLite only supports TYPE_FORWARD_ONLY cursors -->
-      <!--      <property name="eclipselink.cursor.scrollable.result-set-type" value="1003"/>-->
-      <!--      <property name="eclipselink.cursor.scrollable.result-set-type" value="TYPE_FORWARD_ONLY"/>-->
       <property name="eclipselink.cursor.scrollable" value="true"/>
-      <!--      <property name="eclipselink.cursor.scrollable.result-set-type" value="ForwardOnly"/>-->
       <property name="eclipselink.cursor.scrollable.result-set-type" value="Forward"/>
       <property name="eclipselink.ddl-generation" value="none"/>
       <property name="eclipselink.logging.level.sql" value="FINE"/>
       <property name="eclipselink.logging.parameters" value="true"/>
-      <!--      <property name="eclipselink.weaving" value="true"/>-->
-      <!-- https://wiki.eclipse.org/EclipseLink/Examples/JPA/DDL -->
-      <!--      <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.OraclePlatform"/>-->
       <!-- =============================================================================================== hibernate -->
-      <!--      <property name="hibernate.dialect" value="org.hibernate.community.dialect.SQLiteDialect"/>-->
       <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.hbm2ddl.auto" value="none"/>
       <property name="hibernate.highlight_sql" value="true"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.use_sql_comment" value="true"/>
       <!-- ================================================================================================= jinahya -->
-      <!--      <property name="jinahya.persistence.table_catalog" value="undefined"/>-->
-      <!--      <property name="jinahya.persistence.table_schema" value="undefined"/>-->
       <property name="jinahya.persistence.table_catalog" value=""/>
       <property name="jinahya.persistence.table_schema" value=""/>
       <property name="jinahya.persistence.table_types" value=""/>

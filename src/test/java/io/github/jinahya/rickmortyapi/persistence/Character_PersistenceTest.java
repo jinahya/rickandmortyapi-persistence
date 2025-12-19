@@ -14,12 +14,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-class Character_PersistenceIT extends _BaseEntity_PersistenceIT<Character, Integer> {
+class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, Integer> {
 
     @AllArgsConstructor(access = AccessLevel.PACKAGE)
     @SuperBuilder
@@ -31,13 +36,13 @@ class Character_PersistenceIT extends _BaseEntity_PersistenceIT<Character, Integ
 
         @Nullable
         @Size(min = 1)
-         List<@Positive @NotNull Integer> ids;
+        List<@Positive @NotNull Integer> ids;
 
         @Nullable
-        final Location_PersistenceIT.FetchAllParameters origin_FetchAllParameters;
+        final Location_PersistenceTest.FetchAllParameters origin_FetchAllParameters;
 
         @Nullable
-        final Location_PersistenceIT.FetchAllParameters location_FetchAllParameters;
+        final Location_PersistenceTest.FetchAllParameters location_FetchAllParameters;
 
 //        @Nullable
 //        final Episode_PersistenceIT.FetchAllParameters episodes_FetchAllParameters;
@@ -71,7 +76,7 @@ class Character_PersistenceIT extends _BaseEntity_PersistenceIT<Character, Integ
             }
             v.fetchResidents_ = false;
             v.ids = ids;
-            Location_PersistenceIT.fetchAll(entityManager, v);
+            Location_PersistenceTest.fetchAll(entityManager, v);
         });
         Optional.ofNullable(parameters.location_FetchAllParameters).ifPresent(v -> {
             final var ids = characters.stream()
@@ -84,14 +89,38 @@ class Character_PersistenceIT extends _BaseEntity_PersistenceIT<Character, Integ
             }
             v.fetchResidents_ = false;
             v.ids = ids;
-            Location_PersistenceIT.fetchAll(entityManager, v);
+            Location_PersistenceTest.fetchAll(entityManager, v);
         });
         return characters;
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    Character_PersistenceIT() {
+    Character_PersistenceTest() {
         super(Character.class, Integer.class);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @Override
+    void selectAll__(final EntityManager entityManager, final List<Character> characters) {
+        super.selectAll__(entityManager, characters);
+        assertThat(characters)
+                .as("all characters")
+                .hasSize(_PersistenceConstants.NUMBER_OF_ALL_CHARACTERS);
+        {
+            final Set<Character.Status> statuses = EnumSet.allOf(Character.Status.class);
+            characters.forEach(c -> statuses.remove(c.getStatus()));
+            assertThat(statuses).isEmpty();
+        }
+        {
+            final Set<Character.Species> species = EnumSet.allOf(Character.Species.class);
+            characters.forEach(c -> species.remove(c.getSpecies()));
+            assertThat(species).isEmpty();
+        }
+        {
+            final Set<Character.Gender> genders = EnumSet.allOf(Character.Gender.class);
+            characters.forEach(c -> genders.remove(c.getGender()));
+            assertThat(genders).isEmpty();
+        }
     }
 
     // -----------------------------------------------------------------------------------------------------------------

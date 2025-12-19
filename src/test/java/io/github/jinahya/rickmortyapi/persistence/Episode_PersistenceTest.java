@@ -16,27 +16,20 @@ import java.util.Objects;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-class Episode_PersistenceIT extends _BaseEntity_PersistenceIT<Episode, Integer> {
+class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integer> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    Episode_PersistenceIT() {
+    Episode_PersistenceTest() {
         super(Episode.class, Integer.class);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-
     @Override
-    void selectAll__(final EntityManager entityManager, final List<Episode> all) {
-        super.selectAll__(entityManager, all);
-        all.forEach(e -> {
-            final var seasonNumber = e.getSeasonNumber();
-            assertThat(seasonNumber).isNotNull();
-            final var episodeNumber = e.getEpisodeNumber();
-            assertThat(episodeNumber).isNotNull();
-            log.debug("seasonNumber: {}, episodeNumber: {}", seasonNumber, episodeNumber);
-            final var episode = Episode.formatEpisode(seasonNumber, episodeNumber);
-            assertThat(episode).isEqualTo(e.getEpisode());
-        });
+    void selectAll__(final EntityManager entityManager, final List<Episode> entityList) {
+        super.selectAll__(entityManager, entityList);
+        assertThat(entityList)
+                .as("all episodes")
+                .hasSize(_PersistenceConstants.NUMBER_OF_ALL_EPISODES);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -227,7 +220,7 @@ class Episode_PersistenceIT extends _BaseEntity_PersistenceIT<Episode, Integer> 
         void NamedQuery__() {
             applyEntityManager(em -> {
                 final var query = em.createNamedQuery("Episode.SelectSingle_WhereEpisodeEqual_", entityClass);
-                for (final var episodeValue : Episode_PersistenceITUtils.getEpisodeList(em)) {
+                for (final var episodeValue : Episode_PersistenceTestUtils.getEpisodeList(em)) {
                     query.setParameter("episode", episodeValue);
                     // -------------------------------------------------------------------------------------------- when
                     final var selected = query.getSingleResult(); // NoResultException
@@ -253,7 +246,7 @@ class Episode_PersistenceIT extends _BaseEntity_PersistenceIT<Episode, Integer> 
                 final var root = query.from(entityClass);
                 query.select(root);
                 final var episodePath = root.get(Episode_.episode);
-                for (final var episodeValue : Episode_PersistenceITUtils.getEpisodeList(em)) {
+                for (final var episodeValue : Episode_PersistenceTestUtils.getEpisodeList(em)) {
                     query.where(builder.equal(episodePath, episodeValue));
                     // -------------------------------------------------------------------------------------------- when
                     final var selected = em.createQuery(query).getSingleResult(); // NoResultException

@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 public class LocalDateConverter extends _BaseConverter<LocalDate> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    public LocalDateConverter() {
+    LocalDateConverter() {
         super(dd -> LocalDate.parse(dd, DateTimeFormatter.ISO_LOCAL_DATE));
     }
 }

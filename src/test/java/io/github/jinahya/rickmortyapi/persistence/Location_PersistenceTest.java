@@ -16,8 +16,10 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Slf4j
-class Location_PersistenceIT extends _BaseEntity_PersistenceIT<Location, Integer> {
+class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Integer> {
 
     @AllArgsConstructor(access = AccessLevel.PACKAGE)
     @SuperBuilder
@@ -29,7 +31,7 @@ class Location_PersistenceIT extends _BaseEntity_PersistenceIT<Location, Integer
         @Size(min = 1)
         List<@Positive @NotNull Integer> ids;
 
-        Character_PersistenceIT.FetchAllParameters residents_FetchAllParameters;
+        Character_PersistenceTest.FetchAllParameters residents_FetchAllParameters;
     }
 
     static List<Location> fetchAll(@Nonnull @NotNull final EntityManager entityManager,
@@ -59,14 +61,23 @@ class Location_PersistenceIT extends _BaseEntity_PersistenceIT<Location, Integer
                 v.fetchOrigin_ = false;
                 v.fetchLocation_ = false;
                 v.ids = ids;
-                final var residents = Character_PersistenceIT.fetchAll(entityManager, v);
+                final var residents = Character_PersistenceTest.fetchAll(entityManager, v);
             });
         }
         return locations;
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    Location_PersistenceIT() {
+    Location_PersistenceTest() {
         super(Location.class, Integer.class);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @Override
+    void selectAll__(final EntityManager entityManager, final List<Location> entityList) {
+        super.selectAll__(entityManager, entityList);
+        assertThat(entityList)
+                .as("all locations")
+                .hasSize(_PersistenceConstants.NUMBER_OF_ALL_LOCATIONS);
     }
 }

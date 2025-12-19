@@ -1,27 +1,25 @@
 package io.github.jinahya.rickmortyapi.persistence;
 
+import lombok.extern.slf4j.Slf4j;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 
-class Location_Test extends _BaseEntity_Test<Location, Integer> {
-
-    static final Location RED = Location.of(1);
-
-    static final Location BLUE = Location.of(2);
+@Slf4j
+class EpisodeCharacter_Test extends _BaseEntity_Test<EpisodeCharacter, EpisodeCharacterId> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    Location_Test() {
-        super(Location.class, Integer.class);
+    EpisodeCharacter_Test() {
+        super(EpisodeCharacter.class, EpisodeCharacterId.class);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-
     @Override
-    SingleTypeEqualsVerifierApi<Location> configureEqualsVerifier(
-            final SingleTypeEqualsVerifierApi<Location> verifierApi) {
-        return super.configureEqualsVerifier(verifierApi)
+    SingleTypeEqualsVerifierApi<EpisodeCharacter> configureEqualsVerifier(
+            final SingleTypeEqualsVerifierApi<EpisodeCharacter> verifier) {
+        return super.configureEqualsVerifier(verifier)
                 .suppress(Warning.SURROGATE_KEY)
                 .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
+                .withPrefabValues(Location.class, Location_Test.RED, Location_Test.BLUE)
                 ;
     }
 }

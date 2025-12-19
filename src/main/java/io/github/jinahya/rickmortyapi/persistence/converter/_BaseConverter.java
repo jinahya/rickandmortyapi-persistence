@@ -1,13 +1,11 @@
 package io.github.jinahya.rickmortyapi.persistence.converter;
 
 import jakarta.persistence.AttributeConverter;
-import jakarta.persistence.Converter;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
-@Converter
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })

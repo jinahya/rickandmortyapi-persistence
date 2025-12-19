@@ -16,7 +16,7 @@ public class UrlListConverter extends _BaseConverter<List<URL>> {
     private static final AttributeConverter<URL, String> CONVERTER = new UrlConverter();
 
     // -----------------------------------------------------------------------------------------------------------------
-    public UrlListConverter() {
+    UrlListConverter() {
         super(dd -> {
             return Arrays.stream(dd.split(","))
                     .map(String::strip)

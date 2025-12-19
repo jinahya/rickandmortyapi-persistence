@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @Entity
 @Table(name = LocationResident.TABLE_NAME)
@@ -62,6 +63,11 @@ public class LocationResident extends _BaseEntity {
         this.id = id;
     }
 
+    LocationResident id(final LocationResidentId id) {
+        setId(id);
+        return this;
+    }
+
     // -------------------------------------------------------------------------------------------------------- location
     public Location getLocation() {
         return location;
@@ -69,6 +75,13 @@ public class LocationResident extends _BaseEntity {
 
     void setLocation(final Location location) {
         this.location = location;
+        Optional.ofNullable(getId())
+                .orElseGet(() -> id(new LocationResidentId()).getId())
+                .setLocationId(
+                        Optional.ofNullable(this.location)
+                                .map(Location::getId)
+                                .orElse(null)
+                );
     }
 
     // -------------------------------------------------------------------------------------------------------- resident
@@ -78,6 +91,13 @@ public class LocationResident extends _BaseEntity {
 
     void setResident(final Character resident) {
         this.resident = resident;
+        Optional.ofNullable(getId())
+                .orElseGet(() -> id(new LocationResidentId()).getId())
+                .setLocationId(
+                        Optional.ofNullable(this.resident)
+                                .map(Character::getId)
+                                .orElse(null)
+                );
     }
 
     // -----------------------------------------------------------------------------------------------------------------

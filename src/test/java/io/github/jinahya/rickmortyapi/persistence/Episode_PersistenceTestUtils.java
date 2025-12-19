@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Slf4j
-final class Episode_PersistenceITUtils {
+final class Episode_PersistenceTestUtils {
 
     private static volatile List<String> episodeList;
 
@@ -28,7 +28,7 @@ final class Episode_PersistenceITUtils {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    private Episode_PersistenceITUtils() {
+    private Episode_PersistenceTestUtils() {
         throw new AssertionError("instantiation is not allowed");
     }
 }

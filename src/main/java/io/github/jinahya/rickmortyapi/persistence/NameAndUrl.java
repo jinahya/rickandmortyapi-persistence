@@ -7,6 +7,7 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotBlank;
 
 import java.net.URL;
@@ -21,15 +22,16 @@ import java.util.Objects;
  * @see Character#getLocation()
  */
 @Embeddable
+@MappedSuperclass
 public class NameAndUrl {
 
     // -----------------------------------------------------------------------------------------------------------------
-    static final String COLUMN_NAME_NAME = "name";
+    private static final String COLUMN_NAME_NAME = "name";
 
     static final String ATTRIBUTE_NAME_NAME = "name";
 
     // -----------------------------------------------------------------------------------------------------------------
-    static final String COLUMN_NAME_URL = "url";
+    private static final String COLUMN_NAME_URL = "url";
 
     static final String ATTRIBUTE_NAME_URL = "url";
 
