@@ -66,7 +66,7 @@ ORDER BY c.id ASC
 ```jpaql
 SELECT c
 FROM Character c
-WHERE c.status = io.github.jinahya.rickmortyapi.persistence.Character.Status.ALIVE
+WHERE c.status = io.github.jinahya.rickandmortyapi.persistence.Character.Status.ALIVE
 ```
 
 ## Select all characters, whose `status` attributes are in specified values
@@ -84,8 +84,8 @@ WHERE c.status IN :statuses
 ```jpaql
 SELECT c
 FROM Character c
-WHERE c.status IN (io.github.jinahya.rickmortyapi.persistence.Character.Status.ALIVE,
-                   io.github.jinahya.rickmortyapi.persistence.Character.Status.ALIVE)
+WHERE c.status IN (io.github.jinahya.rickandmortyapi.persistence.Character.Status.ALIVE,
+                   io.github.jinahya.rickandmortyapi.persistence.Character.Status.ALIVE)
 ```
 
 ## Select all characters, whose `species` attributes equal to given value
@@ -105,7 +105,7 @@ ORDER BY c.id ASC
 ```jpaql
 SELECT c
 FROM Character c
-WHERE c.species = io.github.jinahya.rickmortyapi.persistence.Character.Species.ALIEN
+WHERE c.species = io.github.jinahya.rickandmortyapi.persistence.Character.Species.ALIEN
 ```
 
 ## Select all characters, whose `species` attributes are in specified values
@@ -123,8 +123,8 @@ WHERE c.species IN :species
 ```jpaql
 SELECT c
 FROM Character c
-WHERE c.species IN (io.github.jinahya.rickmortyapi.persistence.Character.Species.ALIEN,
-                   io.github.jinahya.rickmortyapi.persistence.Character.Species.HUMAN)
+WHERE c.species IN (io.github.jinahya.rickandmortyapi.persistence.Character.Species.ALIEN,
+                   io.github.jinahya.rickandmortyapi.persistence.Character.Species.HUMAN)
 ```
 
 ## Select all characters, whose `type` attributes equal to given value

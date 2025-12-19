@@ -46,8 +46,8 @@
     <url>https://github.com/jinahya/${project.artifactId}/issues</url>
   </issueManagement>
   <ciManagement>
-    <system>Travis CI</system>
-    <url>https://travis-ci.org/jinahya/${project.artifactId}</url>
+    <system>GitHub Actions</system>
+    <url>https://github.com/jinahya/rickandmortyapi-persistence/actions/workflows/maven.yml</url>
   </ciManagement>
 
   <properties>
@@ -91,6 +91,8 @@
     <!-- https://search.maven.org/artifact/org.mockito/mockito-junit-jupiter -->
     <!-- https://central.sonatype.com/artifact/org.mockito/mockito-junit-jupiter/versions -->
     <version.org.mockito>5.21.0</version.org.mockito>
+    <!-- https://central.sonatype.com/artifact/nl.talsmasoftware/umldoclet/versions -->
+    <version.umldoclet>2.2.4</version.umldoclet>
     <eclipselink.woven>false</eclipselink.woven>
   </properties>
 
@@ -115,6 +117,11 @@
         <version>${version.jakarta.jakartaee-api}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>nl.talsmasoftware</groupId>
+        <artifactId>umldoclet</artifactId>
+        <version>${version.umldoclet}</version>
       </dependency>
       <dependency>
         <groupId>org.assertj</groupId>
@@ -319,6 +326,12 @@
           <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin/versions -->
           <version>3.12.0</version>
           <configuration>
+<!--            <doclet>nl.talsmasoftware.umldoclet.UMLDoclet</doclet>-->
+<!--            <docletArtifact>-->
+<!--              <groupId>nl.talsmasoftware</groupId>-->
+<!--              <artifactId>umldoclet</artifactId>-->
+<!--              <version>${version.umldoclet}</version>-->
+<!--            </docletArtifact>-->
             <additionalOptions>
               <additionalOption>-Xdoclint:${doclint}</additionalOption>
             </additionalOptions>
@@ -436,7 +449,7 @@
             <configuration>
               <skip>true</skip>
               <rules>
-                <dependencyConvergence />
+                <dependencyConvergence/>
               </rules>
             </configuration>
             <goals>
