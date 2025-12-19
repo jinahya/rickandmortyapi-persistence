@@ -259,6 +259,9 @@ public class Character extends _BaseEntity {
     // ------------------------------------------------------------------------------------------------------------ type
     public static final String COLUMN_NAME_TYPE = "type";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ALLIGATOR_PERSON = "Alligator-Person";
 
     static final String COLUMN_VALUE_TYPE_ALPHABETRIAN = "Alphabetrian";
@@ -1447,7 +1450,7 @@ public class Character extends _BaseEntity {
          */
         ZOMBODIAN(Character.COLUMN_VALUE_TYPE_ZOMBODIAN);
 
-        // -----------------------------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------------------------
         public static Type valueOfColumnValue(final String columnValue) {
             Objects.requireNonNull(columnValue, "columnValue is null");
             for (final var value : values()) {
@@ -1458,17 +1461,17 @@ public class Character extends _BaseEntity {
             throw new IllegalArgumentException("no value for column value: " + columnValue);
         }
 
-        // -----------------------------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------------------------
         Type(final String columnValue) {
             this.columnValue = Objects.requireNonNull(columnValue, "columnValue is null");
         }
 
-        // -----------------------------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------------------------
         public String columnValue() {
             return columnValue;
         }
 
-        // -----------------------------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------------------------
         private final String columnValue;
     }
 
@@ -1494,8 +1497,7 @@ public class Character extends _BaseEntity {
         }
     }
 
-    // ----------------------------------------------------------------------------------------------------------
-    // gender
+    // ---------------------------------------------------------------------------------------------------------- gender
     public static final String COLUMN_NAME_GENDER = "gender";
 
     /**

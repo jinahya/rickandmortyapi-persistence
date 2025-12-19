@@ -14,10 +14,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
@@ -103,6 +106,21 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
         assertThat(characters)
                 .as("all characters")
                 .hasSize(_PersistenceConstants.NUMBER_OF_ALL_CHARACTERS);
+        {
+            final Set<Character.Status> statuses = EnumSet.allOf(Character.Status.class);
+            characters.forEach(c -> statuses.remove(c.getStatus()));
+            assertThat(statuses).isEmpty();
+        }
+        {
+            final Set<Character.Species> species = EnumSet.allOf(Character.Species.class);
+            characters.forEach(c -> species.remove(c.getSpecies()));
+            assertThat(species).isEmpty();
+        }
+        {
+            final Set<Character.Gender> genders = EnumSet.allOf(Character.Gender.class);
+            characters.forEach(c -> genders.remove(c.getGender()));
+            assertThat(genders).isEmpty();
+        }
     }
 
     // -----------------------------------------------------------------------------------------------------------------
