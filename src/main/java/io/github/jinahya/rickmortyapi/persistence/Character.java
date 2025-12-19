@@ -264,340 +264,844 @@ public class Character extends _BaseEntity {
      */
     static final String COLUMN_VALUE_TYPE_ALLIGATOR_PERSON = "Alligator-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ALPHABETRIAN = "Alphabetrian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_AMOEBA_PERSON = "Amoeba-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ANIMAL = "Animal";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ANIME = "Anime";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ARTIFICIAL_INTELLIGENCE = "Artificial Intelligence";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_BEPISIAN = "Bepisian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_BIRD_PERSON = "Bird-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_BIRD_PERSON_HUMAN_MIX = "Bird-Person Human Mix";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_BLUE_APE_ALIEN = "Blue ape alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_BOOBLE_BUYER_REPTILIAN = "Boobie buyer reptilian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_BOOBLOOSIAN = "Boobloosian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_BREAD = "Bread";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CHUD = "CHUD";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CHUD_HUMAN_MIX = "CHUD Human Mix";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CAT = "Cat";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CAT_CONTROLLED_DEAD_LADY = "Cat controlled dead lady";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CAT_PERSON = "Cat-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CATERPILLAR = "Caterpillar";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CENTAUR = "Centaur";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CHAIR = "Chair";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CHANGEFORMER = "Changeformer";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CLAY_PERSON = "Clay-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CLONE = "Clone";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CONE_NIPPLED_ALIEN = "Cone-nippled alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CONJOINED_TWIN = "Conjoined twin";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_COOKIE = "Cookie";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CORN_PERSON = "Corn-person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CROMULON = "Cromulon";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CRONENBERG = "Cronenberg";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CROW = "Crow";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CROW_HORSE = "Crow Horse";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_CYBORG = "Cyborg";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_DECOY = "Decoy";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_DEMON = "Demon";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_DOG = "Dog";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_DOOPIDOO = "Doopidoo";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_DRAGON = "Dragon";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_DRUMBLOXIAN = "Drumbloxian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_DUMMY = "Dummy";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_EAT_SHITER_PERSON = "Eat shiter-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_EEL = "Eel";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ELEPHANT_PERSON = "Elephant-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_FERKUSIAN = "Ferkusian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_FERRET_ROBOT = "Ferret Robot";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_FISH_PERSON = "Fish-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_FLANSIAN = "Flansian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_FLOOP_FLOOPIAN = "Floop Floopian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_FLY = "Fly";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GAME = "Game";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GARBLOVIAN = "Garblovian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GAZORPIAN = "Gazorpian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GAZORPIAN_REPRODUCTION_ROBOT = "Gazorpian reproduction robot";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GEAR_PERSON = "Gear-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GENETIC_EXPERIMENT = "Genetic experiment";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GIANT = "Giant";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GIANT_CAT_MONSTER = "Giant Cat Monster";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GIANT_INCEST_BABY = "Giant Incest Baby";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GLORZO = "Glorzo";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GOD = "God";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GODDESS = "Goddess";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GRAMUFLAKIAN = "Gramuflackian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GRANDMA = "Grandma";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GREEBYBOBE = "Greebybobe";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GROMFLOMITE = "Gromflomite";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_GUINEA_PIG_FOR_THE_POLIO_VACCINE = "Guinea Pig for the Polio Vaccine";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HAIRY_ALIEN = "Hairy alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HALF_SOULLESS_PUPPET = "Half Soulless Puppet";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HAMMERHEAD_PERSON = "Hammerhead-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HIVEMIND = "Hivemind";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HOLE = "Hole";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HOLOGRAM = "Hologram";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HUMAN_GAZORPIAN = "Human Gazorpian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HUMAN_WITH_A_FLOWER_IN_HIS_HEAD = "Human with a flower in his head";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HUMAN_WITH_ANTENNAE = "Human with antennae";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HUMAN_WITH_ANTS_IN_HIS_EYES = "Human with ants in his eyes";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HUMAN_WITH_BABY_LEGS = "Human with baby legs";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HUMAN_WITH_GIANT_HEAD = "Human with giant head";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HUMAN_WITH_TUSKS = "Human with tusks";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_HUMAN_SNAKE_HYBRID = "Human-Snake hybrid";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_INTERDIMENSIONAL_GASEOUS_BEING = "Interdimensional gaseous being";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_JELLYBEAN = "Jellybean";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_KORBLOCK = "Korblock";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_KROOTABULAN = "Krootabulan";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_LARVA_ALIEN = "Larva alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_LEPRECHAUN = "Leprechaun";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_LIGHT_BULB_ALIEN = "Light bulb-Alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_LITTLE_HUMAN = "Little Human";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_LIZARD = "Lizard";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_LIZARD_PERSON = "Lizard-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_LOBSTER_ALIEN = "Lobster-Alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MANNIE = "Mannie";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MASCOT = "Mascot";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MEESEEKS = "Meeseeks";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MEGA_GARGANTUAN = "Mega Gargantuan";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MEMORY = "Memory";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MEXICAN = "Mexican";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MICROVERSE_INHABITANT = "Microverse inhabitant";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MINIVERSE_INHABITANT = "Miniverse inhabitant";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MONOGATRON = "Monogatron";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MONSTER = "Monster";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MORGLUTZIAN = "Morglutzian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MORTYS_TOXIC_SIDE = "Morty's toxic side";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_MYTHOLOG = "Mytholog";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_NANO_ALIEN = "Nano Alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_NARNIAN = "Narnian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_NECROPHILIAC = "Necrophiliac";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_NORMAL_SIZE_BUG = "Normal Size Bug";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_NUMBERICON = "Numbericon";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_OCTOPUS_PERSON = "Octopus-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_OLD_AMAZONS = "Old Amazons";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_OMNISCIENT_BEING = "Omniscient being";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ORGANIC_GUN = "Organic gun";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PARASITE = "Parasite";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PASSING_BUTTER_ROBOT = "Passing Butter Robot";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PHONE = "Phone";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PHONE_PERSON = "Phone-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PICKLE = "Pickle";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PIZZA = "Pizza";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PLANET = "Planet";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PLUTONIAN = "Plutonian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_PRIPUDLIAN = "Pripudlian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_RAT = "Rat";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_RICKS_TOXIC_SIDE = "Rick's toxic side";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_RING_NIPPLED_ALIEN = "Ring-nippled alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ROBOT = "Robot";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ROBOT_CROCODILE_HYBRID = "Robot-Crocodile hybrid";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SCARECROW = "Scarecrow";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SCROTIAN = "Scrotian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SELF_AWARE_ARM = "Self-aware arm";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SENTIENT_ANT_COLONY = "Sentient ant colony";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SEXY_AQUAMAN = "Sexy Aquaman";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SHAPESHIFTER = "Shapeshifter";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SHIMSHAMIAN = "Shimshamian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SHRIMP = "Shrimp";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SLARTIVARTIAN = "Slartivartian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SLUG = "Slug";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SNAIL_ALIEN = "Snail alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SNAKE = "Snake";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SOULLESS_PUPPET = "Soulless Puppet";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SQUID = "Squid";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_STAIR_GOBLIN = "Stair goblin";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_STARFISH = "Starfish";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SUMMON = "Summon";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SUPER_SPERM_MONSTER = "Super Sperm Monster";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SUPERHUMAN = "Superhuman";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_SUPERHUMAN_GHOST_TRAINS_SUMMONER = "Superhuman (Ghost trains summoner)";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TEDDY_BEAR = "Teddy Bear";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TEENYVERSE_INHABITANT = "Teenyverse inhabitant";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TENTACLE_ALIEN = "Tentacle alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_THE_DEVIL = "The Devil";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TIGER = "Tiger";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TIME_GOD = "Time God";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TINYMOUTH = "Tinymouth";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TOY = "Toy";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TRAFLORKIAN = "Traflorkian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TRUNK_PERSON = "Trunk-Person";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TUMBLORKIAN = "Tumblorkian";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TURKEY = "Turkey";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TURKEY_HUMAN_MIX = "Turkey Human Mix";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_TUSKFISH = "Tuskfish";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_UNKNOWN_NIPPLED_ALIEN = "Unknown-nippled alien";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_VAMPIRE = "Vampire";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_WASP = "Wasp";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_WEASEL = "Weasel";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_WHENWOLF = "Whenwolf";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ZEUS = "Zeus";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ZIGERION = "Zigerion";
 
+    /**
+     * A value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
+     */
     static final String COLUMN_VALUE_TYPE_ZOMBODIAN = "Zombodian";
 
     /**
@@ -1498,6 +2002,10 @@ public class Character extends _BaseEntity {
     }
 
     // ---------------------------------------------------------------------------------------------------------- gender
+
+    /**
+     * The name of the table column to which the {@link Character_#GENDER} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_GENDER = "gender";
 
     /**
