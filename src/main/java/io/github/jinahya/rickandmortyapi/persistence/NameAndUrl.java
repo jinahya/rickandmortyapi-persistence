@@ -45,10 +45,9 @@ public class NameAndUrl {
      * @return a new instance of {@code name} and {@code url}.
      */
     public static NameAndUrl of(@Nonnull final String name, @Nullable final URL url) {
-        final var instance = new NameAndUrl();
-        instance.setName(name);
-        instance.setUrl(url);
-        return instance;
+        return new NameAndUrl()
+                .name(name)
+                .url(url);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -98,6 +97,11 @@ public class NameAndUrl {
         this.name = name;
     }
 
+    NameAndUrl name(final String name) {
+        setName(name);
+        return this;
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
@@ -112,6 +116,11 @@ public class NameAndUrl {
 
     void setUrl(@Nullable final URL url) {
         this.url = url;
+    }
+
+    NameAndUrl url(@Nullable final URL url) {
+        setUrl(url);
+        return this;
     }
 
     // -----------------------------------------------------------------------------------------------------------------

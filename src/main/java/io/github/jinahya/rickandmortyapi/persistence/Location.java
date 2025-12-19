@@ -953,14 +953,7 @@ public class Location extends _BaseEntity {
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_CREATED = "created";
 
-    // -------------------------------------------------------------------------------------------------------- BUILDERS
-
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
-    static Location of(final int id) {
-        final var location = new Location();
-        location.setId(id);
-        return location;
-    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
@@ -1005,6 +998,11 @@ public class Location extends _BaseEntity {
 
     void setId(final Integer id) {
         this.id = id;
+    }
+
+    Location id(final Integer id) {
+        setId(id);
+        return this;
     }
 
     // ------------------------------------------------------------------------------------------------------------ name

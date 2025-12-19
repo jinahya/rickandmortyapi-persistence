@@ -16,6 +16,7 @@ import java.util.Optional;
  * An entity class for mapping {@value EpisodeCharacter#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @see EpisodeCharacterId
  */
 @Entity
 @Table(name = EpisodeCharacter.TABLE_NAME)
