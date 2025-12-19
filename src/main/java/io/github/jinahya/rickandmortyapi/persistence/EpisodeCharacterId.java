@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Positive;
 import java.util.Objects;
 
 /**
- * The primary key class for {@link EpisodeCharacter}.
+ * The primary key class for {@link EpisodeCharacter} entity class.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
