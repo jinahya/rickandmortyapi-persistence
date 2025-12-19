@@ -22,7 +22,7 @@ public class InstantConverter extends _BaseConverter<Instant> {
     /**
      * Creates a new instance.
      */
-    public InstantConverter() {
+    InstantConverter() {
         super(Instant::parse);
     }
 }

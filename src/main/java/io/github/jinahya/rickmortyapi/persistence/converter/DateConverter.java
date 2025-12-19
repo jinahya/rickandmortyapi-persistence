@@ -23,7 +23,7 @@ public class DateConverter extends _BaseConverter<LocalDate> {
     /**
      * Creates a new instance.
      */
-    public DateConverter() {
+    DateConverter() {
         super(dd -> LocalDate.parse(dd, FORMATTER));
     }
 }

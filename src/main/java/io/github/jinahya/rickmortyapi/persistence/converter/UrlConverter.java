@@ -14,7 +14,7 @@ public class UrlConverter extends _BaseConverter<URL> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     //    protected
-    public UrlConverter() {
+    UrlConverter() {
         super(dd -> {
             try {
                 return URI.create(dd).toURL();
