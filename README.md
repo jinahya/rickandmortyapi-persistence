@@ -7,3 +7,8 @@
 [![javadoc](https://javadoc.io/badge2/io.github.jinahya/rickandmortyapi-persistence/javadoc.svg)](https://javadoc.io/doc/io.github.jinahya/rickandmortyapi-persistence)
 
 A persistence module for the [rickandmortyapi-db](https://github.com/jinahya/rickandmortyapi-db).
+
+See
+
+* [rickandmortyapi-db](https://github.com/jinahya/rickandmortyapi-db)
+* [rickandmortyapi-spring-data-rest](https://github.com/jinahya/rickandmortyapi-spring-data-rest)
