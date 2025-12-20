@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Positive;
 import java.util.Objects;
 
 /**
- * The primary key class for {@link EpisodeCharacter}.
+ * The primary key class for {@link EpisodeCharacter} entity class.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
@@ -35,15 +35,15 @@ public class EpisodeCharacterId {
     /**
      * Creates a new instance with specified values.
      *
-     * @param episodeId   a value for the {@value #ATTRIBUTE_NAME_EPISODE_ID} attribute.
-     * @param characterId a value for the {@value #ATTRIBUTE_NAME_CHARACTER_ID} attribute.
+     * @param episodeId   a value for the {@value EpisodeCharacterId_#EPISODE_ID} attribute.
+     * @param characterId a value for the {@value EpisodeCharacterId_#CHARACTER_ID} attribute.
      * @return a new instance of {@code characterId} and {@code episodeId}
      */
     public static EpisodeCharacterId of(final Integer episodeId, final Integer characterId) {
-        final var instance = new EpisodeCharacterId();
-        instance.setEpisodeId(episodeId);
-        instance.setCharacterId(characterId);
-        return instance;
+        return new EpisodeCharacterId()
+                .episodeId(episodeId)
+                .characterId(characterId)
+                ;
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
@@ -85,6 +85,11 @@ public class EpisodeCharacterId {
         this.episodeId = episodeId;
     }
 
+    EpisodeCharacterId episodeId(final Integer episodeId) {
+        setEpisodeId(episodeId);
+        return this;
+    }
+
     // ----------------------------------------------------------------------------------------------------- characterId
     public Integer getCharacterId() {
         return characterId;
@@ -92,6 +97,11 @@ public class EpisodeCharacterId {
 
     void setCharacterId(final Integer characterId) {
         this.characterId = characterId;
+    }
+
+    EpisodeCharacterId characterId(final Integer characterId) {
+        setCharacterId(characterId);
+        return this;
     }
 
     // -----------------------------------------------------------------------------------------------------------------

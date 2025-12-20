@@ -40,8 +40,8 @@ public class NameAndUrl {
     /**
      * Creates a new instance with specified values.
      *
-     * @param name a value for {@value NameAndUrl_#NAME} attribute.
-     * @param url  a value for {@value NameAndUrl_#URL} attribute.
+     * @param name a value for the {@value NameAndUrl_#NAME} attribute.
+     * @param url  a value for the {@value NameAndUrl_#URL} attribute.
      * @return a new instance of {@code name} and {@code url}.
      */
     public static NameAndUrl of(@Nonnull final String name, @Nullable final URL url) {
