@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-final class __JakartaValidationTestUtils {
+final class __JakartaValidation_TestUtils {
 
     private static <R> R applyValidator_(final Function<? super ValidatorFactory, ? extends R> function) {
         Objects.requireNonNull(function, "function is null");
@@ -44,7 +44,7 @@ final class __JakartaValidationTestUtils {
         return object;
     }
 
-    private __JakartaValidationTestUtils() {
+    private __JakartaValidation_TestUtils() {
         throw new AssertionError("instantiation is not allowed");
     }
 }

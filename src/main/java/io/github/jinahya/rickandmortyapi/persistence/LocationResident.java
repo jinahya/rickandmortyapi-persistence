@@ -27,6 +27,10 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance.
+     */
     protected LocationResident() {
         super();
     }
