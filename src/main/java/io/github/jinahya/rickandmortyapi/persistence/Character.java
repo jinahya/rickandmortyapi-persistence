@@ -164,7 +164,7 @@ public class Character extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_SPECIES = "species";
 
     /**
-     * A column value of {@value} for the {@link #COLUMN_NAME_SPECIES} column.
+     * A column value of {@value} for the {@value #COLUMN_NAME_SPECIES} column.
      */
     public static final String COLUMN_VALUE_SPECIES_ALIEN = "Alien";
 
