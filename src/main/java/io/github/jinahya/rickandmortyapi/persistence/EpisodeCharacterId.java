@@ -6,6 +6,9 @@ import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -14,7 +17,14 @@ import java.util.Objects;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Embeddable
-public class EpisodeCharacterId {
+public class EpisodeCharacterId
+        extends __Base
+        // just for the Spring Data REST
+        implements Serializable,
+                   Comparable<EpisodeCharacterId> {
+
+    @Serial
+    private static final long serialVersionUID = 6146625147536147511L;
 
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
@@ -29,6 +39,11 @@ public class EpisodeCharacterId {
     public static final String ATTRIBUTE_NAME_CHARACTER_ID = "characterId";
 
     public static final String ATTRIBUTE_NAME_CHARACTER = "character";
+
+    // -----------------------------------------------------------------------------------------------------------------
+    private static final Comparator<EpisodeCharacterId> COMPARATOR =
+            Comparator.comparing(EpisodeCharacterId::getEpisodeId)
+                    .thenComparing(EpisodeCharacterId::getCharacterId);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -59,8 +74,8 @@ public class EpisodeCharacterId {
     @Override
     public String toString() {
         return super.toString() + '{' +
-               "id=" + episodeId +
-               ",name=" + characterId +
+               "episodeId=" + episodeId +
+               ",characterId=" + characterId +
                '}';
     }
 
@@ -74,6 +89,13 @@ public class EpisodeCharacterId {
     @Override
     public final int hashCode() {
         return Objects.hash(episodeId, characterId);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public int compareTo(final EpisodeCharacterId o) {
+        return COMPARATOR.compare(this, o);
     }
 
     // ------------------------------------------------------------------------------------------------------- episodeId

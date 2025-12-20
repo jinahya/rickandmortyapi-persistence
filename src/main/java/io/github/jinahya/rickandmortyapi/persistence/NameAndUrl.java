@@ -23,7 +23,7 @@ import java.util.Objects;
  */
 @Embeddable
 @MappedSuperclass
-public class NameAndUrl {
+public class NameAndUrl extends __Base {
 
     // -----------------------------------------------------------------------------------------------------------------
     private static final String COLUMN_NAME_NAME = "name";

@@ -18,7 +18,7 @@ import java.util.function.Function;
 @SuppressWarnings({
         "java:S119" // Type parameter names should comply with a naming convention
 })
-abstract class __Base_PersistenceTest<T> {
+abstract class __Base_PersistenceTest<T extends __Base> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
