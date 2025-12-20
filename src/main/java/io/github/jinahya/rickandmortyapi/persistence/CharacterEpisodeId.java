@@ -82,7 +82,7 @@ public class CharacterEpisodeId
 
     @Override
     public int compareTo(final CharacterEpisodeId o) {
-        return COMPARATOR.compare(this, o);
+        return COMPARATOR.compare(this, Objects.requireNonNull(o, "o is null"));
     }
 
     // -----------------------------------------------------------------------------------------------------------------
