@@ -6,6 +6,9 @@ import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -15,7 +18,19 @@ import java.util.Optional;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Embeddable
-public class LocationResidentId {
+public class LocationResidentId
+        extends __Base
+        // just for the Spring Data REST
+        implements Serializable,
+                   Comparable<LocationResidentId> {
+
+    @Serial
+    private static final long serialVersionUID = 6274001621614009840L;
+
+    // -----------------------------------------------------------------------------------------------------------------
+    private static final Comparator<LocationResidentId> COMPARATOR =
+            Comparator.comparing(LocationResidentId::getLocationId)
+                    .thenComparing(LocationResidentId::getResidentId);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -84,6 +99,13 @@ public class LocationResidentId {
     @Override
     public final int hashCode() {
         return Objects.hash(locationId, residentId);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public int compareTo(final LocationResidentId o) {
+        return COMPARATOR.compare(this, o);
     }
 
     // ------------------------------------------------------------------------------------------------------ locationId

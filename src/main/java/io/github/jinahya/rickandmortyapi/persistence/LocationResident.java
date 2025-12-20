@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Entity
 @Table(name = LocationResident.TABLE_NAME)
-public class LocationResident extends _BaseEntity {
+public class LocationResident extends _BaseEntity<LocationResidentId> {
 
     public static final String TABLE_NAME = "location_resident";
 

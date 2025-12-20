@@ -12,7 +12,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-abstract class __Base_Test<T> {
+abstract class __Base_Test<T extends __Base> {
 
     __Base_Test(final Class<T> typeClass) {
         super();

@@ -6,6 +6,9 @@ import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -14,7 +17,19 @@ import java.util.Objects;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Embeddable
-public class CharacterEpisodeId {
+public class CharacterEpisodeId
+        extends __Base
+        // just for the Spring Data REST
+        implements Serializable,
+                   Comparable<CharacterEpisodeId> {
+
+    @Serial
+    private static final long serialVersionUID = -8363987227830143686L;
+
+    // -----------------------------------------------------------------------------------------------------------------
+    private static final Comparator<CharacterEpisodeId> COMPARATOR =
+            Comparator.comparing(CharacterEpisodeId::getCharacterId)
+                    .thenComparing(CharacterEpisodeId::getEpisodeId);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -26,10 +41,9 @@ public class CharacterEpisodeId {
      * @return a new instance of {@code characterId} and {@code episodeId}
      */
     public static CharacterEpisodeId of(final Integer characterId, final Integer episodeId) {
-        final var instance = new CharacterEpisodeId();
-        instance.setCharacterId(characterId);
-        instance.setEpisodeId(episodeId);
-        return instance;
+        return new CharacterEpisodeId()
+                .characterId(characterId)
+                .episodeId(episodeId);
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
@@ -45,8 +59,8 @@ public class CharacterEpisodeId {
     @Override
     public String toString() {
         return super.toString() + '{' +
-               "id=" + characterId +
-               ",name=" + episodeId +
+               "characterId=" + characterId +
+               ",episodeId=" + episodeId +
                '}';
     }
 
@@ -66,6 +80,13 @@ public class CharacterEpisodeId {
 
     // -----------------------------------------------------------------------------------------------------------------
 
+    @Override
+    public int compareTo(final CharacterEpisodeId o) {
+        return COMPARATOR.compare(this, o);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
     /**
      * Returns current value of {@value CharacterEpisodeId_#CHARACTER_ID} attribute.
      *
@@ -77,6 +98,11 @@ public class CharacterEpisodeId {
 
     void setCharacterId(final Integer characterId) {
         this.characterId = characterId;
+    }
+
+    CharacterEpisodeId characterId(final Integer characterId) {
+        setCharacterId(characterId);
+        return this;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -92,6 +118,11 @@ public class CharacterEpisodeId {
 
     void setEpisodeId(final Integer episodeId) {
         this.episodeId = episodeId;
+    }
+
+    CharacterEpisodeId episodeId(final Integer episodeId) {
+        setEpisodeId(episodeId);
+        return this;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
