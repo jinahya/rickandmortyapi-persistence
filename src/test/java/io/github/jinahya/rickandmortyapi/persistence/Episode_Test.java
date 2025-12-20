@@ -3,12 +3,14 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,6 +20,19 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
     static final Episode RED = Episode.of(1);
 
     static final Episode BLUE = Episode.of(2);
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @Nested
+    class EpisodeOf_Test {
+
+        @Test
+        void __() {
+            final var seasonNumber = ThreadLocalRandom.current().nextInt(1, 100);
+            final var episodeNumber = ThreadLocalRandom.current().nextInt(1, 100);
+            final var episode = Episode.episodeOf(seasonNumber, episodeNumber);
+            assertThat(episode).isNotNull().matches(Episode.PATTERN_EPISODE);
+        }
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
     Episode_Test() {

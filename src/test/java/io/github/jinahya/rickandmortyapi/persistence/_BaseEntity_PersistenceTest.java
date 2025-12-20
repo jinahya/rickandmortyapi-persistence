@@ -37,7 +37,7 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID> e
     @Test
     void selectAll__() {
         applyEntityManager(em -> {
-            final var entityList = __JakartaPersistenceTestUtils.selectAll(em, entityClass);
+            final var entityList = __JakartaPersistence_TestUtils.selectAll(em, entityClass);
             selectAll__(em, entityList);
             return entityList;
         });
@@ -56,7 +56,7 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID> e
                 .doesNotContainNull()
                 .doesNotHaveDuplicates()
                 .allSatisfy(e -> {
-                    __JakartaValidationTestUtils.requireValid(e);
+                    __JakartaValidation_TestUtils.requireValid(e);
                 });
     }
 

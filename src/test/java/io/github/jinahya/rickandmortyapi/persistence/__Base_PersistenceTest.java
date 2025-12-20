@@ -39,10 +39,10 @@ abstract class __Base_PersistenceTest<T extends __Base> {
      * @param function the function.
      * @param <R>      result type parameter
      * @return the result of the {@code function}.
-     * @see __JakartaPersistenceTestUtils#applyEntityManager(EntityManagerFactory, Function)
+     * @see __JakartaPersistence_TestUtils#applyEntityManager(EntityManagerFactory, Function)
      */
     final <R> R applyEntityManager(final @Nonnull Function<? super EntityManager, ? extends R> function) {
-        return __JakartaPersistenceTestUtils.applyEntityManager(entityManagerFactory, function);
+        return __JakartaPersistence_TestUtils.applyEntityManager(entityManagerFactory, function);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

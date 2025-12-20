@@ -92,7 +92,6 @@ public class EpisodeCharacterId
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-
     @Override
     public int compareTo(final EpisodeCharacterId o) {
         return COMPARATOR.compare(this, Objects.requireNonNull(o, "o is null"));

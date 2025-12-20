@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-final class __JakartaPersistenceTestUtils {
+final class __JakartaPersistence_TestUtils {
 
     private static final Map<Class<?>, String> ENTITY_NAMES = new ConcurrentHashMap<>();
 
@@ -74,7 +74,7 @@ final class __JakartaPersistenceTestUtils {
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    private __JakartaPersistenceTestUtils() {
+    private __JakartaPersistence_TestUtils() {
         throw new AssertionError("instantiation is not allowed");
     }
 }

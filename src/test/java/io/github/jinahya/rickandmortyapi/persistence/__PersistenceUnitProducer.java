@@ -47,11 +47,6 @@ public class __PersistenceUnitProducer {
     public EntityManagerFactory produceItEntityManagerFactory() {
         final var entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         logger.log(System.Logger.Level.TRACE, "entity manager factory created: {0}", entityManagerFactory);
-        if (false) {
-//            __PersistenceProducer_TestUtils.assertSchemagenDatabaseActionNone(entityManagerFactory);
-//            __PersistenceProducer_TestUtils.assertEclipselinkDdlGenerationNone(entityManagerFactory);
-//            __PersistenceProducer_TestUtils.assertHibernateHbm2ddlAutoNone(entityManagerFactory);
-        }
         logger.log(
                 System.Logger.Level.DEBUG,
                 "producing entity manager factory: {0}",
