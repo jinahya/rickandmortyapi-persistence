@@ -10,7 +10,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Objects;
-import java.util.Optional;
 
 /**
  * The primary key class for {@link LocationResident}.
@@ -46,25 +45,6 @@ public class LocationResidentId
                 .locationId(locationId)
                 .residentId(residentId)
                 ;
-    }
-
-    /**
-     * Creates a new instance with specified values' identifiers.
-     *
-     * @param location a location for the {@value LocationResidentId_#LOCATION_ID} attribute.
-     * @param resident a resident for the {@value LocationResidentId_#RESIDENT_ID} attribute.
-     * @return a new instance of {@code character.id} and {@code episode.id}
-     * @see #of(Integer, Integer)
-     */
-    public static LocationResidentId of(final Location location, final Character resident) {
-        return of(
-                Optional.ofNullable(location)
-                        .map(Location::getId)
-                        .orElse(null),
-                Optional.ofNullable(resident)
-                        .map(Character::getId)
-                        .orElse(null)
-        );
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
@@ -105,7 +85,7 @@ public class LocationResidentId
 
     @Override
     public int compareTo(final LocationResidentId o) {
-        return COMPARATOR.compare(this, o);
+        return COMPARATOR.compare(this, Objects.requireNonNull(o, "o is null"));
     }
 
     // ------------------------------------------------------------------------------------------------------ locationId
@@ -128,14 +108,6 @@ public class LocationResidentId
         return this;
     }
 
-//    LocationResidentId location(final Location location) {
-//        return locationId(
-//                Optional.ofNullable(location)
-//                        .map(Location::getId)
-//                        .orElse(null)
-//        );
-//    }
-
     // ------------------------------------------------------------------------------------------------------ residentId
 
     /**
@@ -155,14 +127,6 @@ public class LocationResidentId
         setResidentId(residentId);
         return this;
     }
-
-//    LocationResidentId resident(final Character resident) {
-//        return residentId(
-//                Optional.ofNullable(resident)
-//                        .map(Character::getId)
-//                        .orElse(null)
-//        );
-//    }
 
     // -----------------------------------------------------------------------------------------------------------------
     @Positive
