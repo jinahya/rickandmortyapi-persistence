@@ -104,7 +104,7 @@ public class Episode extends _BaseEntity<Integer> {
 
     static final String FORMAT_EPISODE = "S%02dE%02d";
 
-    static String formatEpisode(final int seasonNumber, final int episodeNumber) {
+    static String episodeOf(final int seasonNumber, final int episodeNumber) {
         if (seasonNumber < 1 || seasonNumber > 99) {
             throw new IllegalArgumentException("invalid seasonNumber: " + seasonNumber);
         }

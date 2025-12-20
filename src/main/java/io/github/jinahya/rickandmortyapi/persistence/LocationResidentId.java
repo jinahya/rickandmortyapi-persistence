@@ -81,8 +81,7 @@ public class LocationResidentId
         return Objects.hash(locationId, residentId);
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
-
+    // -------------------------------------------------------------------------------------------- java.lang.Comparable
     @Override
     public int compareTo(final LocationResidentId o) {
         return COMPARATOR.compare(this, Objects.requireNonNull(o, "o is null"));
