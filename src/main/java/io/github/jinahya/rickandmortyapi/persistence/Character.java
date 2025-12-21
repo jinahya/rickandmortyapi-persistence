@@ -2314,6 +2314,12 @@ public class Character extends _BaseEntity<Integer> {
     }
 
     // ----------------------------------------------------------------------------------------------------------- image
+
+    /**
+     * Returns current value of {@value Character_#IMAGE} attribute.
+     *
+     * @return current value of the {@value Character_#IMAGE} attribute.
+     */
     public URL getImage() {
         return image;
     }
