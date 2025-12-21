@@ -2314,11 +2314,11 @@ public class Character extends _BaseEntity<Integer> {
     }
 
     // ----------------------------------------------------------------------------------------------------------- image
-    public String getImage() {
+    public URL getImage() {
         return image;
     }
 
-    void setImage(final String image) {
+    void setImage(final URL image) {
         this.image = image;
     }
 
@@ -2505,10 +2505,11 @@ public class Character extends _BaseEntity<Integer> {
     )
     private NameAndUrl location;
 
-    @NotBlank
+    @NotNull
+    @Convert(converter = UrlConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_IMAGE, nullable = false, insertable = false, updatable = false, unique = true)
-    private String image;
+    private URL image;
 
     @NotNull
     @Convert(converter = UrlListConverter.class)
