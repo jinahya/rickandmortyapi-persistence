@@ -2033,22 +2033,22 @@ public class Character extends _BaseEntity<Integer> {
         /**
          * A constant for the {@value #COLUMN_VALUE_GENDER_FEMALE} column value.
          */
-        GENDER_FEMALE(COLUMN_VALUE_GENDER_FEMALE),
+        FEMALE(COLUMN_VALUE_GENDER_FEMALE),
 
         /**
          * A constant for the {@value #COLUMN_VALUE_GENDER_GENDERLESS} column value.
          */
-        GENDER_GENDERLESS(COLUMN_VALUE_GENDER_GENDERLESS),
+        GENDERLESS(COLUMN_VALUE_GENDER_GENDERLESS),
 
         /**
          * A constant for the {@value #COLUMN_VALUE_GENDER_MALE} column value.
          */
-        GENDER_MALE(COLUMN_VALUE_GENDER_MALE),
+        MALE(COLUMN_VALUE_GENDER_MALE),
 
         /**
          * A constant for the {@value #COLUMN_VALUE_GENDER_UNKNOWN} column value.
          */
-        GENDER_UNKNOWN(COLUMN_VALUE_GENDER_UNKNOWN);
+        UNKNOWN(COLUMN_VALUE_GENDER_UNKNOWN);
 
         /**
          * Returns the constants whose {@link #columnValue() columnValue} matches the specified {@code columnValue}.
