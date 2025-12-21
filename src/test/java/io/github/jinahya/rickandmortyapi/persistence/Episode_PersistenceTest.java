@@ -12,6 +12,7 @@ import org.junit.jupiter.api.TestInstance;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -45,21 +46,23 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
                         .doesNotHaveDuplicates()
                         .allSatisfy((Character c) -> {
                             // character.origin - location
-                            assertThat(c.getOrigin())
-                                    .as("episode(%d).characters_[%d].origin", e.getId(), c.getId())
-                                    .isNotNull()
-                                    .satisfies(o -> {
-                                        assertThat(o.getUrl() == null)
-                                                .isEqualTo(c.getOrigin_() == null);
-                                    });
+                            Optional.ofNullable(c.getOrigin()).ifPresent(v -> {
+                                assertThat(v)
+                                        .as("episode(%d).characters_[%d].origin", e.getId(), c.getId())
+                                        .satisfies(o -> {
+                                            assertThat(o.getUrl() == null)
+                                                    .isEqualTo(c.getOrigin_() == null);
+                                        });
+                            });
                             // character.location - location
-                            assertThat(c.getLocation())
-                                    .as("episode(%d).characters_[%d].location", e.getId(), c.getId())
-                                    .isNotNull()
-                                    .satisfies(l -> {
-                                        assertThat(l.getUrl() == null)
-                                                .isEqualTo(c.getLocation_() == null);
-                                    });
+                            Optional.ofNullable(c.getLocation()).ifPresent(v -> {
+                                assertThat(v)
+                                        .as("episode(%d).characters_[%d].location", e.getId(), c.getId())
+                                        .satisfies(l -> {
+                                            assertThat(l.getUrl() == null)
+                                                    .isEqualTo(c.getLocation_() == null);
+                                        });
+                            });
                             // character.location_
                             assertThat(c.getLocation_())
                                     .as("episode(%d).characters_[%d].location_", e.getId(), c.getId())

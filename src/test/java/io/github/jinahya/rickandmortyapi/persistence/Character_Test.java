@@ -5,9 +5,9 @@ import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 
 class Character_Test extends _BaseEntity_Test<Character, Integer> {
 
-    static final Character RED = Character.of(1);
+    static final Character RED = new Character().id(1);
 
-    static final Character BLUE = Character.of(2);
+    static final Character BLUE = new Character().id(2);
 
     // -----------------------------------------------------------------------------------------------------------------
     Character_Test() {

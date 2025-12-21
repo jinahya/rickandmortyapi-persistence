@@ -17,9 +17,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
 
-    static final Episode RED = Episode.of(1);
+    static final Episode RED = new Episode().id(1);
 
-    static final Episode BLUE = Episode.of(2);
+    static final Episode BLUE = new Episode().id(2);
 
     // -----------------------------------------------------------------------------------------------------------------
     @Nested

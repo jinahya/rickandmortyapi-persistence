@@ -134,11 +134,6 @@ public class Episode extends _BaseEntity<Integer> {
     public static final Comparator<Episode> COMPARING_AIR_DATE_ISO_ = Comparator.comparing(Episode::getAirDateIso_);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
-    public static Episode of(final int id) {
-        final var episode = new Episode();
-        episode.setId(id);
-        return episode;
-    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
@@ -190,6 +185,11 @@ public class Episode extends _BaseEntity<Integer> {
 
     void setId(final Integer id) {
         this.id = id;
+    }
+
+    Episode id(final Integer id) {
+        setId(id);
+        return this;
     }
 
     // ------------------------------------------------------------------------------------------------------------ name
@@ -361,7 +361,8 @@ public class Episode extends _BaseEntity<Integer> {
     @Column(name = COLUMN_NAME_EPISODE,
             nullable = false,
             insertable = false,
-            updatable = false
+            updatable = false,
+            unique = true
     )
     @SuppressWarnings({
             "java:S1700" // A field should not duplicate the name of its containing class
@@ -385,7 +386,8 @@ public class Episode extends _BaseEntity<Integer> {
     @Column(name = COLUMN_NAME_URL,
             nullable = false,
             insertable = false,
-            updatable = false
+            updatable = false,
+            unique = true
     )
     private URL url;
 

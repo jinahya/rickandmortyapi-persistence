@@ -19,8 +19,7 @@ import java.util.Objects;
 @Embeddable
 public class CharacterEpisodeId
         extends __Base
-        // just for the Spring Data REST
-        implements Serializable,
+        implements Serializable, // just for the Spring Data REST
                    Comparable<CharacterEpisodeId> {
 
     @Serial
@@ -78,8 +77,7 @@ public class CharacterEpisodeId
         return Objects.hash(characterId, episodeId);
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
-
+    // -------------------------------------------------------------------------------------------- java.lang.Comparable
     @Override
     public int compareTo(final CharacterEpisodeId o) {
         return COMPARATOR.compare(this, Objects.requireNonNull(o, "o is null"));
@@ -129,13 +127,21 @@ public class CharacterEpisodeId
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = CharacterEpisode.COLUMN_NAME_CHARACTER_ID, nullable = false, insertable = false, updatable = false)
+    @Column(name = CharacterEpisode.COLUMN_NAME_CHARACTER_ID,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private Integer characterId;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = CharacterEpisode.COLUMN_NAME_EPISODE_ID, nullable = false, insertable = false, updatable = false)
+    @Column(name = CharacterEpisode.COLUMN_NAME_EPISODE_ID,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private Integer episodeId;
 }

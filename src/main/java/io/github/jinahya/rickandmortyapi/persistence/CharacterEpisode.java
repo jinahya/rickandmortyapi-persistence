@@ -31,12 +31,17 @@ public class CharacterEpisode
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@value CharacterEpisode_#CHARACTER_ID} attribute maps. The value is
+     * The name of the table column to which the {@value CharacterEpisode_#CHARACTER} attribute maps. The value is
      * {@value}.
      */
     public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value CharacterEpisode_#EPISODE} attribute maps. The value is
+     * {@value}.
+     */
     public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -72,6 +77,12 @@ public class CharacterEpisode
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * Returns current value of {@value CharacterEpisode_#ID} attribute.
+     *
+     * @return current value of the {@value CharacterEpisode_#ID} attribute.
+     */
     public CharacterEpisodeId getId() {
         return id;
     }
@@ -88,9 +99,9 @@ public class CharacterEpisode
     // ------------------------------------------------------------------------------------------------------- character
 
     /**
-     * Returns current value of {@value CharacterEpisode_#CHARACTER} attribute.
+     * Returns current value of {@value CharacterEpisode_#EPISODE} attribute.
      *
-     * @return current value of the {@value CharacterEpisode_#CHARACTER} attribute.
+     * @return current value of the {@value CharacterEpisode_#EPISODE} attribute.
      */
     public Character getCharacter() {
         return character;

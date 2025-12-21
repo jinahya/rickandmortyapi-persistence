@@ -2166,9 +2166,6 @@ public class Character extends _BaseEntity<Integer> {
     public static final String ATTRIBUTE_NAME_LOCATION_ = "location_";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
-    static Character of(final int id) {
-        return new Character().id(id);
-    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
@@ -2470,38 +2467,38 @@ public class Character extends _BaseEntity<Integer> {
     )
     private Gender gender;
 
+    @Nullable
     @Valid
-    @NotNull
     @Embedded
     @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_NAME,
                        column = @Column(name = COLUMN_NAME_ORIGIN_NAME,
-                                        nullable = false,
+                                        nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
     @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_URL,
                        column = @Column(name = COLUMN_NAME_ORIGIN_URL,
-                                        nullable = false,
+                                        nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
     private NameAndUrl origin;
 
+    @Nullable
     @Valid
-    @NotNull
     @Embedded
     @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_NAME,
                        column = @Column(name = COLUMN_NAME_LOCATION_NAME,
-                                        nullable = false,
+                                        nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
     @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_URL,
                        column = @Column(name = COLUMN_NAME_LOCATION_URL,
-                                        nullable = false,
+                                        nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
@@ -2510,7 +2507,7 @@ public class Character extends _BaseEntity<Integer> {
 
     @NotBlank
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_IMAGE, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_IMAGE, nullable = false, insertable = false, updatable = false, unique = true)
     private String image;
 
     @NotNull
@@ -2519,11 +2516,10 @@ public class Character extends _BaseEntity<Integer> {
     @Column(name = COLUMN_NAME_EPISODE, nullable = false, insertable = false, updatable = false)
     private List<@NotNull URL> episode;
 
-    // -----------------------------------------------------------------------------------------------------------------
     @NotNull
     @Convert(converter = UrlConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false, unique = true)
     private URL url;
 
     @Past

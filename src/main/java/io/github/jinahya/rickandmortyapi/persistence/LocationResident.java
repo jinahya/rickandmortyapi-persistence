@@ -112,13 +112,23 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
     @Valid
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = COLUMN_NAME_LOCATION_ID, nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = COLUMN_NAME_LOCATION_ID,
+                referencedColumnName = Location.COLUMN_NAME_ID,
+                nullable = false,
+                insertable = false,
+                updatable = false
+    )
     private Location location;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Valid
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = COLUMN_NAME_RESIDENT_ID, nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = COLUMN_NAME_RESIDENT_ID,
+                referencedColumnName = Character.COLUMN_NAME_ID,
+                nullable = false,
+                insertable = false,
+                updatable = false
+    )
     private Character resident;
 }
