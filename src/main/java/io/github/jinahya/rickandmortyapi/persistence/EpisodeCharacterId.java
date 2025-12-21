@@ -29,16 +29,8 @@ public class EpisodeCharacterId
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
 
-    public static final String ATTRIBUTE_NAME_EPISODE_ID = "episodeId";
-
-    public static final String ATTRIBUTE_NAME_EPISODE = "episode";
-
     // -----------------------------------------------------------------------------------------------------------------
     public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
-
-    public static final String ATTRIBUTE_NAME_CHARACTER_ID = "characterId";
-
-    public static final String ATTRIBUTE_NAME_CHARACTER = "character";
 
     // -----------------------------------------------------------------------------------------------------------------
     private static final Comparator<EpisodeCharacterId> COMPARATOR =
@@ -129,7 +121,8 @@ public class EpisodeCharacterId
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_EPISODE_ID, nullable = false,
+    @Column(name = EpisodeCharacter.COLUMN_NAME_EPISODE_ID,
+            nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink
             updatable = false
@@ -140,7 +133,7 @@ public class EpisodeCharacterId
     @Positive
     @NotNull
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_CHARACTER_ID,
+    @Column(name = EpisodeCharacter.COLUMN_NAME_CHARACTER_ID,
             nullable = false,
 //            insertable = false,
             insertable = true, // eclipselink

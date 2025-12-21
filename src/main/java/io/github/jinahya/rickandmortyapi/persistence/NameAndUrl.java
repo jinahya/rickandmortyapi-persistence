@@ -9,6 +9,7 @@ import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import java.net.URL;
 import java.util.Objects;
@@ -124,9 +125,10 @@ public class NameAndUrl extends __Base {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @NotBlank
-    @Basic(optional = false)
-    @Column(name = COLUMN_NAME_NAME, nullable = false, insertable = false, updatable = false)
+    @Nullable
+    @Size(min = 1)
+    @Basic(optional = true)
+    @Column(name = COLUMN_NAME_NAME, nullable = true, insertable = false, updatable = false)
     private String name;
 
     @Nullable

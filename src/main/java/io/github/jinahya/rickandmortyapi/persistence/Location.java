@@ -1144,7 +1144,8 @@ public class Location extends _BaseEntity<Integer> {
     @Column(name = COLUMN_NAME_URL,
             nullable = false,
             insertable = false,
-            updatable = false
+            updatable = false,
+            unique = true
     )
     private URL url;
 

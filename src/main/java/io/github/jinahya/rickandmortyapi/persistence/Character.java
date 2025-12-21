@@ -2033,22 +2033,22 @@ public class Character extends _BaseEntity<Integer> {
         /**
          * A constant for the {@value #COLUMN_VALUE_GENDER_FEMALE} column value.
          */
-        GENDER_FEMALE(COLUMN_VALUE_GENDER_FEMALE),
+        FEMALE(COLUMN_VALUE_GENDER_FEMALE),
 
         /**
          * A constant for the {@value #COLUMN_VALUE_GENDER_GENDERLESS} column value.
          */
-        GENDER_GENDERLESS(COLUMN_VALUE_GENDER_GENDERLESS),
+        GENDERLESS(COLUMN_VALUE_GENDER_GENDERLESS),
 
         /**
          * A constant for the {@value #COLUMN_VALUE_GENDER_MALE} column value.
          */
-        GENDER_MALE(COLUMN_VALUE_GENDER_MALE),
+        MALE(COLUMN_VALUE_GENDER_MALE),
 
         /**
          * A constant for the {@value #COLUMN_VALUE_GENDER_UNKNOWN} column value.
          */
-        GENDER_UNKNOWN(COLUMN_VALUE_GENDER_UNKNOWN);
+        UNKNOWN(COLUMN_VALUE_GENDER_UNKNOWN);
 
         /**
          * Returns the constants whose {@link #columnValue() columnValue} matches the specified {@code columnValue}.
@@ -2166,9 +2166,6 @@ public class Character extends _BaseEntity<Integer> {
     public static final String ATTRIBUTE_NAME_LOCATION_ = "location_";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
-    static Character of(final int id) {
-        return new Character().id(id);
-    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
@@ -2317,11 +2314,17 @@ public class Character extends _BaseEntity<Integer> {
     }
 
     // ----------------------------------------------------------------------------------------------------------- image
-    public String getImage() {
+
+    /**
+     * Returns current value of {@value Character_#IMAGE} attribute.
+     *
+     * @return current value of the {@value Character_#IMAGE} attribute.
+     */
+    public URL getImage() {
         return image;
     }
 
-    void setImage(final String image) {
+    void setImage(final URL image) {
         this.image = image;
     }
 
@@ -2470,48 +2473,49 @@ public class Character extends _BaseEntity<Integer> {
     )
     private Gender gender;
 
+    @Nullable
     @Valid
-    @NotNull
     @Embedded
     @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_NAME,
                        column = @Column(name = COLUMN_NAME_ORIGIN_NAME,
-                                        nullable = false,
+                                        nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
     @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_URL,
                        column = @Column(name = COLUMN_NAME_ORIGIN_URL,
-                                        nullable = false,
+                                        nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
     private NameAndUrl origin;
 
+    @Nullable
     @Valid
-    @NotNull
     @Embedded
     @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_NAME,
                        column = @Column(name = COLUMN_NAME_LOCATION_NAME,
-                                        nullable = false,
+                                        nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
     @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_URL,
                        column = @Column(name = COLUMN_NAME_LOCATION_URL,
-                                        nullable = false,
+                                        nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
     private NameAndUrl location;
 
-    @NotBlank
+    @NotNull
+    @Convert(converter = UrlConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_IMAGE, nullable = false, insertable = false, updatable = false)
-    private String image;
+    @Column(name = COLUMN_NAME_IMAGE, nullable = false, insertable = false, updatable = false, unique = true)
+    private URL image;
 
     @NotNull
     @Convert(converter = UrlListConverter.class)
@@ -2519,11 +2523,10 @@ public class Character extends _BaseEntity<Integer> {
     @Column(name = COLUMN_NAME_EPISODE, nullable = false, insertable = false, updatable = false)
     private List<@NotNull URL> episode;
 
-    // -----------------------------------------------------------------------------------------------------------------
     @NotNull
     @Convert(converter = UrlConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false, unique = true)
     private URL url;
 
     @Past
