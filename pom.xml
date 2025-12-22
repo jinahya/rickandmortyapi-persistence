@@ -10,7 +10,7 @@
 
   <groupId>io.github.jinahya</groupId>
   <artifactId>rickandmortyapi-persistence</artifactId>
-  <version>0.0.7-SNAPSHOT</version>
+  <version>0.0.8-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>${project.artifactId}</name>
@@ -269,6 +269,11 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk-platform-logging</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

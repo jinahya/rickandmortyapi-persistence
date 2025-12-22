@@ -31,10 +31,22 @@ class Location_Test extends _BaseEntity_Test<Location, Integer> {
     }
 
     @Nested
+    class Type_Test {
+
+        @Test
+        void columnValue_NoNullsNorDuplicates_() {
+            assertThat(Arrays.stream(Location.Type.values()).map(Location.Type::columnValue))
+                    .isNotEmpty()
+                    .doesNotContainNull()
+                    .doesNotHaveDuplicates();
+        }
+    }
+
+    @Nested
     class Dimension_Test {
 
         @Test
-        void __() {
+        void columnValue_NoNullsNorDuplicates_() {
             assertThat(Arrays.stream(Location.Dimension.values()).map(Location.Dimension::columnValue))
                     .isNotEmpty()
                     .doesNotContainNull()

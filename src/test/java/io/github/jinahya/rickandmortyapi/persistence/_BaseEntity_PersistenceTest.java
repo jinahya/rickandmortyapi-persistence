@@ -1,6 +1,7 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.Root;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
 import org.jboss.weld.junit5.auto.WeldJunit5AutoExtension;
 import org.junit.jupiter.api.Test;
@@ -37,10 +38,22 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID> e
     @Test
     void selectAll__() {
         applyEntityManager(em -> {
-            final var entityList = __JakartaPersistence_TestUtils.selectAll(em, entityClass);
+            final var entityList = __JakartaPersistence_TestUtils.selectAll(
+                    em,
+                    entityClass,
+                    this::selectAll__
+            );
             selectAll__(em, entityList);
             return entityList;
         });
+    }
+
+    /**
+     * Gets notified from {@link #selectAll__()} method that the specified root is going to be selected.
+     *
+     * @param root the root of {@link #entityClass}.
+     */
+    void selectAll__(final Root<ENTITY> root) {
     }
 
     /**
