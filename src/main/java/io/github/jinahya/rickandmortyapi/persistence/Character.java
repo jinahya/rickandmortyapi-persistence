@@ -2538,6 +2538,7 @@ public class Character extends _BaseEntity<Integer> {
     @Valid
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_ORIGIN_ID_,
+                referencedColumnName = Location.COLUMN_NAME_ID,
                 nullable = true,
                 insertable = false,
                 updatable = false
@@ -2548,6 +2549,7 @@ public class Character extends _BaseEntity<Integer> {
     @Valid
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_LOCATION_ID_,
+                referencedColumnName = Location.COLUMN_NAME_ID,
                 nullable = true,
                 insertable = false,
                 updatable = false
