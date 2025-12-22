@@ -11,11 +11,10 @@ import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -38,7 +37,7 @@ import java.util.Optional;
  * @see EpisodeCharacter
  * @see Location
  */
-@NamedQuery(name = "Episode.SelectList__OrderByAirDateIso__Asc",
+@NamedQuery(name = "Episode.SelectList__OrderByAirDateIso_Asc",
             query = """
                     SELECT e
                     FROM Episode e
@@ -85,6 +84,10 @@ public class Episode extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_ID = "id";
 
     // ------------------------------------------------------------------------------------------------------------ name
+
+    /**
+     * The name of the table column to which the {@value Episode_#NAME} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_NAME = "name";
 
     // -------------------------------------------------------------------------------------------------------- air_date
@@ -106,6 +109,13 @@ public class Episode extends _BaseEntity<Integer> {
 
     static final String FORMAT_EPISODE = "S%02dE%02d";
 
+    /**
+     * Returns an episode string of the specified season and episode numbers.
+     *
+     * @param seasonNumber  the season number between {@code 1} and {@code 99}.
+     * @param episodeNumber the episode number between {@code 1} and {@code 99}.
+     * @return an episode string.
+     */
     static String episodeOf(final int seasonNumber, final int episodeNumber) {
         if (seasonNumber < 1 || seasonNumber > 99) {
             throw new IllegalArgumentException("invalid seasonNumber: " + seasonNumber);
@@ -232,6 +242,7 @@ public class Episode extends _BaseEntity<Integer> {
      *
      * @return the season number of this episode.
      */
+    @Transient
     public Integer getSeasonNumber() {
         return Optional.ofNullable(getEpisode())
                 .map(v -> {
@@ -250,6 +261,7 @@ public class Episode extends _BaseEntity<Integer> {
      *
      * @return the episode number of this episode.
      */
+    @Transient
     public Integer getEpisodeNumber() {
         return Optional.ofNullable(getEpisode())
                 .map(v -> {
@@ -381,7 +393,6 @@ public class Episode extends _BaseEntity<Integer> {
     )
     private List<@NotNull URL> characters;
 
-    // -----------------------------------------------------------------------------------------------------------------
     @NotNull
     @Convert(converter = UrlConverter.class)
     @Basic(optional = false)
@@ -434,5 +445,5 @@ public class Episode extends _BaseEntity<Integer> {
                 cascade = {
                 }
     )
-    private List<@Valid @NotNull Character> characters_; // List of characters who have been seen in the episode.
+    private List<@Valid @NotNull Character> characters_;
 }
