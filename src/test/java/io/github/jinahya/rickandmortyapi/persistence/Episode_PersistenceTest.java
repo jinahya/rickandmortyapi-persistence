@@ -29,6 +29,7 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
     @Override
     void selectAll__(final Root<Episode> root) {
         super.selectAll__(root);
+        final Fetch<Episode, Character> characters_Fetch = root.fetch(Episode_.characters_, JoinType.LEFT);
     }
 
     @Override
