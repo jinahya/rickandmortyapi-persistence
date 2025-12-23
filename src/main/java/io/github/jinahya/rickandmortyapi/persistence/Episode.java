@@ -105,22 +105,32 @@ public class Episode extends _BaseEntity<Integer> {
             REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER
     );
 
-    public static final java.util.regex.Pattern PATTERN_EPISODE = java.util.regex.Pattern.compile(REGEXP_EPISODE);
+    static final java.util.regex.Pattern PATTERN_EPISODE = java.util.regex.Pattern.compile(REGEXP_EPISODE);
 
     static final String FORMAT_EPISODE = "S%02dE%02d";
 
+    private static final int MIN_VALUE_SEASON_NUMBER = 1;
+
+    private static final int MAX_VALUE_SEASON_NUMBER = 99;
+
+    private static final int MIN_VALUE_EPISODE_NUMBER = MIN_VALUE_SEASON_NUMBER;
+
+    private static final int MAX_VALUE_EPISODE_NUMBER = MAX_VALUE_SEASON_NUMBER;
+
     /**
-     * Returns an episode string of the specified season and episode numbers.
+     * Returns a value for the {@value Episode_#EPISODE} attribute from the specified season and episode numbers.
      *
-     * @param seasonNumber  the season number between {@code 1} and {@code 99}.
-     * @param episodeNumber the episode number between {@code 1} and {@code 99}.
+     * @param seasonNumber  the season number between {@value #MIN_VALUE_SEASON_NUMBER} and
+     *                      {@value #MAX_VALUE_SEASON_NUMBER}.
+     * @param episodeNumber the episode number between {@value #MIN_VALUE_EPISODE_NUMBER} and
+     *                      {@value #MAX_VALUE_EPISODE_NUMBER}.
      * @return an episode string.
      */
-    static String episodeOf(final int seasonNumber, final int episodeNumber) {
-        if (seasonNumber < 1 || seasonNumber > 99) {
+    public static String episodeOf(final int seasonNumber, final int episodeNumber) {
+        if (seasonNumber < MIN_VALUE_SEASON_NUMBER || seasonNumber > MAX_VALUE_SEASON_NUMBER) {
             throw new IllegalArgumentException("invalid seasonNumber: " + seasonNumber);
         }
-        if (episodeNumber < 1 || episodeNumber > 99) {
+        if (episodeNumber < MIN_VALUE_EPISODE_NUMBER || episodeNumber > MAX_VALUE_EPISODE_NUMBER) {
             throw new IllegalArgumentException("invalid episodeNumber: " + episodeNumber);
         }
         return String.format(FORMAT_EPISODE, seasonNumber, episodeNumber);
@@ -238,9 +248,10 @@ public class Episode extends _BaseEntity<Integer> {
     }
 
     /**
-     * Returns the season number of this episode.
+     * Returns the season number parsed from current value of {@value Episode_#EPISODE} attribute.
      *
-     * @return the season number of this episode.
+     * @return the season number between {@value #MIN_VALUE_SEASON_NUMBER}, and {@value #MAX_VALUE_SEASON_NUMBER};
+     *         {@code null} if the current value of the {@value Episode_#EPISODE} attribute is {@code null}.
      */
     @Transient
     public Integer getSeasonNumber() {
@@ -257,9 +268,10 @@ public class Episode extends _BaseEntity<Integer> {
     }
 
     /**
-     * Returns the episode number of this episode.
+     * Returns an episode number parsed from current value of {@value Episode_#EPISODE} attribute.
      *
-     * @return the episode number of this episode.
+     * @return the episode number between {@value #MIN_VALUE_EPISODE_NUMBER}, and {@value #MAX_VALUE_EPISODE_NUMBER};
+     *         {@code null} if the current value of the {@value Episode_#EPISODE} attribute is {@code null}.
      */
     @Transient
     public Integer getEpisodeNumber() {
