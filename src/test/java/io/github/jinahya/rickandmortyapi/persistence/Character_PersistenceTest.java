@@ -111,7 +111,7 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
         });
     }
 
-    @DisplayName("both origin_name and origin_url columns are null -> origin attribute is null")
+    @DisplayName("both origin_name and origin_url columns are null -> origin(_) attribute is null")
     @ValueSource(ints = {
             // SELECT id
             // FROM character
@@ -120,18 +120,20 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
     })
     @ParameterizedTest
     void _originIsNull_BothOriginNameAndOriginUrlAreNull(final int id) {
-        // -------------------------------------------------------------------------------------------------------- when
-        final var found = applyEntityManager(em -> em.find(entityClass, id));
-        // -------------------------------------------------------------------------------------------------------- then
-        assertThat(found)
-                .isNotNull()
-                .satisfies(v -> {
-                    assertThat(v.getOrigin()).isNull();
-                })
-        ;
+        applyEntityManager(em -> {
+            final var found = em.find(entityClass, id);
+            assertThat(found)
+                    .isNotNull()
+                    .satisfies(v -> {
+                        assertThat(v.getOrigin()).isNull();
+                        assertThat(v.getOrigin_()).isNull();
+                    })
+            ;
+            return null;
+        });
     }
 
-    @DisplayName("both location_name and location_url columns are null -> location attribute is null")
+    @DisplayName("both location_name and location_url columns are null -> location(_) attribute is null")
     @ValueSource(ints = {
             // SELECT id
             // FROM character
@@ -140,14 +142,16 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
     })
     @ParameterizedTest
     void _locationIsNull_BothLocationNameAndLocationUrlAreNull(final int id) {
-        // -------------------------------------------------------------------------------------------------------- when
-        final var found = applyEntityManager(em -> em.find(entityClass, id));
-        // -------------------------------------------------------------------------------------------------------- then
-        assertThat(found)
-                .isNotNull()
-                .satisfies(v -> {
-                    assertThat(v.getLocation()).isNull();
-                })
-        ;
+        applyEntityManager(em -> {
+            final var found = em.find(entityClass, id);
+            assertThat(found)
+                    .isNotNull()
+                    .satisfies(v -> {
+                        assertThat(v.getLocation()).isNull();
+                        assertThat(v.getLocation_()).isNull();
+                    })
+            ;
+            return null;
+        });
     }
 }
