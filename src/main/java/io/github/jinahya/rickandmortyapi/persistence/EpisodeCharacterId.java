@@ -19,23 +19,21 @@ import java.util.Objects;
 @Embeddable
 public class EpisodeCharacterId
         extends __Base
-        // just for the Spring Data REST
-        implements Serializable,
+        implements Serializable, // just for the Spring Data REST
                    Comparable<EpisodeCharacterId> {
 
     @Serial
     private static final long serialVersionUID = 6146625147536147511L;
 
     // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
+    private static final Comparator<EpisodeCharacterId> COMPARING_EPISODE_ID =
+            Comparator.comparing(EpisodeCharacterId::getEpisodeId);
 
-    // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
+    private static final Comparator<EpisodeCharacterId> COMPARING_CHARACTER_ID =
+            Comparator.comparing(EpisodeCharacterId::getCharacterId);
 
-    // -----------------------------------------------------------------------------------------------------------------
     private static final Comparator<EpisodeCharacterId> COMPARATOR =
-            Comparator.comparing(EpisodeCharacterId::getEpisodeId)
-                    .thenComparing(EpisodeCharacterId::getCharacterId);
+            COMPARING_EPISODE_ID.thenComparing(COMPARING_CHARACTER_ID);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -73,7 +71,9 @@ public class EpisodeCharacterId
 
     @Override
     public final boolean equals(final Object obj) {
-        if (!(obj instanceof EpisodeCharacterId that)) return false;
+        if (!(obj instanceof EpisodeCharacterId that)) {
+            return false;
+        }
         return Objects.equals(episodeId, that.episodeId) &&
                Objects.equals(characterId, that.characterId);
     }

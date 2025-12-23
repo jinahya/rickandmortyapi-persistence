@@ -16,12 +16,24 @@ import java.util.Optional;
 @Table(name = LocationResident.TABLE_NAME)
 public class LocationResident extends _BaseEntity<LocationResidentId> {
 
+    /**
+     * The name of the database table to which this entity class maps. The value is {@value}.
+     */
     public static final String TABLE_NAME = "location_resident";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the database column to which {@link LocationResident#location} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_LOCATION_ID = "location_id";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the database column to which {@link LocationResident#resident} attribute maps. The value is
+     * {@value}.
+     */
     public static final String COLUMN_NAME_RESIDENT_ID = "resident_id";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -57,6 +69,12 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * Returns current value of {@value LocationResident_#ID} attribute.
+     *
+     * @return current value of the {@value LocationResident_#ID} attribute.
+     */
     public LocationResidentId getId() {
         return id;
     }
@@ -71,6 +89,12 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
     }
 
     // -------------------------------------------------------------------------------------------------------- location
+
+    /**
+     * Returns current value of {@value LocationResident_#LOCATION} attribute.
+     *
+     * @return current value of the {@value LocationResident_#LOCATION} attribute.
+     */
     public Location getLocation() {
         return location;
     }
@@ -83,10 +107,17 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
                         Optional.ofNullable(this.location)
                                 .map(Location::getId)
                                 .orElse(null)
-                );
+                )
+        ;
     }
 
     // -------------------------------------------------------------------------------------------------------- resident
+
+    /**
+     * Returns current value of {@value LocationResident_#RESIDENT} attribute.
+     *
+     * @return current value of the {@value LocationResident_#RESIDENT} attribute.
+     */
     public Character getResident() {
         return resident;
     }
@@ -99,7 +130,8 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
                         Optional.ofNullable(this.resident)
                                 .map(Character::getId)
                                 .orElse(null)
-                );
+                )
+        ;
     }
 
     // -----------------------------------------------------------------------------------------------------------------

@@ -99,9 +99,9 @@ public class CharacterEpisode
     // ------------------------------------------------------------------------------------------------------- character
 
     /**
-     * Returns current value of {@value CharacterEpisode_#EPISODE} attribute.
+     * Returns current value of {@value CharacterEpisode_#CHARACTER} attribute.
      *
-     * @return current value of the {@value CharacterEpisode_#EPISODE} attribute.
+     * @return current value of the {@value CharacterEpisode_#CHARACTER} attribute.
      */
     public Character getCharacter() {
         return character;
@@ -115,10 +115,17 @@ public class CharacterEpisode
                         Optional.ofNullable(this.character)
                                 .map(Character::getId)
                                 .orElse(null)
-                );
+                )
+        ;
     }
 
     // --------------------------------------------------------------------------------------------------------- episode
+
+    /**
+     * Returns current value of {@value CharacterEpisode_#EPISODE} attribute.
+     *
+     * @return current value of the {@value CharacterEpisode_#EPISODE} attribute.
+     */
     public Episode getEpisode() {
         return episode;
     }
@@ -131,7 +138,8 @@ public class CharacterEpisode
                         Optional.ofNullable(this.episode)
                                 .map(Episode::getId)
                                 .orElse(null)
-                );
+                )
+        ;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
