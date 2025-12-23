@@ -130,7 +130,7 @@ public class EpisodeCharacter extends _BaseEntity<EpisodeCharacterId> {
         this.character = character;
         Optional.ofNullable(getId())
                 .orElseGet(() -> id(new EpisodeCharacterId()).getId())
-                .setEpisodeId(
+                .setCharacterId(
                         Optional.ofNullable(this.character)
                                 .map(Character::getId)
                                 .orElse(null)

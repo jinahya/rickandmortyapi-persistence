@@ -95,7 +95,7 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
         this.resident = resident;
         Optional.ofNullable(getId())
                 .orElseGet(() -> id(new LocationResidentId()).getId())
-                .setLocationId(
+                .setResidentId(
                         Optional.ofNullable(this.resident)
                                 .map(Character::getId)
                                 .orElse(null)
