@@ -3,6 +3,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.Fetch;
 import jakarta.persistence.criteria.JoinType;
+import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.DisplayName;
@@ -25,6 +26,12 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+    @Override
+    void selectAll__(final Root<Episode> root) {
+        super.selectAll__(root);
+        final Fetch<Episode, Character> characters_Fetch = root.fetch(Episode_.characters_, JoinType.LEFT);
+    }
+
     @Override
     void selectAll__(final EntityManager entityManager, final List<Episode> entityList) {
         super.selectAll__(entityManager, entityList);
@@ -217,7 +224,7 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
     @DisplayName("SelectSingle_WhereEpisodeEqual_")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     @Nested
-    class SelectSingle_WhereEpisodeEqual__IT {
+    class SelectSingle_WhereEpisodeEqual__Test {
 
         @Test
         void NamedQuery__() {
@@ -266,7 +273,7 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
 
     @DisplayName("SelectList__OrderByIdAsc")
     @Nested
-    class SelectList__OrderByIdAsc_IT {
+    class SelectList__OrderByIdAsc_Test {
 
         @Test
         void NamedQuery__() {
@@ -305,7 +312,7 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
 
     @DisplayName("SelectList__OrderByEpisodeAsc")
     @Nested
-    class SelectList__OrderByEpisode_Asc_IT {
+    class SelectList__OrderByEpisodeAsc_Test {
 
         @Test
         void NamedQuery__() {
@@ -342,15 +349,15 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
         }
     }
 
-    @DisplayName("SelectList__OrderByAirDateIso__Asc")
+    @DisplayName("SelectList__OrderByAirDateIso_Asc")
     @Nested
-    class SelectList__OrderByIdAriDateIso__Asc_IT {
+    class SelectList__OrderByIdAriDateIso_Asc_Test {
 
         @Test
         void NamedQuery__() {
             // ---------------------------------------------------------------------------------------------------- when
             final List<Episode> result = applyEntityManager(em -> {
-                final var query = em.createNamedQuery("Episode.SelectList__OrderByAirDateIso__Asc", entityClass);
+                final var query = em.createNamedQuery("Episode.SelectList__OrderByAirDateIso_Asc", entityClass);
                 return query.getResultList();
             });
             // ---------------------------------------------------------------------------------------------------- then
