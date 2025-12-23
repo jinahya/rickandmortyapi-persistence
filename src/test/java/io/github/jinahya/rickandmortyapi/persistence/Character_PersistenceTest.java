@@ -12,6 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,15 +35,15 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
     }
 
     @Override
-    void selectAll__(final EntityManager entityManager, final List<Character> characters) {
-        super.selectAll__(entityManager, characters);
-        assertThat(characters)
+    void selectAll__(final EntityManager entityManager, final List<Character> entityList) {
+        super.selectAll__(entityManager, entityList);
+        assertThat(entityList)
                 .as("all characters")
                 .hasSize(_PersistenceConstants.NUMBER_OF_ALL_CHARACTERS)
         ;
         {
             final var defined = EnumSet.allOf(Character.Status.class);
-            final var selected = characters.stream()
+            final var selected = entityList.stream()
                     .map(Character::getStatus)
                     .distinct()
                     .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character.Status.class)))
@@ -51,7 +52,7 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
         }
         {
             final var defined = EnumSet.allOf(Character.Species.class);
-            final var selected = characters.stream()
+            final var selected = entityList.stream()
                     .map(Character::getSpecies)
                     .distinct()
                     .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character.Species.class)))
@@ -60,7 +61,7 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
         }
         {
             final var defined = EnumSet.allOf(Character.Type.class);
-            final var selected = characters.stream()
+            final var selected = entityList.stream()
                     .map(Character::getType).filter(Objects::nonNull)
                     .distinct()
                     .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character.Type.class)))
@@ -69,13 +70,45 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
         }
         {
             final var defined = EnumSet.allOf(Character.Gender.class);
-            final var selected = characters.stream()
+            final var selected = entityList.stream()
                     .map(Character::getGender)
                     .distinct()
                     .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character.Gender.class)))
                     ;
             assertThat(selected).isEqualTo(defined);
         }
+        entityList.forEach(character -> {
+            Optional.ofNullable(character.getOrigin()).ifPresent(origin -> {
+                assertThat(character.getOrigin_()).isNotNull().satisfies(origin_ -> {
+                    assertThat(origin_.getName()).isEqualTo(origin.getName());
+                    assertThat(origin_.getUrl()).isEqualTo(origin.getUrl());
+                })
+                ;
+            });
+            Optional.ofNullable(character.getOrigin_()).ifPresent(origin_ -> {
+                assertThat(character.getOrigin()).isNotNull().satisfies(origin -> {
+                    assertThat(origin.getName()).isEqualTo(origin_.getName());
+                    assertThat(origin.getUrl()).isEqualTo(origin_.getUrl());
+                })
+                ;
+            });
+        });
+        entityList.forEach(character -> {
+            Optional.ofNullable(character.getLocation()).ifPresent(location -> {
+                assertThat(character.getLocation_()).isNotNull().satisfies(location_ -> {
+                    assertThat(location_.getName()).isEqualTo(location.getName());
+                    assertThat(location_.getUrl()).isEqualTo(location.getUrl());
+                })
+                ;
+            });
+            Optional.ofNullable(character.getLocation_()).ifPresent(location_ -> {
+                assertThat(character.getLocation()).isNotNull().satisfies(location -> {
+                    assertThat(location.getName()).isEqualTo(location_.getName());
+                    assertThat(location.getUrl()).isEqualTo(location_.getUrl());
+                })
+                ;
+            });
+        });
     }
 
     @DisplayName("both origin_name and origin_url columns are null -> origin attribute is null")
