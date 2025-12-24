@@ -1,5 +1,7 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+import jakarta.annotation.Nonnull;
+
 import java.util.Objects;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Character_Species {
+public enum Character_Species implements _StringColumnEnum<Character_Species> {
 
     /**
      * A constant for {@value Character_SpeciesColumnValues#ALIEN} column value.
@@ -68,12 +70,7 @@ public enum Character_Species {
      * @return the value whose {@link #columnValue() columnValue} property matches to the specified value.
      */
     public static Character_Species valueOfColumnValue(final String columnValue) {
-        for (final var value : values()) {
-            if (value.columnValue.equals(columnValue)) {
-                return value;
-            }
-        }
-        throw new IllegalArgumentException("no value for column value: " + columnValue);
+        return _StringColumnEnumUtils.valueOfColumnValue(Character_Species.class, columnValue);
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
@@ -94,6 +91,8 @@ public enum Character_Species {
      *
      * @return the column value of this constant.
      */
+    @Nonnull
+    @Override
     public String columnValue() {
         return columnValue;
     }

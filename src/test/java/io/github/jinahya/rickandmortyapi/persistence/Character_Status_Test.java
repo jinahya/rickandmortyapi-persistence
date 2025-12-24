@@ -1,31 +1,9 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EnumSource;
-
-import java.util.Arrays;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 // -----------------------------------------------------------------------------------------------------------------
-@Nested
-class Character_Status_Test {
+class Character_Status_Test extends _StringColumnEnum_Test<Character_Status> {
 
-    @EnumSource(Character_Status.class)
-    @ParameterizedTest
-    void valueOfColumnValues__(final Character_Status status) {
-        assertThat(Character_Status.valueOfColumnValue(status.columnValue()))
-                .isSameAs(status);
-    }
-
-    @EnumSource(Character_Status.class)
-    @ParameterizedTest
-    void columnValues() {
-        assertThat(Arrays.stream(Character_Status.values()))
-                .map(Character_Status::columnValue)
-                .doesNotContainNull()
-                .doesNotHaveDuplicates()
-        ;
+    Character_Status_Test() {
+        super(Character_Status.class);
     }
 }

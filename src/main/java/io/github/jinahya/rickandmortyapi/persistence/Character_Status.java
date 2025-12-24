@@ -7,7 +7,7 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Character_Status {
+public enum Character_Status implements _StringColumnEnum<Character_Status> {
 
     /**
      * A value for {@value Character_StatusColumnValues#ALIVE} column value.
@@ -33,12 +33,7 @@ public enum Character_Status {
      * @return the value whose {@link #columnValue() columnValue} property matches to the specified value.
      */
     public static Character_Status valueOfColumnValue(final String columnValue) {
-        for (final Character_Status value : values()) {
-            if (value.columnValue.equals(columnValue)) {
-                return value;
-            }
-        }
-        throw new IllegalArgumentException("no value for column value: " + columnValue);
+        return _StringColumnEnumUtils.valueOfColumnValue(Character_Status.class, columnValue);
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS

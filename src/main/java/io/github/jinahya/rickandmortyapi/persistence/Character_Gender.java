@@ -39,12 +39,7 @@ public enum Character_Gender implements _StringColumnEnum<Character_Gender> {
      * @return the constants whose {@link #columnValue()} matches the specified {@code columnValue}.
      */
     public static Character_Gender valueOfColumnValue(final String columnValue) {
-        for (final var value : values()) {
-            if (value.columnValue.equals(columnValue)) {
-                return value;
-            }
-        }
-        throw new IllegalArgumentException("no value for column value: " + columnValue);
+        return _StringColumnEnumUtils.valueOfColumnValue(Character_Gender.class, columnValue);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

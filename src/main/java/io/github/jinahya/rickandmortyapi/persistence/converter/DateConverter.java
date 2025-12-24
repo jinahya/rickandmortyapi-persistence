@@ -4,6 +4,7 @@ import jakarta.persistence.Converter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 @Converter
 @SuppressWarnings({
@@ -16,7 +17,7 @@ public class DateConverter extends _BaseConverter<LocalDate> {
     /**
      * A date time formatter for parsing {@value #PATTERN} pattern.
      */
-    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(PATTERN);
+    static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(PATTERN, Locale.ENGLISH);
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 

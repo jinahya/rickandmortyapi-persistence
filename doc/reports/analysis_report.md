@@ -2,9 +2,6 @@
 
 #### 1. JPA/Jakarta Persistence Issues
 
-##### Redundant Annotations
-*   **`NameAndUrl.java`**: The class is annotated with both `@Embeddable` and `@MappedSuperclass`. In JPA, a class should typically be one or the other. If it's intended to be used as an `@Embedded` field in other entities, `@Embeddable` is sufficient.
-
 ##### Incomplete `AttributeConverter` Implementation
 *   **`_BaseConverter.java`**: The `convertToDatabaseColumn` method throws an `UnsupportedOperationException("not implemented")`.
     ```java
@@ -16,10 +13,6 @@
     This prevents any entity using converters that extend `_BaseConverter` (like `UrlConverter`, `UrlListConverter`, `LocalDateConverter`, etc.) from being persisted unless the corresponding column is marked as `insertable = false, updatable = false`. This severely limits the write capabilities of the persistence layer.
 
 #### 2. Code Quality and Maintenance
-
-##### Large Files and Inner Classes
-*   **`Location.java`** (1204 lines): Still contains large inner enums (`Type`, `Dimension`) each with its own `AttributeConverter`.
-*   Moving these enums and converters to their own files or a dedicated package would significantly improve readability and maintainability.
 
 ##### Naming Conventions
 *   Several classes use non-standard names starting with underscores (e.g., `_BaseEntity`, `__Base`, `_PersistenceConstants`, `_PersistenceUtils`). While they have `@SuppressWarnings("java:S101")`, it deviates from standard Java naming conventions and can be confusing.
@@ -46,6 +39,4 @@
 #### 3. Suggestions
 
 1. **Implement `convertToDatabaseColumn`**: Provide a proper implementation in `_BaseConverter` or its subclasses to support persisting these fields.
-2. **Refactor Enums in `Location.java`**: Extract inner enums from `Location` into separate files, similar to the refactoring already done for `Character`.
-3. **Review `@Embeddable` vs `@MappedSuperclass`**: Choose one for `NameAndUrl` to avoid ambiguity.
-4. **Consider caching parsed values**: For values like season/episode numbers in `Episode.java` to improve performance.
+2. **Consider caching parsed values**: For values like season/episode numbers in `Episode.java` to improve performance.

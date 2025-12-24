@@ -27,7 +27,9 @@ final class __ColumnEnumUtils {
                                  return enumConstants;
                              }
                          }
-                         throw new IllegalArgumentException("no enum constant found for column value: " + k);
+                         throw new IllegalArgumentException(
+                                 "no enum constant found for column value: " + k + " in " + enumClass
+                         );
                      })
         );
     }

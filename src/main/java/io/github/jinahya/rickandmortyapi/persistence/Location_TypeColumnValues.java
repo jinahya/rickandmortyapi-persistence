@@ -14,227 +14,227 @@ public final class Location_TypeColumnValues {
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_ACID_PLANT = "Acid Plant";
+    public static final String ACID_PLANT = "Acid Plant";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_ARCADE = "Arcade";
+    public static final String ARCADE = "Arcade";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_ARTIFICIALLY_GENERATED_WORLD = "Artificially generated world";
+    public static final String ARTIFICIALLY_GENERATED_WORLD = "Artificially generated world";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_ASTEROID = "Asteroid";
+    public static final String ASTEROID = "Asteroid";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_BASE = "Base";
+    public static final String BASE = "Base";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_BOX = "Box";
+    public static final String BOX = "Box";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_CLUSTER = "Cluster";
+    public static final String CLUSTER = "Cluster";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_CONSCIOUSNESS = "Consciousness";
+    public static final String CONSCIOUSNESS = "Consciousness";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_CONVENTION = "Convention";
+    public static final String CONVENTION = "Convention";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_COUNTRY = "Country";
+    public static final String COUNTRY = "Country";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_CUSTOMS = "Customs";
+    public static final String CUSTOMS = "Customs";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_DAYCARE = "Daycare";
+    public static final String DAYCARE = "Daycare";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_DEATH_STAR = "Death Star";
+    public static final String DEATH_STAR = "Death Star";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_DIEGESIS = "Diegesis";
+    public static final String DIEGESIS = "Diegesis";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_DIMENSION = "Dimension";
+    public static final String DIMENSION = "Dimension";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_DREAM = "Dream";
+    public static final String DREAM = "Dream";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_DWARF_PLANET_CELESTIAL_DWARF = "Dwarf planet (Celestial Dwarf)";
+    public static final String DWARF_PLANET_CELESTIAL_DWARF = "Dwarf planet (Celestial Dwarf)";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_ELEMENTAL_RINGS = "Elemental Rings";
+    public static final String ELEMENTAL_RINGS = "Elemental Rings";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_FANTASY_TOWN = "Fantasy town";
+    public static final String FANTASY_TOWN = "Fantasy town";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_GAME = "Game";
+    public static final String GAME = "Game";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_HELL = "Hell";
+    public static final String HELL = "Hell";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_HUMAN = "Human";
+    public static final String HUMAN = "Human";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_LIQUID = "Liquid";
+    public static final String LIQUID = "Liquid";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_MACHINE = "Machine";
+    public static final String MACHINE = "Machine";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_MEMORY = "Memory";
+    public static final String MEMORY = "Memory";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_MENAGERIE = "Menagerie";
+    public static final String MENAGERIE = "Menagerie";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_MICROVERSE = "Microverse";
+    public static final String MICROVERSE = "Microverse";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_MINIVERSE = "Miniverse";
+    public static final String MINIVERSE = "Miniverse";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_MOUNT = "Mount";
+    public static final String MOUNT = "Mount";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_NIGHTMARE = "Nightmare";
+    public static final String NIGHTMARE = "Nightmare";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_NON_DIEGETIC_ALTERNATIVE_REALITY = "Non-Diegetic Alternative Reality";
+    public static final String NON_DIEGETIC_ALTERNATIVE_REALITY = "Non-Diegetic Alternative Reality";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_PLANET = "Planet";
+    public static final String PLANET = "Planet";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_POLICE_DEPARTMENT = "Police Department";
+    public static final String POLICE_DEPARTMENT = "Police Department";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_QUADRANT = "Quadrant";
+    public static final String QUADRANT = "Quadrant";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_QUASAR = "Quasar";
+    public static final String QUASAR = "Quasar";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_REALITY = "Reality";
+    public static final String REALITY = "Reality";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_RESORT = "Resort";
+    public static final String RESORT = "Resort";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_SPA = "Spa";
+    public static final String SPA = "Spa";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_SPACE = "Space";
+    public static final String SPACE = "Space";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_SPACE_STATION = "Space station";
+    public static final String SPACE_STATION = "Space station";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_SPACECRAFT = "Spacecraft";
+    public static final String SPACECRAFT = "Spacecraft";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_TV = "TV";
+    public static final String TV = "TV";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_TEENYVERSE = "Teenyverse";
+    public static final String TEENYVERSE = "Teenyverse";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_WOODS = "Woods";
+    public static final String WOODS = "Woods";
 
     /**
      * A column value of {@value} for the {@value Location#COLUMN_NAME_TYPE} column.
      */
-    public static final String COLUMN_VALUE_TYPE_UNKNOWN = "unknown";
+    public static final String UNKNOWN = "unknown";
 
     private Location_TypeColumnValues() {
         throw new AssertionError("instantiation is not allowed");

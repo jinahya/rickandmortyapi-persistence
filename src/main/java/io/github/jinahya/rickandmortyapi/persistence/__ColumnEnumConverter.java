@@ -18,14 +18,14 @@ abstract class __ColumnEnumConverter<E extends Enum<E> & __ColumnEnum<E, T>, T>
 
     // -------------------------------------------------------------------------- jakarta.persistence.AttributeConverter
     @Override
-    public T convertToDatabaseColumn(final E attribute) {
+    public final T convertToDatabaseColumn(final E attribute) {
         return Optional.ofNullable(attribute)
                        .map(__ColumnEnum::columnValue)
                        .orElse(null);
     }
 
     @Override
-    public E convertToEntityAttribute(final T dbData) {
+    public final E convertToEntityAttribute(final T dbData) {
         return Optional.ofNullable(dbData)
                        .map(v -> __ColumnEnumUtils.valueOfColumnValue(enumClass, v))
                        .orElse(null);
