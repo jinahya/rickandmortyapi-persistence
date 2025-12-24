@@ -6,11 +6,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
-public final class __ColumnEnumUtils {
+final class __ColumnEnumUtils {
 
     private static final Map<Class<?>, Map<Object, Enum<?>>> CACHE = new ConcurrentHashMap<>();
 
-    public static <
+    static <
             E extends Enum<E> & __ColumnEnum<E, T>,
             T
             >

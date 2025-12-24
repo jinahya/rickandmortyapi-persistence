@@ -2,9 +2,9 @@ package io.github.jinahya.rickandmortyapi.persistence;
 
 import jakarta.annotation.Nonnull;
 
-public final class _StringColumnEnumUtils {
+final class _StringColumnEnumUtils {
 
-    public static <
+    static <
             E extends Enum<E> & _StringColumnEnum<E>
             >
     E valueOfColumnValue(@Nonnull final Class<E> enumClass, @Nonnull final String columnValue) {
