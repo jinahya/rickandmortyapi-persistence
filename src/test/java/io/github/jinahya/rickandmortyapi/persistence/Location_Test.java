@@ -25,8 +25,8 @@ class Location_Test extends _BaseEntity_Test<Location, Integer> {
     SingleTypeEqualsVerifierApi<Location> configureEqualsVerifier(
             final SingleTypeEqualsVerifierApi<Location> verifierApi) {
         return super.configureEqualsVerifier(verifierApi)
-                .suppress(Warning.SURROGATE_KEY)
-                .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
+                    .suppress(Warning.SURROGATE_KEY)
+                    .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
                 ;
     }
 
@@ -35,7 +35,7 @@ class Location_Test extends _BaseEntity_Test<Location, Integer> {
 
         @Test
         void columnValue_NoNullsNorDuplicates_() {
-            assertThat(Arrays.stream(Location.Type.values()).map(Location.Type::columnValue))
+            assertThat(Arrays.stream(Location_Type.values()).map(Location_Type::columnValue))
                     .isNotEmpty()
                     .doesNotContainNull()
                     .doesNotHaveDuplicates();
@@ -47,7 +47,7 @@ class Location_Test extends _BaseEntity_Test<Location, Integer> {
 
         @Test
         void columnValue_NoNullsNorDuplicates_() {
-            assertThat(Arrays.stream(Location.Dimension.values()).map(Location.Dimension::columnValue))
+            assertThat(Arrays.stream(Location_Dimension.values()).map(Location_Dimension::columnValue))
                     .isNotEmpty()
                     .doesNotContainNull()
                     .doesNotHaveDuplicates();

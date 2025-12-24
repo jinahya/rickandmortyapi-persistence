@@ -27,9 +27,14 @@ public class LocationResidentId
     private static final long serialVersionUID = 6274001621614009840L;
 
     // -----------------------------------------------------------------------------------------------------------------
+    private static final Comparator<LocationResidentId> COMPARING_LOCATION_ID =
+            Comparator.comparing(LocationResidentId::getLocationId);
+
+    private static final Comparator<LocationResidentId> COMPARING_RESIDENT_ID =
+            Comparator.comparing(LocationResidentId::getResidentId);
+
     private static final Comparator<LocationResidentId> COMPARATOR =
-            Comparator.comparing(LocationResidentId::getLocationId)
-                    .thenComparing(LocationResidentId::getResidentId);
+            COMPARING_LOCATION_ID.thenComparing(COMPARING_RESIDENT_ID);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -133,8 +138,7 @@ public class LocationResidentId
     @Basic(optional = false)
     @Column(name = LocationResident.COLUMN_NAME_LOCATION_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
+            insertable = false,
             updatable = false
     )
     private Integer locationId;
@@ -145,8 +149,7 @@ public class LocationResidentId
     @Basic(optional = false)
     @Column(name = LocationResident.COLUMN_NAME_RESIDENT_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
+            insertable = false,
             updatable = false
     )
     private Integer residentId;

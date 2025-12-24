@@ -19,10 +19,10 @@ public class UrlListConverter extends _BaseConverter<List<URL>> {
     UrlListConverter() {
         super(dd -> {
             return Arrays.stream(dd.split(","))
-                    .map(String::strip)
-                    .filter(v -> !v.isBlank())
-                    .map(CONVERTER::convertToEntityAttribute)
-                    .toList();
+                         .map(String::strip)
+                         .filter(v -> !v.isBlank())
+                         .map(CONVERTER::convertToEntityAttribute)
+                         .toList();
         });
     }
 }

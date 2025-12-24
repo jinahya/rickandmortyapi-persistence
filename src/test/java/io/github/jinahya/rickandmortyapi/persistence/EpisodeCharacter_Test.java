@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 
+@Deprecated(forRemoval = true)
 @Slf4j
 class EpisodeCharacter_Test extends _BaseEntity_Test<EpisodeCharacter, EpisodeCharacterId> {
 
@@ -17,9 +18,9 @@ class EpisodeCharacter_Test extends _BaseEntity_Test<EpisodeCharacter, EpisodeCh
     SingleTypeEqualsVerifierApi<EpisodeCharacter> configureEqualsVerifier(
             final SingleTypeEqualsVerifierApi<EpisodeCharacter> verifier) {
         return super.configureEqualsVerifier(verifier)
-                .suppress(Warning.SURROGATE_KEY)
-                .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
-                .withPrefabValues(Location.class, Location_Test.RED, Location_Test.BLUE)
+                    .suppress(Warning.SURROGATE_KEY)
+                    .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
+                    .withPrefabValues(Location.class, Location_Test.RED, Location_Test.BLUE)
                 ;
     }
 }

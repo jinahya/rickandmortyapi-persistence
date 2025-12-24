@@ -26,8 +26,8 @@ abstract class _BaseConverter<X> implements AttributeConverter<X, String> {
     @Override
     public final X convertToEntityAttribute(final String dbData) {
         return Optional.ofNullable(dbData)
-                .map(converter)
-                .orElse(null);
+                       .map(converter)
+                       .orElse(null);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

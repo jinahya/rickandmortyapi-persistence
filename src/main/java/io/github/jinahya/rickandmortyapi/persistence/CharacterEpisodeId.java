@@ -26,9 +26,14 @@ public class CharacterEpisodeId
     private static final long serialVersionUID = -8363987227830143686L;
 
     // -----------------------------------------------------------------------------------------------------------------
+    private static final Comparator<CharacterEpisodeId> COMPARING_CHARACTER_ID =
+            Comparator.comparing(CharacterEpisodeId::getCharacterId);
+
+    private static final Comparator<CharacterEpisodeId> COMPARING_EPISODE_ID =
+            Comparator.comparing(CharacterEpisodeId::getEpisodeId);
+
     private static final Comparator<CharacterEpisodeId> COMPARATOR =
-            Comparator.comparing(CharacterEpisodeId::getCharacterId)
-                    .thenComparing(CharacterEpisodeId::getEpisodeId);
+            COMPARING_CHARACTER_ID.thenComparing(COMPARING_EPISODE_ID);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -80,7 +85,10 @@ public class CharacterEpisodeId
     // -------------------------------------------------------------------------------------------- java.lang.Comparable
     @Override
     public int compareTo(final CharacterEpisodeId o) {
-        return COMPARATOR.compare(this, Objects.requireNonNull(o, "o is null"));
+        return COMPARATOR.compare(
+                this,
+                Objects.requireNonNull(o, "o is null")
+        );
     }
 
     // -----------------------------------------------------------------------------------------------------------------
