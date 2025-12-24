@@ -6,6 +6,9 @@ import jakarta.persistence.Converter;
 import java.util.Optional;
 
 @Converter(autoApply = true)
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
 public class Character_StatusConverter implements AttributeConverter<Character_Status, String> {
 
     Character_StatusConverter() {

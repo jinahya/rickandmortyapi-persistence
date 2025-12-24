@@ -16,7 +16,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
@@ -34,23 +33,23 @@ import java.util.Objects;
  * An entity class for mapping {@value Character#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see CharacterEpisode
- * @see Episode
+ * @see io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode
+ * @see io.github.jinahya.rickandmortyapi.persistence.Episode
  * @see Location
  */
-@NamedQueries({
-        @NamedQuery(name = "Character.selectList_NameEqual_",
-                    query = """
-                            SELECT c
-                            FROM Character c
-                            WHERE c.name = :name
-                            ORDER BY c.id ASC"""),
-        @NamedQuery(name = "Character.selectList__OrderByIdAsc",
-                    query = """
-                            SELECT c
-                            FROM Character c
-                            ORDER BY c.id ASC""")
-})
+@NamedQuery(name = "Character.selectList_NameEqual_",
+            query = """
+                    SELECT c
+                    FROM Character c
+                    WHERE c.name = :name
+                    ORDER BY c.id ASC"""
+)
+@NamedQuery(name = "Character.selectList__OrderByIdAsc",
+            query = """
+                    SELECT c
+                    FROM Character c
+                    ORDER BY c.id ASC"""
+)
 @Entity
 @Table(name = Character.TABLE_NAME)
 @SuppressWarnings({
