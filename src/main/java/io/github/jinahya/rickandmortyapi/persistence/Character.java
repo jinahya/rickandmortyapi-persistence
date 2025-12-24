@@ -430,9 +430,9 @@ public class Character extends _BaseEntity<Integer> {
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
-            updatable = false)
+            insertable = false,
+            updatable = false
+    )
     private Integer id;
 
     // -----------------------------------------------------------------------------------------------------------------

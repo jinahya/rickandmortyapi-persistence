@@ -91,6 +91,10 @@ public class Episode extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_NAME = "name";
 
     // -------------------------------------------------------------------------------------------------------- air_date
+
+    /**
+     * The name of the table column to which the {@value Episode_#AIR_DATE} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_AIR_DATE = "air_date";
 
     // --------------------------------------------------------------------------------------------------------- episode
@@ -137,15 +141,31 @@ public class Episode extends _BaseEntity<Integer> {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Episode_#CHARACTERS} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_CHARACTERS = "characters";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Episode_#URL} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_URL = "url";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Episode_#CREATED} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_CREATED = "created";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Episode_#AIR_DATE_ISO_} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_AIR_DATE_ISO_ = "air_date_iso_";
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -226,6 +246,12 @@ public class Episode extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------------ name
+
+    /**
+     * Returns current value of {@value Episode_#NAME} attribute.
+     *
+     * @return current value of the {@value Episode_#NAME} attribute.
+     */
     public String getName() {
         return name;
     }
@@ -235,6 +261,12 @@ public class Episode extends _BaseEntity<Integer> {
     }
 
     // --------------------------------------------------------------------------------------------------------- airDate
+
+    /**
+     * Returns current value of {@value Episode_#AIR_DATE} attribute.
+     *
+     * @return current value of the {@value Episode_#AIR_DATE} attribute.
+     */
     public LocalDate getAirDate() {
         return airDate;
     }
@@ -314,6 +346,12 @@ public class Episode extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------------- url
+
+    /**
+     * Returns current value of {@value Episode_#URL} attribute.
+     *
+     * @return current value of the {@value Episode_#URL} attribute.
+     */
     public URL getUrl() {
         return url;
     }
@@ -323,6 +361,12 @@ public class Episode extends _BaseEntity<Integer> {
     }
 
     // --------------------------------------------------------------------------------------------------------- created
+
+    /**
+     * Returns current value of {@value Episode_#CREATED} attribute.
+     *
+     * @return current value of the {@value Episode_#CREATED} attribute.
+     */
     public Instant getCreated() {
         return created;
     }
@@ -363,11 +407,13 @@ public class Episode extends _BaseEntity<Integer> {
 
     // -----------------------------------------------------------------------------------------------------------------
     @Positive
+    @Valid
+    @NotNull
     @Id
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_ID, nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
+    @Column(name = COLUMN_NAME_ID,
+            nullable = false,
+            insertable = false,
             updatable = false
     )
     private Integer id;

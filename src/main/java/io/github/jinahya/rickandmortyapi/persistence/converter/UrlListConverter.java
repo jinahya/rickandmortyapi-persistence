@@ -4,25 +4,41 @@ import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Converter
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UrlListConverter extends _BaseConverter<List<URL>> {
-
-    private static final AttributeConverter<URL, String> CONVERTER = new UrlConverter();
+public class UrlListConverter implements AttributeConverter<List<URL>, String> {
 
     // -----------------------------------------------------------------------------------------------------------------
     UrlListConverter() {
-        super(dd -> {
-            return Arrays.stream(dd.split(","))
-                         .map(String::strip)
-                         .filter(v -> !v.isBlank())
-                         .map(CONVERTER::convertToEntityAttribute)
-                         .toList();
-        });
+        super();
     }
+
+    @Override
+    public String convertToDatabaseColumn(final List<URL> attribute) {
+        return Optional.ofNullable(attribute)
+                       .map(a -> a.stream()
+                                  .map(converter::convertToDatabaseColumn)
+                                  .collect(Collectors.joining(UriListConverter.DELIMITER)))
+                       .orElse(null);
+    }
+
+    @Override
+    public List<URL> convertToEntityAttribute(final String dbData) {
+        return Optional.ofNullable(dbData)
+                       .map(dd -> Arrays.stream(dd.split(UriListConverter.DELIMITER))
+                                        .map(converter::convertToEntityAttribute)
+                                        .collect(Collectors.toCollection(ArrayList::new))
+                       )
+                       .orElse(null);
+    }
+
+    private final AttributeConverter<URL, String> converter = new UrlConverter();
 }

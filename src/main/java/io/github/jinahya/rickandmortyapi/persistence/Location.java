@@ -214,8 +214,7 @@ public class Location extends _BaseEntity<Integer> {
     @Id
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_ID, nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
+            insertable = false,
             updatable = false
     )
     private Integer id;
