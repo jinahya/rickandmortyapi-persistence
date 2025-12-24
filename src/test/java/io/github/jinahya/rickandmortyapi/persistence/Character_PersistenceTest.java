@@ -42,39 +42,39 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
                 .hasSize(_PersistenceConstants.NUMBER_OF_ALL_CHARACTERS)
         ;
         {
-            final var defined = EnumSet.allOf(Character.Status.class);
+            final var defined = EnumSet.allOf(Character_Status.class);
             final var selected = entityList.stream()
-                    .map(Character::getStatus)
-                    .distinct()
-                    .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character.Status.class)))
-                    ;
+                                           .map(Character::getStatus)
+                                           .distinct()
+                                           .collect(Collectors.toCollection(
+                                                   () -> EnumSet.noneOf(Character_Status.class)));
             assertThat(selected).isEqualTo(defined);
         }
         {
-            final var defined = EnumSet.allOf(Character.Species.class);
+            final var defined = EnumSet.allOf(Character_Species.class);
             final var selected = entityList.stream()
-                    .map(Character::getSpecies)
-                    .distinct()
-                    .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character.Species.class)))
-                    ;
+                                           .map(Character::getSpecies)
+                                           .distinct()
+                                           .collect(Collectors.toCollection(
+                                                   () -> EnumSet.noneOf(Character_Species.class)));
             assertThat(selected).isEqualTo(defined);
         }
         {
-            final var defined = EnumSet.allOf(Character.Type.class);
+            final var defined = EnumSet.allOf(Character_Type.class);
             final var selected = entityList.stream()
-                    .map(Character::getType).filter(Objects::nonNull)
-                    .distinct()
-                    .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character.Type.class)))
-                    ;
+                                           .map(Character::getType).filter(Objects::nonNull)
+                                           .distinct()
+                                           .collect(
+                                                   Collectors.toCollection(() -> EnumSet.noneOf(Character_Type.class)));
             assertThat(selected).isEqualTo(defined);
         }
         {
-            final var defined = EnumSet.allOf(Character.Gender.class);
+            final var defined = EnumSet.allOf(Character_Gender.class);
             final var selected = entityList.stream()
-                    .map(Character::getGender)
-                    .distinct()
-                    .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character.Gender.class)))
-                    ;
+                                           .map(Character::getGender)
+                                           .distinct()
+                                           .collect(Collectors.toCollection(
+                                                   () -> EnumSet.noneOf(Character_Gender.class)));
             assertThat(selected).isEqualTo(defined);
         }
         entityList.forEach(character -> {

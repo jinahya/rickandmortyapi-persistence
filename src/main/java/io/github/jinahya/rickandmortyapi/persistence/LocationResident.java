@@ -24,7 +24,8 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the database column to which {@link LocationResident#location} attribute maps. The value is {@value}.
+     * The name of the database column to which {@link LocationResident#location} attribute maps. The value is
+     * {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_ID = "location_id";
 

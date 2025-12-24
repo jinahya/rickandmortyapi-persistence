@@ -7,8 +7,6 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.net.URL;
@@ -23,7 +21,6 @@ import java.util.Objects;
  * @see Character#getLocation()
  */
 @Embeddable
-@MappedSuperclass
 public class NameAndUrl extends __Base {
 
     // -----------------------------------------------------------------------------------------------------------------

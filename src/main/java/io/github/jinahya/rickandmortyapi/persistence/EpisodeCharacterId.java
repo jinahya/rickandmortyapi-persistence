@@ -15,7 +15,9 @@ import java.util.Objects;
  * The primary key class for {@link EpisodeCharacter} entity class.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @deprecated use {@link CharacterEpisodeId} instead
  */
+@Deprecated(forRemoval = true)
 @Embeddable
 public class EpisodeCharacterId
         extends __Base
@@ -123,8 +125,7 @@ public class EpisodeCharacterId
     @Basic(optional = false)
     @Column(name = EpisodeCharacter.COLUMN_NAME_EPISODE_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
+            insertable = false,
             updatable = false
     )
     private Integer episodeId;
@@ -135,8 +136,7 @@ public class EpisodeCharacterId
     @Basic(optional = false)
     @Column(name = EpisodeCharacter.COLUMN_NAME_CHARACTER_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
+            insertable = false,
             updatable = false
     )
     private Integer characterId;

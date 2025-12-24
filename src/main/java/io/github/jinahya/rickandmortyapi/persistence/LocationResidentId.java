@@ -138,8 +138,7 @@ public class LocationResidentId
     @Basic(optional = false)
     @Column(name = LocationResident.COLUMN_NAME_LOCATION_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
+            insertable = false,
             updatable = false
     )
     private Integer locationId;
@@ -150,8 +149,7 @@ public class LocationResidentId
     @Basic(optional = false)
     @Column(name = LocationResident.COLUMN_NAME_RESIDENT_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
+            insertable = false,
             updatable = false
     )
     private Integer residentId;

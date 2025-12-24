@@ -85,7 +85,10 @@ public class CharacterEpisodeId
     // -------------------------------------------------------------------------------------------- java.lang.Comparable
     @Override
     public int compareTo(final CharacterEpisodeId o) {
-        return COMPARATOR.compare(this, Objects.requireNonNull(o, "o is null"));
+        return COMPARATOR.compare(
+                this,
+                Objects.requireNonNull(o, "o is null")
+        );
     }
 
     // -----------------------------------------------------------------------------------------------------------------
