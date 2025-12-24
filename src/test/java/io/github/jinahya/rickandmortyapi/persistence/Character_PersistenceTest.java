@@ -39,8 +39,7 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
         super.selectAll__(entityManager, entityList);
         assertThat(entityList)
                 .as("all characters")
-                .hasSize(_PersistenceConstants.NUMBER_OF_ALL_CHARACTERS)
-        ;
+                .hasSize(_PersistenceConstants.NUMBER_OF_ALL_CHARACTERS);
         {
             final var defined = EnumSet.allOf(Character_Status.class);
             final var selected = entityList.stream()
