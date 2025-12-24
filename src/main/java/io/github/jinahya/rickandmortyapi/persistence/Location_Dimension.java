@@ -1,5 +1,7 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+import jakarta.annotation.Nonnull;
+
 import java.util.Objects;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Objects;
  *
  * @see Location_DimensionColumnValues
  */
-public enum Location_Dimension {
+public enum Location_Dimension implements _StringColumnEnum<Location_Dimension> {
 
     /**
      * A constant for the {@value Location_DimensionColumnValues#CHAIR_DIMENSION} column value.
@@ -177,12 +179,7 @@ public enum Location_Dimension {
 
     // -----------------------------------------------------------------------------------------------------------------
     public static Location_Dimension valueOfColumnValue(final String columnValue) {
-        for (final Location_Dimension value : values()) {
-            if (value.columnValue().equals(columnValue)) {
-                return value;
-            }
-        }
-        throw new IllegalArgumentException("no value for column value: " + columnValue);
+        return _StringColumnEnumUtils.valueOfColumnValue(Location_Dimension.class, columnValue);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -191,6 +188,8 @@ public enum Location_Dimension {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+    @Nonnull
+    @Override
     public String columnValue() {
         return columnValue;
     }
