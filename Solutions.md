@@ -9,6 +9,7 @@ FROM character c
 WHERE ce.episode_id IN (1, 2, 3)
 GROUP BY c.id
 HAVING COUNT(DISTINCT ce.episode_id) = 3
+ORDER BY c.id ASC
 ;
 ```
 
@@ -19,6 +20,7 @@ FROM Character c
 WHERE ce.id IN (1, 2, 3)
 GROUP BY c
 HAVING COUNT(DISTINCT ce.id) = 3
+ORDER BY c.id ASC
 ```
 
 ```sqlite
@@ -28,6 +30,7 @@ FROM character_episode ce
 WHERE episode_id IN (1, 2, 3)
 GROUP BY character_id
 HAVING COUNT(DISTINCT episode_id) = 3
+ORDER BY character_id ASC
 ;
 ```
 
@@ -38,4 +41,5 @@ FROM CharacterEpisode ce
 WHERE ce.id.episodeId IN (1, 2, 3)
 GROUP BY c
 HAVING COUNT(DISTINCT ce.id.episodeId) = 3
+ORDER BY c.id ASC
 ```
