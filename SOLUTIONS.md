@@ -1,6 +1,6 @@
 # Solutions
 
-## 주어진 episode 들에 모두 출연한 character 들?
+## Find characters who appeared in all specified episodes
 
 ```sqlite
 SELECT c.*
@@ -27,10 +27,10 @@ ORDER BY c.id ASC
 SELECT c.*
 FROM character_episode ce
          JOIN character c ON c.id = ce.character_id
-WHERE episode_id IN (1, 2, 3)
-GROUP BY character_id
-HAVING COUNT(DISTINCT episode_id) = 3
-ORDER BY character_id ASC
+WHERE ce.episode_id IN (1, 2, 3)
+GROUP BY ce.character_id
+HAVING COUNT(DISTINCT ce.episode_id) = 3
+ORDER BY ce.character_id ASC
 ;
 ```
 

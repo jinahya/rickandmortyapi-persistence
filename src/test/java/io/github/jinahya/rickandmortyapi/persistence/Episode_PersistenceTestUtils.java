@@ -3,8 +3,10 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Slf4j
 final class Episode_PersistenceTestUtils {
@@ -25,6 +27,27 @@ final class Episode_PersistenceTestUtils {
                     .getResultList();
         }
         return Collections.unmodifiableList(result);
+    }
+
+    static List<Episode> getEpisodesIdIn(final EntityManager entityManager, final Collection<Integer> episodeIds) {
+        if (ThreadLocalRandom.current().nextBoolean()) {
+            return entityManager
+                    .createQuery(
+                            """
+                                    SELECT e
+                                    FROM Episode e
+                                    WHERE e.id IN : episodeIds""",
+                            Episode.class
+                    )
+                    .setParameter("episodeIds", episodeIds)
+                    .getResultList();
+        }
+        final var builder = entityManager.getCriteriaBuilder();
+        final var query = builder.createQuery(Episode.class);
+        final var root = query.from(Episode.class);
+        query.select(root);
+        query.where(root.get(Episode_.id).in(episodeIds));
+        return entityManager.createQuery(query).getResultList();
     }
 
     // -----------------------------------------------------------------------------------------------------------------
