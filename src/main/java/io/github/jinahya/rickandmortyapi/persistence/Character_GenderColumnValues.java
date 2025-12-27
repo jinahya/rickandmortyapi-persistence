@@ -8,7 +8,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public final class Character_GenderColumnValues {
+public final class Character_GenderColumnValues extends _ColumnValues {
 
     /**
      * A column value of {@value} for the {@value  Character#COLUMN_NAME_GENDER} column.
