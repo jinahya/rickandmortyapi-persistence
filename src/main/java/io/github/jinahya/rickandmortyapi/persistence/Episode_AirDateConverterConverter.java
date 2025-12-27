@@ -1,5 +1,6 @@
-package io.github.jinahya.rickandmortyapi.persistence.converter;
+package io.github.jinahya.rickandmortyapi.persistence;
 
+import io.github.jinahya.rickandmortyapi.persistence.converter._StringConverter;
 import jakarta.persistence.Converter;
 
 import java.time.LocalDate;
@@ -10,7 +11,7 @@ import java.util.Locale;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class DateConverter extends _StringConverter<LocalDate> {
+public class Episode_AirDateConverterConverter extends _StringConverter<LocalDate> {
 
     private static final String PATTERN = "MMMM d, uuuu";
 
@@ -24,7 +25,7 @@ public class DateConverter extends _StringConverter<LocalDate> {
     /**
      * Creates a new instance.
      */
-    public DateConverter() {
+    public Episode_AirDateConverterConverter() {
         super(FORMATTER::format, v -> LocalDate.parse(v, FORMATTER));
     }
 }

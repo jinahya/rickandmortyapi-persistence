@@ -79,14 +79,14 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
                                             },
                                             l -> {
                                                 assertThat(l).isNotNull()
-                                                             .extracting(Location::getResidents_,
-                                                                         InstanceOfAssertFactories.LIST)
-                                                             .as("episode(%d).characters_[%d].location_(%d).residents",
-                                                                 e.getId(), c.getId(), l.getId())
-                                                             .isNotEmpty()
-                                                             .doesNotContainNull()
-                                                             .doesNotHaveDuplicates()
-                                                             .contains(c);
+                                                        .extracting(Location::getResidents_,
+                                                                    InstanceOfAssertFactories.LIST)
+                                                        .as("episode(%d).characters_[%d].location_(%d).residents",
+                                                            e.getId(), c.getId(), l.getId())
+                                                        .isNotEmpty()
+                                                        .doesNotContainNull()
+                                                        .doesNotHaveDuplicates()
+                                                        .contains(c);
                                             }
                                     );
                             // character.episodes_
@@ -121,10 +121,10 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
                 // fetch episodes[*].characters_[*].episodes_
                 {
                     final var ids = episodes.stream()
-                                            .flatMap(e -> e.getCharacters_().stream())
-                                            .map(Character::getId)
-                                            .distinct()
-                                            .toList();
+                            .flatMap(e -> e.getCharacters_().stream())
+                            .map(Character::getId)
+                            .distinct()
+                            .toList();
                     final var q = em.createQuery(
                             """
                                     SELECT DISTINCT c
@@ -185,10 +185,10 @@ class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integ
                 // fetch episodes[*].characters_[*].episodes_
                 {
                     final var ids = episodes.stream()
-                                            .flatMap(e -> e.getCharacters_().stream())
-                                            .map(Character::getId)
-                                            .distinct()
-                                            .toList();
+                            .flatMap(e -> e.getCharacters_().stream())
+                            .map(Character::getId)
+                            .distinct()
+                            .toList();
                     final var q = builder.createQuery(Character.class);
                     final var r = q.from(Character.class);
                     q.select(r).distinct(true);

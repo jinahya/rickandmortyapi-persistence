@@ -36,7 +36,6 @@ public class UrlConverter2 extends _StringConverter<URL> {
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    //    protected
     public UrlConverter2() {
         super(UrlConverter2::toDatabaseColumn, UrlConverter2::toEntityAttribute);
     }

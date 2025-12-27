@@ -18,14 +18,14 @@ public class Character_StatusConverter implements AttributeConverter<Character_S
     @Override
     public String convertToDatabaseColumn(final Character_Status attribute) {
         return Optional.ofNullable(attribute)
-                       .map(Character_Status::columnValue)
-                       .orElse(null);
+                .map(Character_Status::columnValue)
+                .orElse(null);
     }
 
     @Override
     public Character_Status convertToEntityAttribute(final String dbData) {
         return Optional.ofNullable(dbData)
-                       .map(Character_Status::valueOfColumnValue)
-                       .orElse(null);
+                .map(Character_Status::valueOfColumnValue)
+                .orElse(null);
     }
 }

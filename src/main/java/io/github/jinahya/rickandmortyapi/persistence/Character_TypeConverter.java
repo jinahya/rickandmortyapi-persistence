@@ -18,14 +18,14 @@ public class Character_TypeConverter implements AttributeConverter<Character_Typ
     @Override
     public String convertToDatabaseColumn(final Character_Type attribute) {
         return Optional.ofNullable(attribute)
-                       .map(Character_Type::columnValue)
-                       .orElse(null);
+                .map(Character_Type::columnValue)
+                .orElse(null);
     }
 
     @Override
     public Character_Type convertToEntityAttribute(final String dbData) {
         return Optional.ofNullable(dbData)
-                       .map(Character_Type::valueOfColumnValue)
-                       .orElse(null);
+                .map(Character_Type::valueOfColumnValue)
+                .orElse(null);
     }
 }

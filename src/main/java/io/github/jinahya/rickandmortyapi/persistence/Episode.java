@@ -1,6 +1,5 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-import io.github.jinahya.rickandmortyapi.persistence.converter.DateConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlConverter;
@@ -299,15 +298,15 @@ public class Episode extends _BaseEntity<Integer> {
     @Transient
     public Integer getSeasonNumber() {
         return Optional.ofNullable(getEpisode())
-                       .map(v -> {
-                           final var matcher = PATTERN_EPISODE.matcher(v);
-                           if (!matcher.matches()) {
-                               throw new IllegalStateException("invalid episode: " + v);
-                           }
-                           return matcher.group(REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER);
-                       })
-                       .map(Integer::valueOf)
-                       .orElse(null);
+                .map(v -> {
+                    final var matcher = PATTERN_EPISODE.matcher(v);
+                    if (!matcher.matches()) {
+                        throw new IllegalStateException("invalid episode: " + v);
+                    }
+                    return matcher.group(REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER);
+                })
+                .map(Integer::valueOf)
+                .orElse(null);
     }
 
     /**
@@ -319,15 +318,15 @@ public class Episode extends _BaseEntity<Integer> {
     @Transient
     public Integer getEpisodeNumber() {
         return Optional.ofNullable(getEpisode())
-                       .map(v -> {
-                           final var matcher = PATTERN_EPISODE.matcher(v);
-                           if (!matcher.matches()) {
-                               throw new IllegalStateException("invalid episode: " + v);
-                           }
-                           return matcher.group(REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
-                       })
-                       .map(Integer::valueOf)
-                       .orElse(null);
+                .map(v -> {
+                    final var matcher = PATTERN_EPISODE.matcher(v);
+                    if (!matcher.matches()) {
+                        throw new IllegalStateException("invalid episode: " + v);
+                    }
+                    return matcher.group(REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
+                })
+                .map(Integer::valueOf)
+                .orElse(null);
     }
 
     // ------------------------------------------------------------------------------------------------------ characters
@@ -430,7 +429,7 @@ public class Episode extends _BaseEntity<Integer> {
 
     @Past
     @NotNull
-    @Convert(converter = DateConverter.class)
+    @Convert(converter = Episode_AirDateConverterConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_AIR_DATE,
             nullable = false,

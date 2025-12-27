@@ -6,11 +6,11 @@ import java.util.function.Function;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-abstract class _StringConverter<X> extends __BaseConverter<X, String> {
+public abstract class _StringConverter<X> extends __BaseConverter<X, String> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    _StringConverter(final Function<? super X, String> formatter,
-                     final Function<? super String, ? extends X> parser) {
+    protected _StringConverter(final Function<? super X, String> formatter,
+                               final Function<? super String, ? extends X> parser) {
         super(formatter,
               v -> Optional.of(v)
                       .map(String::strip)

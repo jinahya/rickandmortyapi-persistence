@@ -9,11 +9,11 @@ import java.util.function.Function;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-abstract class __BaseConverter<X, Y> implements AttributeConverter<X, Y> {
+public abstract class __BaseConverter<X, Y> implements AttributeConverter<X, Y> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    __BaseConverter(final Function<? super X, ? extends Y> formatter,
-                    final Function<? super Y, ? extends X> parser) {
+    protected __BaseConverter(final Function<? super X, ? extends Y> formatter,
+                              final Function<? super Y, ? extends X> parser) {
         super();
         this.formatter = Objects.requireNonNull(formatter, "formatter is null");
         this.parser = Objects.requireNonNull(parser, "parser is null");

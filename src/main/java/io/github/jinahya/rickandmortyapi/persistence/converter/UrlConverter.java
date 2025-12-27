@@ -15,29 +15,9 @@ import java.util.Optional;
 })
 public class UrlConverter implements AttributeConverter<URL, String> {
 
-    private static final AttributeConverter<URI, String> C = new UriConverter();
-
-    static String toDatabaseColumn(final URL attribute) {
-        assert attribute != null;
-        try {
-            return C.convertToDatabaseColumn(attribute.toURI());
-        } catch (final URISyntaxException urise) {
-            throw new RuntimeException(urise);
-        }
-    }
-
-    static URL toEntityAttribute(final String dbData) {
-        assert dbData != null;
-        assert !dbData.isBlank();
-        try {
-            return C.convertToEntityAttribute(dbData).toURL();
-        } catch (final MalformedURLException murle) {
-            throw new RuntimeException(murle);
-        }
-    }
+    private static final AttributeConverter<URI, String> CONVERTER = new UriConverter();
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    //    protected
     public UrlConverter() {
         super();
     }
@@ -53,14 +33,14 @@ public class UrlConverter implements AttributeConverter<URL, String> {
                         throw new RuntimeException(urise);
                     }
                 })
-                .map(converter::convertToDatabaseColumn)
+                .map(CONVERTER::convertToDatabaseColumn)
                 .orElse(null);
     }
 
     @Override
     public URL convertToEntityAttribute(final String dbData) {
         return Optional.ofNullable(dbData)
-                .map(dd -> converter.convertToEntityAttribute(dd))
+                .map(dd -> CONVERTER.convertToEntityAttribute(dd))
                 .map(dd -> {
                     try {
                         return dd.toURL();
@@ -70,7 +50,4 @@ public class UrlConverter implements AttributeConverter<URL, String> {
                 })
                 .orElse(null);
     }
-
-    // -----------------------------------------------------------------------------------------------------------------
-    private final AttributeConverter<URI, String> converter = new UriConverter();
 }

@@ -42,7 +42,7 @@
     <class>io.github.jinahya.rickandmortyapi.persistence.Location_TypeConverter</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.LocationResident</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.NameAndUrl</class>
-    <class>io.github.jinahya.rickandmortyapi.persistence.converter.DateConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.Episode_AirDateConverterConverter</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.converter.InstantConverter</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateConverter</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.converter.UrlConverter</class>

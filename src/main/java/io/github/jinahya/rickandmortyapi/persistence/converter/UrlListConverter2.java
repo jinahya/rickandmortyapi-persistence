@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UrlListConverter implements AttributeConverter<List<URL>, String> {
+public class UrlListConverter2 implements AttributeConverter<List<URL>, String> {
 
     private static final AttributeConverter<URL, String> CONVERTER = new UrlConverter();
 
     // -----------------------------------------------------------------------------------------------------------------
-    public UrlListConverter() {
+    public UrlListConverter2() {
         super();
     }
 

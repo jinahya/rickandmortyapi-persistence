@@ -50,37 +50,37 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
         {
             final var defined = EnumSet.allOf(Character_Status.class);
             final var selected = entityList.stream()
-                                           .map(Character::getStatus)
-                                           .distinct()
-                                           .collect(Collectors.toCollection(
-                                                   () -> EnumSet.noneOf(Character_Status.class)));
+                    .map(Character::getStatus)
+                    .distinct()
+                    .collect(Collectors.toCollection(
+                            () -> EnumSet.noneOf(Character_Status.class)));
             assertThat(selected).isEqualTo(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Species.class);
             final var selected = entityList.stream()
-                                           .map(Character::getSpecies)
-                                           .distinct()
-                                           .collect(Collectors.toCollection(
-                                                   () -> EnumSet.noneOf(Character_Species.class)));
+                    .map(Character::getSpecies)
+                    .distinct()
+                    .collect(Collectors.toCollection(
+                            () -> EnumSet.noneOf(Character_Species.class)));
             assertThat(selected).isEqualTo(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Type.class);
             final var selected = entityList.stream()
-                                           .map(Character::getType).filter(Objects::nonNull)
-                                           .distinct()
-                                           .collect(
-                                                   Collectors.toCollection(() -> EnumSet.noneOf(Character_Type.class)));
+                    .map(Character::getType).filter(Objects::nonNull)
+                    .distinct()
+                    .collect(
+                            Collectors.toCollection(() -> EnumSet.noneOf(Character_Type.class)));
             assertThat(selected).isEqualTo(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Gender.class);
             final var selected = entityList.stream()
-                                           .map(Character::getGender)
-                                           .distinct()
-                                           .collect(Collectors.toCollection(
-                                                   () -> EnumSet.noneOf(Character_Gender.class)));
+                    .map(Character::getGender)
+                    .distinct()
+                    .collect(Collectors.toCollection(
+                            () -> EnumSet.noneOf(Character_Gender.class)));
             assertThat(selected).isEqualTo(defined);
         }
         entityList.forEach(character -> {
@@ -187,20 +187,20 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
                 final var episodeList = Episode_PersistenceTestUtils.getEpisodesIdIn(em, episodeIds);
                 final var episodeSize = episodeList.size();
                 return em.createQuery(
-                                 """
-                                         SELECT c
-                                         FROM Character c
-                                         JOIN c.episodes_ ce
-                                         WHERE ce IN (:episodeList)
-                                         GROUP BY c
-                                         HAVING COUNT(DISTINCT ce) = :episodeSize
-                                         ORDER BY c.id ASC
-                                         """,
-                                 entityClass
-                         )
-                         .setParameter("episodeList", episodeList)
-                         .setParameter("episodeSize", episodeSize)
-                         .getResultList();
+                                """
+                                        SELECT c
+                                        FROM Character c
+                                        JOIN c.episodes_ ce
+                                        WHERE ce IN (:episodeList)
+                                        GROUP BY c
+                                        HAVING COUNT(DISTINCT ce) = :episodeSize
+                                        ORDER BY c.id ASC
+                                        """,
+                                entityClass
+                        )
+                        .setParameter("episodeList", episodeList)
+                        .setParameter("episodeSize", episodeSize)
+                        .getResultList();
             });
             // ---------------------------------------------------------------------------------------------------- then
             assertThat(characterList)
