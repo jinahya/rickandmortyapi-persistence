@@ -8,7 +8,7 @@ import jakarta.persistence.Converter;
 })
 public class Character_GenderConverter extends _StringColumnEnumConverter<Character_Gender> {
 
-    Character_GenderConverter() {
+    public Character_GenderConverter() {
         super(Character_Gender.class);
     }
 }

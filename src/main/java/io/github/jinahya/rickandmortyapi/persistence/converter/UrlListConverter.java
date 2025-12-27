@@ -17,10 +17,11 @@ import java.util.stream.Collectors;
 public class UrlListConverter implements AttributeConverter<List<URL>, String> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    UrlListConverter() {
+    public UrlListConverter() {
         super();
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     @Override
     public String convertToDatabaseColumn(final List<URL> attribute) {
         return Optional.ofNullable(attribute)
@@ -40,5 +41,6 @@ public class UrlListConverter implements AttributeConverter<List<URL>, String> {
                        .orElse(null);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     private final AttributeConverter<URL, String> converter = new UrlConverter();
 }

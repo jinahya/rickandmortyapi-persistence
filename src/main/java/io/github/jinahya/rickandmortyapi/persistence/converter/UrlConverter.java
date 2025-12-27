@@ -15,37 +15,62 @@ import java.util.Optional;
 })
 public class UrlConverter implements AttributeConverter<URL, String> {
 
+    private static final AttributeConverter<URI, String> C = new UriConverter();
+
+    static String toDatabaseColumn(final URL attribute) {
+        assert attribute != null;
+        try {
+            return C.convertToDatabaseColumn(attribute.toURI());
+        } catch (final URISyntaxException urise) {
+            throw new RuntimeException(urise);
+        }
+    }
+
+    static URL toEntityAttribute(final String dbData) {
+        assert dbData != null;
+        assert !dbData.isBlank();
+        try {
+            return C.convertToEntityAttribute(dbData).toURL();
+        } catch (final MalformedURLException murle) {
+            throw new RuntimeException(murle);
+        }
+    }
+
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     //    protected
-    UrlConverter() {
+    public UrlConverter() {
         super();
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     @Override
     public String convertToDatabaseColumn(final URL attribute) {
         return Optional.ofNullable(attribute)
-                       .map(a -> {
-                           try {
-                               return converter.convertToDatabaseColumn(a.toURI());
-                           } catch (final URISyntaxException urise) {
-                               throw new RuntimeException(urise);
-                           }
-                       })
-                       .orElse(null);
+                .map(a -> {
+                    try {
+                        return a.toURI();
+                    } catch (final URISyntaxException urise) {
+                        throw new RuntimeException(urise);
+                    }
+                })
+                .map(converter::convertToDatabaseColumn)
+                .orElse(null);
     }
 
     @Override
     public URL convertToEntityAttribute(final String dbData) {
         return Optional.ofNullable(dbData)
-                       .map(dd -> {
-                           try {
-                               return converter.convertToEntityAttribute(dd).toURL();
-                           } catch (final MalformedURLException murle) {
-                               throw new RuntimeException(murle);
-                           }
-                       })
-                       .orElse(null);
+                .map(dd -> converter.convertToEntityAttribute(dd))
+                .map(dd -> {
+                    try {
+                        return dd.toURL();
+                    } catch (final MalformedURLException murle) {
+                        throw new RuntimeException(murle);
+                    }
+                })
+                .orElse(null);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     private final AttributeConverter<URI, String> converter = new UriConverter();
 }

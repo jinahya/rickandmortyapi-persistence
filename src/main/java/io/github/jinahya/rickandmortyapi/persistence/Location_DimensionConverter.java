@@ -8,7 +8,7 @@ import jakarta.persistence.Converter;
 })
 public class Location_DimensionConverter extends _StringColumnEnumConverter<Location_Dimension> {
 
-    Location_DimensionConverter() {
+    public Location_DimensionConverter() {
         super(Location_Dimension.class);
     }
 }

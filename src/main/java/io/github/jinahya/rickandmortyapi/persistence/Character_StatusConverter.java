@@ -11,7 +11,7 @@ import java.util.Optional;
 })
 public class Character_StatusConverter implements AttributeConverter<Character_Status, String> {
 
-    Character_StatusConverter() {
+    public Character_StatusConverter() {
         super();
     }
 

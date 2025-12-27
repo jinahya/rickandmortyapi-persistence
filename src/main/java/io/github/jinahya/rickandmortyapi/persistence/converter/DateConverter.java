@@ -10,7 +10,7 @@ import java.util.Locale;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class DateConverter extends _BaseConverter<LocalDate> {
+public class DateConverter extends _StringConverter<LocalDate> {
 
     private static final String PATTERN = "MMMM d, uuuu";
 
@@ -24,7 +24,7 @@ public class DateConverter extends _BaseConverter<LocalDate> {
     /**
      * Creates a new instance.
      */
-    DateConverter() {
-        super(dd -> LocalDate.parse(dd, FORMATTER));
+    public DateConverter() {
+        super(FORMATTER::format, v -> LocalDate.parse(v, FORMATTER));
     }
 }

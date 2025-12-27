@@ -11,7 +11,7 @@ import java.util.Optional;
 })
 public class Character_SpeciesConverter implements AttributeConverter<Character_Species, String> {
 
-    Character_SpeciesConverter() {
+    public Character_SpeciesConverter() {
         super();
     }
 

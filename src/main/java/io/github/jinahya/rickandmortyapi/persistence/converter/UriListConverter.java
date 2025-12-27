@@ -31,7 +31,7 @@ public class UriListConverter implements AttributeConverter<List<URI>, String> {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    UriListConverter() {
+    public UriListConverter() {
         super();
     }
 
