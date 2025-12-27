@@ -429,7 +429,7 @@ public class Episode extends _BaseEntity<Integer> {
 
     @Past
     @NotNull
-    @Convert(converter = Episode_AirDateConverterConverter.class)
+    @Convert(converter = Episode_AirDateConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_AIR_DATE,
             nullable = false,

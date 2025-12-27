@@ -7,11 +7,17 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+/**
+ * An attribute converter for converting {@value Episode_#AIR_DATE} attribute to
+ * {@value Episode_AirDateConverter#PATTERN} string.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
 @Converter
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class Episode_AirDateConverterConverter extends _StringConverter<LocalDate> {
+public class Episode_AirDateConverter extends _StringConverter<LocalDate> {
 
     private static final String PATTERN = "MMMM d, uuuu";
 
@@ -25,7 +31,7 @@ public class Episode_AirDateConverterConverter extends _StringConverter<LocalDat
     /**
      * Creates a new instance.
      */
-    public Episode_AirDateConverterConverter() {
+    public Episode_AirDateConverter() {
         super(FORMATTER::format, v -> LocalDate.parse(v, FORMATTER));
     }
 }
