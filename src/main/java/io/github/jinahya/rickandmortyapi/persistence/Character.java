@@ -33,8 +33,8 @@ import java.util.Objects;
  * An entity class for mapping {@value Character#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode
- * @see io.github.jinahya.rickandmortyapi.persistence.Episode
+ * @see CharacterEpisode
+ * @see Episode
  * @see Location
  */
 @NamedQuery(name = "Character.selectList_NameEqual_",
@@ -42,14 +42,12 @@ import java.util.Objects;
                     SELECT c
                     FROM Character c
                     WHERE c.name = :name
-                    ORDER BY c.id ASC"""
-)
+                    ORDER BY c.id ASC""")
 @NamedQuery(name = "Character.selectList__OrderByIdAsc",
             query = """
                     SELECT c
                     FROM Character c
-                    ORDER BY c.id ASC"""
-)
+                    ORDER BY c.id ASC""")
 @Entity
 @Table(name = Character.TABLE_NAME)
 @SuppressWarnings({
@@ -430,9 +428,9 @@ public class Character extends _BaseEntity<Integer> {
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_ID,
             nullable = false,
-            insertable = false,
-            updatable = false
-    )
+//            insertable = false,
+            insertable = true, // eclipselink
+            updatable = false)
     private Integer id;
 
     // -----------------------------------------------------------------------------------------------------------------

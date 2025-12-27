@@ -6,18 +6,26 @@ import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Collection;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
+@SuppressWarnings({
+        "java:S117" // Local variable and method parameter names should comply with a naming convention
+})
 class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, Integer> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
@@ -26,7 +34,6 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-
     @Override
     void selectAll__(final Root<Character> root) {
         super.selectAll__(root);
@@ -110,6 +117,7 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
         });
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     @DisplayName("both origin_name and origin_url columns are null -> origin(_) attribute is null")
     @ValueSource(ints = {
             // SELECT id
@@ -152,5 +160,76 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
             ;
             return null;
         });
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @DisplayName("Find characters who appeared in all specified episodes")
+    @Nested
+    class FindCharactersWhoAppearedInAllSpecifiedEpisode_Test {
+
+        private static Stream<Arguments> episodeIdsAndCharacterIds() {
+            return Stream.of(
+                    Arguments.of(
+                            List.of(1, 2, 3),
+                            List.of(1, 2, 38, 175, 338)
+                    ),
+                    Arguments.of(
+                            List.of(10, 22, 51),
+                            List.of(1, 2, 3, 4, 5, 215, 274, 294, 389))
+            );
+        }
+
+        @MethodSource({"episodeIdsAndCharacterIds"})
+        @ParameterizedTest
+        void QueryLanguage__(final Collection<Integer> episodeIds, final Collection<Integer> characterIds) {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var characterList = applyEntityManager(em -> {
+                final var episodeList = Episode_PersistenceTestUtils.getEpisodesIdIn(em, episodeIds);
+                final var episodeSize = episodeList.size();
+                return em.createQuery(
+                                 """
+                                         SELECT c
+                                         FROM Character c
+                                         JOIN c.episodes_ ce
+                                         WHERE ce IN (:episodeList)
+                                         GROUP BY c
+                                         HAVING COUNT(DISTINCT ce) = :episodeSize
+                                         ORDER BY c.id ASC
+                                         """,
+                                 entityClass
+                         )
+                         .setParameter("episodeList", episodeList)
+                         .setParameter("episodeSize", episodeSize)
+                         .getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            assertThat(characterList)
+                    .extracting(Character::getId)
+                    .containsExactlyElementsOf(characterIds);
+        }
+
+        @MethodSource({"episodeIdsAndCharacterIds"})
+        @ParameterizedTest
+        void CriteriaApi__(final Collection<Integer> episodeIds, final Collection<Integer> characterIds) {
+            // ---------------------------------------------------------------------------------------------------- when
+            final List<Character> characterList = applyEntityManager(em -> {
+                final var episodeList = Episode_PersistenceTestUtils.getEpisodesIdIn(em, episodeIds);
+                final var episodeSize = episodeList.size();
+                final var builder = em.getCriteriaBuilder();
+                final var query = builder.createQuery(entityClass);
+                final var root = query.from(entityClass);
+                query.select(root);
+                final var episodes_ = root.join(Character_.episodes_);
+                query.where(episodes_.in(episodeList));
+                query.groupBy(root);
+                query.having(builder.equal(builder.countDistinct(episodes_), episodeSize));
+                query.orderBy(builder.asc(root.get(Character_.id)));
+                return em.createQuery(query).getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            assertThat(characterList)
+                    .extracting(Character::getId)
+                    .containsExactlyElementsOf(characterIds);
+        }
     }
 }
