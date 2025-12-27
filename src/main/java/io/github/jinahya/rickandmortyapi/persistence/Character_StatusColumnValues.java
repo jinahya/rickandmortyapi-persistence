@@ -25,6 +25,7 @@ public final class Character_StatusColumnValues {
      */
     public static final String UNKNOWN = "unknown";
 
+    // -----------------------------------------------------------------------------------------------------------------
     private Character_StatusColumnValues() {
         throw new AssertionError("instantiation is not allowed");
     }

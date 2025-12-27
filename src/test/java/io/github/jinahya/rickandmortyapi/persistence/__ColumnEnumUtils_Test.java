@@ -1,5 +1,6 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+import jakarta.annotation.Nonnull;
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -18,6 +19,7 @@ class __ColumnEnumUtils_Test {
             this.columnValue = Objects.requireNonNull(columnValue, "columnValue is null");
         }
 
+        @Nonnull
         @Override
         public @NonNull Object columnValue() {
             return columnValue;

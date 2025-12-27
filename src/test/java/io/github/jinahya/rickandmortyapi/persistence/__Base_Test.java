@@ -11,9 +11,22 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * An abstract class for testing classes extends {@link __Base} class.
+ *
+ * @param <T> base type parameter
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
 @Slf4j
 abstract class __Base_Test<T extends __Base> {
 
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance for testing the specified type class.
+     *
+     * @param typeClass the type class to test.
+     */
     __Base_Test(final Class<T> typeClass) {
         super();
         this.typeClass = Objects.requireNonNull(typeClass, "typeClass is null");
@@ -49,40 +62,40 @@ abstract class __Base_Test<T extends __Base> {
     // -----------------------------------------------------------------------------------------------------------------
     @Test
     void accessors__() throws Exception {
-        final var typeInstance = newTypeInstance();
-        final var beanInfo = Introspector.getBeanInfo(typeClass, Introspector.USE_ALL_BEANINFO);
-        for (final var propertyDescriptor : beanInfo.getPropertyDescriptors()) {
-            final var propertyType = propertyDescriptor.getPropertyType();
-            final var propertyName = propertyDescriptor.getName();
-            final var capitalizedPropertyName = propertyName.substring(0, 1).toUpperCase() + propertyName.substring(1);
-            final var readMethod = Optional.ofNullable(propertyDescriptor.getReadMethod()).orElseGet(() -> {
+        final var instance = newTypeInstance();
+        final var info = Introspector.getBeanInfo(typeClass, Introspector.USE_ALL_BEANINFO);
+        for (final var descriptor : info.getPropertyDescriptors()) {
+            final var type = descriptor.getPropertyType();
+            final var name = descriptor.getName();
+            final var capitalized = name.substring(0, 1).toUpperCase() + name.substring(1);
+            final var reader = Optional.ofNullable(descriptor.getReadMethod()).orElseGet(() -> {
                 try {
-                    return typeClass.getDeclaredMethod("get" + capitalizedPropertyName, propertyType);
+                    return typeClass.getDeclaredMethod("get" + capitalized, type);
                 } catch (final NoSuchMethodException nsme) {
                     return null;
                 }
             });
-            if (readMethod == null) {
+            if (reader == null) {
                 continue;
             }
-            if (!readMethod.canAccess(typeInstance)) {
-                readMethod.setAccessible(true);
+            if (!reader.canAccess(instance)) {
+                reader.setAccessible(true);
             }
-            final var propertyValue = readMethod.invoke(typeInstance);
-            final var writeMethod = Optional.ofNullable(propertyDescriptor.getWriteMethod()).orElseGet(() -> {
+            final var value = reader.invoke(instance);
+            final var writer = Optional.ofNullable(descriptor.getWriteMethod()).orElseGet(() -> {
                 try {
-                    return typeClass.getDeclaredMethod("set" + capitalizedPropertyName, propertyType);
+                    return typeClass.getDeclaredMethod("set" + capitalized, type);
                 } catch (final NoSuchMethodException nsme) {
                     return null;
                 }
             });
-            if (writeMethod == null) {
+            if (writer == null) {
                 continue;
             }
-            if (!writeMethod.canAccess(typeInstance)) {
-                writeMethod.setAccessible(true);
+            if (!writer.canAccess(instance)) {
+                writer.setAccessible(true);
             }
-            writeMethod.invoke(typeInstance, propertyValue);
+            writer.invoke(instance, value);
         }
     }
 

@@ -3,7 +3,7 @@ package io.github.jinahya.rickandmortyapi.persistence.converter;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,29 +14,31 @@ import java.util.stream.Collectors;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UrlListConverter implements AttributeConverter<List<URL>, String> {
+public class UriListConverter implements AttributeConverter<List<URI>, String> {
 
-    private static final AttributeConverter<URL, String> CONVERTER = new UrlConverter();
+    static final String DELIMITER = ",";
+
+    private static final AttributeConverter<URI, String> CONVERTER = new UriConverter();
 
     // -----------------------------------------------------------------------------------------------------------------
-    public UrlListConverter() {
+    public UriListConverter() {
         super();
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
     @Override
-    public String convertToDatabaseColumn(final List<URL> attribute) {
+    public String convertToDatabaseColumn(final List<URI> attribute) {
         return Optional.ofNullable(attribute)
-                .map(a -> a.stream()
+                .map(l -> l.stream()
                         .map(CONVERTER::convertToDatabaseColumn)
-                        .collect(Collectors.joining(UriListConverter.DELIMITER)))
+                        .collect(Collectors.joining(DELIMITER))
+                )
                 .orElse(null);
     }
 
     @Override
-    public List<URL> convertToEntityAttribute(final String dbData) {
+    public List<URI> convertToEntityAttribute(final String dbData) {
         return Optional.ofNullable(dbData)
-                .map(dd -> Arrays.stream(dd.split(UriListConverter.DELIMITER))
+                .map(dd -> Arrays.stream(dd.split(DELIMITER))
                         .map(CONVERTER::convertToEntityAttribute)
                         .collect(Collectors.toCollection(ArrayList::new))
                 )

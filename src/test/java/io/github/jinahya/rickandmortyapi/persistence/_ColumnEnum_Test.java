@@ -20,8 +20,8 @@ abstract class _ColumnEnum_Test<E extends Enum<E> & _StringColumnEnum<E>> {
     @Test
     void _DoesNotContainNullNorDuplicates_AllColumnValues() {
         final var columnValues = Arrays.stream(enumClass.getEnumConstants())
-                                       .map(_StringColumnEnum::columnValue)
-                                       .toList();
+                .map(_StringColumnEnum::columnValue)
+                .toList();
         assertThat(columnValues)
                 .doesNotContainNull()
                 .doesNotHaveDuplicates();
