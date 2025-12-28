@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-@Deprecated(forRemoval = true)
+@Deprecated
 @Slf4j
 class EpisodeCharacter_PersistenceTest extends _BaseEntity_PersistenceTest<EpisodeCharacter, EpisodeCharacterId> {
 

@@ -17,7 +17,7 @@ import java.util.Objects;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @deprecated use {@link CharacterEpisodeId} instead
  */
-@Deprecated(forRemoval = true)
+@Deprecated
 @Embeddable
 public class EpisodeCharacterId
         extends __Base

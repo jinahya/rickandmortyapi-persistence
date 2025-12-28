@@ -5,7 +5,7 @@ import jakarta.persistence.Converter;
 import java.time.Instant;
 
 /**
- * .
+ * An attribute converter for converting {@link Instant} attributes to and from strings.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @see Instant#parse(CharSequence)

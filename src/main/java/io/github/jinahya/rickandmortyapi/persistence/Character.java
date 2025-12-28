@@ -42,12 +42,14 @@ import java.util.Objects;
                     SELECT c
                     FROM Character c
                     WHERE c.name = :name
-                    ORDER BY c.id ASC""")
+                    ORDER BY c.id ASC"""
+)
 @NamedQuery(name = "Character.selectList__OrderByIdAsc",
             query = """
                     SELECT c
                     FROM Character c
-                    ORDER BY c.id ASC""")
+                    ORDER BY c.id ASC"""
+)
 @Entity
 @Table(name = Character.TABLE_NAME)
 @SuppressWarnings({
@@ -186,8 +188,7 @@ public class Character extends _BaseEntity<Integer> {
         super();
     }
 
-    // ------------------------------------------------------------------------------------------------------- java.lang
-    // .Object
+    // ------------------------------------------------------------------------------------------------ java.lang.Object
     @Override
     public String toString() {
         return super.toString() + '{' +
@@ -200,7 +201,6 @@ public class Character extends _BaseEntity<Integer> {
                ",origin=" + origin +
                ",location=" + location +
                ",image=" + image +
-               ",episode=" + episode +
                ",url=" + url +
                ",created=" + created +
                '}';

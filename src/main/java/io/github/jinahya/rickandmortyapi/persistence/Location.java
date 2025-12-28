@@ -60,7 +60,7 @@ public class Location extends _BaseEntity<Integer> {
     // ------------------------------------------------------------------------------------------------------- dimension
 
     /**
-     * The name of the table column to which the {@link Location_#NAME} attributes maps.
+     * The name of the table column to which the {@value Location_#DIMENSION} attribute maps.
      */
     public static final String COLUMN_NAME_DIMENSION = "dimension";
 
@@ -84,7 +84,7 @@ public class Location extends _BaseEntity<Integer> {
         super();
     }
 
-    // ------------------------------------------------------------------------------------------------ java.lang.Obejct
+    // ------------------------------------------------------------------------------------------------ java.lang.Object
     @Override
     public String toString() {
         return super.toString() + '{' +

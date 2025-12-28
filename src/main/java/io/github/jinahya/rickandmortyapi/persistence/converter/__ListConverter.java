@@ -4,7 +4,6 @@ import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 import java.util.List;
-import java.util.Objects;
 
 @Converter
 @SuppressWarnings({
@@ -13,10 +12,7 @@ import java.util.Objects;
 public abstract class __ListConverter<T, Y> implements AttributeConverter<List<T>, Y> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    public __ListConverter(final AttributeConverter<T, Y> converter) {
+    protected __ListConverter() {
         super();
-        this.converter = Objects.requireNonNull(converter, "converter is null");
     }
-
-    private final AttributeConverter<T, Y> converter;
 }
