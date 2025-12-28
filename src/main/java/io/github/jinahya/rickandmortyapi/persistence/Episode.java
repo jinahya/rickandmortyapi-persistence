@@ -12,6 +12,13 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.PostLoad;
+import jakarta.persistence.PostPersist;
+import jakarta.persistence.PostRemove;
+import jakarta.persistence.PostUpdate;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreRemove;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.Valid;
@@ -32,9 +39,7 @@ import java.util.Optional;
  * An entity class for mapping {@value Episode#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see Character
  * @see EpisodeCharacter
- * @see Location
  */
 @NamedQuery(name = "Episode.SelectList__OrderByAirDateIso_Asc",
             query = """
@@ -97,6 +102,10 @@ public class Episode extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_AIR_DATE = "air_date";
 
     // --------------------------------------------------------------------------------------------------------- episode
+
+    /**
+     * The name of the table column to which the {@value Episode_#EPISODE} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_EPISODE = "episode";
 
     static final String REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER = "seasonNumber";
@@ -168,10 +177,20 @@ public class Episode extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_AIR_DATE_ISO_ = "air_date_iso_";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * A comparator compares with {@link Episode_#ID} attributes.
+     */
     public static final Comparator<Episode> COMPARING_ID = Comparator.comparing(Episode::getId);
 
+    /**
+     * A comparator compares with {@link Episode_#EPISODE} attributes.
+     */
     public static final Comparator<Episode> COMPARING_EPISODE = Comparator.comparing(Episode::getEpisode);
 
+    /**
+     * A comparator compares with {@link Episode_#AIR_DATE_ISO_} attributes.
+     */
     public static final Comparator<Episode> COMPARING_AIR_DATE_ISO_ = Comparator.comparing(Episode::getAirDateIso_);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -191,8 +210,8 @@ public class Episode extends _BaseEntity<Integer> {
         return super.toString() + '{' +
                "id=" + id +
                ",name=" + name +
-               ",status=" + airDate +
-               ",species=" + episode +
+               ",airDate=" + airDate +
+               ",episode=" + episode +
                ",characters=" + characters +
                ",url=" + url +
                ",created=" + created +
@@ -202,16 +221,50 @@ public class Episode extends _BaseEntity<Integer> {
 
     @Override
     public final boolean equals(final Object obj) {
-        if (!(obj instanceof Episode character)) {
+        if (!(obj instanceof Episode that)) {
             return false;
         }
-        return Objects.equals(getId(), character.getId());
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override
     public final int hashCode() {
         return Objects.hashCode(getId());
     }
+
+    // --------------------------------------------------------------------------------------------- Jakarta-Persistence
+    @PrePersist
+    private void doOnPrePersist() {
+        resetEpisodeRelatedValues();
+    }
+
+    @PostPersist
+    private void doOnPostPersist() {
+    }
+
+    @PostLoad
+    private void doOnPostLoad() {
+        resetEpisodeRelatedValues();
+    }
+
+    @PreUpdate
+    private void doOnPreUpdate() {
+        resetEpisodeRelatedValues();
+    }
+
+    @PostUpdate
+    private void doOnPostUpdate() {
+    }
+
+    @PreRemove
+    private void doOnPreRemove() {
+    }
+
+    @PostRemove
+    private void doOnPostRemove() {
+    }
+
+    // ---------------------------------------------------------------------------------------------- Jakarta-Validation
 
     // -------------------------------------------------------------------------------------------------------------- id
 
@@ -270,8 +323,8 @@ public class Episode extends _BaseEntity<Integer> {
         return airDate;
     }
 
-    void setAirDate(final LocalDate status) {
-        this.airDate = status;
+    void setAirDate(final LocalDate airDate) {
+        this.airDate = airDate;
     }
 
     // --------------------------------------------------------------------------------------------------------- episode
@@ -287,6 +340,12 @@ public class Episode extends _BaseEntity<Integer> {
 
     void setEpisode(final String episode) {
         this.episode = episode;
+        resetEpisodeRelatedValues();
+    }
+
+    private void resetEpisodeRelatedValues() {
+        seasonNumber_ = null;
+        episodeNumber_ = null;
     }
 
     /**
@@ -296,17 +355,21 @@ public class Episode extends _BaseEntity<Integer> {
      *         {@code null} if the current value of the {@value Episode_#EPISODE} attribute is {@code null}.
      */
     @Transient
-    public Integer getSeasonNumber() {
-        return Optional.ofNullable(getEpisode())
-                .map(v -> {
-                    final var matcher = PATTERN_EPISODE.matcher(v);
-                    if (!matcher.matches()) {
-                        throw new IllegalStateException("invalid episode: " + v);
-                    }
-                    return matcher.group(REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER);
-                })
-                .map(Integer::valueOf)
-                .orElse(null);
+    public Integer getSeasonNumber_() {
+        var result = seasonNumber_;
+        if (result == null) {
+            result = seasonNumber_ = Optional.ofNullable(getEpisode())
+                                             .map(v -> {
+                                                 final var matcher = PATTERN_EPISODE.matcher(v);
+                                                 if (!matcher.matches()) {
+                                                     throw new IllegalStateException("invalid episode: " + v);
+                                                 }
+                                                 return matcher.group(REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER);
+                                             })
+                                             .map(Integer::valueOf)
+                                             .orElse(null);
+        }
+        return result;
     }
 
     /**
@@ -316,17 +379,22 @@ public class Episode extends _BaseEntity<Integer> {
      *         {@code null} if the current value of the {@value Episode_#EPISODE} attribute is {@code null}.
      */
     @Transient
-    public Integer getEpisodeNumber() {
-        return Optional.ofNullable(getEpisode())
-                .map(v -> {
-                    final var matcher = PATTERN_EPISODE.matcher(v);
-                    if (!matcher.matches()) {
-                        throw new IllegalStateException("invalid episode: " + v);
-                    }
-                    return matcher.group(REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
-                })
-                .map(Integer::valueOf)
-                .orElse(null);
+    public Integer getEpisodeNumber_() {
+        var result = episodeNumber_;
+        if (result == null) {
+            result = episodeNumber_ = Optional.ofNullable(getEpisode())
+                                              .map(v -> {
+                                                  final var matcher = PATTERN_EPISODE.matcher(v);
+                                                  if (!matcher.matches()) {
+                                                      throw new IllegalStateException("invalid episode: " + v);
+                                                  }
+                                                  return matcher.group(
+                                                          REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
+                                              })
+                                              .map(Integer::valueOf)
+                                              .orElse(null);
+        }
+        return result;
     }
 
     // ------------------------------------------------------------------------------------------------------ characters
@@ -438,6 +506,7 @@ public class Episode extends _BaseEntity<Integer> {
     )
     private LocalDate airDate;
 
+    // -----------------------------------------------------------------------------------------------------------------
     @NotBlank
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_EPISODE,
@@ -451,6 +520,13 @@ public class Episode extends _BaseEntity<Integer> {
     })
     private String episode;
 
+    @Transient
+    private volatile Integer episodeNumber_;
+
+    @Transient
+    private volatile Integer seasonNumber_;
+
+    // -----------------------------------------------------------------------------------------------------------------
     @NotNull
     @Convert(converter = UrlListConverter.class)
     @Basic(optional = false)

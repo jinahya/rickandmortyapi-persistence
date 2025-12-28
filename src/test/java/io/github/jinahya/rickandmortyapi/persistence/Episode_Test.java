@@ -71,6 +71,47 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
         super(Episode.class, Integer.class);
     }
 
+    @Test
+    void __ResetParsingCaches_OnSetEpisode() {
+        // ------------------------------------------------------------------------------------------------------- given
+        final var episode = new Episode();
+        episode.setEpisode("S01E01");
+        assertThat(episode.getSeasonNumber_()).isEqualTo(1);
+        assertThat(episode.getEpisodeNumber_()).isEqualTo(1);
+        // -------------------------------------------------------------------------------------------------------- when
+        episode.setEpisode("S02E03");
+        // -------------------------------------------------------------------------------------------------------- then
+        assertThat(episode.getSeasonNumber_()).isEqualTo(2);
+        assertThat(episode.getEpisodeNumber_()).isEqualTo(3);
+    }
+
+    @Test
+    void __ResetParsingCaches_OnLifecycleMethods() throws Exception {
+        // ------------------------------------------------------------------------------------------------------- given
+        final var episode = new Episode();
+        episode.setEpisode("S01E01");
+        assertThat(episode.getSeasonNumber_()).isEqualTo(1);
+        assertThat(episode.getEpisodeNumber_()).isEqualTo(1);
+
+        // Manually changing the field via reflection to simulate database change (e.g. refresh)
+        final var field = Episode.class.getDeclaredField("episode");
+        field.setAccessible(true);
+        field.set(episode, "S02E03");
+
+        // The cache is still S01E01 because it hasn't been reset yet
+        assertThat(episode.getSeasonNumber_()).isEqualTo(1);
+        assertThat(episode.getEpisodeNumber_()).isEqualTo(1);
+
+        // -------------------------------------------------------------------------------------------------------- when
+        final var method = Episode.class.getDeclaredMethod("doOnPostLoad");
+        method.setAccessible(true);
+        method.invoke(episode);
+
+        // -------------------------------------------------------------------------------------------------------- then
+        assertThat(episode.getSeasonNumber_()).isEqualTo(2);
+        assertThat(episode.getEpisodeNumber_()).isEqualTo(3);
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
     @Override
     SingleTypeEqualsVerifierApi<Episode> configureEqualsVerifier(
@@ -100,7 +141,7 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
             final var instance = spy(newTypeInstance());
             given(instance.getEpisode()).willReturn(null);
             // ---------------------------------------------------------------------------------------------------- when
-            final var seasonNumber = instance.getSeasonNumber();
+            final var seasonNumber = instance.getSeasonNumber_();
             // ---------------------------------------------------------------------------------------------------- then
             assertThat(seasonNumber).isNull();
             verify(instance, times(1)).getEpisode();
@@ -111,7 +152,7 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
         void __(final String episode, final int seasonNumber) {
             final var instance = spy(newTypeInstance());
             given(instance.getEpisode()).willReturn(episode);
-            assertThat(instance.getSeasonNumber()).isEqualTo(seasonNumber);
+            assertThat(instance.getSeasonNumber_()).isEqualTo(seasonNumber);
             verify(instance, times(1)).getEpisode();
         }
     }
@@ -135,7 +176,7 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
             final var instance = spy(newTypeInstance());
             given(instance.getEpisode()).willReturn(null);
             // ---------------------------------------------------------------------------------------------------- when
-            final var episodeNumber = instance.getEpisodeNumber();
+            final var episodeNumber = instance.getEpisodeNumber_();
             // ---------------------------------------------------------------------------------------------------- then
             assertThat(episodeNumber).isNull();
             verify(instance, times(1)).getEpisode();
@@ -146,7 +187,7 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
         void __(final String episode, final int episodeNumber) {
             final var instance = spy(newTypeInstance());
             given(instance.getEpisode()).willReturn(episode);
-            assertThat(instance.getEpisodeNumber()).isEqualTo(episodeNumber);
+            assertThat(instance.getEpisodeNumber_()).isEqualTo(episodeNumber);
             verify(instance, times(1)).getEpisode();
         }
     }

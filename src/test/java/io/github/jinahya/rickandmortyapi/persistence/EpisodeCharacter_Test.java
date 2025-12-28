@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 
-@Deprecated(forRemoval = true)
+@Deprecated
 @Slf4j
 class EpisodeCharacter_Test extends _BaseEntity_Test<EpisodeCharacter, EpisodeCharacterId> {
 

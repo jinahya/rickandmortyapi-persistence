@@ -19,7 +19,7 @@ import java.util.Optional;
  * @see EpisodeCharacterId
  * @deprecated use {@link CharacterEpisode} instead
  */
-@Deprecated(forRemoval = true)
+@Deprecated
 @Entity
 @Table(name = EpisodeCharacter.TABLE_NAME)
 public class EpisodeCharacter extends _BaseEntity<EpisodeCharacterId> {

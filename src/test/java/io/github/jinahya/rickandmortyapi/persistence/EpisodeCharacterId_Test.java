@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Deprecated(forRemoval = true)
+@Deprecated
 class EpisodeCharacterId_Test extends __Base_Test<EpisodeCharacterId> {
 
     @Test
