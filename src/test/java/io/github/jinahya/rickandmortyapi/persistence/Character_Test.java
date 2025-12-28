@@ -19,8 +19,8 @@ class Character_Test extends _BaseEntity_Test<Character, Integer> {
     SingleTypeEqualsVerifierApi<Character> configureEqualsVerifier(
             final SingleTypeEqualsVerifierApi<Character> verifier) {
         return super.configureEqualsVerifier(verifier)
-                    .suppress(Warning.SURROGATE_KEY)
-                    .withPrefabValues(Episode.class, Episode_Test.RED, Episode_Test.BLUE)
-                    .withPrefabValues(Location.class, Location_Test.RED, Location_Test.BLUE);
+                .suppress(Warning.SURROGATE_KEY)
+                .withPrefabValues(Episode.class, Episode_Test.RED, Episode_Test.BLUE)
+                .withPrefabValues(Location.class, Location_Test.RED, Location_Test.BLUE);
     }
 }

@@ -36,25 +36,40 @@ class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Int
                 .as("all locations")
                 .hasSize(_PersistenceConstants.NUMBER_OF_ALL_LOCATIONS);
         {
+            // fetch location.locationCharacters_
+            // and assert that location.residents_ is equal to location.locationCharacters_
+            final var locationIds = entityList.stream().map(Location::getId).distinct().toList();
+            entityManager.createQuery(
+                            """
+                                    SELECT l
+                                    FROM Location l
+                                    LEFT JOIN FETCH l.locationCharacters_
+                                    WHERE l.id IN :locationIds""",
+                            Location.class
+                    )
+                    .setParameter("locationIds", locationIds)
+                    .getResultList();
+            entityList.forEach(l -> {
+                assertThat(l.getResidents_()).hasSameElementsAs(l.getLocationCharacters_());
+            });
+        }
+        {
             final var defined = EnumSet.allOf(Location_Type.class);
             final var selected = entityList.stream()
-                                           .map(Location::getType)
-                                           .filter(Objects::nonNull)
-                                           .distinct()
-                                           .toList();
-            assertThat(selected).containsAll(defined);
-            assertThat(defined).containsAll(selected);
+                    .map(Location::getType)
+                    .filter(Objects::nonNull)
+                    .distinct()
+                    .toList();
+            assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         {
             final var defined = EnumSet.allOf(Location_Dimension.class);
-            final var selected =
-                    entityList.stream()
-                              .map(Location::getDimension)
-                              .filter(Objects::nonNull)
-                              .distinct()
-                              .toList();
-            assertThat(defined).containsAll(selected);
-            assertThat(selected).containsAll(defined);
+            final var selected = entityList.stream()
+                    .map(Location::getDimension)
+                    .filter(Objects::nonNull)
+                    .distinct()
+                    .toList();
+            assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         entityList.forEach(e -> {
             assertThat(e.getResidents_())
@@ -62,8 +77,8 @@ class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Int
                     .satisfiesAnyOf(
                             l -> assertThat(l).isEmpty(),
                             l -> assertThat(l).isNotEmpty()
-                                              .doesNotContainNull()
-                                              .doesNotHaveDuplicates()
+                                    .doesNotContainNull()
+                                    .doesNotHaveDuplicates()
                     );
         });
     }

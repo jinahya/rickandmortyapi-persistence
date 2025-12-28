@@ -17,12 +17,12 @@ public abstract class _ListStringConverter<T> extends _StringConverter<List<T>> 
     // -----------------------------------------------------------------------------------------------------------------
     protected _ListStringConverter(final AttributeConverter<T, String> converter, final String delimiter) {
         super(a -> a.stream()
-                    .filter(Objects::nonNull)
-                    .map(converter::convertToDatabaseColumn)
-                    .collect(Collectors.joining(delimiter)),
+                      .filter(Objects::nonNull)
+                      .map(converter::convertToDatabaseColumn)
+                      .collect(Collectors.joining(delimiter)),
               dd -> Arrays.stream(dd.split(delimiter))
-                          .map(converter::convertToEntityAttribute)
-                          .toList()
+                      .map(converter::convertToEntityAttribute)
+                      .toList()
         );
     }
 }

@@ -359,15 +359,15 @@ public class Episode extends _BaseEntity<Integer> {
         var result = seasonNumber_;
         if (result == null) {
             result = seasonNumber_ = Optional.ofNullable(getEpisode())
-                                             .map(v -> {
-                                                 final var matcher = PATTERN_EPISODE.matcher(v);
-                                                 if (!matcher.matches()) {
-                                                     throw new IllegalStateException("invalid episode: " + v);
-                                                 }
-                                                 return matcher.group(REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER);
-                                             })
-                                             .map(Integer::valueOf)
-                                             .orElse(null);
+                    .map(v -> {
+                        final var matcher = PATTERN_EPISODE.matcher(v);
+                        if (!matcher.matches()) {
+                            throw new IllegalStateException("invalid episode: " + v);
+                        }
+                        return matcher.group(REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER);
+                    })
+                    .map(Integer::valueOf)
+                    .orElse(null);
         }
         return result;
     }
@@ -383,16 +383,16 @@ public class Episode extends _BaseEntity<Integer> {
         var result = episodeNumber_;
         if (result == null) {
             result = episodeNumber_ = Optional.ofNullable(getEpisode())
-                                              .map(v -> {
-                                                  final var matcher = PATTERN_EPISODE.matcher(v);
-                                                  if (!matcher.matches()) {
-                                                      throw new IllegalStateException("invalid episode: " + v);
-                                                  }
-                                                  return matcher.group(
-                                                          REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
-                                              })
-                                              .map(Integer::valueOf)
-                                              .orElse(null);
+                    .map(v -> {
+                        final var matcher = PATTERN_EPISODE.matcher(v);
+                        if (!matcher.matches()) {
+                            throw new IllegalStateException("invalid episode: " + v);
+                        }
+                        return matcher.group(
+                                REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
+                    })
+                    .map(Integer::valueOf)
+                    .orElse(null);
         }
         return result;
     }

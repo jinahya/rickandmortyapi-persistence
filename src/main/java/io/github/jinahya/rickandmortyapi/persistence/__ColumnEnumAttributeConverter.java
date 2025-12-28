@@ -21,15 +21,15 @@ abstract class __ColumnEnumAttributeConverter<E extends Enum<E> & __ColumnEnum<E
     @Override
     public final T convertToDatabaseColumn(final E attribute) {
         return Optional.ofNullable(attribute)
-                       .map(__ColumnEnum::columnValue)
-                       .orElse(null);
+                .map(__ColumnEnum::columnValue)
+                .orElse(null);
     }
 
     @Override
     public final E convertToEntityAttribute(final T dbData) {
         return Optional.ofNullable(dbData)
-                       .map(v -> __ColumnEnumUtils.valueOfColumnValue(enumClass, v))
-                       .orElse(null);
+                .map(v -> __ColumnEnumUtils.valueOfColumnValue(enumClass, v))
+                .orElse(null);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

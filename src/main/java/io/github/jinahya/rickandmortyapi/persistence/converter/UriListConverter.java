@@ -28,20 +28,20 @@ public class UriListConverter implements AttributeConverter<List<URI>, String> {
     @Override
     public String convertToDatabaseColumn(final List<URI> attribute) {
         return Optional.ofNullable(attribute)
-                       .map(l -> l.stream()
-                                  .map(CONVERTER::convertToDatabaseColumn)
-                                  .collect(Collectors.joining(DELIMITER))
-                       )
-                       .orElse(null);
+                .map(l -> l.stream()
+                        .map(CONVERTER::convertToDatabaseColumn)
+                        .collect(Collectors.joining(DELIMITER))
+                )
+                .orElse(null);
     }
 
     @Override
     public List<URI> convertToEntityAttribute(final String dbData) {
         return Optional.ofNullable(dbData)
-                       .map(dd -> Arrays.stream(dd.split(DELIMITER))
-                                        .map(CONVERTER::convertToEntityAttribute)
-                                        .collect(Collectors.toCollection(ArrayList::new))
-                       )
-                       .orElse(null);
+                .map(dd -> Arrays.stream(dd.split(DELIMITER))
+                        .map(CONVERTER::convertToEntityAttribute)
+                        .collect(Collectors.toCollection(ArrayList::new))
+                )
+                .orElse(null);
     }
 }
