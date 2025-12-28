@@ -23,15 +23,15 @@ public abstract class __BaseConverter<X, Y> implements AttributeConverter<X, Y> 
     @Override
     public final Y convertToDatabaseColumn(final X attribute) {
         return Optional.ofNullable(attribute)
-                .map(formatter)
-                .orElse(null);
+                       .map(formatter)
+                       .orElse(null);
     }
 
     @Override
     public final X convertToEntityAttribute(final Y dbData) {
         return Optional.ofNullable(dbData)
-                .map(parser)
-                .orElse(null);
+                       .map(parser)
+                       .orElse(null);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

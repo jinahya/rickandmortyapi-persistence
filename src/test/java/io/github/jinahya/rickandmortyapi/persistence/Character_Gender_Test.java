@@ -6,7 +6,7 @@ class Character_Gender_Test extends _StringColumnEnum_Test<Character_Gender> {
 
     @Test
     void _AllConstantsExist_AllColumnsValues() {
-        _AllConstantsExist_AllColumnsValues(
+        _AllConstantsExist_AllPredefinedColumnsValues(
                 _ColumnValues_TestUtils.getAllValues(Character_GenderColumnValues.class)
         );
     }

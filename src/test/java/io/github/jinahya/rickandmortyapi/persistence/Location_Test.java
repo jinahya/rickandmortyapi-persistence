@@ -19,8 +19,8 @@ class Location_Test extends _BaseEntity_Test<Location, Integer> {
     SingleTypeEqualsVerifierApi<Location> configureEqualsVerifier(
             final SingleTypeEqualsVerifierApi<Location> verifierApi) {
         return super.configureEqualsVerifier(verifierApi)
-                .suppress(Warning.SURROGATE_KEY)
-                .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
+                    .suppress(Warning.SURROGATE_KEY)
+                    .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
                 ;
     }
 }

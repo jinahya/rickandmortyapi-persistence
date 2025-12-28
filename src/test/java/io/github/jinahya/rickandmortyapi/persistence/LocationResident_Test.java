@@ -17,9 +17,9 @@ class LocationResident_Test extends _BaseEntity_Test<LocationResident, LocationR
     SingleTypeEqualsVerifierApi<LocationResident> configureEqualsVerifier(
             SingleTypeEqualsVerifierApi<LocationResident> verifier) {
         return super.configureEqualsVerifier(verifier)
-                .suppress(Warning.SURROGATE_KEY)
-                .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
-                .withPrefabValues(Location.class, Location_Test.RED, Location_Test.BLUE)
+                    .suppress(Warning.SURROGATE_KEY)
+                    .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)
+                    .withPrefabValues(Location.class, Location_Test.RED, Location_Test.BLUE)
                 ;
     }
 }

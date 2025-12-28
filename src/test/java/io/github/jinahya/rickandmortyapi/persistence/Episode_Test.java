@@ -117,8 +117,8 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
     SingleTypeEqualsVerifierApi<Episode> configureEqualsVerifier(
             final SingleTypeEqualsVerifierApi<Episode> verifierApi) {
         return super.configureEqualsVerifier(verifierApi)
-                .suppress(Warning.SURROGATE_KEY)
-                .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE);
+                    .suppress(Warning.SURROGATE_KEY)
+                    .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

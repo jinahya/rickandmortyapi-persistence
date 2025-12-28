@@ -38,10 +38,10 @@ class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Int
         {
             final var defined = EnumSet.allOf(Location_Type.class);
             final var selected = entityList.stream()
-                    .map(Location::getType)
-                    .filter(Objects::nonNull)
-                    .distinct()
-                    .toList();
+                                           .map(Location::getType)
+                                           .filter(Objects::nonNull)
+                                           .distinct()
+                                           .toList();
             assertThat(selected).containsAll(defined);
             assertThat(defined).containsAll(selected);
         }
@@ -49,10 +49,10 @@ class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Int
             final var defined = EnumSet.allOf(Location_Dimension.class);
             final var selected =
                     entityList.stream()
-                            .map(Location::getDimension)
-                            .filter(Objects::nonNull)
-                            .distinct()
-                            .toList();
+                              .map(Location::getDimension)
+                              .filter(Objects::nonNull)
+                              .distinct()
+                              .toList();
             assertThat(defined).containsAll(selected);
             assertThat(selected).containsAll(defined);
         }
@@ -62,8 +62,8 @@ class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Int
                     .satisfiesAnyOf(
                             l -> assertThat(l).isEmpty(),
                             l -> assertThat(l).isNotEmpty()
-                                    .doesNotContainNull()
-                                    .doesNotHaveDuplicates()
+                                              .doesNotContainNull()
+                                              .doesNotHaveDuplicates()
                     );
         });
     }

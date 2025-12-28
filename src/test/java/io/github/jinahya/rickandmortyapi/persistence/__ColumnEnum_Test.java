@@ -20,16 +20,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 abstract class __ColumnEnum_Test<E extends Enum<E> & __ColumnEnum<E, T>, T> {
 
-    void _AllConstantsExist_AllColumnsValues(final Collection<T> allPredefinedColumnValues) {
-        Objects.requireNonNull(allPredefinedColumnValues, "allPredefinedColumnValues is null");
-        final var enumSet = EnumSet.allOf(enumClass);
-        for (final var c = new ArrayList<>(new HashSet<>(allPredefinedColumnValues)); !c.isEmpty(); ) {
-            final var value = __ColumnEnumUtils.valueOfColumnValue(enumClass, c.removeFirst());
-            enumSet.remove(value);
-        }
-        assertThat(enumSet).isEmpty();
-    }
-
     @DisplayName("valueOfColumnValue(T)")
     @Test
     void valueOfColumnValue__() {
@@ -60,6 +50,17 @@ abstract class __ColumnEnum_Test<E extends Enum<E> & __ColumnEnum<E, T>, T> {
         super();
         this.enumClass = Objects.requireNonNull(enumClass, "enumClass is null");
         this.columnClass = Objects.requireNonNull(columnClass, "columnClass is null");
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    void _AllConstantsExist_AllPredefinedColumnsValues(final Collection<T> allPredefinedColumnValues) {
+        Objects.requireNonNull(allPredefinedColumnValues, "allPredefinedColumnValues is null");
+        final var enumSet = EnumSet.allOf(enumClass);
+        for (final var c = new ArrayList<>(new HashSet<>(allPredefinedColumnValues)); !c.isEmpty(); ) {
+            final var value = __ColumnEnumUtils.valueOfColumnValue(enumClass, c.removeFirst());
+            enumSet.remove(value);
+        }
+        assertThat(enumSet).isEmpty();
     }
 
     // -----------------------------------------------------------------------------------------------------------------

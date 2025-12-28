@@ -10,7 +10,7 @@
     This assumes the database representation of a list of URLs is always a comma-separated string, which might not be flexible enough for all database types.
 
 ##### Documentation and Typographical Errors
-*   **Javadoc Quality**: Many getters and setters in entity classes (especially `Character.java`) lack Javadoc. Several classes like `UrlConverter.java` and `UrlListConverter.java` lack class-level documentation. (Note: Documentation for `COLUMN_NAME_...` constants and `InstantConverter` has been completed).
+*   **Javadoc Quality**: (Note: Documentation for all getters in `Character.java`, `COLUMN_NAME_...` constants, and `InstantConverter` has been completed). Remaining undocumented getters and setters in other entity classes and several converter classes (e.g., `UrlConverter`, `UrlListConverter`) still lack Javadoc.
 *   **Typographical Errors**: (None identified in the current version).
 
 #### 2. Architectural Perspectives
@@ -32,7 +32,7 @@
 
 #### 3. Suggestions
 
-1. **Complete Javadoc Coverage**: Add descriptive Javadoc to remaining getters, setters, and converter classes (e.g., `UrlConverter`, `UrlListConverter`).
+1. **Complete Javadoc Coverage**: Add descriptive Javadoc to remaining getters (in other entities), setters, and converter classes (e.g., `UrlConverter`, `UrlListConverter`).
 2. **Refactor `UrlListConverter`**: Consider making the delimiter configurable to support different database requirements.
 3. **Evaluate Writable Mappings**: Determine if the `insertable = false, updatable = false` strategy meets future requirements and adjust if needed.
 4. **Implement Optimistic Locking**: Add `@Version` fields to entities to ensure thread-safe updates in the future.

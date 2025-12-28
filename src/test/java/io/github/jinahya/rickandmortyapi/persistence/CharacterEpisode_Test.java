@@ -20,6 +20,6 @@ class CharacterEpisode_Test extends _BaseEntity_Test<CharacterEpisode, Character
     SingleTypeEqualsVerifierApi<CharacterEpisode> configureEqualsVerifier(
             final SingleTypeEqualsVerifierApi<CharacterEpisode> verifier) {
         return super.configureEqualsVerifier(verifier)
-                .suppress(Warning.SURROGATE_KEY);
+                    .suppress(Warning.SURROGATE_KEY);
     }
 }

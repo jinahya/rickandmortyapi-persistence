@@ -52,12 +52,14 @@ public class Location extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_ID = "id";
 
     // -----------------------------------------------------------------------------------------------------------------
+
     /**
      * The name of the table column to which the {@value Location_#NAME} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_NAME = "name";
 
     // ------------------------------------------------------------------------------------------------------------ type
+
     /**
      * The name of the table column to which the {@value Location_#TYPE} attribute maps. The value is {@value}.
      */
@@ -71,18 +73,21 @@ public class Location extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_DIMENSION = "dimension";
 
     // -----------------------------------------------------------------------------------------------------------------
+
     /**
      * The name of the table column to which the {@value Location_#RESIDENTS} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_RESIDENTS = "residents";
 
     // -----------------------------------------------------------------------------------------------------------------
+
     /**
      * The name of the table column to which the {@value Location_#URL} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_URL = "url";
 
     // -----------------------------------------------------------------------------------------------------------------
+
     /**
      * The name of the table column to which the {@value Location_#CREATED} attribute maps. The value is {@value}.
      */

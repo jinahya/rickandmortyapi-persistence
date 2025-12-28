@@ -15,28 +15,28 @@ final class _ColumnValues_TestUtils {
      */
     static <T extends _ColumnValues> List<String> getAllValues(final Class<T> valuesClass) {
         return Arrays.stream(valuesClass.getDeclaredFields())
-                .filter(f -> {
-                    final var modifiers = f.getModifiers();
-                    if (!Modifier.isStatic(modifiers)) {
-                        return false;
-                    }
-                    if (!Modifier.isFinal(modifiers)) {
-                        return false;
-                    }
-                    final var type = f.getType();
-                    if (type != String.class) {
-                        return false;
-                    }
-                    return true;
-                })
-                .map(f -> {
-                    try {
-                        return (String) f.get(null);
-                    } catch (final IllegalAccessException iae) {
-                        throw new RuntimeException(iae);
-                    }
-                })
-                .toList();
+                     .filter(f -> {
+                         final var modifiers = f.getModifiers();
+                         if (!Modifier.isStatic(modifiers)) {
+                             return false;
+                         }
+                         if (!Modifier.isFinal(modifiers)) {
+                             return false;
+                         }
+                         final var type = f.getType();
+                         if (type != String.class) {
+                             return false;
+                         }
+                         return true;
+                     })
+                     .map(f -> {
+                         try {
+                             return (String) f.get(null);
+                         } catch (final IllegalAccessException iae) {
+                             throw new RuntimeException(iae);
+                         }
+                     })
+                     .toList();
     }
 
     private _ColumnValues_TestUtils() {

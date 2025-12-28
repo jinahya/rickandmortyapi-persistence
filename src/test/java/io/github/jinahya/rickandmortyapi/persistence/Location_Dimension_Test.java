@@ -6,8 +6,9 @@ class Location_Dimension_Test extends _StringColumnEnum_Test<Location_Dimension>
 
     @Test
     void _AllConstantsExist_AllColumnsValues() {
-        super._AllConstantsExist_AllColumnsValues(
-                _ColumnValues_TestUtils.getAllValues(Location_DimensionColumnValues.class));
+        super._AllConstantsExist_AllPredefinedColumnsValues(
+                _ColumnValues_TestUtils.getAllValues(Location_DimensionColumnValues.class)
+        );
     }
 
     Location_Dimension_Test() {

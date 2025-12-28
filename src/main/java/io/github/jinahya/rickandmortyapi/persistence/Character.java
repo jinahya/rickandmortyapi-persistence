@@ -190,22 +190,12 @@ public class Character extends _BaseEntity<Integer> {
      */
     public static final String COLUMN_NAME_ORIGIN_ID_ = "origin_id_";
 
-    /**
-     * The name of the persistent attribute for the origin location. The value is {@value}.
-     */
-    public static final String ATTRIBUTE_NAME_ORIGIN_ = "origin_";
-
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
      * The name of the table column to which the {@value Character_#LOCATION_} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_ID_ = "location_id_";
-
-    /**
-     * The name of the persistent attribute for the last known location. The value is {@value}.
-     */
-    public static final String ATTRIBUTE_NAME_LOCATION_ = "location_";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
