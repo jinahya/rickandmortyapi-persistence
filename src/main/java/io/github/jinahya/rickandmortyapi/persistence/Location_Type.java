@@ -8,7 +8,6 @@ import java.util.Objects;
  * Constants forthe  {@value Location#COLUMN_NAME_TYPE} column of the {@value Location#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see Location_TypeColumnValues
  */
 public enum Location_Type implements _StringColumnEnum<Location_Type> {
 

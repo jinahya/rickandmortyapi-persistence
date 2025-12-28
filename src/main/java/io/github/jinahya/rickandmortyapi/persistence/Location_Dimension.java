@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * Constants for the {@value Location#COLUMN_NAME_DIMENSION} column of the {@value Location#TABLE_NAME} table.
  *
- * @see Location_DimensionColumnValues
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 public enum Location_Dimension implements _StringColumnEnum<Location_Dimension> {
 

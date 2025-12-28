@@ -23,7 +23,12 @@ final class Episode_PersistenceTestUtils {
         var result = episodeList;
         if (result == null) {
             episodeList = result = entityManager
-                    .createQuery("SELECT e.episode FROM Episode e", String.class)
+                    .createQuery("""
+                                         SELECT e.episode
+                                         FROM Episode e
+                                         ORDER BY e.id ASC""",
+                                 String.class
+                    )
                     .getResultList();
         }
         return Collections.unmodifiableList(result);

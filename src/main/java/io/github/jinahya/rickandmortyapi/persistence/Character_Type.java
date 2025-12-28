@@ -6,7 +6,6 @@ import java.util.Objects;
  * Constants for the {@value Character_#TYPE} attribute.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see Character_TypeColumnValues
  */
 public enum Character_Type implements _StringColumnEnum<Character_Type> {
 

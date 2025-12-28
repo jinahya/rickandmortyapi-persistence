@@ -84,7 +84,6 @@ public class Character extends _BaseEntity<Integer> {
     /**
      * The name of the table column to which the {@value Character_#STATUS} attribute maps. The value is {@value}.
      *
-     * @see Character_StatusColumnValues
      * @see Character_Status
      */
     public static final String COLUMN_NAME_STATUS = "status";
@@ -94,7 +93,6 @@ public class Character extends _BaseEntity<Integer> {
     /**
      * The name of the table column to which the {@value Character_#SPECIES} attribute maps. The value is {@value}.
      *
-     * @see Character_SpeciesColumnValues
      * @see Character_Species
      */
     public static final String COLUMN_NAME_SPECIES = "species";
@@ -104,7 +102,6 @@ public class Character extends _BaseEntity<Integer> {
     /**
      * The name of the table column to which the {@value Character_#TYPE} attribute maps. The value is {@value}.
      *
-     * @see Character_TypeColumnValues
      * @see Character_Type
      */
     public static final String COLUMN_NAME_TYPE = "type";
@@ -114,7 +111,6 @@ public class Character extends _BaseEntity<Integer> {
     /**
      * The name of the table column to which the {@value Character_#GENDER} attribute maps. The value is {@value}.
      *
-     * @see Character_GenderColumnValues
      * @see Character_Gender
      */
     public static final String COLUMN_NAME_GENDER = "gender";
