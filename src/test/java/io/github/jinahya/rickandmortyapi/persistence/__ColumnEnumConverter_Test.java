@@ -7,7 +7,7 @@ import java.util.Objects;
 import static org.assertj.core.api.Assertions.assertThat;
 
 abstract class __ColumnEnumConverter_Test<
-        C extends __ColumnEnumConverter<E, T>,
+        C extends __ColumnEnumAttributeConverter<E, T>,
         E extends Enum<E> & __ColumnEnum<E, T>,
         T
         > {

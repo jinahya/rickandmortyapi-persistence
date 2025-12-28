@@ -8,57 +8,57 @@ package io.github.jinahya.rickandmortyapi.persistence;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public final class Character_SpeciesColumnValues {
+final class Character_SpeciesColumnValues {
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String ALIEN = "Alien";
+    static final String ALIEN = "Alien";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String ANIMAL = "Animal";
+    static final String ANIMAL = "Animal";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String CRONENBERG = "Cronenberg";
+    static final String CRONENBERG = "Cronenberg";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String DISEASE = "Disease";
+    static final String DISEASE = "Disease";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String HUMAN = "Human";
+    static final String HUMAN = "Human";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String HUMANOID = "Humanoid";
+    static final String HUMANOID = "Humanoid";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String MYTHOLOGICAL_CREATURE = "Mythological Creature";
+    static final String MYTHOLOGICAL_CREATURE = "Mythological Creature";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String POOPYBUTTHOLE = "Poopybutthole";
+    static final String POOPYBUTTHOLE = "Poopybutthole";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String ROBOT = "Robot";
+    static final String ROBOT = "Robot";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_SPECIES} column.
      */
-    public static final String UNKNOWN = "unknown";
+    static final String UNKNOWN = "unknown";
 
     // -----------------------------------------------------------------------------------------------------------------
     private Character_SpeciesColumnValues() {

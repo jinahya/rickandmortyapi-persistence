@@ -8,22 +8,22 @@ package io.github.jinahya.rickandmortyapi.persistence;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public final class Character_StatusColumnValues {
+final class Character_StatusColumnValues {
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_STATUS} column.
      */
-    public static final String ALIVE = "Alive";
+    static final String ALIVE = "Alive";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_STATUS} column.
      */
-    public static final String DEAD = "Dead";
+    static final String DEAD = "Dead";
 
     /**
      * A column value of {@value} for the {@value Character#COLUMN_NAME_STATUS} column.
      */
-    public static final String UNKNOWN = "unknown";
+    static final String UNKNOWN = "unknown";
 
     // -----------------------------------------------------------------------------------------------------------------
     private Character_StatusColumnValues() {

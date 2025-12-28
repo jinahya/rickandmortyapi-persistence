@@ -17,6 +17,7 @@ import static jakarta.persistence.FetchType.LAZY;
  * An entity class for mapping {@value CharacterEpisode#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @see CharacterEpisodeId
  */
 @Entity
 @Table(name = CharacterEpisode.TABLE_NAME)

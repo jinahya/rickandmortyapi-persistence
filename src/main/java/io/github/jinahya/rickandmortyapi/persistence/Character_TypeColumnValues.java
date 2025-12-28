@@ -1,7 +1,7 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
 /**
- * Values for the {@value Character#COLUMN_NAME_TYPE} column of the {@value Character#TABLE_NAME} table.
+ * All values of the {@value Character#COLUMN_NAME_TYPE} column of the {@value Character#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @see Character_Type
@@ -9,7 +9,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public final class Character_TypeColumnValues {
+final class Character_TypeColumnValues implements _ColumnValues {
 
     /**
      * A value of {@value} for the {@value Character#COLUMN_NAME_TYPE} column.

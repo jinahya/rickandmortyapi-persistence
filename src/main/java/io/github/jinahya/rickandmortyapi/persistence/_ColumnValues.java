@@ -1,12 +1,8 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
 @SuppressWarnings({
-        "java:S101" // Class names should comply with a naming convention
+        "java:S114" // Interface names should comply with a naming convention
 })
-abstract class _ColumnValues {
+interface _ColumnValues {
 
-    // -----------------------------------------------------------------------------------------------------------------
-    _ColumnValues() {
-        super();
-    }
 }

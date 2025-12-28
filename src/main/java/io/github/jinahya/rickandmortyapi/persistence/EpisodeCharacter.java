@@ -32,14 +32,16 @@ public class EpisodeCharacter extends _BaseEntity<EpisodeCharacterId> {
     // ------------------------------------------------------------------------------------------------------ episode_id
 
     /**
-     * The name of the column to which the {@value EpisodeCharacterId_#EPISODE_ID} attribute maps.
+     * The name of the table column to which the {@value EpisodeCharacter_#EPISODE} attribute maps. The value is
+     * {@value}.
      */
     public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
 
     // ---------------------------------------------------------------------------------------------------- character_id
 
     /**
-     * The name of the column to which the {@value EpisodeCharacterId_#CHARACTER_ID} attribute maps.
+     * The name of the table column to which the {@value EpisodeCharacter_#CHARACTER} attribute maps. The value is
+     * {@value}.
      */
     public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
 

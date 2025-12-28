@@ -8,11 +8,11 @@ import java.util.Optional;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-abstract class __ColumnEnumConverter<E extends Enum<E> & __ColumnEnum<E, T>, T>
+abstract class __ColumnEnumAttributeConverter<E extends Enum<E> & __ColumnEnum<E, T>, T>
         implements AttributeConverter<E, T> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    __ColumnEnumConverter(final Class<E> enumClass) {
+    __ColumnEnumAttributeConverter(final Class<E> enumClass) {
         super();
         this.enumClass = Objects.requireNonNull(enumClass, "enumClass is null");
     }

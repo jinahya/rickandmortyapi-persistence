@@ -26,6 +26,7 @@ final class _PersistenceConstants {
      */
     public static final int NUMBER_OF_ALL_LOCATIONS = 126;
 
+    // -----------------------------------------------------------------------------------------------------------------
     private _PersistenceConstants() {
         throw new AssertionError("instantiation is not allowed");
     }

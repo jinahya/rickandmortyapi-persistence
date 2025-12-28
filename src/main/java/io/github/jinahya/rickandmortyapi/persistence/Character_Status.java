@@ -1,5 +1,7 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+import jakarta.annotation.Nonnull;
+
 import java.util.Objects;
 
 /**
@@ -48,6 +50,7 @@ public enum Character_Status implements _StringColumnEnum<Character_Status> {
      *
      * @return the column value of this constant.
      */
+    @Nonnull
     public String columnValue() {
         return columnValue;
     }
