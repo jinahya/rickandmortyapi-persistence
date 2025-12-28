@@ -7,6 +7,7 @@ import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,6 +18,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -160,6 +162,72 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
             ;
             return null;
         });
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @Nested
+    class Distributions_Test {
+
+        static void __(final EntityManager em, final String attribute) {
+            final List<Object[]> results;
+            if (ThreadLocalRandom.current().nextBoolean()) {
+                results = em.createQuery(
+                        """
+                                SELECT c.%s,
+                                       COUNT(c) AS count
+                                FROM Character c
+                                GROUP BY 1
+                                ORDER BY count DESC""".formatted(attribute),
+                        Object[].class
+                ).getResultList();
+            } else {
+                final var builder = em.getCriteriaBuilder();
+                final var query = builder.createQuery(Object[].class);
+                final var root = query.from(Character.class);
+                final var count = builder.count(root);
+                query.select(builder.array(root.get(attribute), count));
+                query.groupBy(root.get(attribute));
+                query.orderBy(builder.desc(count));
+                results = em.createQuery(query).getResultList();
+            }
+            for (final var result : results) {
+                final var value = result[0];
+                final var count = (Long) result[1];
+                log.info("{}: {}", String.format("%1$40s", value), String.format("%1$3d", count));
+            }
+        }
+
+        @Test
+        void status() {
+            applyEntityManager(em -> {
+                __(em, Character_.STATUS);
+                return null;
+            });
+        }
+
+        @Test
+        void species() {
+            applyEntityManager(em -> {
+                __(em, Character_.SPECIES);
+                return null;
+            });
+        }
+
+        @Test
+        void type() {
+            applyEntityManager(em -> {
+                __(em, Character_.TYPE);
+                return null;
+            });
+        }
+
+        @Test
+        void gender() {
+            applyEntityManager(em -> {
+                __(em, Character_.GENDER);
+                return null;
+            });
+        }
     }
 
     // -----------------------------------------------------------------------------------------------------------------

@@ -5,10 +5,13 @@ import jakarta.persistence.criteria.Fetch;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -81,5 +84,55 @@ class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Int
                                     .doesNotHaveDuplicates()
                     );
         });
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @Nested
+    class Distributions_Test {
+
+        static void __(final EntityManager em, final String attribute) {
+            final List<Object[]> results;
+            if (ThreadLocalRandom.current().nextBoolean()) {
+                results = em.createQuery(
+                        """
+                                SELECT l.%s,
+                                       COUNT(l) AS count
+                                FROM Location l
+                                GROUP BY 1
+                                ORDER BY count DESC""".formatted(attribute),
+                        Object[].class
+                ).getResultList();
+            } else {
+                final var builder = em.getCriteriaBuilder();
+                final var query = builder.createQuery(Object[].class);
+                final var root = query.from(Location.class);
+                final var count = builder.count(root);
+                query.select(builder.array(root.get(attribute), count));
+                query.groupBy(root.get(attribute));
+                query.orderBy(builder.desc(count));
+                results = em.createQuery(query).getResultList();
+            }
+            for (final var result : results) {
+                final var value = result[0];
+                final var count = (Long) result[1];
+                log.info("{}: {}", String.format("%1$40s", value), String.format("%1$3d", count));
+            }
+        }
+
+        @Test
+        void type() {
+            applyEntityManager(em -> {
+                __(em, Location_.TYPE);
+                return null;
+            });
+        }
+
+        @Test
+        void dimension() {
+            applyEntityManager(em -> {
+                __(em, Location_.DIMENSION);
+                return null;
+            });
+        }
     }
 }
