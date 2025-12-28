@@ -5,6 +5,13 @@ import jakarta.persistence.AttributeConverter;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * An abstract attribute converter for {@link __ColumnEnum}s.
+ *
+ * @param <E> enum type parameter
+ * @param <T> column type parameter
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
