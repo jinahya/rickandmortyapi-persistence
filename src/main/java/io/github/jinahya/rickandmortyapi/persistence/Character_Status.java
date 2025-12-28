@@ -12,19 +12,19 @@ import java.util.Objects;
 public enum Character_Status implements _StringColumnEnum<Character_Status> {
 
     /**
-     * A value for {@value Character_StatusColumnValues#ALIVE} column value.
+     * A constant for the {@code "Alive"} column value.
      */
-    ALIVE(Character_StatusColumnValues.ALIVE),
+    ALIVE("Alive"),
 
     /**
-     * A value for {@value Character_StatusColumnValues#DEAD} column value.
+     * A constant for the {@code "Dead"} column value.
      */
-    DEAD(Character_StatusColumnValues.DEAD),
+    DEAD("Dead"),
 
     /**
-     * A value for {@value Character_StatusColumnValues#UNKNOWN} column value.
+     * A constant for the {@code "unknown"} column value.
      */
-    UNKNOWN(Character_StatusColumnValues.UNKNOWN);
+    UNKNOWN("unknown");
 
     // -----------------------------------------------------------------------------------------------------------------
 

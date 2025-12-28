@@ -11,849 +11,849 @@ import java.util.Objects;
 public enum Character_Type implements _StringColumnEnum<Character_Type> {
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ALLIGATOR_PERSON} column value.
+     * A constant for the {@code "Alligator-Person"} column value.
      */
-    ALLIGATOR_PERSON(Character_TypeColumnValues.ALLIGATOR_PERSON),
+    ALLIGATOR_PERSON("Alligator-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ALPHABETRIAN} column value.
+     * A constant for the {@code "Alphabetrian"} column value.
      */
-    ALPHABETRIAN(Character_TypeColumnValues.ALPHABETRIAN),
+    ALPHABETRIAN("Alphabetrian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#AMOEBA_PERSON} column value.
+     * A constant for the {@code "Amoeba-Person"} column value.
      */
-    AMOEBA_PERSON(Character_TypeColumnValues.AMOEBA_PERSON),
+    AMOEBA_PERSON("Amoeba-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ANIMAL} column value.
+     * A constant for the {@code "Animal"} column value.
      */
-    ANIMAL(Character_TypeColumnValues.ANIMAL),
+    ANIMAL("Animal"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ANIME} column value.
+     * A constant for the {@code "Anime"} column value.
      */
-    ANIME(Character_TypeColumnValues.ANIME),
+    ANIME("Anime"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ARTIFICIAL_INTELLIGENCE} column value.
+     * A constant for the {@code "Artificial Intelligence"} column value.
      */
-    ARTIFICIAL_INTELLIGENCE(Character_TypeColumnValues.ARTIFICIAL_INTELLIGENCE),
+    ARTIFICIAL_INTELLIGENCE("Artificial Intelligence"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#BEPISIAN} column value.
+     * A constant for the {@code "Bepisian"} column value.
      */
-    BEPISIAN(Character_TypeColumnValues.BEPISIAN),
+    BEPISIAN("Bepisian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#BIRD_PERSON} column value.
+     * A constant for the {@code "Bird-Person"} column value.
      */
-    BIRD_PERSON(Character_TypeColumnValues.BIRD_PERSON),
+    BIRD_PERSON("Bird-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#BIRD_PERSON_HUMAN_MIX} column value.
+     * A constant for the {@code "Bird-Person Human Mix"} column value.
      */
-    BIRD_PERSON_HUMAN_MIX(Character_TypeColumnValues.BIRD_PERSON_HUMAN_MIX),
+    BIRD_PERSON_HUMAN_MIX("Bird-Person Human Mix"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#BLUE_APE_ALIEN} column value.
+     * A constant for the {@code "Blue ape alien"} column value.
      */
-    BLUE_APE_ALIEN(Character_TypeColumnValues.BLUE_APE_ALIEN),
+    BLUE_APE_ALIEN("Blue ape alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#BOOBLE_BUYER_REPTILIAN} column value.
+     * A constant for the {@code "Boobie buyer reptilian"} column value.
      */
-    BOOBLE_BUYER_REPTILIAN(Character_TypeColumnValues.BOOBLE_BUYER_REPTILIAN),
+    BOOBLE_BUYER_REPTILIAN("Boobie buyer reptilian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#BOOBLOOSIAN} column value.
+     * A constant for the {@code "Boobloosian"} column value.
      */
-    BOOBLOOSIAN(Character_TypeColumnValues.BOOBLOOSIAN),
+    BOOBLOOSIAN("Boobloosian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#BREAD} column value.
+     * A constant for the {@code "Bread"} column value.
      */
-    BREAD(Character_TypeColumnValues.BREAD),
+    BREAD("Bread"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CAT} column value.
+     * A constant for the {@code "Cat"} column value.
      */
-    CAT(Character_TypeColumnValues.CAT),
+    CAT("Cat"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CAT_CONTROLLED_DEAD_LADY} column value.
+     * A constant for the {@code "Cat controlled dead lady"} column value.
      */
-    CAT_CONTROLLED_DEAD_LADY(Character_TypeColumnValues.CAT_CONTROLLED_DEAD_LADY),
+    CAT_CONTROLLED_DEAD_LADY("Cat controlled dead lady"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CAT_PERSON} column value.
+     * A constant for the {@code "Cat-Person"} column value.
      */
-    CAT_PERSON(Character_TypeColumnValues.CAT_PERSON),
+    CAT_PERSON("Cat-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CATERPILLAR} column value.
+     * A constant for the {@code "Caterpillar"} column value.
      */
-    CATERPILLAR(Character_TypeColumnValues.CATERPILLAR),
+    CATERPILLAR("Caterpillar"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CENTAUR} column value.
+     * A constant for the {@code "Centaur"} column value.
      */
-    CENTAUR(Character_TypeColumnValues.CENTAUR),
+    CENTAUR("Centaur"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CHAIR} column value.
+     * A constant for the {@code "Chair"} column value.
      */
-    CHAIR(Character_TypeColumnValues.CHAIR),
+    CHAIR("Chair"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CHANGEFORMER} column value.
+     * A constant for the {@code "Changeformer"} column value.
      */
-    CHANGEFORMER(Character_TypeColumnValues.CHANGEFORMER),
+    CHANGEFORMER("Changeformer"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CHUD} column value.
+     * A constant for the {@code "CHUD"} column value.
      */
-    CHUD(Character_TypeColumnValues.CHUD),
+    CHUD("CHUD"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CHUD_HUMAN_MIX} column value.
+     * A constant for the {@code "CHUD Human Mix"} column value.
      */
-    CHUD_HUMAN_MIX(Character_TypeColumnValues.CHUD_HUMAN_MIX),
+    CHUD_HUMAN_MIX("CHUD Human Mix"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CLAY_PERSON} column value.
+     * A constant for the {@code "Clay-Person"} column value.
      */
-    CLAY_PERSON(Character_TypeColumnValues.CLAY_PERSON),
+    CLAY_PERSON("Clay-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CLONE} column value.
+     * A constant for the {@code "Clone"} column value.
      */
-    CLONE(Character_TypeColumnValues.CLONE),
+    CLONE("Clone"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CONE_NIPPLED_ALIEN} column value.
+     * A constant for the {@code "Cone-nippled alien"} column value.
      */
-    CONE_NIPPLED_ALIEN(Character_TypeColumnValues.CONE_NIPPLED_ALIEN),
+    CONE_NIPPLED_ALIEN("Cone-nippled alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CONJOINED_TWIN} column value.
+     * A constant for the {@code "Conjoined twin"} column value.
      */
-    CONJOINED_TWIN(Character_TypeColumnValues.CONJOINED_TWIN),
+    CONJOINED_TWIN("Conjoined twin"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#COOKIE} column value.
+     * A constant for the {@code "Cookie"} column value.
      */
-    COOKIE(Character_TypeColumnValues.COOKIE),
+    COOKIE("Cookie"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CORN_PERSON} column value.
+     * A constant for the {@code "Corn-person"} column value.
      */
-    CORN_PERSON(Character_TypeColumnValues.CORN_PERSON),
+    CORN_PERSON("Corn-person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CROMULON} column value.
+     * A constant for the {@code "Cromulon"} column value.
      */
-    CROMULON(Character_TypeColumnValues.CROMULON),
+    CROMULON("Cromulon"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CRONENBERG} column value.
+     * A constant for the {@code "Cronenberg"} column value.
      */
-    CRONENBERG(Character_TypeColumnValues.CRONENBERG),
+    CRONENBERG("Cronenberg"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CROW} column value.
+     * A constant for the {@code "Crow"} column value.
      */
-    CROW(Character_TypeColumnValues.CROW),
+    CROW("Crow"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CROW_HORSE} column value.
+     * A constant for the {@code "Crow Horse"} column value.
      */
-    CROW_HORSE(Character_TypeColumnValues.CROW_HORSE),
+    CROW_HORSE("Crow Horse"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#CYBORG} column value.
+     * A constant for the {@code "Cyborg"} column value.
      */
-    CYBORG(Character_TypeColumnValues.CYBORG),
+    CYBORG("Cyborg"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#DECOY} column value.
+     * A constant for the {@code "Decoy"} column value.
      */
-    DECOY(Character_TypeColumnValues.DECOY),
+    DECOY("Decoy"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#DEMON} column value.
+     * A constant for the {@code "Demon"} column value.
      */
-    DEMON(Character_TypeColumnValues.DEMON),
+    DEMON("Demon"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#DOG} column value.
+     * A constant for the {@code "Dog"} column value.
      */
-    DOG(Character_TypeColumnValues.DOG),
+    DOG("Dog"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#DOOPIDOO} column value.
+     * A constant for the {@code "Doopidoo"} column value.
      */
-    DOOPIDOO(Character_TypeColumnValues.DOOPIDOO),
+    DOOPIDOO("Doopidoo"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#DRAGON} column value.
+     * A constant for the {@code "Dragon"} column value.
      */
-    DRAGON(Character_TypeColumnValues.DRAGON),
+    DRAGON("Dragon"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#DRUMBLOXIAN} column value.
+     * A constant for the {@code "Drumbloxian"} column value.
      */
-    DRUMBLOXIAN(Character_TypeColumnValues.DRUMBLOXIAN),
+    DRUMBLOXIAN("Drumbloxian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#DUMMY} column value.
+     * A constant for the {@code "Dummy"} column value.
      */
-    DUMMY(Character_TypeColumnValues.DUMMY),
+    DUMMY("Dummy"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#EAT_SHITER_PERSON} column value.
+     * A constant for the {@code "Eat shiter-Person"} column value.
      */
-    EAT_SHITER_PERSON(Character_TypeColumnValues.EAT_SHITER_PERSON),
+    EAT_SHITER_PERSON("Eat shiter-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#EEL} column value.
+     * A constant for the {@code "Eel"} column value.
      */
-    EEL(Character_TypeColumnValues.EEL),
+    EEL("Eel"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ELEPHANT_PERSON} column value.
+     * A constant for the {@code "Elephant-Person"} column value.
      */
-    ELEPHANT_PERSON(Character_TypeColumnValues.ELEPHANT_PERSON),
+    ELEPHANT_PERSON("Elephant-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#FERKUSIAN} column value.
+     * A constant for the {@code "Ferkusian"} column value.
      */
-    FERKUSIAN(Character_TypeColumnValues.FERKUSIAN),
+    FERKUSIAN("Ferkusian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#FERRET_ROBOT} column value.
+     * A constant for the {@code "Ferret Robot"} column value.
      */
-    FERRET_ROBOT(Character_TypeColumnValues.FERRET_ROBOT),
+    FERRET_ROBOT("Ferret Robot"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#FISH_PERSON} column value.
+     * A constant for the {@code "Fish-Person"} column value.
      */
-    FISH_PERSON(Character_TypeColumnValues.FISH_PERSON),
+    FISH_PERSON("Fish-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#FLANSIAN} column value.
+     * A constant for the {@code "Flansian"} column value.
      */
-    FLANSIAN(Character_TypeColumnValues.FLANSIAN),
+    FLANSIAN("Flansian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#FLOOP_FLOOPIAN} column value.
+     * A constant for the {@code "Floop Floopian"} column value.
      */
-    FLOOP_FLOOPIAN(Character_TypeColumnValues.FLOOP_FLOOPIAN),
+    FLOOP_FLOOPIAN("Floop Floopian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#FLY} column value.
+     * A constant for the {@code "Fly"} column value.
      */
-    FLY(Character_TypeColumnValues.FLY),
+    FLY("Fly"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GAME} column value.
+     * A constant for the {@code "Game"} column value.
      */
-    GAME(Character_TypeColumnValues.GAME),
+    GAME("Game"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GARBLOVIAN} column value.
+     * A constant for the {@code "Garblovian"} column value.
      */
-    GARBLOVIAN(Character_TypeColumnValues.GARBLOVIAN),
+    GARBLOVIAN("Garblovian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GAZORPIAN} column value.
+     * A constant for the {@code "Gazorpian"} column value.
      */
-    GAZORPIAN(Character_TypeColumnValues.GAZORPIAN),
+    GAZORPIAN("Gazorpian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GAZORPIAN_REPRODUCTION_ROBOT} column value.
+     * A constant for the {@code "Gazorpian reproduction robot"} column value.
      */
-    GAZORPIAN_REPRODUCTION_ROBOT(Character_TypeColumnValues.GAZORPIAN_REPRODUCTION_ROBOT),
+    GAZORPIAN_REPRODUCTION_ROBOT("Gazorpian reproduction robot"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GEAR_PERSON} column value.
+     * A constant for the {@code "Gear-Person"} column value.
      */
-    GEAR_PERSON(Character_TypeColumnValues.GEAR_PERSON),
+    GEAR_PERSON("Gear-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GENETIC_EXPERIMENT} column value.
+     * A constant for the {@code "Genetic experiment"} column value.
      */
-    GENETIC_EXPERIMENT(Character_TypeColumnValues.GENETIC_EXPERIMENT),
+    GENETIC_EXPERIMENT("Genetic experiment"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GIANT} column value.
+     * A constant for the {@code "Giant"} column value.
      */
-    GIANT(Character_TypeColumnValues.GIANT),
+    GIANT("Giant"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GIANT_CAT_MONSTER} column value.
+     * A constant for the {@code "Giant Cat Monster"} column value.
      */
-    GIANT_CAT_MONSTER(Character_TypeColumnValues.GIANT_CAT_MONSTER),
+    GIANT_CAT_MONSTER("Giant Cat Monster"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GIANT_INCEST_BABY} column value.
+     * A constant for the {@code "Giant Incest Baby"} column value.
      */
-    GIANT_INCEST_BABY(Character_TypeColumnValues.GIANT_INCEST_BABY),
+    GIANT_INCEST_BABY("Giant Incest Baby"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GLORZO} column value.
+     * A constant for the {@code "Glorzo"} column value.
      */
-    GLORZO(Character_TypeColumnValues.GLORZO),
+    GLORZO("Glorzo"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GOD} column value.
+     * A constant for the {@code "God"} column value.
      */
-    GOD(Character_TypeColumnValues.GOD),
+    GOD("God"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GODDESS} column value.
+     * A constant for the {@code "Goddess"} column value.
      */
-    GODDESS(Character_TypeColumnValues.GODDESS),
+    GODDESS("Goddess"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GRAMUFLAKIAN} column value.
+     * A constant for the {@code "Gramuflackian"} column value.
      */
-    GRAMUFLAKIAN(Character_TypeColumnValues.GRAMUFLAKIAN),
+    GRAMUFLAKIAN("Gramuflackian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GRANDMA} column value.
+     * A constant for the {@code "Grandma"} column value.
      */
-    GRANDMA(Character_TypeColumnValues.GRANDMA),
+    GRANDMA("Grandma"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GREEBYBOBE} column value.
+     * A constant for the {@code "Greebybobe"} column value.
      */
-    GREEBYBOBE(Character_TypeColumnValues.GREEBYBOBE),
+    GREEBYBOBE("Greebybobe"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GROMFLOMITE} column value.
+     * A constant for the {@code "Gromflomite"} column value.
      */
-    GROMFLOMITE(Character_TypeColumnValues.GROMFLOMITE),
+    GROMFLOMITE("Gromflomite"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#GUINEA_PIG_FOR_THE_POLIO_VACCINE} column value.
+     * A constant for the {@code "Guinea Pig for the Polio Vaccine"} column value.
      */
-    GUINEA_PIG_FOR_THE_POLIO_VACCINE(Character_TypeColumnValues.GUINEA_PIG_FOR_THE_POLIO_VACCINE),
+    GUINEA_PIG_FOR_THE_POLIO_VACCINE("Guinea Pig for the Polio Vaccine"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HAIRY_ALIEN} column value.
+     * A constant for the {@code "Hairy alien"} column value.
      */
-    HAIRY_ALIEN(Character_TypeColumnValues.HAIRY_ALIEN),
+    HAIRY_ALIEN("Hairy alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HALF_SOULLESS_PUPPET} column value.
+     * A constant for the {@code "Half Soulless Puppet"} column value.
      */
-    HALF_SOULLESS_PUPPET(Character_TypeColumnValues.HALF_SOULLESS_PUPPET),
+    HALF_SOULLESS_PUPPET("Half Soulless Puppet"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HAMMERHEAD_PERSON} column value.
+     * A constant for the {@code "Hammerhead-Person"} column value.
      */
-    HAMMERHEAD_PERSON(Character_TypeColumnValues.HAMMERHEAD_PERSON),
+    HAMMERHEAD_PERSON("Hammerhead-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HIVEMIND} column value.
+     * A constant for the {@code "Hivemind"} column value.
      */
-    HIVEMIND(Character_TypeColumnValues.HIVEMIND),
+    HIVEMIND("Hivemind"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HOLE} column value.
+     * A constant for the {@code "Hole"} column value.
      */
-    HOLE(Character_TypeColumnValues.HOLE),
+    HOLE("Hole"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HOLOGRAM} column value.
+     * A constant for the {@code "Hologram"} column value.
      */
-    HOLOGRAM(Character_TypeColumnValues.HOLOGRAM),
+    HOLOGRAM("Hologram"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HUMAN_GAZORPIAN} column value.
+     * A constant for the {@code "Human Gazorpian"} column value.
      */
-    HUMAN_GAZORPIAN(Character_TypeColumnValues.HUMAN_GAZORPIAN),
+    HUMAN_GAZORPIAN("Human Gazorpian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HUMAN_SNAKE_HYBRID} column value.
+     * A constant for the {@code "Human-Snake hybrid"} column value.
      */
-    HUMAN_SNAKE_HYBRID(Character_TypeColumnValues.HUMAN_SNAKE_HYBRID),
+    HUMAN_SNAKE_HYBRID("Human-Snake hybrid"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HUMAN_WITH_A_FLOWER_IN_HIS_HEAD} column value.
+     * A constant for the {@code "Human with a flower in his head"} column value.
      */
-    HUMAN_WITH_A_FLOWER_IN_HIS_HEAD(Character_TypeColumnValues.HUMAN_WITH_A_FLOWER_IN_HIS_HEAD),
+    HUMAN_WITH_A_FLOWER_IN_HIS_HEAD("Human with a flower in his head"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HUMAN_WITH_ANTENNAE} column value.
+     * A constant for the {@code "Human with antennae"} column value.
      */
-    HUMAN_WITH_ANTENNAE(Character_TypeColumnValues.HUMAN_WITH_ANTENNAE),
+    HUMAN_WITH_ANTENNAE("Human with antennae"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HUMAN_WITH_ANTS_IN_HIS_EYES} column value.
+     * A constant for the {@code "Human with ants in his eyes"} column value.
      */
-    HUMAN_WITH_ANTS_IN_HIS_EYES(Character_TypeColumnValues.HUMAN_WITH_ANTS_IN_HIS_EYES),
+    HUMAN_WITH_ANTS_IN_HIS_EYES("Human with ants in his eyes"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HUMAN_WITH_BABY_LEGS} column value.
+     * A constant for the {@code "Human with baby legs"} column value.
      */
-    HUMAN_WITH_BABY_LEGS(Character_TypeColumnValues.HUMAN_WITH_BABY_LEGS),
+    HUMAN_WITH_BABY_LEGS("Human with baby legs"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HUMAN_WITH_GIANT_HEAD} column value.
+     * A constant for the {@code "Human with giant head"} column value.
      */
-    HUMAN_WITH_GIANT_HEAD(Character_TypeColumnValues.HUMAN_WITH_GIANT_HEAD),
+    HUMAN_WITH_GIANT_HEAD("Human with giant head"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#HUMAN_WITH_TUSKS} column value.
+     * A constant for the {@code "Human with tusks"} column value.
      */
-    HUMAN_WITH_TUSKS(Character_TypeColumnValues.HUMAN_WITH_TUSKS),
+    HUMAN_WITH_TUSKS("Human with tusks"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#INTERDIMENSIONAL_GASEOUS_BEING} column value.
+     * A constant for the {@code "Interdimensional gaseous being"} column value.
      */
-    INTERDIMENSIONAL_GASEOUS_BEING(Character_TypeColumnValues.INTERDIMENSIONAL_GASEOUS_BEING),
+    INTERDIMENSIONAL_GASEOUS_BEING("Interdimensional gaseous being"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#JELLYBEAN} column value.
+     * A constant for the {@code "Jellybean"} column value.
      */
-    JELLYBEAN(Character_TypeColumnValues.JELLYBEAN),
+    JELLYBEAN("Jellybean"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#KORBLOCK} column value.
+     * A constant for the {@code "Korblock"} column value.
      */
-    KORBLOCK(Character_TypeColumnValues.KORBLOCK),
+    KORBLOCK("Korblock"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#KROOTABULAN} column value.
+     * A constant for the {@code "Krootabulan"} column value.
      */
-    KROOTABULAN(Character_TypeColumnValues.KROOTABULAN),
+    KROOTABULAN("Krootabulan"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#LARVA_ALIEN} column value.
+     * A constant for the {@code "Larva alien"} column value.
      */
-    LARVA_ALIEN(Character_TypeColumnValues.LARVA_ALIEN),
+    LARVA_ALIEN("Larva alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#LEPRECHAUN} column value.
+     * A constant for the {@code "Leprechaun"} column value.
      */
-    LEPRECHAUN(Character_TypeColumnValues.LEPRECHAUN),
+    LEPRECHAUN("Leprechaun"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#LIGHT_BULB_ALIEN} column value.
+     * A constant for the {@code "Light bulb-Alien"} column value.
      */
-    LIGHT_BULB_ALIEN(Character_TypeColumnValues.LIGHT_BULB_ALIEN),
+    LIGHT_BULB_ALIEN("Light bulb-Alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#LITTLE_HUMAN} column value.
+     * A constant for the {@code "Little Human"} column value.
      */
-    LITTLE_HUMAN(Character_TypeColumnValues.LITTLE_HUMAN),
+    LITTLE_HUMAN("Little Human"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#LIZARD} column value.
+     * A constant for the {@code "Lizard"} column value.
      */
-    LIZARD(Character_TypeColumnValues.LIZARD),
+    LIZARD("Lizard"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#LIZARD_PERSON} column value.
+     * A constant for the {@code "Lizard-Person"} column value.
      */
-    LIZARD_PERSON(Character_TypeColumnValues.LIZARD_PERSON),
+    LIZARD_PERSON("Lizard-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#LOBSTER_ALIEN} column value.
+     * A constant for the {@code "Lobster-Alien"} column value.
      */
-    LOBSTER_ALIEN(Character_TypeColumnValues.LOBSTER_ALIEN),
+    LOBSTER_ALIEN("Lobster-Alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MANNIE} column value.
+     * A constant for the {@code "Mannie"} column value.
      */
-    MANNIE(Character_TypeColumnValues.MANNIE),
+    MANNIE("Mannie"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MASCOT} column value.
+     * A constant for the {@code "Mascot"} column value.
      */
-    MASCOT(Character_TypeColumnValues.MASCOT),
+    MASCOT("Mascot"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MEESEEKS} column value.
+     * A constant for the {@code "Meeseeks"} column value.
      */
-    MEESEEKS(Character_TypeColumnValues.MEESEEKS),
+    MEESEEKS("Meeseeks"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MEGA_GARGANTUAN} column value.
+     * A constant for the {@code "Mega Gargantuan"} column value.
      */
-    MEGA_GARGANTUAN(Character_TypeColumnValues.MEGA_GARGANTUAN),
+    MEGA_GARGANTUAN("Mega Gargantuan"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MEMORY} column value.
+     * A constant for the {@code "Memory"} column value.
      */
-    MEMORY(Character_TypeColumnValues.MEMORY),
+    MEMORY("Memory"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MEXICAN} column value.
+     * A constant for the {@code "Mexican"} column value.
      */
-    MEXICAN(Character_TypeColumnValues.MEXICAN),
+    MEXICAN("Mexican"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MICROVERSE_INHABITANT} column value.
+     * A constant for the {@code "Microverse inhabitant"} column value.
      */
-    MICROVERSE_INHABITANT(Character_TypeColumnValues.MICROVERSE_INHABITANT),
+    MICROVERSE_INHABITANT("Microverse inhabitant"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MINIVERSE_INHABITANT} column value.
+     * A constant for the {@code "Miniverse inhabitant"} column value.
      */
-    MINIVERSE_INHABITANT(Character_TypeColumnValues.MINIVERSE_INHABITANT),
+    MINIVERSE_INHABITANT("Miniverse inhabitant"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MONOGATRON} column value.
+     * A constant for the {@code "Monogatron"} column value.
      */
-    MONOGATRON(Character_TypeColumnValues.MONOGATRON),
+    MONOGATRON("Monogatron"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MONSTER} column value.
+     * A constant for the {@code "Monster"} column value.
      */
-    MONSTER(Character_TypeColumnValues.MONSTER),
+    MONSTER("Monster"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MORGLUTZIAN} column value.
+     * A constant for the {@code "Morglutzian"} column value.
      */
-    MORGLUTZIAN(Character_TypeColumnValues.MORGLUTZIAN),
+    MORGLUTZIAN("Morglutzian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MORTYS_TOXIC_SIDE} column value.
+     * A constant for the {@code "Morty's toxic side"} column value.
      */
-    MORTYS_TOXIC_SIDE(Character_TypeColumnValues.MORTYS_TOXIC_SIDE),
+    MORTYS_TOXIC_SIDE("Morty's toxic side"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#MYTHOLOG} column value.
+     * A constant for the {@code "Mytholog"} column value.
      */
-    MYTHOLOG(Character_TypeColumnValues.MYTHOLOG),
+    MYTHOLOG("Mytholog"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#NANO_ALIEN} column value.
+     * A constant for the {@code "Nano Alien"} column value.
      */
-    NANO_ALIEN(Character_TypeColumnValues.NANO_ALIEN),
+    NANO_ALIEN("Nano Alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#NARNIAN} column value.
+     * A constant for the {@code "Narnian"} column value.
      */
-    NARNIAN(Character_TypeColumnValues.NARNIAN),
+    NARNIAN("Narnian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#NECROPHILIAC} column value.
+     * A constant for the {@code "Necrophiliac"} column value.
      */
-    NECROPHILIAC(Character_TypeColumnValues.NECROPHILIAC),
+    NECROPHILIAC("Necrophiliac"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#NORMAL_SIZE_BUG} column value.
+     * A constant for the {@code "Normal Size Bug"} column value.
      */
-    NORMAL_SIZE_BUG(Character_TypeColumnValues.NORMAL_SIZE_BUG),
+    NORMAL_SIZE_BUG("Normal Size Bug"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#NUMBERICON} column value.
+     * A constant for the {@code "Numbericon"} column value.
      */
-    NUMBERICON(Character_TypeColumnValues.NUMBERICON),
+    NUMBERICON("Numbericon"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#OCTOPUS_PERSON} column value.
+     * A constant for the {@code "Octopus-Person"} column value.
      */
-    OCTOPUS_PERSON(Character_TypeColumnValues.OCTOPUS_PERSON),
+    OCTOPUS_PERSON("Octopus-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#OLD_AMAZONS} column value.
+     * A constant for the {@code "Old Amazons"} column value.
      */
-    OLD_AMAZONS(Character_TypeColumnValues.OLD_AMAZONS),
+    OLD_AMAZONS("Old Amazons"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#OMNISCIENT_BEING} column value.
+     * A constant for the {@code "Omniscient being"} column value.
      */
-    OMNISCIENT_BEING(Character_TypeColumnValues.OMNISCIENT_BEING),
+    OMNISCIENT_BEING("Omniscient being"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ORGANIC_GUN} column value.
+     * A constant for the {@code "Organic gun"} column value.
      */
-    ORGANIC_GUN(Character_TypeColumnValues.ORGANIC_GUN),
+    ORGANIC_GUN("Organic gun"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PARASITE} column value.
+     * A constant for the {@code "Parasite"} column value.
      */
-    PARASITE(Character_TypeColumnValues.PARASITE),
+    PARASITE("Parasite"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PASSING_BUTTER_ROBOT} column value.
+     * A constant for the {@code "Passing Butter Robot"} column value.
      */
-    PASSING_BUTTER_ROBOT(Character_TypeColumnValues.PASSING_BUTTER_ROBOT),
+    PASSING_BUTTER_ROBOT("Passing Butter Robot"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PHONE} column value.
+     * A constant for the {@code "Phone"} column value.
      */
-    PHONE(Character_TypeColumnValues.PHONE),
+    PHONE("Phone"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PHONE_PERSON} column value.
+     * A constant for the {@code "Phone-Person"} column value.
      */
-    PHONE_PERSON(Character_TypeColumnValues.PHONE_PERSON),
+    PHONE_PERSON("Phone-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PICKLE} column value.
+     * A constant for the {@code "Pickle"} column value.
      */
-    PICKLE(Character_TypeColumnValues.PICKLE),
+    PICKLE("Pickle"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PIZZA} column value.
+     * A constant for the {@code "Pizza"} column value.
      */
-    PIZZA(Character_TypeColumnValues.PIZZA),
+    PIZZA("Pizza"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PLANET} column value.
+     * A constant for the {@code "Planet"} column value.
      */
-    PLANET(Character_TypeColumnValues.PLANET),
+    PLANET("Planet"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PLUTONIAN} column value.
+     * A constant for the {@code "Plutonian"} column value.
      */
-    PLUTONIAN(Character_TypeColumnValues.PLUTONIAN),
+    PLUTONIAN("Plutonian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#PRIPUDLIAN} column value.
+     * A constant for the {@code "Pripudlian"} column value.
      */
-    PRIPUDLIAN(Character_TypeColumnValues.PRIPUDLIAN),
+    PRIPUDLIAN("Pripudlian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#RAT} column value.
+     * A constant for the {@code "Rat"} column value.
      */
-    RAT(Character_TypeColumnValues.RAT),
+    RAT("Rat"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#RICKS_TOXIC_SIDE} column value.
+     * A constant for the {@code "Rick's toxic side"} column value.
      */
-    RICKS_TOXIC_SIDE(Character_TypeColumnValues.RICKS_TOXIC_SIDE),
+    RICKS_TOXIC_SIDE("Rick's toxic side"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#RING_NIPPLED_ALIEN} column value.
+     * A constant for the {@code "Ring-nippled alien"} column value.
      */
-    RING_NIPPLED_ALIEN(Character_TypeColumnValues.RING_NIPPLED_ALIEN),
+    RING_NIPPLED_ALIEN("Ring-nippled alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ROBOT} column value.
+     * A constant for the {@code "Robot"} column value.
      */
-    ROBOT(Character_TypeColumnValues.ROBOT),
+    ROBOT("Robot"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ROBOT_CROCODILE_HYBRID} column value.
+     * A constant for the {@code "Robot-Crocodile hybrid"} column value.
      */
-    ROBOT_CROCODILE_HYBRID(Character_TypeColumnValues.ROBOT_CROCODILE_HYBRID),
+    ROBOT_CROCODILE_HYBRID("Robot-Crocodile hybrid"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SCARECROW} column value.
+     * A constant for the {@code "Scarecrow"} column value.
      */
-    SCARECROW(Character_TypeColumnValues.SCARECROW),
+    SCARECROW("Scarecrow"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SCROTIAN} column value.
+     * A constant for the {@code "Scrotian"} column value.
      */
-    SCROTIAN(Character_TypeColumnValues.SCROTIAN),
+    SCROTIAN("Scrotian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SELF_AWARE_ARM} column value.
+     * A constant for the {@code "Self-aware arm"} column value.
      */
-    SELF_AWARE_ARM(Character_TypeColumnValues.SELF_AWARE_ARM),
+    SELF_AWARE_ARM("Self-aware arm"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SENTIENT_ANT_COLONY} column value.
+     * A constant for the {@code "Sentient ant colony"} column value.
      */
-    SENTIENT_ANT_COLONY(Character_TypeColumnValues.SENTIENT_ANT_COLONY),
+    SENTIENT_ANT_COLONY("Sentient ant colony"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SEXY_AQUAMAN} column value.
+     * A constant for the {@code "Sexy Aquaman"} column value.
      */
-    SEXY_AQUAMAN(Character_TypeColumnValues.SEXY_AQUAMAN),
+    SEXY_AQUAMAN("Sexy Aquaman"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SHAPESHIFTER} column value.
+     * A constant for the {@code "Shapeshifter"} column value.
      */
-    SHAPESHIFTER(Character_TypeColumnValues.SHAPESHIFTER),
+    SHAPESHIFTER("Shapeshifter"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SHIMSHAMIAN} column value.
+     * A constant for the {@code "Shimshamian"} column value.
      */
-    SHIMSHAMIAN(Character_TypeColumnValues.SHIMSHAMIAN),
+    SHIMSHAMIAN("Shimshamian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SHRIMP} column value.
+     * A constant for the {@code "Shrimp"} column value.
      */
-    SHRIMP(Character_TypeColumnValues.SHRIMP),
+    SHRIMP("Shrimp"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SLARTIVARTIAN} column value.
+     * A constant for the {@code "Slartivartian"} column value.
      */
-    SLARTIVARTIAN(Character_TypeColumnValues.SLARTIVARTIAN),
+    SLARTIVARTIAN("Slartivartian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SLUG} column value.
+     * A constant for the {@code "Slug"} column value.
      */
-    SLUG(Character_TypeColumnValues.SLUG),
+    SLUG("Slug"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SNAIL_ALIEN} column value.
+     * A constant for the {@code "Snail alien"} column value.
      */
-    SNAIL_ALIEN(Character_TypeColumnValues.SNAIL_ALIEN),
+    SNAIL_ALIEN("Snail alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SNAKE} column value.
+     * A constant for the {@code "Snake"} column value.
      */
-    SNAKE(Character_TypeColumnValues.SNAKE),
+    SNAKE("Snake"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SOULLESS_PUPPET} column value.
+     * A constant for the {@code "Soulless Puppet"} column value.
      */
-    SOULLESS_PUPPET(Character_TypeColumnValues.SOULLESS_PUPPET),
+    SOULLESS_PUPPET("Soulless Puppet"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SQUID} column value.
+     * A constant for the {@code "Squid"} column value.
      */
-    SQUID(Character_TypeColumnValues.SQUID),
+    SQUID("Squid"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#STARFISH} column value.
+     * A constant for the {@code "Starfish"} column value.
      */
-    STARFISH(Character_TypeColumnValues.STARFISH),
+    STARFISH("Starfish"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#STAIR_GOBLIN} column value.
+     * A constant for the {@code "Stair goblin"} column value.
      */
-    STAIR_GOBLIN(Character_TypeColumnValues.STAIR_GOBLIN),
+    STAIR_GOBLIN("Stair goblin"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SUMMON} column value.
+     * A constant for the {@code "Summon"} column value.
      */
-    SUMMON(Character_TypeColumnValues.SUMMON),
+    SUMMON("Summon"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SUPER_SPERM_MONSTER} column value.
+     * A constant for the {@code "Super Sperm Monster"} column value.
      */
-    SUPER_SPERM_MONSTER(Character_TypeColumnValues.SUPER_SPERM_MONSTER),
+    SUPER_SPERM_MONSTER("Super Sperm Monster"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SUPERHUMAN} column value.
+     * A constant for the {@code "Superhuman"} column value.
      */
-    SUPERHUMAN(Character_TypeColumnValues.SUPERHUMAN),
+    SUPERHUMAN("Superhuman"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#SUPERHUMAN_GHOST_TRAINS_SUMMONER} column value.
+     * A constant for the {@code "Superhuman (Ghost trains summoner)"} column value.
      */
-    SUPERHUMAN_GHOST_TRAINS_SUMMONER(Character_TypeColumnValues.SUPERHUMAN_GHOST_TRAINS_SUMMONER),
+    SUPERHUMAN_GHOST_TRAINS_SUMMONER("Superhuman (Ghost trains summoner)"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TEDDY_BEAR} column value.
+     * A constant for the {@code "Teddy Bear"} column value.
      */
-    TEDDY_BEAR(Character_TypeColumnValues.TEDDY_BEAR),
+    TEDDY_BEAR("Teddy Bear"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TEENYVERSE_INHABITANT} column value.
+     * A constant for the {@code "Teenyverse inhabitant"} column value.
      */
-    TEENYVERSE_INHABITANT(Character_TypeColumnValues.TEENYVERSE_INHABITANT),
+    TEENYVERSE_INHABITANT("Teenyverse inhabitant"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TENTACLE_ALIEN} column value.
+     * A constant for the {@code "Tentacle alien"} column value.
      */
-    TENTACLE_ALIEN(Character_TypeColumnValues.TENTACLE_ALIEN),
+    TENTACLE_ALIEN("Tentacle alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#THE_DEVIL} column value.
+     * A constant for the {@code "The Devil"} column value.
      */
-    THE_DEVIL(Character_TypeColumnValues.THE_DEVIL),
+    THE_DEVIL("The Devil"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TIGER} column value.
+     * A constant for the {@code "Tiger"} column value.
      */
-    TIGER(Character_TypeColumnValues.TIGER),
+    TIGER("Tiger"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TIME_GOD} column value.
+     * A constant for the {@code "Time God"} column value.
      */
-    TIME_GOD(Character_TypeColumnValues.TIME_GOD),
+    TIME_GOD("Time God"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TINYMOUTH} column value.
+     * A constant for the {@code "Tinymouth"} column value.
      */
-    TINYMOUTH(Character_TypeColumnValues.TINYMOUTH),
+    TINYMOUTH("Tinymouth"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TOY} column value.
+     * A constant for the {@code "Toy"} column value.
      */
-    TOY(Character_TypeColumnValues.TOY),
+    TOY("Toy"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TRAFLORKIAN} column value.
+     * A constant for the {@code "Traflorkian"} column value.
      */
-    TRAFLORKIAN(Character_TypeColumnValues.TRAFLORKIAN),
+    TRAFLORKIAN("Traflorkian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TRUNK_PERSON} column value.
+     * A constant for the {@code "Trunk-Person"} column value.
      */
-    TRUNK_PERSON(Character_TypeColumnValues.TRUNK_PERSON),
+    TRUNK_PERSON("Trunk-Person"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TUMBLORKIAN} column value.
+     * A constant for the {@code "Tumblorkian"} column value.
      */
-    TUMBLORKIAN(Character_TypeColumnValues.TUMBLORKIAN),
+    TUMBLORKIAN("Tumblorkian"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TURKEY} column value.
+     * A constant for the {@code "Turkey"} column value.
      */
-    TURKEY(Character_TypeColumnValues.TURKEY),
+    TURKEY("Turkey"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TURKEY_HUMAN_MIX} column value.
+     * A constant for the {@code "Turkey Human Mix"} column value.
      */
-    TURKEY_HUMAN_MIX(Character_TypeColumnValues.TURKEY_HUMAN_MIX),
+    TURKEY_HUMAN_MIX("Turkey Human Mix"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#TUSKFISH} column value.
+     * A constant for the {@code "Tuskfish"} column value.
      */
-    TUSKFISH(Character_TypeColumnValues.TUSKFISH),
+    TUSKFISH("Tuskfish"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#UNKNOWN_NIPPLED_ALIEN} column value.
+     * A constant for the {@code "Unknown-nippled alien"} column value.
      */
-    UNKNOWN_NIPPLED_ALIEN(Character_TypeColumnValues.UNKNOWN_NIPPLED_ALIEN),
+    UNKNOWN_NIPPLED_ALIEN("Unknown-nippled alien"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#VAMPIRE} column value.
+     * A constant for the {@code "Vampire"} column value.
      */
-    VAMPIRE(Character_TypeColumnValues.VAMPIRE),
+    VAMPIRE("Vampire"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#WASP} column value.
+     * A constant for the {@code "Wasp"} column value.
      */
-    WASP(Character_TypeColumnValues.WASP),
+    WASP("Wasp"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#WEASEL} column value.
+     * A constant for the {@code "Weasel"} column value.
      */
-    WEASEL(Character_TypeColumnValues.WEASEL),
+    WEASEL("Weasel"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#WHENWOLF} column value.
+     * A constant for the {@code "Whenwolf"} column value.
      */
-    WHENWOLF(Character_TypeColumnValues.WHENWOLF),
+    WHENWOLF("Whenwolf"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ZEUS} column value.
+     * A constant for the {@code "Zeus"} column value.
      */
-    ZEUS(Character_TypeColumnValues.ZEUS),
+    ZEUS("Zeus"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ZIGERION} column value.
+     * A constant for the {@code "Zigerion"} column value.
      */
-    ZIGERION(Character_TypeColumnValues.ZIGERION),
+    ZIGERION("Zigerion"),
 
     /**
-     * A constant for the {@value Character_TypeColumnValues#ZOMBODIAN} column value.
+     * A constant for the {@code "Zombodian"} column value.
      */
-    ZOMBODIAN(Character_TypeColumnValues.ZOMBODIAN);
+    ZOMBODIAN("Zombodian");
 
     // -------------------------------------------------------------------------------------------------------------
     public static Character_Type valueOfColumnValue(final String columnValue) {

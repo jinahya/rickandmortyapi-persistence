@@ -12,54 +12,54 @@ import java.util.Objects;
 public enum Character_Species implements _StringColumnEnum<Character_Species> {
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#ALIEN} column value.
+     * A constant for the {@code "Alien"} column value.
      */
-    ALIEN(Character_SpeciesColumnValues.ALIEN),
+    ALIEN("Alien"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#ANIMAL} column value.
+     * A constant for the {@code "Animal"} column value.
      */
-    ANIMAL(Character_SpeciesColumnValues.ANIMAL),
+    ANIMAL("Animal"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#CRONENBERG} column value.
+     * A constant for the {@code "Cronenberg"} column value.
      */
-    CRONENBERG(Character_SpeciesColumnValues.CRONENBERG),
+    CRONENBERG("Cronenberg"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#DISEASE} column value.
+     * A constant for the {@code "Disease"} column value.
      */
-    DISEASE(Character_SpeciesColumnValues.DISEASE),
+    DISEASE("Disease"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#HUMAN} column value.
+     * A constant for the {@code "Human"} column value.
      */
-    HUMAN(Character_SpeciesColumnValues.HUMAN),
+    HUMAN("Human"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#HUMANOID} column value.
+     * A constant for the {@code "Humanoid"} column value.
      */
-    HUMANOID(Character_SpeciesColumnValues.HUMANOID),
+    HUMANOID("Humanoid"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#MYTHOLOGICAL_CREATURE} column value.
+     * A constant for the {@code "Mythological Creature"} column value.
      */
-    MYTHOLOGICAL_CREATURE(Character_SpeciesColumnValues.MYTHOLOGICAL_CREATURE),
+    MYTHOLOGICAL_CREATURE("Mythological Creature"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#POOPYBUTTHOLE} column value.
+     * A constant for the {@code "Poopybutthole"} column value.
      */
-    POOPYBUTTHOLE(Character_SpeciesColumnValues.POOPYBUTTHOLE),
+    POOPYBUTTHOLE("Poopybutthole"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#ROBOT} column value.
+     * A constant for the {@code "Robot"} column value.
      */
-    ROBOT(Character_SpeciesColumnValues.ROBOT),
+    ROBOT("Robot"),
 
     /**
-     * A constant for {@value Character_SpeciesColumnValues#UNKNOWN} column value.
+     * A constant for the {@code "unknown"} column value.
      */
-    UNKNOWN(Character_SpeciesColumnValues.UNKNOWN);
+    UNKNOWN("unknown");
 
     // -----------------------------------------------------------------------------------------------------------------
 
