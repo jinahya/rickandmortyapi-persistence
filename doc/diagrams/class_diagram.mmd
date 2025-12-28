@@ -1,0 +1,93 @@
+classDiagram
+    class Character {
+        -Integer id
+        -String name
+        -Character_Status status
+        -Character_Species species
+        -Character_Type type
+        -Character_Gender gender
+        -NameAndUrl origin
+        -NameAndUrl location
+        -URL image
+        -List~URL~ episode
+        -URL url
+        -Instant created
+        -Location origin_
+        -Location location_
+        -List~Episode~ episodes_
+    }
+
+    class Episode {
+        -Integer id
+        -String name
+        -LocalDate airDate
+        -String episode
+        -List~URL~ characters
+        -URL url
+        -Instant created
+        -LocalDate airDateIso_
+        -List~Character~ characters_
+    }
+
+    class Location {
+        -Integer id
+        -String name
+        -Location_Type type
+        -Location_Dimension dimension
+        -List~URL~ residents
+        -URL url
+        -Instant created
+        -List~Character~ residents_
+        -List~Character~ originCharacters_
+        -List~Character~ locationCharacters_
+    }
+
+    class NameAndUrl {
+        <<Embeddable>>
+        -String name
+        -URL url
+    }
+
+    class CharacterEpisode {
+        -CharacterEpisodeId id
+        -Character character
+        -Episode episode
+    }
+
+    class CharacterEpisodeId {
+        <<Embeddable>>
+        -Integer characterId
+        -Integer episodeId
+    }
+
+    class LocationResident {
+        -LocationResidentId id
+        -Location location
+        -Character resident
+    }
+
+    class LocationResidentId {
+        <<Embeddable>>
+        -Integer locationId
+        -Integer residentId
+    }
+
+    Character "many" -- "0..1" Location : origin_
+    Character "many" -- "0..1" Location : location_
+    Character "many" -- "many" Episode : episodes_
+    Episode "many" -- "many" Character : characters_
+    
+    Location "1" -- "many" Character : residents_
+    Location "1" -- "many" Character : originCharacters_
+    Location "1" -- "many" Character : locationCharacters_
+
+    Character *-- NameAndUrl : origin
+    Character *-- NameAndUrl : location
+
+    CharacterEpisode *-- CharacterEpisodeId : id
+    CharacterEpisode o-- Character : character
+    CharacterEpisode o-- Episode : episode
+
+    LocationResident *-- LocationResidentId : id
+    LocationResident o-- Location : location
+    LocationResident o-- Character : resident

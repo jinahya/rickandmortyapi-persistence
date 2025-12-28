@@ -19,8 +19,7 @@ import java.util.Objects;
 @Embeddable
 public class LocationResidentId
         extends __Base
-        // just for the Spring Data REST
-        implements Serializable,
+        implements Serializable, // just for the Spring Data REST
                    Comparable<LocationResidentId> {
 
     @Serial

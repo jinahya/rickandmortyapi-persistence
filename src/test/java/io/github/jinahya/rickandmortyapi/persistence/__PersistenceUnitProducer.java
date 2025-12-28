@@ -53,7 +53,7 @@ public class __PersistenceUnitProducer {
                 entityManagerFactory
         );
         entityManagerFactory.getProperties().forEach((k, v) -> {
-            logger.log(System.Logger.Level.DEBUG, "entityManagerFactory.property; {0}: {1}", k, v);
+//            logger.log(System.Logger.Level.DEBUG, "entityManagerFactory.property; {0}: {1}", k, v);
         });
         return entityManagerFactory;
     }

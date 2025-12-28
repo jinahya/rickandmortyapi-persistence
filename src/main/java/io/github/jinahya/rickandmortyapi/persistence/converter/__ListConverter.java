@@ -7,12 +7,8 @@ import java.util.List;
 
 @Converter
 @SuppressWarnings({
-        "java:S101" // Class names should comply with a naming convention
+        "java:S114" // Interface names should comply with a naming convention
 })
-public abstract class __ListConverter<T, Y> implements AttributeConverter<List<T>, Y> {
+interface __ListConverter<T, Y> extends AttributeConverter<List<T>, Y> {
 
-    // -----------------------------------------------------------------------------------------------------------------
-    protected __ListConverter() {
-        super();
-    }
 }

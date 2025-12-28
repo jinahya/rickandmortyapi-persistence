@@ -8,234 +8,233 @@ import java.util.Objects;
  * Constants forthe  {@value Location#COLUMN_NAME_TYPE} column of the {@value Location#TABLE_NAME} table.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see Location_TypeColumnValues
  */
 public enum Location_Type implements _StringColumnEnum<Location_Type> {
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#ACID_PLANT} column value.
+     * A constant for the {@code "Acid Plant"} column value.
      */
-    ACID_PLANT(Location_TypeColumnValues.ACID_PLANT),
+    ACID_PLANT("Acid Plant"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#ARCADE} column value.
+     * A constant for the {@code "Arcade"} column value.
      */
-    ARCADE(Location_TypeColumnValues.ARCADE),
+    ARCADE("Arcade"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#ARTIFICIALLY_GENERATED_WORLD} column value.
+     * A constant for the {@code "Artificially generated world"} column value.
      */
-    ARTIFICIALLY_GENERATED_WORLD(Location_TypeColumnValues.ARTIFICIALLY_GENERATED_WORLD),
+    ARTIFICIALLY_GENERATED_WORLD("Artificially generated world"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#ASTEROID} column value.
+     * A constant for the {@code "Asteroid"} column value.
      */
-    ASTEROID(Location_TypeColumnValues.ASTEROID),
+    ASTEROID("Asteroid"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#BASE} column value.
+     * A constant for the {@code "Base"} column value.
      */
-    BASE(Location_TypeColumnValues.BASE),
+    BASE("Base"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#BOX} column value.
+     * A constant for the {@code "Box"} column value.
      */
-    BOX(Location_TypeColumnValues.BOX),
+    BOX("Box"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#CLUSTER} column value.
+     * A constant for the {@code "Cluster"} column value.
      */
-    CLUSTER(Location_TypeColumnValues.CLUSTER),
+    CLUSTER("Cluster"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#CONSCIOUSNESS} column value.
+     * A constant for the {@code "Consciousness"} column value.
      */
-    CONSCIOUSNESS(Location_TypeColumnValues.CONSCIOUSNESS),
+    CONSCIOUSNESS("Consciousness"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#CONVENTION} column value.
+     * A constant for the {@code "Convention"} column value.
      */
-    CONVENTION(Location_TypeColumnValues.CONVENTION),
+    CONVENTION("Convention"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#COUNTRY} column value.
+     * A constant for the {@code "Country"} column value.
      */
-    COUNTRY(Location_TypeColumnValues.COUNTRY),
+    COUNTRY("Country"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#CUSTOMS} column value.
+     * A constant for the {@code "Customs"} column value.
      */
-    CUSTOMS(Location_TypeColumnValues.CUSTOMS),
+    CUSTOMS("Customs"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#DAYCARE} column value.
+     * A constant for the {@code "Daycare"} column value.
      */
-    DAYCARE(Location_TypeColumnValues.DAYCARE),
+    DAYCARE("Daycare"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#DEATH_STAR} column value.
+     * A constant for the {@code "Death Star"} column value.
      */
-    DEATH_STAR(Location_TypeColumnValues.DEATH_STAR),
+    DEATH_STAR("Death Star"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#DIEGESIS} column value.
+     * A constant for the {@code "Diegesis"} column value.
      */
-    DIEGESIS(Location_TypeColumnValues.DIEGESIS),
+    DIEGESIS("Diegesis"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#DIMENSION} column value.
+     * A constant for the {@code "Dimension"} column value.
      */
-    DIMENSION(Location_TypeColumnValues.DIMENSION),
+    DIMENSION("Dimension"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#DREAM} column value.
+     * A constant for the {@code "Dream"} column value.
      */
-    DREAM(Location_TypeColumnValues.DREAM),
+    DREAM("Dream"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#DWARF_PLANET_CELESTIAL_DWARF} column value.
+     * A constant for the {@code "Dwarf planet (Celestial Dwarf)"} column value.
      */
-    DWARF_PLANET_CELESTIAL_DWARF(Location_TypeColumnValues.DWARF_PLANET_CELESTIAL_DWARF),
+    DWARF_PLANET_CELESTIAL_DWARF("Dwarf planet (Celestial Dwarf)"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#ELEMENTAL_RINGS} column value.
+     * A constant for the {@code "Elemental Rings"} column value.
      */
-    ELEMENTAL_RINGS(Location_TypeColumnValues.ELEMENTAL_RINGS),
+    ELEMENTAL_RINGS("Elemental Rings"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#FANTASY_TOWN} column value.
+     * A constant for the {@code "Fantasy town"} column value.
      */
-    FANTASY_TOWN(Location_TypeColumnValues.FANTASY_TOWN),
+    FANTASY_TOWN("Fantasy town"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#GAME} column value.
+     * A constant for the {@code "Game"} column value.
      */
-    GAME(Location_TypeColumnValues.GAME),
+    GAME("Game"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#HELL} column value.
+     * A constant for the {@code "Hell"} column value.
      */
-    HELL(Location_TypeColumnValues.HELL),
+    HELL("Hell"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#HUMAN} column value.
+     * A constant for the {@code "Human"} column value.
      */
-    HUMAN(Location_TypeColumnValues.HUMAN),
+    HUMAN("Human"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#LIQUID} column value.
+     * A constant for the {@code "Liquid"} column value.
      */
-    LIQUID(Location_TypeColumnValues.LIQUID),
+    LIQUID("Liquid"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#MACHINE} column value.
+     * A constant for the {@code "Machine"} column value.
      */
-    MACHINE(Location_TypeColumnValues.MACHINE),
+    MACHINE("Machine"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#MEMORY} column value.
+     * A constant for the {@code "Memory"} column value.
      */
-    MEMORY(Location_TypeColumnValues.MEMORY),
+    MEMORY("Memory"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#MENAGERIE} column value.
+     * A constant for the {@code "Menagerie"} column value.
      */
-    MENAGERIE(Location_TypeColumnValues.MENAGERIE),
+    MENAGERIE("Menagerie"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#MICROVERSE} column value.
+     * A constant for the {@code "Microverse"} column value.
      */
-    MICROVERSE(Location_TypeColumnValues.MICROVERSE),
+    MICROVERSE("Microverse"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#MINIVERSE} column value.
+     * A constant for the {@code "Miniverse"} column value.
      */
-    MINIVERSE(Location_TypeColumnValues.MINIVERSE),
+    MINIVERSE("Miniverse"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#MOUNT} column value.
+     * A constant for the {@code "Mount"} column value.
      */
-    MOUNT(Location_TypeColumnValues.MOUNT),
+    MOUNT("Mount"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#NIGHTMARE} column value.
+     * A constant for the {@code "Nightmare"} column value.
      */
-    NIGHTMARE(Location_TypeColumnValues.NIGHTMARE),
+    NIGHTMARE("Nightmare"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#NON_DIEGETIC_ALTERNATIVE_REALITY} column value.
+     * A constant for the {@code "Non-Diegetic Alternative Reality"} column value.
      */
-    NON_DIEGETIC_ALTERNATIVE_REALITY(Location_TypeColumnValues.NON_DIEGETIC_ALTERNATIVE_REALITY),
+    NON_DIEGETIC_ALTERNATIVE_REALITY("Non-Diegetic Alternative Reality"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#PLANET} column value.
+     * A constant for the {@code "Planet"} column value.
      */
-    PLANET(Location_TypeColumnValues.PLANET),
+    PLANET("Planet"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#POLICE_DEPARTMENT} column value.
+     * A constant for the {@code "Police Department"} column value.
      */
-    POLICE_DEPARTMENT(Location_TypeColumnValues.POLICE_DEPARTMENT),
+    POLICE_DEPARTMENT("Police Department"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#QUADRANT} column value.
+     * A constant for the {@code "Quadrant"} column value.
      */
-    QUADRANT(Location_TypeColumnValues.QUADRANT),
+    QUADRANT("Quadrant"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#QUASAR} column value.
+     * A constant for the {@code "Quasar"} column value.
      */
-    QUASAR(Location_TypeColumnValues.QUASAR),
+    QUASAR("Quasar"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#REALITY} column value.
+     * A constant for the {@code "Reality"} column value.
      */
-    REALITY(Location_TypeColumnValues.REALITY),
+    REALITY("Reality"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#RESORT} column value.
+     * A constant for the {@code "Resort"} column value.
      */
-    RESORT(Location_TypeColumnValues.RESORT),
+    RESORT("Resort"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#SPA} column value.
+     * A constant for the {@code "Spa"} column value.
      */
-    SPA(Location_TypeColumnValues.SPA),
+    SPA("Spa"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#SPACE} column value.
+     * A constant for the {@code "Space"} column value.
      */
-    SPACE(Location_TypeColumnValues.SPACE),
+    SPACE("Space"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#SPACE_STATION} column value.
+     * A constant for the {@code "Space station"} column value.
      */
-    SPACE_STATION(Location_TypeColumnValues.SPACE_STATION),
+    SPACE_STATION("Space station"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#SPACECRAFT} column value.
+     * A constant for the {@code "Spacecraft"} column value.
      */
-    SPACECRAFT(Location_TypeColumnValues.SPACECRAFT),
+    SPACECRAFT("Spacecraft"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#TV} column value.
+     * A constant for the {@code "TV"} column value.
      */
-    TV(Location_TypeColumnValues.TV),
+    TV("TV"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#TEENYVERSE} column value.
+     * A constant for the {@code "Teenyverse"} column value.
      */
-    TEENYVERSE(Location_TypeColumnValues.TEENYVERSE),
+    TEENYVERSE("Teenyverse"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#WOODS} column value.
+     * A constant for the {@code "Woods"} column value.
      */
-    WOODS(Location_TypeColumnValues.WOODS),
+    WOODS("Woods"),
 
     /**
-     * A constant for the {@value Location_TypeColumnValues#UNKNOWN} column value.
+     * A constant for the {@code "unknown"} column value.
      */
-    UNKNOWN(Location_TypeColumnValues.UNKNOWN);
+    UNKNOWN("unknown");
 
     // -----------------------------------------------------------------------------------------------------------------
     public static Location_Type valueOfColumnValue(final String columnValue) {

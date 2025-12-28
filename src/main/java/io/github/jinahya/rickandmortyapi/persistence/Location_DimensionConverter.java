@@ -6,7 +6,7 @@ import jakarta.persistence.Converter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class Location_DimensionConverter extends _StringColumnEnumConverter<Location_Dimension> {
+public class Location_DimensionConverter extends _StringColumnEnumAttributeConverter<Location_Dimension> {
 
     public Location_DimensionConverter() {
         super(Location_Dimension.class);

@@ -26,10 +26,17 @@ public class CharacterEpisodeId
     private static final long serialVersionUID = -8363987227830143686L;
 
     // -----------------------------------------------------------------------------------------------------------------
-    private static final Comparator<CharacterEpisodeId> COMPARING_CHARACTER_ID =
+
+    /**
+     * A comparator compares with {@link CharacterEpisodeId_#CHARACTER_ID} attribute.
+     */
+    public static final Comparator<CharacterEpisodeId> COMPARING_CHARACTER_ID =
             Comparator.comparing(CharacterEpisodeId::getCharacterId);
 
-    private static final Comparator<CharacterEpisodeId> COMPARING_EPISODE_ID =
+    /**
+     * A comparator compares with {@link CharacterEpisodeId_#EPISODE_ID} attribute.
+     */
+    public static final Comparator<CharacterEpisodeId> COMPARING_EPISODE_ID =
             Comparator.comparing(CharacterEpisodeId::getEpisodeId);
 
     private static final Comparator<CharacterEpisodeId> COMPARATOR =

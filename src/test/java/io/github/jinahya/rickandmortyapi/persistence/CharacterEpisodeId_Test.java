@@ -1,5 +1,6 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,6 +17,7 @@ import static org.mockito.Mockito.withSettings;
 
 class CharacterEpisodeId_Test extends __Base_Test<CharacterEpisodeId> {
 
+    @DisplayName("of(characterId, episodeId)")
     @Nested
     class Of_Test {
 

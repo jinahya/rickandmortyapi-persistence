@@ -73,6 +73,10 @@ public class Character extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_ID = "id";
 
     // ------------------------------------------------------------------------------------------------------------ name
+
+    /**
+     * The name of the table column to which the {@value Character_#NAME} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_NAME = "name";
 
     // ---------------------------------------------------------------------------------------------------------- status
@@ -80,7 +84,6 @@ public class Character extends _BaseEntity<Integer> {
     /**
      * The name of the table column to which the {@value Character_#STATUS} attribute maps. The value is {@value}.
      *
-     * @see Character_StatusColumnValues
      * @see Character_Status
      */
     public static final String COLUMN_NAME_STATUS = "status";
@@ -90,7 +93,6 @@ public class Character extends _BaseEntity<Integer> {
     /**
      * The name of the table column to which the {@value Character_#SPECIES} attribute maps. The value is {@value}.
      *
-     * @see Character_SpeciesColumnValues
      * @see Character_Species
      */
     public static final String COLUMN_NAME_SPECIES = "species";
@@ -100,7 +102,6 @@ public class Character extends _BaseEntity<Integer> {
     /**
      * The name of the table column to which the {@value Character_#TYPE} attribute maps. The value is {@value}.
      *
-     * @see Character_TypeColumnValues
      * @see Character_Type
      */
     public static final String COLUMN_NAME_TYPE = "type";
@@ -110,7 +111,6 @@ public class Character extends _BaseEntity<Integer> {
     /**
      * The name of the table column to which the {@value Character_#GENDER} attribute maps. The value is {@value}.
      *
-     * @see Character_GenderColumnValues
      * @see Character_Gender
      */
     public static final String COLUMN_NAME_GENDER = "gender";
@@ -159,23 +159,39 @@ public class Character extends _BaseEntity<Integer> {
     public static final String COLUMN_NAME_IMAGE = "image";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Character_#EPISODE} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_EPISODE = "episode";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Character_#URL} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_URL = "url";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Character_#CREATED} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_CREATED = "created";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@value Character_#ORIGIN_} attribute maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_ORIGIN_ID_ = "origin_id_";
 
-    public static final String ATTRIBUTE_NAME_ORIGIN_ = "origin_";
-
     // -----------------------------------------------------------------------------------------------------------------
-    public static final String COLUMN_NAME_LOCATION_ID_ = "location_id_";
 
-    public static final String ATTRIBUTE_NAME_LOCATION_ = "location_";
+    /**
+     * The name of the table column to which the {@value Character_#LOCATION_} attribute maps. The value is {@value}.
+     */
+    public static final String COLUMN_NAME_LOCATION_ID_ = "location_id_";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -230,16 +246,33 @@ public class Character extends _BaseEntity<Integer> {
         return id;
     }
 
+    /**
+     * Replaces current value of {@value Character_#ID} attribute with the specified value.
+     *
+     * @param id the new value for {@value Character_#ID} attribute.
+     */
     void setId(final Integer id) {
         this.id = id;
     }
 
+    /**
+     * Replaces current value of {@value Character_#ID} attribute with the specified value, and returns {@code this}.
+     *
+     * @param id the new value for {@value Character_#ID} attribute.
+     * @return {@code this} for method chaining.
+     */
     Character id(final Integer id) {
         setId(id);
         return this;
     }
 
     // ------------------------------------------------------------------------------------------------------------ name
+
+    /**
+     * Returns current value of {@value Character_#NAME} attribute.
+     *
+     * @return current value of the {@value Character_#NAME} attribute.
+     */
     public String getName() {
         return name;
     }
@@ -249,6 +282,12 @@ public class Character extends _BaseEntity<Integer> {
     }
 
     // ---------------------------------------------------------------------------------------------------------- status
+
+    /**
+     * Returns current value of {@value Character_#STATUS} attribute.
+     *
+     * @return current value of the {@value Character_#STATUS} attribute.
+     */
     public Character_Status getStatus() {
         return status;
     }
@@ -273,6 +312,12 @@ public class Character extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------------ type
+
+    /**
+     * Returns current value of {@value Character_#TYPE} attribute.
+     *
+     * @return current value of the {@value Character_#TYPE} attribute.
+     */
     @Nullable
     public Character_Type getType() {
         return type;
@@ -283,6 +328,12 @@ public class Character extends _BaseEntity<Integer> {
     }
 
     // ---------------------------------------------------------------------------------------------------------- gender
+
+    /**
+     * Returns current value of {@value Character_#GENDER} attribute.
+     *
+     * @return current value of the {@value Character_#GENDER} attribute.
+     */
     public Character_Gender getGender() {
         return gender;
     }
@@ -294,32 +345,34 @@ public class Character extends _BaseEntity<Integer> {
     // ---------------------------------------------------------------------------------------------------------- origin
 
     /**
-     * Returns the name and url of this character's origin location.
+     * Returns current value of {@value Character_#ORIGIN} attribute.
      *
-     * @return the name and url of this character's origin location
+     * @return current value of the {@value Character_#ORIGIN} attribute.
      * @see #getOrigin_()
      */
+    @Nullable
     public NameAndUrl getOrigin() {
         return origin;
     }
 
-    void setOrigin(final NameAndUrl origin) {
+    void setOrigin(@Nullable final NameAndUrl origin) {
         this.origin = origin;
     }
 
     // -------------------------------------------------------------------------------------------------------- location
 
     /**
-     * Returns the name and url of this character's last known location.
+     * Returns current value of {@value Character_#LOCATION} attribute.
      *
-     * @return the name and url of this character's last known location.
+     * @return current value of the {@value Character_#LOCATION} attribute.
      * @see #getLocation_()
      */
+    @Nullable
     public NameAndUrl getLocation() {
         return location;
     }
 
-    void setLocation(final NameAndUrl location) {
+    void setLocation(@Nullable final NameAndUrl location) {
         this.location = location;
     }
 
@@ -341,9 +394,9 @@ public class Character extends _BaseEntity<Integer> {
     // --------------------------------------------------------------------------------------------------------- episode
 
     /**
-     * Returns a list of episodes' links in which this character appeared.
+     * Returns current value of {@value Character_#EPISODE} attribute.
      *
-     * @return a list of episodes' links in which this character appeared.
+     * @return current value of the {@value Character_#EPISODE} attribute.
      * @see #getEpisodes_()
      */
     public List<URL> getEpisode() {
@@ -355,6 +408,12 @@ public class Character extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------------- url
+
+    /**
+     * Returns current value of {@value Character_#URL} attribute.
+     *
+     * @return current value of the {@value Character_#URL} attribute.
+     */
     public URL getUrl() {
         return url;
     }
@@ -364,6 +423,12 @@ public class Character extends _BaseEntity<Integer> {
     }
 
     // --------------------------------------------------------------------------------------------------------- created
+
+    /**
+     * Returns current value of {@value Character_#CREATED} attribute.
+     *
+     * @return current value of the {@value Character_#CREATED} attribute.
+     */
     public Instant getCreated() {
         return created;
     }
@@ -375,9 +440,9 @@ public class Character extends _BaseEntity<Integer> {
     // --------------------------------------------------------------------------------------------------------- origin_
 
     /**
-     * Returns this character's origin location.
+     * Returns current value of {@value Character_#ORIGIN_} attribute.
      *
-     * @return this character's origin location; may be {@code null}.
+     * @return current value of the {@value Character_#ORIGIN_} attribute; may be {@code null}.
      * @see #getOrigin()
      */
     @Nullable
@@ -392,9 +457,9 @@ public class Character extends _BaseEntity<Integer> {
     // ------------------------------------------------------------------------------------------------------- location_
 
     /**
-     * Returns this character's last known location.
+     * Returns current value of {@value Character_#LOCATION_} attribute.
      *
-     * @return this character's last known location; may be {@code null}.
+     * @return current value of the {@value Character_#LOCATION_} attribute; may be {@code null}.
      * @see #getLocation()
      */
     @Nullable
@@ -409,9 +474,9 @@ public class Character extends _BaseEntity<Integer> {
     // ------------------------------------------------------------------------------------------------------- episodes_
 
     /**
-     * Returns a list of mapped episodes in which this character appeared.
+     * Returns current value of {@value Character_#EPISODES_} attribute.
      *
-     * @return a list of mapped episodes in which this character appeared.
+     * @return current value of the {@value Character_#EPISODES_} attribute.
      * @see #getEpisode()
      */
     public List<Episode> getEpisodes_() {

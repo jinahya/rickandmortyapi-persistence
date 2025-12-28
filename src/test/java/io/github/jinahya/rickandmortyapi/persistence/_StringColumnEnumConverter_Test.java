@@ -1,7 +1,7 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
 abstract class _StringColumnEnumConverter_Test<
-        C extends _StringColumnEnumConverter<E>,
+        C extends _StringColumnEnumAttributeConverter<E>,
         E extends Enum<E> & _StringColumnEnum<E>
         >
         extends __ColumnEnumConverter_Test<C, E, String> {

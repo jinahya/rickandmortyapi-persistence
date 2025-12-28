@@ -8,29 +8,28 @@ import java.util.Objects;
  * Constants for the {@value Character_#GENDER} attribute.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see Character_GenderColumnValues
  */
 public enum Character_Gender implements _StringColumnEnum<Character_Gender> {
 
     /**
-     * A constant for the {@value Character_GenderColumnValues#FEMALE} column value.
+     * A constant for the {@code "Female"} column value.
      */
-    FEMALE(Character_GenderColumnValues.FEMALE),
+    FEMALE("Female"),
 
     /**
-     * A constant for the {@value Character_GenderColumnValues#GENDERLESS} column value.
+     * A constant for the {@code "Genderless"} column value.
      */
-    GENDERLESS(Character_GenderColumnValues.GENDERLESS),
+    GENDERLESS("Genderless"),
 
     /**
-     * A constant for the {@value Character_GenderColumnValues#MALE} column value.
+     * A constant for the {@code "Male"} column value.
      */
-    MALE(Character_GenderColumnValues.MALE),
+    MALE("Male"),
 
     /**
-     * A constant for the {@value Character_GenderColumnValues#UNKNOWN} column value.
+     * A constant for the {@code "unknown"} column value.
      */
-    UNKNOWN(Character_GenderColumnValues.UNKNOWN);
+    UNKNOWN("unknown");
 
     /**
      * Returns the constants whose {@link #columnValue() columnValue} matches the specified {@code columnValue}.

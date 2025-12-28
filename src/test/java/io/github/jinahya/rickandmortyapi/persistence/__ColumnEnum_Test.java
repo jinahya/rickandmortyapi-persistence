@@ -5,7 +5,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
@@ -24,7 +28,7 @@ abstract class __ColumnEnum_Test<E extends Enum<E> & __ColumnEnum<E, T>, T> {
             if (!method.canAccess(null)) {
                 method.setAccessible(true);
             }
-            applyColumnValueStream(s -> {
+            applyConstantsColumnValueStream(s -> {
                 s.forEach(e -> {
                     final var enumConstant = e.getKey();
                     final var columnValue = e.getValue();
@@ -49,10 +53,21 @@ abstract class __ColumnEnum_Test<E extends Enum<E> & __ColumnEnum<E, T>, T> {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @DisplayName("all columns values; no nulls nor duplicates")
+    void _AllConstantsExist_AllPredefinedColumnsValues(final Collection<T> allPredefinedColumnValues) {
+        Objects.requireNonNull(allPredefinedColumnValues, "allPredefinedColumnValues is null");
+        final var enumSet = EnumSet.allOf(enumClass);
+        for (final var c = new ArrayList<>(new HashSet<>(allPredefinedColumnValues)); !c.isEmpty(); ) {
+            final var value = __ColumnEnumUtils.valueOfColumnValue(enumClass, c.removeFirst());
+            enumSet.remove(value);
+        }
+        assertThat(enumSet).isEmpty();
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @DisplayName("all constants' columns values; no nulls nor duplicates")
     @Test
-    void _NoNullsNorDuplicates_AllColumnValues() {
-        applyColumnValueStream(s -> {
+    void _NoNullsNorDuplicates_AllConstantsColumnValues() {
+        applyConstantsColumnValueStream(s -> {
             assertThat(s)
                     .doesNotContainNull()
                     .doesNotHaveDuplicates();
@@ -87,7 +102,7 @@ abstract class __ColumnEnum_Test<E extends Enum<E> & __ColumnEnum<E, T>, T> {
      * @return the result of the function applied with a stream all {@link __ColumnEnum#columnValue() column values} of
      *         the {@link #enumClass}.
      */
-    final <R> R applyColumnValueStream(final Function<? super Stream<Map.Entry<E, T>>, ? extends R> function) {
+    final <R> R applyConstantsColumnValueStream(final Function<? super Stream<Map.Entry<E, T>>, ? extends R> function) {
         Objects.requireNonNull(function, "function is null");
         return applyEnumConstantStream(
                 s -> function.apply(
