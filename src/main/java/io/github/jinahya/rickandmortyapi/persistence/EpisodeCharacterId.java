@@ -15,7 +15,7 @@ import java.util.Objects;
  * The primary key class for {@link EpisodeCharacter} entity class.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @deprecated use {@link CharacterEpisodeId} instead
+ * @deprecated use {@link CharacterEpisode} and {@link CharacterEpisodeId} instead
  */
 @Deprecated
 @Embeddable
@@ -28,10 +28,17 @@ public class EpisodeCharacterId
     private static final long serialVersionUID = 6146625147536147511L;
 
     // -----------------------------------------------------------------------------------------------------------------
-    private static final Comparator<EpisodeCharacterId> COMPARING_EPISODE_ID =
+
+    /**
+     * A comparator compares with {@link EpisodeCharacterId_#EPISODE_ID} attribute.
+     */
+    public static final Comparator<EpisodeCharacterId> COMPARING_EPISODE_ID =
             Comparator.comparing(EpisodeCharacterId::getEpisodeId);
 
-    private static final Comparator<EpisodeCharacterId> COMPARING_CHARACTER_ID =
+    /**
+     * A comparator compares with {@link EpisodeCharacterId_#CHARACTER_ID} attribute.
+     */
+    public static final Comparator<EpisodeCharacterId> COMPARING_CHARACTER_ID =
             Comparator.comparing(EpisodeCharacterId::getCharacterId);
 
     private static final Comparator<EpisodeCharacterId> COMPARATOR =
@@ -85,13 +92,19 @@ public class EpisodeCharacterId
         return Objects.hash(episodeId, characterId);
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------- java.lang.Comparable
     @Override
     public int compareTo(final EpisodeCharacterId o) {
         return COMPARATOR.compare(this, Objects.requireNonNull(o, "o is null"));
     }
 
     // ------------------------------------------------------------------------------------------------------- episodeId
+
+    /**
+     * Returns current value of {@value EpisodeCharacterId_#EPISODE_ID} attribute.
+     *
+     * @return current value of the {@value EpisodeCharacterId_#EPISODE_ID} attribute.
+     */
     public Integer getEpisodeId() {
         return episodeId;
     }
@@ -106,6 +119,12 @@ public class EpisodeCharacterId
     }
 
     // ----------------------------------------------------------------------------------------------------- characterId
+
+    /**
+     * Returns current value of {@value EpisodeCharacterId_#CHARACTER_ID} attribute.
+     *
+     * @return current value of the {@value EpisodeCharacterId_#CHARACTER_ID} attribute.
+     */
     public Integer getCharacterId() {
         return characterId;
     }
