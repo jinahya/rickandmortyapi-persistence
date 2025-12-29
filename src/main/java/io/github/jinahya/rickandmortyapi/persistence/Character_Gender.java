@@ -5,7 +5,7 @@ import jakarta.annotation.Nonnull;
 import java.util.Objects;
 
 /**
- * Constants for the {@value Character_#GENDER} attribute.
+ * Constants for the {@value Character_#GENDER} attribute of the {@link Character} entity.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */

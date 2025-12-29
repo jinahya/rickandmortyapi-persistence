@@ -71,6 +71,7 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
         super(Episode.class, Integer.class);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     @Test
     void __ResetParsingCaches_OnSetEpisode() {
         // ------------------------------------------------------------------------------------------------------- given
@@ -122,6 +123,7 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+    @DisplayName("getSeasonNumber()")
     @Nested
     class SeasonNumber_Test {
 
@@ -157,6 +159,7 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
         }
     }
 
+    @DisplayName("getEpisodeNumber()")
     @Nested
     class EpisodeNumber_Test {
 
