@@ -21,7 +21,6 @@
 |-----------------|-------------|---------------|----------------------------|
 | **Hibernate**   | 7.2.0.Final | ✅ Default     | Recommended for production |
 | **EclipseLink** | 5.0.0-B13   | ✅ Supported   | Via Maven profile          |
-| **EclipseLink** | 5.0.0-B13   | [x] Supported | Via Maven profile          |
 
 **Provider Selection**: The codebase depends strictly on **Jakarta Persistence 3.2** API for high portability. No
 provider-specific code is used, ensuring compatibility across ORM providers.
