@@ -1,9 +1,29 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+/*-
+ * #%L
+ * rickandmortyapi-persistence
+ * %%
+ * Copyright (C) 2025 GitHub, Inc.
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateStringConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -112,7 +132,7 @@ public class Episode extends _BaseEntity<Integer> {
 
     static final String REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER = "episodeNumber";
 
-    public static final String REGEXP_EPISODE = "S(?<%s>\\d{2})E(?<%s>\\d{2})".formatted(
+    static final String REGEXP_EPISODE = "S(?<%s>\\d{2})E(?<%s>\\d{2})".formatted(
             REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER,
             REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER
     );

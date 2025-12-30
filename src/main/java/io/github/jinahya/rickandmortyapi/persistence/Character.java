@@ -1,5 +1,25 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+/*-
+ * #%L
+ * rickandmortyapi-persistence
+ * %%
+ * Copyright (C) 2025 GitHub, Inc.
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
@@ -120,8 +140,8 @@ public class Character extends _BaseEntity<Integer> {
     static final String PROPERTY_PATH_ORIGIN_NAME = "$.origin.name";
 
     /**
-     * The name of the table column to which the {@value Character_#ORIGIN}.{@value NameAndUrl_#NAME} attribute maps.
-     * The value is {@value}.
+     * The name of the table column to which the {@value Character_#ORIGIN}.{@value Character_NameAndUrl_#NAME}
+     * attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_ORIGIN_NAME = "origin_name";
 
@@ -129,8 +149,8 @@ public class Character extends _BaseEntity<Integer> {
     static final String PROPERTY_PATH_ORIGIN_URL = "$.origin.url";
 
     /**
-     * The name of the table column to which the {@value Character_#ORIGIN}.{@value NameAndUrl_#URL} attribute maps. The
-     * value is {@value}.
+     * The name of the table column to which the {@value Character_#ORIGIN}.{@value Character_NameAndUrl_#URL} attribute
+     * maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_ORIGIN_URL = "origin_url";
 
@@ -138,8 +158,8 @@ public class Character extends _BaseEntity<Integer> {
     static final String PROPERTY_PATH_LOCATION_NAME = "$.location.name";
 
     /**
-     * The name of the table column to which the {@value Character_#LOCATION}.{@value NameAndUrl_#NAME} attribute maps.
-     * The value is {@value}.
+     * The name of the table column to which the {@value Character_#LOCATION}.{@value Character_NameAndUrl_#NAME}
+     * attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_NAME = "location_name";
 

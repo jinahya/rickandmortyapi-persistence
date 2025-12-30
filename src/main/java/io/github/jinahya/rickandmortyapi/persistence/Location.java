@@ -1,8 +1,28 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+/*-
+ * #%L
+ * rickandmortyapi-persistence
+ * %%
+ * Copyright (C) 2025 GitHub, Inc.
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -132,6 +152,12 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * Returns current value of {@value Location_#ID} attribute.
+     *
+     * @return current value of the {@value Location_#ID} attribute.
+     */
     public Integer getId() {
         return id;
     }
@@ -146,6 +172,12 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------------ name
+
+    /**
+     * Returns current value of {@value Location_#NAME} attribute.
+     *
+     * @return current value of the {@value Location_#NAME} attribute.
+     */
     public String getName() {
         return name;
     }
@@ -155,6 +187,12 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------------ type
+
+    /**
+     * Returns current value of {@value Location_#TYPE} attribute.
+     *
+     * @return current value of the {@value Location_#TYPE} attribute.
+     */
     @Nullable
     public Location_Type getType() {
         return type;
@@ -165,6 +203,12 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------- dimension
+
+    /**
+     * Returns current value of {@value Location_#DIMENSION} attribute.
+     *
+     * @return current value of the {@value Location_#DIMENSION} attribute.
+     */
     @Nullable
     public Location_Dimension getDimension() {
         return dimension;
@@ -175,6 +219,12 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------- residents
+
+    /**
+     * Returns current value of {@value Location_#RESIDENTS} attribute.
+     *
+     * @return current value of the {@value Location_#RESIDENTS} attribute.
+     */
     @Nullable
     public List<URL> getResidents() {
         return residents;
@@ -185,15 +235,27 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------------- url
+
+    /**
+     * Returns current value of {@value Location_#URL} attribute.
+     *
+     * @return current value of the {@value Location_#URL} attribute.
+     */
     public URL getUrl() {
         return url;
     }
 
-    public void setUrl(final URL url) {
+    void setUrl(final URL url) {
         this.url = url;
     }
 
     // --------------------------------------------------------------------------------------------------------- created
+
+    /**
+     * Returns current value of {@value Location_#CREATED} attribute.
+     *
+     * @return current value of the {@value Location_#CREATED} attribute.
+     */
     public Instant getCreated() {
         return created;
     }
@@ -203,6 +265,12 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // ------------------------------------------------------------------------------------------------------ residents_
+
+    /**
+     * Returns current value of {@value Location_#RESIDENTS_} attribute.
+     *
+     * @return current value of the {@value Location_#RESIDENTS_} attribute.
+     */
     public List<Character> getResidents_() {
         return residents_;
     }
@@ -212,6 +280,12 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // ----------------------------------------------------------------------------------------------- originCharacters_
+
+    /**
+     * Returns current value of {@value Location_#ORIGIN_CHARACTERS_} attribute.
+     *
+     * @return current value of the {@value Location_#ORIGIN_CHARACTERS_} attribute.
+     */
     public List<Character> getOriginCharacters_() {
         return originCharacters_;
     }
@@ -221,6 +295,12 @@ public class Location extends _BaseEntity<Integer> {
     }
 
     // --------------------------------------------------------------------------------------------- locationCharacters_
+
+    /**
+     * Returns current value of {@value Location_#LOCATION_CHARACTERS_} attribute.
+     *
+     * @return current value of the {@value Location_#LOCATION_CHARACTERS_} attribute.
+     */
     public List<Character> getLocationCharacters_() {
         return locationCharacters_;
     }
