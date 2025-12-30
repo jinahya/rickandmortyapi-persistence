@@ -36,7 +36,7 @@ ready for production use.
 
 **Non-Blockers**:
 
-- ⚠️ Minor code quality improvements (redundant annotations, unused code)
+- ⚠️ Minor code quality improvements (unused code, empty utility class)
 - ⚠️ Documentation gaps in some converter classes
 
 ### Quick Reference

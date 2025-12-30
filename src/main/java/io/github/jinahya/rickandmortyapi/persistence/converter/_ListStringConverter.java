@@ -20,7 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence.converter;
  * #L%
  */
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.AttributeConverter;
 
 import java.util.Arrays;
@@ -36,8 +35,8 @@ public abstract class _ListStringConverter<T>
         implements __ListConverter<T, String> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    protected _ListStringConverter(@Nonnull final AttributeConverter<T, String> converter,
-                                   @Nonnull final String delimiter) {
+    protected _ListStringConverter(final AttributeConverter<T, String> converter,
+                                   final String delimiter) {
         super(a -> a.stream()
                       .filter(Objects::nonNull)
                       .map(converter::convertToDatabaseColumn)

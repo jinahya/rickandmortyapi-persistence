@@ -20,8 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.annotation.Nonnull;
-
 import java.util.Objects;
 
 /**
@@ -205,7 +203,6 @@ public enum Location_Dimension
      * @param columnValue the value for the {@link #columnValue() columnValue} to match.
      * @return the matching value
      */
-    @Nonnull
     public static Location_Dimension valueOfColumnValue(final String columnValue) {
         return _StringColumnEnumUtils.valueOfColumnValue(Location_Dimension.class, columnValue);
     }
@@ -216,7 +213,6 @@ public enum Location_Dimension
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @Nonnull
     @Override
     public String columnValue() {
         return columnValue;

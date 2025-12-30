@@ -20,8 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.annotation.Nonnull;
-
 import java.util.Objects;
 
 /**
@@ -112,7 +110,6 @@ public enum Character_Species
      *
      * @return the column value of this constant.
      */
-    @Nonnull
     @Override
     public String columnValue() {
         return columnValue;

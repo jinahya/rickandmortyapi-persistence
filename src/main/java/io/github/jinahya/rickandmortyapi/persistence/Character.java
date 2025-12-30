@@ -23,8 +23,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -44,6 +42,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.time.Instant;
@@ -168,8 +167,8 @@ public class Character
     static final String PROPERTY_PATH_LOCATION_URL = "$.location.url";
 
     /**
-     * The name of the table column to which the {@value Character_#LOCATION}.{@value NameAndUrl_#URL} attribute maps.
-     * The value is {@value}.
+     * The name of the table column to which the {@value Character_#LOCATION}.{@value Character_NameAndUrl_#URL}
+     * attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_URL = "location_url";
 
@@ -340,7 +339,8 @@ public class Character
      *
      * @return current value of the {@value Character_#TYPE} attribute.
      */
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     public Character_Type getType() {
         return type;
     }
@@ -530,8 +530,12 @@ public class Character
     )
     private String name;
 
+    /**
+     * An attribute for the {@value #COLUMN_NAME_STATUS} column.
+     *
+     * @see Character_StatusConverter
+     */
     @NotNull
-    @Convert(converter = Character_StatusConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_STATUS,
             nullable = false,
@@ -540,8 +544,12 @@ public class Character
     )
     private Character_Status status;
 
+    /**
+     * An attribute for the {@value #COLUMN_NAME_SPECIES} column.
+     *
+     * @see Character_SpeciesConverter
+     */
     @NotNull
-    @Convert(converter = Character_SpeciesConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_SPECIES,
             nullable = false,
@@ -550,8 +558,12 @@ public class Character
     )
     private Character_Species species;
 
-    @Nullable
-    @Convert(converter = Character_TypeConverter.class) // TODO: remove; the converter is an auto-applying one
+    /**
+     * An attribute for the {@value #COLUMN_NAME_TYPE} column.
+     *
+     * @see Character_TypeConverter
+     */
+    @org.jspecify.annotations.Nullable
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_TYPE,
             nullable = true,
@@ -560,8 +572,12 @@ public class Character
     )
     private Character_Type type;
 
+    /**
+     * An attribute for the {@value #COLUMN_NAME_GENDER} column.
+     *
+     * @see Character_GenderConverter
+     */
     @NotNull
-    @Convert(converter = Character_GenderConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_GENDER,
             nullable = false,
@@ -570,7 +586,8 @@ public class Character
     )
     private Character_Gender gender;
 
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     @Valid
     @Embedded
     @AttributeOverride(name = Character_NameAndUrl.ATTRIBUTE_NAME_NAME,
@@ -608,7 +625,6 @@ public class Character
     )
     private Character_NameAndUrl location;
 
-    @Nonnull
     @NotNull
     @Convert(converter = UrlStringConverter.class)
     @Basic(optional = false)

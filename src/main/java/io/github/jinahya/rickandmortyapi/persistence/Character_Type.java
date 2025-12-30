@@ -20,8 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.annotation.Nonnull;
-
 import java.util.Objects;
 
 /**
@@ -894,7 +892,6 @@ public enum Character_Type
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @Nonnull
     @Override
     public String columnValue() {
         return columnValue;

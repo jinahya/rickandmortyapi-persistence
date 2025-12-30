@@ -1,0 +1,3620 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------< io.github.jinahya:rickandmortyapi-persistence >------------
+[INFO] Building rickandmortyapi-persistence 0.1.3-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- enforcer:3.6.2:enforce (enforce-maven) @ rickandmortyapi-persistence ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO]
+[INFO] --- enforcer:3.6.2:enforce (enforce-dependency-convergence) @ rickandmortyapi-persistence ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.dependency.DependencyConvergence passed
+[INFO]
+[INFO] --- enforcer:3.6.2:enforce (enforce-require-maven-version) @ rickandmortyapi-persistence ---
+[INFO]
+[INFO] --- enforcer:3.6.2:enforce (enforce-require-java-version) @ rickandmortyapi-persistence ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO]
+[INFO] --- tidy:1.4.0:check (validate) @ rickandmortyapi-persistence ---
+[INFO]
+[INFO] --- jacoco:0.8.14:prepare-agent (default-prepare-agent) @ rickandmortyapi-persistence ---
+[INFO] argLine set to -javaagent:/Users/jin.kwon/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/Users/jin.kwon/gitcl/github.com/jinahya/rickandmortyapi-persistence/target/jacoco.exec
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ rickandmortyapi-persistence ---
+[INFO] skip non existing resourceDirectory /Users/jin.kwon/gitcl/github.com/jinahya/rickandmortyapi-persistence/src/main/resources
+[INFO]
+[INFO] --- compiler:3.14.1:compile (default-compile) @ rickandmortyapi-persistence ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ rickandmortyapi-persistence ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ rickandmortyapi-persistence ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- surefire:3.5.4:test (default-test) @ rickandmortyapi-persistence ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.CharacgterNameAndUrl_Test
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/jin.kwon/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.796 s -- in io.github.jinahya.rickandmortyapi.persistence.CharacgterNameAndUrl_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode_Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.218 s -- in io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter_PersistenceTest
+15:35:23.600 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:23.632 [main] INFO  org.hibernate.orm.core -- HHH000001: Hibernate ORM core version 7.2.0.Final
+15:35:23.696 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.sqlite.SQLiteJDBCLoader in an unnamed module (file:/Users/jin.kwon/.m2/repository/org/xerial/sqlite-jdbc/3.51.1.0/sqlite-jdbc-3.51.1.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+15:35:23.782 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:24.309 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:24.509 [main] INFO  o.h.validator.internal.util.Version -- HV000001: Hibernate Validator 9.1.0.Final
+15:35:24.885 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.045 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5c9cb149
+[Hibernate]
+    select
+        distinct ec1_0.character_id,
+        ec1_0.episode_id
+    from
+        episode_character ec1_0
+15:35:25.180 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5c9cb149
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.927 s -- in io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter_PersistenceTest
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacterId_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacterId_Test$CompareTo_Test
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacterId_Test$CompareTo_Test
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacterId_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Location_Type_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in io.github.jinahya.rickandmortyapi.persistence.Location_Type_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateStringConverter_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateStringConverter_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.LocationResident_PersistenceTest
+15:35:25.249 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.251 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.255 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.257 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:25.286 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.288 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@65dc10b
+[Hibernate]
+    select
+        distinct lr1_0.location_id,
+        lr1_0.resident_id,
+        l1_0.id,
+        l1_0.created,
+        l1_0.dimension,
+        l1_0.name,
+        l1_0.residents,
+        l1_0.type,
+        l1_0.url,
+        r1_0.id,
+        r1_0.created,
+        r1_0.episode,
+        r1_0.gender,
+        r1_0.image,
+        r1_0.location_name,
+        r1_0.location_url,
+        l2_0.id,
+        l2_0.created,
+        l2_0.dimension,
+        l2_0.name,
+        l2_0.residents,
+        l2_0.type,
+        l2_0.url,
+        r1_0.name,
+        r1_0.origin_name,
+        r1_0.origin_url,
+        r1_0.origin_id_,
+        r1_0.species,
+        r1_0.status,
+        r1_0.type,
+        r1_0.url
+    from
+        location_resident lr1_0
+    join
+        location l1_0
+            on l1_0.id=lr1_0.location_id
+    join
+        character r1_0
+            on r1_0.id=lr1_0.resident_id
+    join
+        location l2_0
+            on l2_0.id=r1_0.location_id_
+15:35:25.365 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@65dc10b
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 s -- in io.github.jinahya.rickandmortyapi.persistence.LocationResident_PersistenceTest
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.CharacterEpisodeId_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.CharacterEpisodeId_Test$CompareTo_Test
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in io.github.jinahya.rickandmortyapi.persistence.CharacterEpisodeId_Test$CompareTo_Test
+[INFO] Running of(characterId, episodeId)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s -- in of(characterId, episodeId)
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.050 s -- in io.github.jinahya.rickandmortyapi.persistence.CharacterEpisodeId_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Location_TypeConverter_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in io.github.jinahya.rickandmortyapi.persistence.Location_TypeConverter_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Character_Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.070 s -- in io.github.jinahya.rickandmortyapi.persistence.Character_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Character_Type_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in io.github.jinahya.rickandmortyapi.persistence.Character_Type_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Character_PersistenceTest
+15:35:25.515 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.516 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.520 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.521 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:25.548 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.549 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@4361eb5b
+[Hibernate]
+    select
+        distinct c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        l1_0.id,
+        l1_0.created,
+        l1_0.dimension,
+        l1_0.name,
+        l1_0.residents,
+        l1_0.type,
+        l1_0.url,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        o1_0.id,
+        o1_0.created,
+        o1_0.dimension,
+        o1_0.name,
+        o1_0.residents,
+        o1_0.type,
+        o1_0.url,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    left join
+        location o1_0
+            on o1_0.id=c1_0.origin_id_
+    left join
+        location l1_0
+            on l1_0.id=c1_0.location_id_
+15:35:25.652 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@4361eb5b
+15:35:25.676 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.677 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.681 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.682 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:25.705 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.707 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@9d5efdd
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:25.711 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [19]
+15:35:25.712 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@9d5efdd
+15:35:25.731 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.733 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.737 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.739 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:25.761 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.763 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@326c66f1
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:25.763 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [30]
+15:35:25.764 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@326c66f1
+15:35:25.785 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.786 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.791 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.792 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:25.814 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.816 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5ca177ae
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:25.816 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [36]
+15:35:25.817 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5ca177ae
+15:35:25.836 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.837 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.842 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.843 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:25.863 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.864 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@478135fa
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:25.865 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [46]
+15:35:25.865 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@478135fa
+15:35:25.884 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.885 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.889 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.891 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:25.912 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.914 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@438bb942
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:25.914 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [57]
+15:35:25.915 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@438bb942
+15:35:25.931 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.933 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.937 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.938 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:25.957 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:25.958 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@38c9b920
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:25.959 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [2]
+15:35:25.960 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@38c9b920
+15:35:25.976 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:25.977 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:25.980 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:25.982 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.001 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.002 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@306f7ccb
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:26.003 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [8]
+15:35:26.003 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@306f7ccb
+15:35:26.025 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.026 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.030 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.031 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.050 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.052 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@3303a7a3
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:26.052 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [10]
+15:35:26.053 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@3303a7a3
+15:35:26.068 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.069 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.073 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.075 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.092 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.094 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5371ac34
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:26.095 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [13]
+15:35:26.095 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5371ac34
+15:35:26.110 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.111 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.116 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.119 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.138 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.139 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@70ea5bbf
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    where
+        c1_0.id=?
+15:35:26.140 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [14]
+15:35:26.140 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@70ea5bbf
+[INFO] Running Find characters who appeared in all specified episodes
+15:35:26.158 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.159 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.163 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.164 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.181 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.182 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5e305e1d
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.id in (?, ?, ?)
+15:35:26.190 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [1]
+15:35:26.190 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [2]
+15:35:26.190 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [3]
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    join
+        character_episode e1_0
+            on c1_0.id=e1_0.character_id
+    join
+        episode e1_1
+            on e1_1.id=e1_0.episode_id
+    where
+        e1_1.id in (?, ?, ?)
+    group by
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    having
+        count(distinct e1_0.episode_id)=?
+    order by
+        c1_0.id
+15:35:26.200 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [1]
+15:35:26.200 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [2]
+15:35:26.200 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [3]
+15:35:26.200 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (4:BIGINT) <- [3]
+15:35:26.203 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5e305e1d
+15:35:26.218 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.219 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.223 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.224 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.242 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.243 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@3927903e
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.id in (?, ?, ?)
+15:35:26.251 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [10]
+15:35:26.251 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [22]
+15:35:26.251 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [51]
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    join
+        character_episode e1_0
+            on c1_0.id=e1_0.character_id
+    join
+        episode e1_1
+            on e1_1.id=e1_0.episode_id
+    where
+        e1_1.id in (?, ?, ?)
+    group by
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    having
+        count(distinct e1_0.episode_id)=?
+    order by
+        c1_0.id
+15:35:26.253 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [10]
+15:35:26.253 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [22]
+15:35:26.253 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [51]
+15:35:26.253 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (4:BIGINT) <- [3]
+15:35:26.254 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@3927903e
+15:35:26.269 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.270 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.274 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.275 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.294 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.295 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@68f4486e
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.id in (?, ?, ?)
+15:35:26.297 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [1]
+15:35:26.297 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [2]
+15:35:26.297 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [3]
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    join
+        character_episode e1_0
+            on c1_0.id=e1_0.character_id
+    where
+        e1_0.episode_id in (?, ?, ?)
+    group by
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    having
+        count(distinct e1_0.episode_id)=?
+    order by
+        c1_0.id
+15:35:26.333 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [1]
+15:35:26.333 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [2]
+15:35:26.333 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [3]
+15:35:26.333 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (4:BIGINT) <- [3]
+15:35:26.334 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@68f4486e
+15:35:26.348 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.349 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.354 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.355 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.371 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.373 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@74d36822
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.id in (?, ?, ?)
+15:35:26.374 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [10]
+15:35:26.374 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [22]
+15:35:26.374 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [51]
+[Hibernate]
+    select
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    from
+        character c1_0
+    join
+        character_episode e1_0
+            on c1_0.id=e1_0.character_id
+    where
+        e1_0.episode_id in (?, ?, ?)
+    group by
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url
+    having
+        count(distinct e1_0.episode_id)=?
+    order by
+        c1_0.id
+15:35:26.376 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [10]
+15:35:26.376 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [22]
+15:35:26.376 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [51]
+15:35:26.376 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (4:BIGINT) <- [3]
+15:35:26.378 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@74d36822
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 s -- in Find characters who appeared in all specified episodes
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Character_PersistenceTest$Distributions_Test
+15:35:26.393 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.394 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.398 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.400 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.416 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.417 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@6b4c4267
+[Hibernate]
+    select
+        c1_0.species,
+        count(c1_0.id)
+    from
+        character c1_0
+    group by
+        c1_0.species
+    order by
+        count(c1_0.id) desc
+15:35:26.421 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    HUMAN: 366
+15:35:26.421 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    ALIEN: 205
+15:35:26.422 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 HUMANOID:  68
+15:35:26.422 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   ANIMAL:  55
+15:35:26.422 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    ROBOT:  51
+15:35:26.422 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                    MYTHOLOGICAL_CREATURE:  46
+15:35:26.422 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  UNKNOWN:  13
+15:35:26.422 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               CRONENBERG:   8
+15:35:26.422 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                            POOPYBUTTHOLE:   8
+15:35:26.422 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  DISEASE:   6
+15:35:26.422 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@6b4c4267
+15:35:26.438 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.439 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.442 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.444 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.460 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.461 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@653b17be
+[Hibernate]
+    select
+        c1_0.gender,
+        count(c1_0.id)
+    from
+        character c1_0
+    group by
+        c1_0.gender
+    order by
+        2 desc
+15:35:26.504 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     MALE: 610
+15:35:26.504 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   FEMALE: 148
+15:35:26.504 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  UNKNOWN:  49
+15:35:26.504 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               GENDERLESS:  19
+15:35:26.504 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@653b17be
+15:35:26.522 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.523 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.526 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.528 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.544 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.545 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5668b3a5
+[Hibernate]
+    select
+        c1_0.status,
+        count(c1_0.id)
+    from
+        character c1_0
+    group by
+        c1_0.status
+    order by
+        2 desc
+15:35:26.547 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    ALIVE: 439
+15:35:26.547 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     DEAD: 287
+15:35:26.547 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  UNKNOWN: 100
+15:35:26.548 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5668b3a5
+15:35:26.561 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.562 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.566 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.567 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.582 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.584 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@6d899b84
+[Hibernate]
+    select
+        c1_0.type,
+        count(c1_0.id)
+    from
+        character c1_0
+    group by
+        c1_0.type
+    order by
+        count(c1_0.id) desc
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     null: 401
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                          SOULLESS_PUPPET:  46
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    DECOY:  26
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 PARASITE:  19
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    SNAKE:  14
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  NARNIAN:  12
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    CLONE:   9
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    DEMON:   8
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   GLORZO:   8
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              GROMFLOMITE:   7
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               CAT_PERSON:   6
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   DRAGON:   6
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   MEMORY:   6
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 MYTHOLOG:   6
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                PLUTONIAN:   6
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     WASP:   6
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    CHAIR:   5
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     GAME:   5
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                GAZORPIAN:   5
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  MONSTER:   5
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  VAMPIRE:   5
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             ALPHABETRIAN:   4
+15:35:26.585 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   CYBORG:   4
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                      DOG:   4
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              GEAR_PERSON:   4
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               MONOGATRON:   4
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   SHRIMP:   4
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   TURKEY:   4
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 ZIGERION:   4
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   ANIMAL:   3
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    ANIME:   3
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              CLAY_PERSON:   3
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     CROW:   3
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    GIANT:   3
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                          NORMAL_SIZE_BUG:   3
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               TEDDY_BEAR:   3
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                    UNKNOWN_NIPPLED_ALIEN:   3
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                  ARTIFICIAL_INTELLIGENCE:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     CHUD:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              CATERPILLAR:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             CHANGEFORMER:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                           CONJOINED_TWIN:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              FISH_PERSON:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             GRAMUFLAKIAN:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 HIVEMIND:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                      HUMAN_WITH_ANTENNAE:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              KROOTABULAN:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                            LIZARD_PERSON:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 MEESEEKS:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                    MICROVERSE_INHABITANT:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                     MINIVERSE_INHABITANT:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              MORGLUTZIAN:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                         OMNISCIENT_BEING:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    PHONE:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    PIZZA:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             SHAPESHIFTER:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                      SUPER_SPERM_MONSTER:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               SUPERHUMAN:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                           TENTACLE_ALIEN:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              TRAFLORKIAN:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             TRUNK_PERSON:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                         TURKEY_HUMAN_MIX:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 TUSKFISH:   2
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                         ALLIGATOR_PERSON:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                            AMOEBA_PERSON:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 BEPISIAN:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              BIRD_PERSON:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                    BIRD_PERSON_HUMAN_MIX:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                           BLUE_APE_ALIEN:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                   BOOBLE_BUYER_REPTILIAN:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              BOOBLOOSIAN:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    BREAD:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                           CHUD_HUMAN_MIX:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                      CAT:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                 CAT_CONTROLLED_DEAD_LADY:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  CENTAUR:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                       CONE_NIPPLED_ALIEN:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   COOKIE:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              CORN_PERSON:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 CROMULON:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               CRONENBERG:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               CROW_HORSE:   1
+15:35:26.586 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 DOOPIDOO:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              DRUMBLOXIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    DUMMY:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                        EAT_SHITER_PERSON:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                      EEL:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                          ELEPHANT_PERSON:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                FERKUSIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             FERRET_ROBOT:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 FLANSIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                           FLOOP_FLOOPIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                      FLY:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               GARBLOVIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --             GAZORPIAN_REPRODUCTION_ROBOT:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                       GENETIC_EXPERIMENT:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                        GIANT_CAT_MONSTER:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                        GIANT_INCEST_BABY:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                      GOD:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  GODDESS:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  GRANDMA:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               GREEBYBOBE:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --         GUINEA_PIG_FOR_THE_POLIO_VACCINE:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              HAIRY_ALIEN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                     HALF_SOULLESS_PUPPET:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                        HAMMERHEAD_PERSON:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     HOLE:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 HOLOGRAM:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                          HUMAN_GAZORPIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --          HUMAN_WITH_A_FLOWER_IN_HIS_HEAD:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --              HUMAN_WITH_ANTS_IN_HIS_EYES:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                     HUMAN_WITH_BABY_LEGS:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                    HUMAN_WITH_GIANT_HEAD:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                         HUMAN_WITH_TUSKS:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                       HUMAN_SNAKE_HYBRID:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --           INTERDIMENSIONAL_GASEOUS_BEING:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                JELLYBEAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 KORBLOCK:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              LARVA_ALIEN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               LEPRECHAUN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                         LIGHT_BULB_ALIEN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             LITTLE_HUMAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   LIZARD:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                            LOBSTER_ALIEN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   MANNIE:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   MASCOT:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                          MEGA_GARGANTUAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                  MEXICAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                        MORTYS_TOXIC_SIDE:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               NANO_ALIEN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             NECROPHILIAC:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               NUMBERICON:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                           OCTOPUS_PERSON:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              OLD_AMAZONS:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              ORGANIC_GUN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                     PASSING_BUTTER_ROBOT:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             PHONE_PERSON:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   PICKLE:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   PLANET:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                               PRIPUDLIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                      RAT:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                         RICKS_TOXIC_SIDE:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                       RING_NIPPLED_ALIEN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    ROBOT:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                   ROBOT_CROCODILE_HYBRID:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                SCARECROW:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 SCROTIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                           SELF_AWARE_ARM:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                      SENTIENT_ANT_COLONY:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             SEXY_AQUAMAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              SHIMSHAMIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                            SLARTIVARTIAN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     SLUG:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              SNAIL_ALIEN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    SQUID:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                             STAIR_GOBLIN:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 STARFISH:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   SUMMON:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --         SUPERHUMAN_GHOST_TRAINS_SUMMONER:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                    TEENYVERSE_INHABITANT:   1
+15:35:26.587 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                THE_DEVIL:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                    TIGER:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 TIME_GOD:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                TINYMOUTH:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                      TOY:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                              TUMBLORKIAN:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                   WEASEL:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                 WHENWOLF:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                     ZEUS:   1
+15:35:26.588 [main] INFO  i.g.j.r.p.Character_PersistenceTest --                                ZOMBODIAN:   1
+15:35:26.588 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@6d899b84
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.210 s -- in io.github.jinahya.rickandmortyapi.persistence.Character_PersistenceTest$Distributions_Test
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.098 s -- in io.github.jinahya.rickandmortyapi.persistence.Character_PersistenceTest
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Location_PersistenceTest
+15:35:26.602 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.604 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.607 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.608 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.625 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.626 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5163f5e6
+[Hibernate]
+    select
+        distinct l1_0.id,
+        l1_0.created,
+        l1_0.dimension,
+        l1_0.name,
+        l1_0.residents,
+        r1_0.location_id,
+        r1_1.id,
+        r1_1.created,
+        r1_1.episode,
+        r1_1.gender,
+        r1_1.image,
+        r1_1.location_name,
+        r1_1.location_url,
+        l2_0.id,
+        l2_0.created,
+        l2_0.dimension,
+        l2_0.name,
+        l2_0.residents,
+        l2_0.type,
+        l2_0.url,
+        r1_1.name,
+        r1_1.origin_name,
+        r1_1.origin_url,
+        o1_0.id,
+        o1_0.created,
+        o1_0.dimension,
+        o1_0.name,
+        o1_0.residents,
+        o1_0.type,
+        o1_0.url,
+        r1_1.species,
+        r1_1.status,
+        r1_1.type,
+        r1_1.url,
+        l1_0.type,
+        l1_0.url
+    from
+        location l1_0
+    left join
+        location_resident r1_0
+            on l1_0.id=r1_0.location_id
+    left join
+        character r1_1
+            on r1_1.id=r1_0.resident_id
+    left join
+        location o1_0
+            on o1_0.id=r1_1.origin_id_
+    left join
+        location l2_0
+            on l2_0.id=r1_1.location_id_
+[Hibernate]
+    select
+        l1_0.id,
+        l1_0.created,
+        l1_0.dimension,
+        lc1_0.location_id_,
+        lc1_0.id,
+        lc1_0.created,
+        lc1_0.episode,
+        lc1_0.gender,
+        lc1_0.image,
+        lc1_0.location_name,
+        lc1_0.location_url,
+        lc1_0.name,
+        lc1_0.origin_name,
+        lc1_0.origin_url,
+        lc1_0.origin_id_,
+        lc1_0.species,
+        lc1_0.status,
+        lc1_0.type,
+        lc1_0.url,
+        l1_0.name,
+        l1_0.residents,
+        l1_0.type,
+        l1_0.url
+    from
+        location l1_0
+    left join
+        character lc1_0
+            on l1_0.id=lc1_0.location_id_
+    where
+        l1_0.id in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:INTEGER) <- [1]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (2:INTEGER) <- [2]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (3:INTEGER) <- [3]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (4:INTEGER) <- [4]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (5:INTEGER) <- [5]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (6:INTEGER) <- [6]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (7:INTEGER) <- [7]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (8:INTEGER) <- [8]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (9:INTEGER) <- [9]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (10:INTEGER) <- [10]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (11:INTEGER) <- [11]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (12:INTEGER) <- [12]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (13:INTEGER) <- [13]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (14:INTEGER) <- [14]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (15:INTEGER) <- [15]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (16:INTEGER) <- [19]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (17:INTEGER) <- [17]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (18:INTEGER) <- [16]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (19:INTEGER) <- [18]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (20:INTEGER) <- [20]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (21:INTEGER) <- [21]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (22:INTEGER) <- [22]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (23:INTEGER) <- [23]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (24:INTEGER) <- [24]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (25:INTEGER) <- [25]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (26:INTEGER) <- [26]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (27:INTEGER) <- [27]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (28:INTEGER) <- [28]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (29:INTEGER) <- [29]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (30:INTEGER) <- [30]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (31:INTEGER) <- [31]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (32:INTEGER) <- [32]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (33:INTEGER) <- [33]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (34:INTEGER) <- [34]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (35:INTEGER) <- [35]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (36:INTEGER) <- [36]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (37:INTEGER) <- [37]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (38:INTEGER) <- [38]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (39:INTEGER) <- [39]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (40:INTEGER) <- [40]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (41:INTEGER) <- [41]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (42:INTEGER) <- [42]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (43:INTEGER) <- [43]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (44:INTEGER) <- [44]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (45:INTEGER) <- [45]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (46:INTEGER) <- [46]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (47:INTEGER) <- [47]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (48:INTEGER) <- [48]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (49:INTEGER) <- [49]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (50:INTEGER) <- [50]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (51:INTEGER) <- [51]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (52:INTEGER) <- [52]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (53:INTEGER) <- [53]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (54:INTEGER) <- [54]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (55:INTEGER) <- [55]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (56:INTEGER) <- [56]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (57:INTEGER) <- [57]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (58:INTEGER) <- [58]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (59:INTEGER) <- [59]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (60:INTEGER) <- [60]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (61:INTEGER) <- [61]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (62:INTEGER) <- [62]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (63:INTEGER) <- [63]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (64:INTEGER) <- [64]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (65:INTEGER) <- [65]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (66:INTEGER) <- [66]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (67:INTEGER) <- [67]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (68:INTEGER) <- [68]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (69:INTEGER) <- [69]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (70:INTEGER) <- [70]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (71:INTEGER) <- [71]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (72:INTEGER) <- [72]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (73:INTEGER) <- [73]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (74:INTEGER) <- [74]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (75:INTEGER) <- [75]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (76:INTEGER) <- [76]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (77:INTEGER) <- [77]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (78:INTEGER) <- [78]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (79:INTEGER) <- [79]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (80:INTEGER) <- [80]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (81:INTEGER) <- [81]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (82:INTEGER) <- [82]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (83:INTEGER) <- [83]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (84:INTEGER) <- [84]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (85:INTEGER) <- [85]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (86:INTEGER) <- [86]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (87:INTEGER) <- [87]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (88:INTEGER) <- [88]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (89:INTEGER) <- [89]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (90:INTEGER) <- [90]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (91:INTEGER) <- [91]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (92:INTEGER) <- [92]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (93:INTEGER) <- [93]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (94:INTEGER) <- [94]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (95:INTEGER) <- [95]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (96:INTEGER) <- [96]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (97:INTEGER) <- [97]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (98:INTEGER) <- [98]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (99:INTEGER) <- [99]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (100:INTEGER) <- [100]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (101:INTEGER) <- [101]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (102:INTEGER) <- [102]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (103:INTEGER) <- [103]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (104:INTEGER) <- [104]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (105:INTEGER) <- [105]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (106:INTEGER) <- [106]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (107:INTEGER) <- [107]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (108:INTEGER) <- [108]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (109:INTEGER) <- [109]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (110:INTEGER) <- [110]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (111:INTEGER) <- [111]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (112:INTEGER) <- [112]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (113:INTEGER) <- [113]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (114:INTEGER) <- [114]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (115:INTEGER) <- [115]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (116:INTEGER) <- [116]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (117:INTEGER) <- [117]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (118:INTEGER) <- [118]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (119:INTEGER) <- [119]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (120:INTEGER) <- [120]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (121:INTEGER) <- [121]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (122:INTEGER) <- [122]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (123:INTEGER) <- [123]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (124:INTEGER) <- [124]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (125:INTEGER) <- [125]
+15:35:26.676 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (126:INTEGER) <- [126]
+15:35:26.703 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5163f5e6
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Location_PersistenceTest$Distributions_Test
+15:35:26.717 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.718 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.722 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.723 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.738 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.739 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@27b4eb29
+[Hibernate]
+    select
+        l1_0.dimension,
+        count(l1_0.id)
+    from
+        location l1_0
+    group by
+        l1_0.dimension
+    order by
+        2 desc
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                    REPLACEMENT_DIMENSION:  57
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                  UNKNOWN:  29
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                          DIMENSION_C_137:   5
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                        FANTASY_DIMENSION:   3
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                     null:   2
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                        UNKNOWN_DIMENSION:   2
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                          CHAIR_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                       CROMULON_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                     CRONENBERG_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                          DIMENSION_5_126:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                           DIMENSION_C_35:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                         DIMENSION_C_500A:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                           DIMENSION_D_99:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                           DIMENSION_D716:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                         DIMENSION_D716_B:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                         DIMENSION_D716_C:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                           DIMENSION_J_22:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                          DIMENSION_J19_7:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                           DIMENSION_K_22:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                           DIMENSION_K_83:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --               ERIC_STOLTZ_MASK_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --              EVIL_RICKS_TARGET_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                        FASCIST_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                 FASCIST_SHRIMP_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --             FASCIST_TEDDY_BEAR_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --       GIANT_TELEPATHIC_SPIDERS_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                          MAGIC_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                         MERGED_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                          PHONE_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                          PIZZA_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --               POST_APOCALYPTIC_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --               TESTICLE_MONSTER_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                           TUSK_DIMENSION:   1
+15:35:26.741 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                           WASP_DIMENSION:   1
+15:35:26.741 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@27b4eb29
+15:35:26.755 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.756 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.760 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.761 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.775 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.776 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@7ac39bed
+[Hibernate]
+    select
+        l1_0.type,
+        count(l1_0.id)
+    from
+        location l1_0
+    group by
+        l1_0.type
+    order by
+        2 desc
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                   PLANET:  62
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                            SPACE_STATION:   7
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                DIMENSION:   4
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                 DIEGESIS:   3
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                               MICROVERSE:   3
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                            CONSCIOUSNESS:   2
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                    DREAM:   2
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                   LIQUID:   2
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                    MOUNT:   2
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                               SPACECRAFT:   2
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                  UNKNOWN:   2
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                     null:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                               ACID_PLANT:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                   ARCADE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --             ARTIFICIALLY_GENERATED_WORLD:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                 ASTEROID:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                     BASE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                      BOX:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                  CLUSTER:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                               CONVENTION:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                  COUNTRY:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                  CUSTOMS:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                  DAYCARE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                               DEATH_STAR:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --             DWARF_PLANET_CELESTIAL_DWARF:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                          ELEMENTAL_RINGS:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                             FANTASY_TOWN:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                     GAME:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                     HELL:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                    HUMAN:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                  MACHINE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                   MEMORY:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                MENAGERIE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                MINIVERSE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                NIGHTMARE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --         NON_DIEGETIC_ALTERNATIVE_REALITY:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                        POLICE_DEPARTMENT:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                 QUADRANT:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                   QUASAR:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                  REALITY:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                   RESORT:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                      SPA:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                    SPACE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                       TV:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                               TEENYVERSE:   1
+15:35:26.778 [main] INFO  i.g.j.r.p.Location_PersistenceTest --                                    WOODS:   1
+15:35:26.778 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@7ac39bed
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s -- in io.github.jinahya.rickandmortyapi.persistence.Location_PersistenceTest$Distributions_Test
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s -- in io.github.jinahya.rickandmortyapi.persistence.Location_PersistenceTest
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Location_DimensionConverter_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in io.github.jinahya.rickandmortyapi.persistence.Location_DimensionConverter_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Episode_AirDateConverter_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in io.github.jinahya.rickandmortyapi.persistence.Episode_AirDateConverter_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter_Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Character_Species_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in io.github.jinahya.rickandmortyapi.persistence.Character_Species_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.LocationResident_Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s -- in io.github.jinahya.rickandmortyapi.persistence.LocationResident_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.__ColumnEnumUtils_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in io.github.jinahya.rickandmortyapi.persistence.__ColumnEnumUtils_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Episode_PersistenceTest
+15:35:26.884 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.885 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.889 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.890 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.904 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.906 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@6cf9b2fa
+[Hibernate]
+    select
+        distinct e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        c1_0.episode_id,
+        c1_1.id,
+        c1_1.created,
+        c1_1.episode,
+        c1_1.gender,
+        c1_1.image,
+        c1_1.location_name,
+        c1_1.location_url,
+        c1_1.location_id_,
+        c1_1.name,
+        c1_1.origin_name,
+        c1_1.origin_url,
+        c1_1.origin_id_,
+        c1_1.species,
+        c1_1.status,
+        c1_1.type,
+        c1_1.url,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    left join
+        character_episode c1_0
+            on e1_0.id=c1_0.episode_id
+    left join
+        character c1_1
+            on c1_1.id=c1_0.character_id
+15:35:26.942 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@6cf9b2fa
+[INFO] Running SelectList__OrderByIdAsc
+15:35:26.956 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.957 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.960 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.961 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:26.976 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:26.977 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5233d990
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    order by
+        e1_0.id
+15:35:26.980 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@5233d990
+15:35:26.993 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:26.994 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:26.997 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:26.999 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.017 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.018 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@778fec60
+15:35:27.019 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@778fec60
+15:35:27.032 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.033 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.036 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.037 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.050 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.052 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@43a2652f
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    order by
+        e1_0.id
+15:35:27.056 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@43a2652f
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s -- in SelectList__OrderByIdAsc
+[INFO] Running SelectSingle_WhereEpisodeEqual_
+15:35:27.069 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.070 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.073 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.074 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.088 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.089 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@1af2bc40
+[Hibernate]
+    select
+        e1_0.episode
+    from
+        episode e1_0
+    order by
+        e1_0.id
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.091 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.093 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.093 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.094 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.094 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.094 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.095 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.095 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.096 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.096 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.096 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E11]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.097 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.097 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.098 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.098 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.099 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.099 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.099 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.100 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.100 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.101 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.101 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.101 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.102 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.103 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.103 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.104 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.105 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.105 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.106 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.106 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.106 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.107 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.107 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.107 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.108 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.108 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.109 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.109 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.109 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.110 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.110 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.111 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.111 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.111 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.112 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.112 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.113 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.113 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.113 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.114 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.115 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.116 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.116 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.116 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.116 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.116 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.117 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.117 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.117 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.117 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.117 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S01E11]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.118 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.118 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.118 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.118 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.118 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.119 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.119 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.119 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.119 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.119 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S02E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.120 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.120 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.120 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.120 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.120 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.121 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.121 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.121 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.121 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.121 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S03E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.122 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.122 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.122 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.122 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.122 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.122 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.123 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.123 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.123 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.123 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S04E10]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.124 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E01]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.124 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E02]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.124 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E03]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.125 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E04]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.125 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E05]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.125 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E06]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.125 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E07]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.126 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E08]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.126 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E09]
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    where
+        e1_0.episode=?
+15:35:27.126 [main] TRACE org.hibernate.orm.jdbc.bind -- binding parameter (1:VARCHAR) <- [S05E10]
+15:35:27.126 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@1af2bc40
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s -- in SelectSingle_WhereEpisodeEqual_
+[INFO] Running SelectList__OrderByEpisodeAsc
+15:35:27.140 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.141 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.145 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.146 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.159 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.160 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@24e021d8
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    order by
+        e1_0.episode
+15:35:27.163 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@24e021d8
+15:35:27.176 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.177 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.180 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.181 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.195 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.196 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@39063749
+15:35:27.196 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@39063749
+15:35:27.210 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.211 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.215 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.216 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.229 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.230 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@911d679
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    order by
+        e1_0.episode
+15:35:27.233 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@911d679
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s -- in SelectList__OrderByEpisodeAsc
+[INFO] Running SelectList__OrderByAirDateIso_Asc
+15:35:27.247 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.248 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.251 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.252 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.266 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.267 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@16635120
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    order by
+        e1_0.air_date_iso_
+15:35:27.270 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@16635120
+15:35:27.282 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.283 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.287 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.288 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.299 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.300 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@b30adaa
+15:35:27.300 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@b30adaa
+15:35:27.312 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.313 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.316 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.317 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.330 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.331 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@59cc24ff
+[Hibernate]
+    select
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        episode e1_0
+    order by
+        e1_0.air_date_iso_
+15:35:27.334 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@59cc24ff
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s -- in SelectList__OrderByAirDateIso_Asc
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.463 s -- in io.github.jinahya.rickandmortyapi.persistence.Episode_PersistenceTest
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Location_Dimension_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in io.github.jinahya.rickandmortyapi.persistence.Location_Dimension_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode_PersistenceTest
+15:35:27.348 [main] INFO  org.hibernate.orm.jpa -- HHH008540: Processing PersistenceUnitInfo [name: rickandmortyPU]
+15:35:27.349 [main] INFO  org.hibernate.orm.beans -- HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate class loader
+15:35:27.352 [main] WARN  o.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+15:35:27.353 [main] INFO  o.hibernate.orm.connections.pooling -- HHH10001005: Database info:
+        Database JDBC URL [jdbc:sqlite::resource:rickandmortyapi.db?jdbc.explicit_readonly=true]
+        Database driver: SQLite JDBC
+        Database dialect: SQLiteDialect
+        Database version: 3.51.1
+        Default catalog/schema: undefined/undefined
+        Autocommit mode: false
+        Isolation level: SERIALIZABLE
+        JDBC fetch size: none
+        Pool: DriverManagerConnectionProvider
+        Minimum pool size: 1
+        Maximum pool size: 20
+15:35:27.366 [main] INFO  org.hibernate.orm.core -- HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+15:35:27.367 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- producing entity manager factory: org.hibernate.internal.SessionFactoryImpl@1178369d
+[Hibernate]
+    select
+        distinct ce1_0.character_id,
+        ce1_0.episode_id,
+        c1_0.id,
+        c1_0.created,
+        c1_0.episode,
+        c1_0.gender,
+        c1_0.image,
+        c1_0.location_name,
+        c1_0.location_url,
+        c1_0.location_id_,
+        c1_0.name,
+        c1_0.origin_name,
+        c1_0.origin_url,
+        c1_0.origin_id_,
+        c1_0.species,
+        c1_0.status,
+        c1_0.type,
+        c1_0.url,
+        e1_0.id,
+        e1_0.air_date,
+        e1_0.air_date_iso_,
+        e1_0.characters,
+        e1_0.created,
+        e1_0.episode,
+        e1_0.name,
+        e1_0.url
+    from
+        character_episode ce1_0
+    join
+        character c1_0
+            on c1_0.id=ce1_0.character_id
+    join
+        episode e1_0
+            on e1_0.id=ce1_0.episode_id
+15:35:27.399 [main] DEBUG i.g.j.r.p.__PersistenceUnitProducer -- disposing entity manager factory: org.hibernate.internal.SessionFactoryImpl@1178369d
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s -- in io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode_PersistenceTest
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Episode_Test
+[INFO] Running getEpisodeNumber()
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in getEpisodeNumber()
+[INFO] Running episodeOf(seasonNumber, episodeNumber)
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in episodeOf(seasonNumber, episodeNumber)
+[INFO] Running getSeasonNumber()
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in getSeasonNumber()
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s -- in io.github.jinahya.rickandmortyapi.persistence.Episode_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence._StringColumnEnumUtils_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in io.github.jinahya.rickandmortyapi.persistence._StringColumnEnumUtils_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.LocationResidentId_Test
+[INFO] Running compareTo(o)
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in compareTo(o)
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in io.github.jinahya.rickandmortyapi.persistence.LocationResidentId_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Character_Status_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in io.github.jinahya.rickandmortyapi.persistence.Character_Status_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Location_Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s -- in io.github.jinahya.rickandmortyapi.persistence.Location_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Character_GenderConverter_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in io.github.jinahya.rickandmortyapi.persistence.Character_GenderConverter_Test
+[INFO] Running io.github.jinahya.rickandmortyapi.persistence.Character_Gender_Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in io.github.jinahya.rickandmortyapi.persistence.Character_Gender_Test
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 128, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.587 s
+[INFO] Finished at: 2025-12-30T15:35:27+09:00
+[INFO] ------------------------------------------------------------------------

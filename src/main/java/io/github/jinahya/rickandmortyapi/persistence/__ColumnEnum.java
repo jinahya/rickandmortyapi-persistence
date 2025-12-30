@@ -20,7 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.annotation.Nonnull;
 import jakarta.validation.constraints.NotNull;
 
 /**
@@ -40,7 +39,6 @@ public interface __ColumnEnum<E extends Enum<E> & __ColumnEnum<E, T>, T> {
      *
      * @return the column value of this constant.
      */
-    @Nonnull
     @NotNull
     T columnValue();
 }
