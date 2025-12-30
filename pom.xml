@@ -58,7 +58,6 @@
     <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
     <maven.compiler.testTarget>${maven.compiler.testSource}</maven.compiler.testTarget>
     <maven.compiler.testRelease>${maven.compiler.testTarget}</maven.compiler.testRelease>
-    <!--    <doclint>none</doclint>-->
     <doclint>syntax,missing</doclint>
     <surefire.skipAfterFailureCount>1</surefire.skipAfterFailureCount>
     <failsafe.skipAfterFailureCount>1</failsafe.skipAfterFailureCount>
@@ -101,16 +100,8 @@
       <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
-        <!--        <version>2.3.232</version>-->
         <version>2.4.240</version>
       </dependency>
-      <!--      <dependency>&lt;!&ndash; https://central.sonatype.com/artifact/com.fasterxml.jackson/jackson-bom/versions &ndash;&gt;-->
-      <!--        <groupId>com.fasterxml.jackson</groupId>-->
-      <!--        <artifactId>jackson-bom</artifactId>-->
-      <!--        <version>2.20.1</version>-->
-      <!--        <type>pom</type>-->
-      <!--        <scope>import</scope>-->
-      <!--      </dependency>-->
       <dependency><!-- https://central.sonatype.com/artifact/jakarta.platform/jakarta.jakartaee-bom/versions -->
         <groupId>jakarta.platform</groupId>
         <artifactId>jakarta.jakartaee-bom</artifactId>
@@ -138,11 +129,6 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!--      <dependency>-->
-      <!--        <groupId>org.eclipse.persistence</groupId>-->
-      <!--        <artifactId>eclipselink</artifactId>-->
-      <!--        <version>${version.org.eclipse.persistence}</version>-->
-      <!--      </dependency>-->
       <dependency>
         <groupId>org.glassfish.expressly</groupId>
         <artifactId>expressly</artifactId>
@@ -155,21 +141,6 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!--      <dependency>-->
-      <!--        <groupId>org.hibernate.orm</groupId>-->
-      <!--        <artifactId>hibernate-core</artifactId>-->
-      <!--        <version>${version.org.hibernate.orm}</version>-->
-      <!--      </dependency>-->
-      <!--      <dependency>-->
-      <!--        <groupId>org.hibernate.validator</groupId>-->
-      <!--        <artifactId>hibernate-validator</artifactId>-->
-      <!--        <version>${version.org.hibernate.validator}</version>-->
-      <!--      </dependency>-->
-      <!--      <dependency>-->
-      <!--        <groupId>org.hibernate.validator</groupId>-->
-      <!--        <artifactId>hibernate-validator-test-utils</artifactId>-->
-      <!--        <version>${version.org.hibernate.validator}</version>-->
-      <!--      </dependency>-->
       <dependency><!-- https://search.maven.org/artifact/org.junit/junit-bom -->
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
@@ -195,7 +166,6 @@
       <!-- https://central.sonatype.com/artifact/ch.qos.logback/logback-classic/versions -->
       <!-- https://central.sonatype.com/artifact/ch.qos.logback/logback-parent/versions -->
       <version>1.5.23</version>
-      <!-- slf4j.version: 2.0.17 -->
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -333,20 +303,12 @@
           <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin/versions -->
           <version>3.12.0</version>
           <configuration>
-            <!--            <doclet>nl.talsmasoftware.umldoclet.UMLDoclet</doclet>-->
-            <!--            <docletArtifact>-->
-            <!--              <groupId>nl.talsmasoftware</groupId>-->
-            <!--              <artifactId>umldoclet</artifactId>-->
-            <!--              <version>${version.umldoclet}</version>-->
-            <!--            </docletArtifact>-->
             <additionalOptions>
               <additionalOption>-Xdoclint:${doclint}</additionalOption>
             </additionalOptions>
             <failOnError>false</failOnError>
             <failOnWarnings>false</failOnWarnings>
             <links>
-              <!--              <link>https://www.javadoc.io/doc/jakarta.platform/jakarta.jakartaee-api/${version.jakarta.jakartaee-api}</link>-->
-              <!--              <link>https://jakarta.ee/specifications/persistence/3.2/apidocs/jakarta.persistence</link>-->
               <link>https://jakarta.ee/specifications/platform/11/apidocs/</link>
             </links>
             <release>${maven.compiler.testRelease}</release>
@@ -456,7 +418,6 @@
               <goal>enforce</goal>
             </goals>
             <configuration>
-              <!--              <skip>true</skip>-->
               <rules>
                 <dependencyConvergence/>
               </rules>
@@ -495,9 +456,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${version.maven-surefire}</version>
         <configuration>
-          <excludes>
-            <!--            <exclude>**/*IT.java</exclude> &lt;!&ndash; 이게 왜 필요한지 확인 필요 &ndash;&gt;-->
-          </excludes>
+          <excludes/>
           <skipAfterFailureCount>1</skipAfterFailureCount>
           <systemPropertyVariables>
             <eclipselink.woven>${eclipselink.woven}</eclipselink.woven>
@@ -559,7 +518,7 @@
         <version>3.28.0</version>
         <configuration>
           <!-- Unsupported targetJdk value '21'. -->
-          <skip>true</skip>
+<!--          <skip>true</skip>-->
         </configuration>
       </plugin>
       <plugin>
