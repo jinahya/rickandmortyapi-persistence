@@ -23,9 +23,11 @@ Rick and Morty 캐릭터에 대한 매핑 정보입니다.
 
 See [character_schema] and [character_1].
 
-- origin API JSON Path: [character_1]
-- table: `character`
-- entity: `io.github.jinahya.rickandmortyapi.persistence.Character`
+| Property             | Detail                      |
+|----------------------|-----------------------------|
+| Origin API JSON Path | [character_1]               |
+| Table                | `character`                 |
+| Entity               | `[Character]`[character.java] |
 
 | schema            | column          | column type | attribute type         | attribute       | notes                    |
 |-------------------|-----------------|-------------|------------------------|-----------------|--------------------------|
@@ -63,9 +65,11 @@ Rick and Morty 에피소드에 대한 매핑 정보입니다.
 
 See [episode_schema] and [episode_1].
 
-- origin API JSON Path: [episode_1]
-- table: `episode`
-- entity: `io.github.jinahya.rickandmortyapi.persistence.Episode`
+| Property             | Detail                                                  |
+|----------------------|---------------------------------------------------------|
+| Origin API JSON Path | [episode_1]                                             |
+| Table                | `episode`                                               |
+| Entity               | `io.github.jinahya.rickandmortyapi.persistence.Episode` |
 
 | schema         | column          | column type | attribute type    | attribute     | notes                                 |
 |----------------|-----------------|-------------|-------------------|---------------|---------------------------------------|
@@ -91,9 +95,11 @@ Rick and Morty 장소에 대한 매핑 정보입니다.
 
 See [location_schema] and [location_1].
 
-- origin API JSON Path: [location_1]
-- table: `location`
-- entity: `io.github.jinahya.rickandmortyapi.persistence.Location`
+| Property             | Detail                                                   |
+|----------------------|----------------------------------------------------------|
+| Origin API JSON Path | [location_1]                                             |
+| Table                | `location`                                               |
+| Entity               | `io.github.jinahya.rickandmortyapi.persistence.Location` |
 
 | schema        | column      | column type | attribute type       | attribute             | notes                                |
 |---------------|-------------|-------------|----------------------|-----------------------|--------------------------------------|
@@ -121,9 +127,11 @@ Join table mapping between characters and episodes.
 
 캐릭터와 에피소드 간의 조인 테이블 매핑 정보입니다.
 
-- origin API JSON Path: `$.episode` in [character_1]
-- table: `character_episode`
-- entity: `io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode`
+| Property             | Detail                                                           |
+|----------------------|------------------------------------------------------------------|
+| Origin API JSON Path | `$.episode` in [character_1]                                     |
+| Table                | `character_episode`                                              |
+| Entity               | `io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode` |
 
 | schema | column         | column type | attribute type | attribute   | notes                         |
 |--------|----------------|-------------|----------------|-------------|-------------------------------|
@@ -141,9 +149,11 @@ Join table mapping between episodes and characters.
 
 에피소드와 캐릭터 간의 조인 테이블 매핑 정보입니다.
 
-- origin API JSON Path: `$.characters` in [episode_1]
-- table: `episode_character`
-- entity: `io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter`
+| Property             | Detail                                                           |
+|----------------------|------------------------------------------------------------------|
+| Origin API JSON Path | `$.characters` in [episode_1]                                    |
+| Table                | `episode_character`                                              |
+| Entity               | `io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter` |
 
 | schema | column         | column type | attribute type | attribute   | notes                         |
 |--------|----------------|-------------|----------------|-------------|-------------------------------|
@@ -161,9 +171,11 @@ Join table mapping between locations and residents (characters).
 
 장소와 거주자(캐릭터) 간의 조인 테이블 매핑 정보입니다.
 
-- origin API JSON Path: `$.residents` in [location_1]
-- table: `location_resident`
-- entity: `io.github.jinahya.rickandmortyapi.persistence.LocationResident`
+| Property             | Detail                                                           |
+|----------------------|------------------------------------------------------------------|
+| Origin API JSON Path | `$.residents` in [location_1]                                    |
+| Table                | `location_resident`                                              |
+| Entity               | `io.github.jinahya.rickandmortyapi.persistence.LocationResident` |
 
 | schema | column        | column type | attribute type | attribute  | notes                         |
 |--------|---------------|-------------|----------------|------------|-------------------------------|
@@ -182,6 +194,8 @@ Join table mapping between locations and residents (characters).
 [character_schema]: https://rickandmortyapi.com/documentation/#character-schema
 
 [character_1]: https://rickandmortyapi.com/api/character/1
+
+[character.java]: https://github.com/jinahya/rickandmortyapi-persistence/blob/develop/src/main/java/io/github/jinahya/rickandmortyapi/persistence/Character.java
 
 [episode_schema]: https://rickandmortyapi.com/documentation/#episode-schema
 
