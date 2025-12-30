@@ -161,8 +161,8 @@ The module includes 6 optimized JPQL queries:
       │                                                      │
       │                                                      │
       │                                                      │
-      │ 1:N (origin)                                        │
-      │ 1:N (location)                                      │
+      │ 1:N (origin)                                         │
+      │ 1:N (location)                                       │
       │                                                      │
       ▼                                                      │
 ┌─────────────┐                                              │
@@ -170,14 +170,14 @@ The module includes 6 optimized JPQL queries:
 │             │                                              │
 └─────────────┘                                              │
       │                                                      │
-      │ 1:N (residents)                                    │
+      │ 1:N (residents)                                      │
       │                                                      │
       ▼                                                      │
 ┌──────────────────┐                                         │
 │ LocationResident │                                         │
 └──────────────────┘                                         │
       │                                                      │
-      │ N:1                                                 │
+      │ N:1                                                  │
       │                                                      │
       ▼                                                      │
 ┌─────────────┐                                              │
