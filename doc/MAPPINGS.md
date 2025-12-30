@@ -27,37 +27,33 @@ See [character_schema] and [character_1].
 - table: `character`
 - entity: `io.github.jinahya.rickandmortyapi.persistence.Character`
 
-| schema            | column          | column type | attribute type              | attribute   | notes                    |
-|-------------------|-----------------|-------------|-----------------------------|-------------|--------------------------|
-| `$.id`            | `id`            | `INTEGER`   | `Integer`                   | `id`        | PK                       |
-| `$.name`          | `name`          | `TEXT`      | `String`                    | `name`      |                          |
-| `$.status`        | `status`        | `TEXT`      | `Character_Status`          | `status`    | `enum`                   |
-| `$.species`       | `species`       | `TEXT`      | `Character_Species`         | `species`   | `enum`                   |
-| `$.type`          | `type`          | `TEXT`      | `Character_Type`            | `type`      | `enum`                   |
-| `$.gender`        | `gender`        | `TEXT`      | `Character_Gender`          | `gender`    | `enum`                   |
-| `$.origin`        |                 |             | `Character_NameAndUrl`      | `origin`    | `@Embedded`              |
-| `$.origin.name`   | `origin_name`   | `TEXT`      | `String`                    | `name`      |                          |
-| `$.origin.url`    | `origin_url`    | `TEXT`      | `URL`                       | `url`       |                          |
-| `$.location`      |                 |             | `Character_NameAndUrl`      | `location`  | `@Embedded`              |
-| `$.location.name` | `location_name` | `TEXT`      | `String`                    | `name`      |                          |
-| `$.location.url`  | `location_url`  | `TEXT`      | `URL`                       | `url`       |                          |
-| `$.image`         | `image`         | `TEXT`      | `URL`                       | `image`     | `unique`                 |
-| `$.episode`       | `episode`       | `TEXT`      | `List<URL>`                 | `episode`   |                          |
-| `$.url`           | `url`           | `TEXT`      | `URL`                       | `url`       | `unique`                 |
-| `$.created`       | `created`       | `TEXT`      | `Instant`                   | `created`   |                          |
-|                   | `origin_id_`    | `INTEGER`   | `Location`                  | `origin_`   | references `location.id` |
-|                   | `location_id_`  | `INTEGER`   | `Location`                  | `location_` | references `location.id` |
-|                   |                 |             | `List<Episode>`             | `episodes_` | `@ManyToMany`             |
+| schema            | column          | column type | attribute type         | attribute   | notes                    |
+|-------------------|-----------------|-------------|------------------------|-------------|--------------------------|
+| `$.id`            | `id`            | `INTEGER`   | `Integer`              | `id`        | PK                       |
+| `$.name`          | `name`          | `TEXT`      | `String`               | `name`      |                          |
+| `$.status`        | `status`        | `TEXT`      | `Character_Status`     | `status`    | `enum`                   |
+| `$.species`       | `species`       | `TEXT`      | `Character_Species`    | `species`   | `enum`                   |
+| `$.type`          | `type`          | `TEXT`      | `Character_Type`       | `type`      | `enum`                   |
+| `$.gender`        | `gender`        | `TEXT`      | `Character_Gender`     | `gender`    | `enum`                   |
+| `$.origin`        |                 |             | `Character_NameAndUrl` | `origin`    | `@Embedded`              |
+| `$.origin.name`   | `origin_name`   | `TEXT`      | `String`               | `name`      |                          |
+| `$.origin.url`    | `origin_url`    | `TEXT`      | `URL`                  | `url`       |                          |
+| `$.location`      |                 |             | `Character_NameAndUrl` | `location`  | `@Embedded`              |
+| `$.location.name` | `location_name` | `TEXT`      | `String`               | `name`      |                          |
+| `$.location.url`  | `location_url`  | `TEXT`      | `URL`                  | `url`       |                          |
+| `$.image`         | `image`         | `TEXT`      | `URL`                  | `image`     | `unique`                 |
+| `$.episode`       | `episode`       | `TEXT`      | `List<URL>`            | `episode`   |                          |
+| `$.url`           | `url`           | `TEXT`      | `URL`                  | `url`       | `unique`                 |
+| `$.created`       | `created`       | `TEXT`      | `Instant`              | `created`   |                          |
+|                   | `origin_id_`    | `INTEGER`   | `Location`             | `origin_`   | references `location.id` |
+|                   | `location_id_`  | `INTEGER`   | `Location`             | `location_` | references `location.id` |
+|                   |                 |             | `List<Episode>`        | `episodes_` | `@ManyToMany`            |
 
-- `origin_id_`: A foreign key column referencing `id` of `location` table for character's origin.
-  
-  캐릭터의 출신지를 나타내는 `location` 테이블의 `id`를 참조하는 외래 키 열입니다.
-- `location_id_`: A foreign key column referencing `id` of `location` table for character's current location.
-  
-  캐릭터의 현재 위치를 나타내는 `location` 테이블의 `id`를 참조하는 외래 키 열입니다.
-- `episodes_`: A many-to-many relationship with `Episode` entity.
-  
-  `Episode` 엔티티와의 다대다(N:M) 연관 관계입니다.
+- `origin_id_`: A foreign key column referencing `id` of `location` table for character's origin. / 캐릭터의 출신지를 나타내는
+  `location` 테이블의 `id`를 참조하는 외래 키 열입니다.
+- `location_id_`: A foreign key column referencing `id` of `location` table for character's current location. / 캐릭터의 현재
+  위치를 나타내는 `location` 테이블의 `id`를 참조하는 외래 키 열입니다.
+- `episodes_`: A many-to-many relationship with `Episode` entity. / `Episode` 엔티티와의 다대다(N:M) 연관 관계입니다.
 
 ## episode
 
@@ -83,12 +79,8 @@ See [episode_schema] and [episode_1].
 |                | `air_date_iso_` | `TEXT`      | `LocalDate`       | `airDateIso_` |                                       |
 |                |                 |             | `List<Character>` | `characters_` | `@ManyToMany(mappedBy = "episodes_")` |
 
-- `air_date_iso_`: A column storing air date in ISO format for internal operations.
-  
-  내부 연산을 위해 ISO 형식으로 방영일을 저장하는 열입니다.
-- `characters_`: A many-to-many relationship with `Character` entity.
-  
-  `Character` 엔티티와의 다대다(N:M) 연관 관계입니다.
+- `air_date_iso_`: A column storing air date in ISO format for internal operations. / 내부 연산을 위해 ISO 형식으로 방영일을 저장하는 열입니다.
+- `characters_`: A many-to-many relationship with `Character` entity. / `Character` 엔티티와의 다대다(N:M) 연관 관계입니다.
 
 ## location
 
@@ -108,22 +100,19 @@ See [location_schema] and [location_1].
 | `$.name`      | `name`      | `TEXT`      | `String`             | `name`                |                                      |
 | `$.type`      | `type`      | `TEXT`      | `Location_Type`      | `type`                | `enum`                               |
 | `$.dimension` | `dimension` | `TEXT`      | `Location_Dimension` | `dimension`           | `enum`                               |
-| `$.residents` | `residents` | `TEXT`      | `List<URL>`          | `residents`           |                          |
-| `$.url`       | `url`       | `TEXT`      | `URL`                | `url`                 | `unique`                 |
-| `$.created`   | `created`   | `TEXT`      | `Instant`            | `created`             |                          |
+| `$.residents` | `residents` | `TEXT`      | `List<URL>`          | `residents`           |                                      |
+| `$.url`       | `url`       | `TEXT`      | `URL`                | `url`                 | `unique`                             |
+| `$.created`   | `created`   | `TEXT`      | `Instant`            | `created`             |                                      |
 |               |             |             | `List<Character>`    | `residents_`          | `@OneToMany`                         |
-|               |             |             | `List<Character>`    | `originCharacters_`   | `@OneToMany(mappedBy = "origin_")` |
+|               |             |             | `List<Character>`    | `originCharacters_`   | `@OneToMany(mappedBy = "origin_")`   |
 |               |             |             | `List<Character>`    | `locationCharacters_` | `@OneToMany(mappedBy = "location_")` |
 
-- `residents_`: A one-to-many relationship with `Character` entity for residents of this location.
-  
-  이 장소의 거주자들을 나타내는 `Character` 엔티티와의 일대다(1:N) 연관 관계입니다.
-- `originCharacters_`: A one-to-many relationship with `Character` entity whose origin is this location.
-  
-  이 장소가 출신지인 캐릭터들을 나타내는 `Character` 엔티티와의 일대다(1:N) 연관 관계입니다.
-- `locationCharacters_`: A one-to-many relationship with `Character` entity whose current location is this location.
-  
-  이 장소가 현재 위치인 캐릭터들을 나타내는 `Character` 엔티티와의 일대다(1:N) 연관 관계입니다.
+- `residents_`: A one-to-many relationship with `Character` entity for residents of this location. / 이 장소의 거주자들을 나타내는
+  `Character` 엔티티와의 일대다(1:N) 연관 관계입니다.
+- `originCharacters_`: A one-to-many relationship with `Character` entity whose origin is this location. / 이 장소가 출신지인
+  캐릭터들을 나타내는 `Character` 엔티티와의 일대다(1:N) 연관 관계입니다.
+- `locationCharacters_`: A one-to-many relationship with `Character` entity whose current location is this location. / 이
+  장소가 현재 위치인 캐릭터들을 나타내는 `Character` 엔티티와의 일대다(1:N) 연관 관계입니다.
 
 ## character_episode
 
@@ -140,12 +129,10 @@ Join table mapping between characters and episodes.
 |        | `character_id` | `INTEGER`   | `Character`    | `character` | PK, references `character.id` |
 |        | `episode_id`   | `INTEGER`   | `Episode`      | `episode`   | PK, references `episode.id`   |
 
-- `character_id`: A primary key and foreign key column referencing `id` of `character` table.
-  
-  `character` 테이블의 `id`를 참조하는 기본 키 및 외래 키 열입니다.
-- `episode_id`: A primary key and foreign key column referencing `id` of `episode` table.
-  
-  `episode` 테이블의 `id`를 참조하는 기본 키 및 외래 키 열입니다.
+- `character_id`: A primary key and foreign key column referencing `id` of `character` table. / `character` 테이블의 `id`를
+  참조하는 기본 키 및 외래 키 열입니다.
+- `episode_id`: A primary key and foreign key column referencing `id` of `episode` table. / `episode` 테이블의 `id`를 참조하는 기본
+  키 및 외래 키 열입니다.
 
 ## episode_character
 
@@ -162,12 +149,10 @@ Join table mapping between episodes and characters.
 |        | `episode_id`   | `INTEGER`   | `Episode`      | `episode`   | PK, references `episode.id`   |
 |        | `character_id` | `INTEGER`   | `Character`    | `character` | PK, references `character.id` |
 
-- `episode_id`: A primary key and foreign key column referencing `id` of `episode` table.
-  
-  `episode` 테이블의 `id`를 참조하는 기본 키 및 외래 키 열입니다.
-- `character_id`: A primary key and foreign key column referencing `id` of `character` table.
-  
-  `character` 테이블의 `id`를 참조하는 기본 키 및 외래 키 열입니다.
+- `episode_id`: A primary key and foreign key column referencing `id` of `episode` table. / `episode` 테이블의 `id`를 참조하는 기본
+  키 및 외래 키 열입니다.
+- `character_id`: A primary key and foreign key column referencing `id` of `character` table. / `character` 테이블의 `id`를
+  참조하는 기본 키 및 외래 키 열입니다.
 
 ## location_resident
 
@@ -184,13 +169,10 @@ Join table mapping between locations and residents (characters).
 |        | `location_id` | `INTEGER`   | `Location`     | `location` | PK, references `location.id`  |
 |        | `resident_id` | `INTEGER`   | `Character`    | `resident` | PK, references `character.id` |
 
-- `location_id`: A primary key and foreign key column referencing `id` of `location` table.
-  
-  `location` 테이블의 `id`를 참조하는 기본 키 및 외래 키 열입니다.
-- `resident_id`: A primary key and foreign key column referencing `id` of `character` table.
-  
-  `character` 테이블의 `id`를 참조하는 기본 키 및 외래 키 열입니다.
-
+- `location_id`: A primary key and foreign key column referencing `id` of `location` table. / `location` 테이블의 `id`를 참조하는
+  기본 키 및 외래 키 열입니다.
+- `resident_id`: A primary key and foreign key column referencing `id` of `character` table. / `character` 테이블의 `id`를
+  참조하는 기본 키 및 외래 키 열입니다.
 
 ---
 
