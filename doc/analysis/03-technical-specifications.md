@@ -140,6 +140,10 @@ These are provided by the Jakarta EE runtime:
 - `org.xerial:sqlite-jdbc` - SQLite JDBC driver (test scope)
 - `ch.qos.logback:logback-classic` - Logging (test scope)
 
+### Compile Dependencies
+
+- `org.jspecify:jspecify` - JSpecify nullability annotations (`@Nullable` imported from `org.jspecify.annotations`)
+
 ### Build-Time Dependencies
 
 - `org.hibernate.orm:hibernate-jpamodelgen` - Metamodel generation

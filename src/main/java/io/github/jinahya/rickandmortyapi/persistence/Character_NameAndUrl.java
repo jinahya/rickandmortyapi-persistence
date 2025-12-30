@@ -22,6 +22,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
 
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import jakarta.persistence.Basic;
+import org.jspecify.annotations.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
@@ -116,31 +117,28 @@ public class Character_NameAndUrl
      *
      * @return current value of the {@value Character_NameAndUrl_#URL} attribute.
      */
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     public URL getUrl() {
         return url;
     }
 
-    void setUrl(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final URL url) {
+    void setUrl(@Nullable final URL url) {
         this.url = url;
     }
 
-    Character_NameAndUrl url(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final URL url) {
+    Character_NameAndUrl url(@Nullable final URL url) {
         setUrl(url);
         return this;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     @Size(min = 1)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_NAME, nullable = true, insertable = false, updatable = false)
     private String name;
 
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     @Convert(converter = UrlStringConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_URL, nullable = true, insertable = false, updatable = false)

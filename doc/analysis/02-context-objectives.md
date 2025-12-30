@@ -71,12 +71,14 @@ Validation constraints.
 - ✅ Temporal types (`Instant`, `LocalDate`) instead of strings
 - ✅ Comprehensive Bean Validation (`@NotNull`, `@NotBlank`, `@Past`, `@Positive`)
 - ✅ JPA-level constraints (`@Basic(optional = false)`, `@Column(nullable = false)`)
+- ✅ JSpecify nullability annotations (`@Nullable` from `org.jspecify.annotations`) for compile-time nullability checking
 
 **Validation Strategy**:
 
 - **Runtime Validation**: Jakarta Bean Validation (JSR 303/380)
 - **Database Constraints**: JPA-level nullability constraints
 - **Type Safety**: Compile-time type checking with enums and strong types
+- **Nullability Annotations**: JSpecify annotations (`@Nullable` from `org.jspecify.annotations`) for compile-time nullability checking
 
 ### 3. Relational Integrity
 

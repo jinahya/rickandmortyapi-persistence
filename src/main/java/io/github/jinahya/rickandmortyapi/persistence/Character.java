@@ -42,6 +42,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.time.Instant;
@@ -338,13 +339,12 @@ public class Character
      *
      * @return current value of the {@value Character_#TYPE} attribute.
      */
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     public Character_Type getType() {
         return type;
     }
 
-    void setType(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final Character_Type type) {
+    void setType(@Nullable final Character_Type type) {
         this.type = type;
     }
 
@@ -371,13 +371,12 @@ public class Character
      * @return current value of the {@value Character_#ORIGIN} attribute.
      * @see #getOrigin_()
      */
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     public Character_NameAndUrl getOrigin() {
         return origin;
     }
 
-    void setOrigin(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final Character_NameAndUrl origin) {
+    void setOrigin(@Nullable final Character_NameAndUrl origin) {
         this.origin = origin;
     }
 
@@ -389,13 +388,12 @@ public class Character
      * @return current value of the {@value Character_#LOCATION} attribute.
      * @see #getLocation_()
      */
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     public Character_NameAndUrl getLocation() {
         return location;
     }
 
-    void setLocation(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final Character_NameAndUrl location) {
+    void setLocation(@Nullable final Character_NameAndUrl location) {
         this.location = location;
     }
 
@@ -468,13 +466,12 @@ public class Character
      * @return current value of the {@value Character_#ORIGIN_} attribute; may be {@code null}.
      * @see #getOrigin()
      */
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     public Location getOrigin_() {
         return origin_;
     }
 
-    void setOrigin_(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final Location originLocation_) {
+    void setOrigin_(@Nullable final Location originLocation_) {
         this.origin_ = originLocation_;
     }
 
@@ -486,13 +483,12 @@ public class Character
      * @return current value of the {@value Character_#LOCATION_} attribute; may be {@code null}.
      * @see #getLocation()
      */
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     public Location getLocation_() {
         return location_;
     }
 
-    void setLocation_(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final Location locationLocation_) {
+    void setLocation_(@Nullable final Location locationLocation_) {
         this.location_ = locationLocation_;
     }
 
@@ -518,9 +514,9 @@ public class Character
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
-            updatable = false)
+            insertable = false,
+            updatable = false
+    )
     private Integer id;
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -566,8 +562,7 @@ public class Character
      *
      * @see Character_TypeConverter
      */
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_TYPE,
             nullable = true,
@@ -590,8 +585,7 @@ public class Character
     )
     private Character_Gender gender;
 
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     @Valid
     @Embedded
     @AttributeOverride(name = Character_NameAndUrl.ATTRIBUTE_NAME_NAME,
@@ -610,8 +604,7 @@ public class Character
     )
     private Character_NameAndUrl origin;
 
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     @Valid
     @Embedded
     @AttributeOverride(name = Character_NameAndUrl.ATTRIBUTE_NAME_NAME,
@@ -665,8 +658,7 @@ public class Character
     private Instant created;
 
     // -----------------------------------------------------------------------------------------------------------------
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     @Valid
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_ORIGIN_ID_,
@@ -677,8 +669,7 @@ public class Character
     )
     private Location origin_;
 
-    @org.jspecify.annotations.Nullable
-    @jakarta.annotation.Nullable
+    @Nullable
     @Valid
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_LOCATION_ID_,

@@ -41,11 +41,13 @@
 * **Enum-Based Types**: Status, Species, Type, Gender, and Dimension are strongly typed enums rather than raw strings
 * **URL Types**: Uses `java.net.URL` instead of String for URL fields, with automatic conversion
 * **Temporal Types**: Uses `java.time.Instant` and `java.time.LocalDate` instead of String for dates
+* **Nullability Annotations**: Uses JSpecify annotations (`@Nullable` from `org.jspecify.annotations`) to mark nullable fields for compile-time nullability checking
 
 #### Validation Strategy
 
 * **Bean Validation**: Extensive use of Jakarta Bean Validation (`@NotNull`, `@NotBlank`, `@Past`, `@Positive`)
 * **JPA-Level Validation**: `@Basic(optional = false)` and `@Column(nullable = false)` for database-level constraints
+* **Nullability Annotations**: Uses JSpecify annotations (`@Nullable` from `org.jspecify.annotations`) for compile-time nullability checking on nullable fields
 * **Validation Mode**: Configured as `CALLBACK` in persistence.xml for automatic validation
 
 ---

@@ -1,6 +1,6 @@
-# 10. Module Structure
+# 8. Module Structure
 
-[← Previous: Entity Relationship Diagram Summary](09-entity-relationship-diagram.md) | [Index](index.md) | [Next: Final Verdict →](11-final-verdict.md)
+[← Previous: Source Code Issues & Recommendations](07-source-code-issues-analysis.md) | [Index](index.md) | [Next: Final Verdict →](09-final-verdict.md)
 
 ---
 
@@ -342,6 +342,7 @@ Explicit Converters
 | `jakarta.persistence-api` | Provided | JPA API            |
 | `jakarta.validation-api`  | Provided | Bean Validation    |
 | `jakarta.annotation-api`  | Provided | Common annotations |
+| `org.jspecify:jspecify`    | Compile  | Nullability annotations |
 
 ### Internal Dependencies
 
@@ -392,4 +393,4 @@ Explicit Converters
 
 ---
 
-[← Previous: Entity Relationship Diagram Summary](09-entity-relationship-diagram.md) | [Index](index.md) | [Next: Final Verdict →](11-final-verdict.md)
+[← Previous: Source Code Issues & Recommendations](07-source-code-issues-analysis.md) | [Index](index.md) | [Next: Final Verdict →](09-final-verdict.md)

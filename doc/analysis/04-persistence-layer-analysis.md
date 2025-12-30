@@ -149,4 +149,197 @@ The module includes 6 optimized JPQL queries:
 
 ---
 
+## Entity Relationship Diagram
+
+### Visual Representation
+
+```
+┌─────────────┐         ┌──────────────────┐         ┌─────────────┐
+│  Character  │◄───────►│ CharacterEpisode │◄───────►│   Episode   │
+│             │   N:M   │                  │   N:M   │             │
+└─────────────┘         └──────────────────┘         └─────────────┘
+      │                                                      │
+      │                                                      │
+      │                                                      │
+      │ 1:N (origin)                                        │
+      │ 1:N (location)                                      │
+      │                                                      │
+      ▼                                                      │
+┌─────────────┐                                              │
+│  Location   │                                              │
+│             │                                              │
+└─────────────┘                                              │
+      │                                                      │
+      │ 1:N (residents)                                    │
+      │                                                      │
+      ▼                                                      │
+┌──────────────────┐                                         │
+│ LocationResident │                                         │
+└──────────────────┘                                         │
+      │                                                      │
+      │ N:1                                                 │
+      │                                                      │
+      ▼                                                      │
+┌─────────────┐                                              │
+│  Character  │◄─────────────────────────────────────────────┘
+└─────────────┘
+```
+
+### Textual Representation
+
+```
+Character (1) ──< (N) CharacterEpisode (N) >── (1) Episode
+Character (1) ──< (N) EpisodeCharacter (N) >── (1) Episode  [Deprecated]
+Location (1) ──< (N) Character [as origin]
+Location (1) ──< (N) Character [as location]
+Location (1) ──< (N) LocationResident (N) >── (1) Character [as resident]
+```
+
+### Relationship Details
+
+#### 1. Character ↔ Episode (Many-to-Many)
+
+**Relationship Type**: Many-to-Many (bidirectional)
+
+**Implementation**:
+- **Join Table**: `character_episode`
+- **Entity**: `CharacterEpisode`
+- **Composite Key**: `CharacterEpisodeId` (character_id, episode_id)
+
+**Cardinality**:
+- One Character can appear in many Episodes
+- One Episode can feature many Characters
+
+**JPA Mapping**:
+```java
+// In Character.java
+@ManyToMany
+@JoinTable(name = CharacterEpisode.TABLE_NAME, ...)
+private List<Episode> episodes_;
+
+// In Episode.java
+@ManyToMany(mappedBy = "episodes_")
+private List<Character> characters_;
+```
+
+**Alternative Mapping** (Deprecated):
+- **Join Table**: `episode_character`
+- **Entity**: `EpisodeCharacter` (deprecated, use `CharacterEpisode` instead)
+
+#### 2. Character → Location (Many-to-One)
+
+**Relationship Type**: Many-to-One (unidirectional from Character to Location)
+
+**Implementation**:
+- **Foreign Keys**: `origin_id_`, `location_id_` in `character` table
+- **JPA Mapping**: `@ManyToOne` with `@JoinColumn`
+
+**Cardinality**:
+- Many Characters can have the same origin Location
+- Many Characters can be at the same current Location
+- One Character has one origin Location (nullable)
+- One Character has one current Location (nullable)
+
+**JPA Mapping**:
+```java
+// In Character.java
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = COLUMN_NAME_ORIGIN_ID_, insertable = false, updatable = false)
+private Location origin_;
+
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = COLUMN_NAME_LOCATION_ID_, insertable = false, updatable = false)
+private Location location_;
+```
+
+#### 3. Location → Character (One-to-Many)
+
+**Relationship Type**: One-to-Many (bidirectional, inverse side)
+
+**Implementation**:
+- **Join Table**: `location_resident`
+- **Entity**: `LocationResident`
+- **Composite Key**: `LocationResidentId` (location_id, resident_id)
+
+**Cardinality**:
+- One Location can have many resident Characters
+- One Character can be a resident of many Locations
+
+**JPA Mapping**:
+```java
+// In Location.java
+@OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
+private List<LocationResident> residents_;
+
+// Inverse relationships (via Character)
+@OneToMany(mappedBy = "origin_", fetch = FetchType.LAZY)
+private List<Character> originCharacters_;
+
+@OneToMany(mappedBy = "location_", fetch = FetchType.LAZY)
+private List<Character> locationCharacters_;
+```
+
+### Relationship Patterns
+
+#### Pattern 1: Explicit Join Table Entities
+**Used For**: Many-to-Many relationships
+**Benefits**: Full control, can add additional columns, explicit relationship management
+**Examples**: `CharacterEpisode`, `LocationResident`
+
+#### Pattern 2: Foreign Key Relationships
+**Used For**: Many-to-One relationships
+**Benefits**: Simple, database-level referential integrity, efficient queries
+**Examples**: `Character.origin_` → `Location`, `Character.location_` → `Location`
+
+#### Pattern 3: Inverse Relationships
+**Used For**: Bidirectional One-to-Many
+**Benefits**: Navigation from both sides, consistent relationship management
+**Examples**: `Location.originCharacters_` ← `Character.origin_`
+
+### Relationship Constraints
+
+| Constraint                       | From             | To           | Action       |
+|----------------------------------|------------------|--------------|--------------|
+| `character.origin_id_`           | Character        | Location.id  | NULL allowed |
+| `character.location_id_`         | Character        | Location.id  | NULL allowed |
+| `character_episode.character_id` | CharacterEpisode | Character.id | CASCADE      |
+| `character_episode.episode_id`   | CharacterEpisode | Episode.id   | CASCADE      |
+| `location_resident.location_id`  | LocationResident | Location.id  | CASCADE      |
+| `location_resident.resident_id`  | LocationResident | Character.id | CASCADE      |
+
+### Query Patterns
+
+**Character → Episodes**:
+```java
+Character character = em.find(Character.class, 1);
+List<Episode> episodes = character.getEpisodes_();
+```
+
+**Episode → Characters**:
+```java
+Episode episode = em.find(Episode.class, 1);
+List<Character> characters = episode.getCharacters_();
+```
+
+**Location → Residents**:
+```java
+Location location = em.find(Location.class, 1);
+List<LocationResident> residents = location.getResidents_();
+```
+
+### Performance Considerations
+
+- **Lazy Loading**: All relationships use `FetchType.LAZY` to prevent over-fetching
+- **Indexes**: Database indexes on foreign key columns for fast lookups
+- **Query Optimization**: Use `JOIN FETCH` for eager loading when needed
+
+### Deprecated Relationships
+
+**EpisodeCharacter** (Deprecated):
+- **Status**: ⚠️ Deprecated
+- **Reason**: Functional duplicate of `CharacterEpisode`
+- **Migration Path**: Use `CharacterEpisode` and `CharacterEpisodeId` instead
+
+---
+
 [← Previous: Technical Specifications](03-technical-specifications.md) | [Index](index.md) | [Next: API-to-Database-to-Entity Mappings →](05-api-database-entity-mappings.md)
