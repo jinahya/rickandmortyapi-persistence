@@ -27,27 +27,27 @@ See [character_schema] and [character_1].
 - table: `character`
 - entity: `io.github.jinahya.rickandmortyapi.persistence.Character`
 
-| schema            | column          | column type | attribute type         | attribute   | notes                    |
-|-------------------|-----------------|-------------|------------------------|-------------|--------------------------|
-| `$.id`            | `id`            | `INTEGER`   | `Integer`              | `id`        | PK                       |
-| `$.name`          | `name`          | `TEXT`      | `String`               | `name`      |                          |
-| `$.status`        | `status`        | `TEXT`      | `Character_Status`     | `status`    | `enum`                   |
-| `$.species`       | `species`       | `TEXT`      | `Character_Species`    | `species`   | `enum`                   |
-| `$.type`          | `type`          | `TEXT`      | `Character_Type`       | `type`      | `enum`                   |
-| `$.gender`        | `gender`        | `TEXT`      | `Character_Gender`     | `gender`    | `enum`                   |
-| `$.origin`        |                 |             | `Character_NameAndUrl` | `origin`    | `@Embedded`              |
-| `$.origin.name`   | `origin_name`   | `TEXT`      | `String`               | `name`      |                          |
-| `$.origin.url`    | `origin_url`    | `TEXT`      | `URL`                  | `url`       |                          |
-| `$.location`      |                 |             | `Character_NameAndUrl` | `location`  | `@Embedded`              |
-| `$.location.name` | `location_name` | `TEXT`      | `String`               | `name`      |                          |
-| `$.location.url`  | `location_url`  | `TEXT`      | `URL`                  | `url`       |                          |
-| `$.image`         | `image`         | `TEXT`      | `URL`                  | `image`     | `unique`                 |
-| `$.episode`       | `episode`       | `TEXT`      | `List<URL>`            | `episode`   |                          |
-| `$.url`           | `url`           | `TEXT`      | `URL`                  | `url`       | `unique`                 |
-| `$.created`       | `created`       | `TEXT`      | `Instant`              | `created`   |                          |
-|                   | `origin_id_`    | `INTEGER`   | `Location`             | `origin_`   | references `location.id` |
-|                   | `location_id_`  | `INTEGER`   | `Location`             | `location_` | references `location.id` |
-|                   |                 |             | `List<Episode>`        | `episodes_` | `@ManyToMany`            |
+| schema            | column          | column type | attribute type         | attribute       | notes                    |
+|-------------------|-----------------|-------------|------------------------|-----------------|--------------------------|
+| `$.id`            | `id`            | `INTEGER`   | `Integer`              | `id`            | PK                       |
+| `$.name`          | `name`          | `TEXT`      | `String`               | `name`          |                          |
+| `$.status`        | `status`        | `TEXT`      | `Character_Status`     | `status`        | `enum`                   |
+| `$.species`       | `species`       | `TEXT`      | `Character_Species`    | `species`       | `enum`                   |
+| `$.type`          | `type`          | `TEXT`      | `Character_Type`       | `type`          | `enum`                   |
+| `$.gender`        | `gender`        | `TEXT`      | `Character_Gender`     | `gender`        | `enum`                   |
+| `$.origin`        |                 |             | `Character_NameAndUrl` | `origin`        | `@Embedded`              |
+| `$.origin.name`   | `origin_name`   | `TEXT`      | `String`               | `origin.name`   |                          |
+| `$.origin.url`    | `origin_url`    | `TEXT`      | `URL`                  | `origin.url`    |                          |
+| `$.location`      |                 |             | `Character_NameAndUrl` | `location`      | `@Embedded`              |
+| `$.location.name` | `location_name` | `TEXT`      | `String`               | `location.name` |                          |
+| `$.location.url`  | `location_url`  | `TEXT`      | `URL`                  | `location.url`  |                          |
+| `$.image`         | `image`         | `TEXT`      | `URL`                  | `image`         | `unique`                 |
+| `$.episode`       | `episode`       | `TEXT`      | `List<URL>`            | `episode`       |                          |
+| `$.url`           | `url`           | `TEXT`      | `URL`                  | `url`           | `unique`                 |
+| `$.created`       | `created`       | `TEXT`      | `Instant`              | `created`       |                          |
+|                   | `origin_id_`    | `INTEGER`   | `Location`             | `origin_`       | references `location.id` |
+|                   | `location_id_`  | `INTEGER`   | `Location`             | `location_`     | references `location.id` |
+|                   |                 |             | `List<Episode>`        | `episodes_`     | `@ManyToMany`            |
 
 - `origin_id_`: A foreign key column referencing `id` of `location` table for character's origin. / 캐릭터의 출신지를 나타내는
   `location` 테이블의 `id`를 참조하는 외래 키 열입니다.
