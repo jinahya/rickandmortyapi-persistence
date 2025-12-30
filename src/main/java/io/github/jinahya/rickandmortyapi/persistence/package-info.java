@@ -1,5 +1,5 @@
 /**
- * Defines persistence objects for mapping the <a
+ * Defines persistence classes for mapping the <a
  * href="https://github.com/jinahya/rickandmortyapi-db">rickandmortyapi-db</a>.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
