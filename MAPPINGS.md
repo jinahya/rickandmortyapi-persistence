@@ -38,7 +38,7 @@ See [episode_schema] and [episode_1].
 | `$.name`       | `name`          | `TEXT`      | `String`          | `name`        |                                       |
 | `$.air_date`   | `air_date`      | `TEXT`      | `LocalDate`       | `airDate`     |                                       |
 | `$.episode`    | `episode`       | `TEXT`      | `String`          | `episode`     | `unique`                              |
-| `$.characters` | `characters`    | `TEXT`      | `List&lt;URL&gt;` | `characters`  |                                       |
+| `$.characters` | `characters`    | `TEXT`      | `List<URL>`       | `characters`  |                                       |
 | `$.url`        | `url`           | `TEXT`      | `URL`             | `url`         | `unique`                              |
 | `$.created`    | `created`       | `TEXT`      | `Instant`         | `created`     |                                       |
 |                | `air_date_iso_` | `TEXT`      | `LocalDate`       | `airDateIso_` |                                       |
