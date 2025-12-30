@@ -1,25 +1,5 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-/*-
- * #%L
- * rickandmortyapi-persistence
- * %%
- * Copyright (C) 2025 GitHub, Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
-
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,35 +12,16 @@ import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.Optional;
 
-/**
- * An entity class for the {@value LocationResident#TABLE_NAME} table.
- *
- * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- */
 @Entity
 @Table(name = LocationResident.TABLE_NAME)
-public class LocationResident
-        extends _BaseEntity<LocationResidentId> {
+public class LocationResident extends _BaseEntity<LocationResidentId> {
 
-    /**
-     * The name of the database table to which this entity class maps. The value is {@value}.
-     */
     public static final String TABLE_NAME = "location_resident";
 
     // -----------------------------------------------------------------------------------------------------------------
-
-    /**
-     * The name of the table column to which the {@value LocationResident_#LOCATION} attribute maps. The value is
-     * {@value}.
-     */
     public static final String COLUMN_NAME_LOCATION_ID = "location_id";
 
     // -----------------------------------------------------------------------------------------------------------------
-
-    /**
-     * The name of the table column to which the {@value LocationResident_#RESIDENT} attribute maps. The value is
-     * {@value}.
-     */
     public static final String COLUMN_NAME_RESIDENT_ID = "resident_id";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -96,12 +57,6 @@ public class LocationResident
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
-
-    /**
-     * Returns current value of {@value LocationResident_#ID} attribute.
-     *
-     * @return current value of the {@value LocationResident_#ID} attribute.
-     */
     public LocationResidentId getId() {
         return id;
     }
@@ -116,12 +71,6 @@ public class LocationResident
     }
 
     // -------------------------------------------------------------------------------------------------------- location
-
-    /**
-     * Returns current value of {@value LocationResident_#LOCATION} attribute.
-     *
-     * @return current value of the {@value LocationResident_#LOCATION} attribute.
-     */
     public Location getLocation() {
         return location;
     }
@@ -134,17 +83,10 @@ public class LocationResident
                         Optional.ofNullable(this.location)
                                 .map(Location::getId)
                                 .orElse(null)
-                )
-        ;
+                );
     }
 
     // -------------------------------------------------------------------------------------------------------- resident
-
-    /**
-     * Returns current value of {@value LocationResident_#RESIDENT} attribute.
-     *
-     * @return current value of the {@value LocationResident_#RESIDENT} attribute.
-     */
     public Character getResident() {
         return resident;
     }
@@ -157,8 +99,7 @@ public class LocationResident
                         Optional.ofNullable(this.resident)
                                 .map(Character::getId)
                                 .orElse(null)
-                )
-        ;
+                );
     }
 
     // -----------------------------------------------------------------------------------------------------------------

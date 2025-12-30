@@ -40,6 +40,9 @@ import java.util.Objects;
  * @see Character#getLocation()
  */
 @Embeddable
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
 public class Character_NameAndUrl
         extends __Base {
 
