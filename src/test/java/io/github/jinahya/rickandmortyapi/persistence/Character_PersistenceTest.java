@@ -49,7 +49,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SuppressWarnings({
         "java:S117" // Local variable and method parameter names should comply with a naming convention
 })
-class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, Integer> {
+class Character_PersistenceTest
+        extends _BaseEntity_PersistenceTest<Character, Integer> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     Character_PersistenceTest() {

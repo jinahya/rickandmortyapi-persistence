@@ -31,7 +31,8 @@ import jakarta.persistence.Converter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class Location_DimensionConverter extends _StringColumnEnumAttributeConverter<Location_Dimension> {
+public class Location_DimensionConverter
+        extends _StringColumnEnumAttributeConverter<Location_Dimension> {
 
     /**
      * Creates a new instance.

@@ -34,7 +34,8 @@ import java.util.stream.Collectors;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UriListStringConverter implements AttributeConverter<List<URI>, String> {
+public class UriListStringConverter
+        implements AttributeConverter<List<URI>, String> {
 
     static final String DELIMITER = ",";
 

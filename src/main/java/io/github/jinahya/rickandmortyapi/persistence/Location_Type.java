@@ -29,7 +29,8 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Location_Type implements _StringColumnEnum<Location_Type> {
+public enum Location_Type
+        implements _StringColumnEnum<Location_Type> {
 
     /**
      * A constant for the {@code "Acid Plant"} column value.

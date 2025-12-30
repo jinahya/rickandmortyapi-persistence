@@ -40,7 +40,8 @@ import java.util.Optional;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UrlStringConverter implements AttributeConverter<URL, String> {
+public class UrlStringConverter
+        implements AttributeConverter<URL, String> {
 
     private static final AttributeConverter<URI, String> CONVERTER = new UriStringConverter();
 

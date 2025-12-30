@@ -28,7 +28,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class LocationResidentId_Test extends __Base_Test<LocationResidentId> {
+class LocationResidentId_Test
+        extends __Base_Test<LocationResidentId> {
 
     @Test
     void of__() {

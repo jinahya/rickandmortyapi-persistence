@@ -81,7 +81,8 @@ abstract class __Base_Test<T extends __Base> {
 
     // -----------------------------------------------------------------------------------------------------------------
     @Test
-    void accessors__() throws Exception {
+    void accessors__()
+            throws Exception {
         final var instance = newTypeInstance();
         final var info = Introspector.getBeanInfo(typeClass, Introspector.USE_ALL_BEANINFO);
         for (final var descriptor : info.getPropertyDescriptors()) {

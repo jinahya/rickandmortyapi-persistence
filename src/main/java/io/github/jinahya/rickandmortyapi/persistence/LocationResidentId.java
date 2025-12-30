@@ -46,10 +46,17 @@ public class LocationResidentId
     private static final long serialVersionUID = 6274001621614009840L;
 
     // -----------------------------------------------------------------------------------------------------------------
-    private static final Comparator<LocationResidentId> COMPARING_LOCATION_ID =
+
+    /**
+     * A comparator compares with {@link LocationResidentId_#LOCATION_ID} attribute.
+     */
+    public static final Comparator<LocationResidentId> COMPARING_LOCATION_ID =
             Comparator.comparing(LocationResidentId::getLocationId);
 
-    private static final Comparator<LocationResidentId> COMPARING_RESIDENT_ID =
+    /**
+     * A comparator compares with {@link LocationResidentId_#RESIDENT_ID} attribute.
+     */
+    public static final Comparator<LocationResidentId> COMPARING_RESIDENT_ID =
             Comparator.comparing(LocationResidentId::getResidentId);
 
     private static final Comparator<LocationResidentId> COMPARATOR =

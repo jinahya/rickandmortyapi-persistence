@@ -20,7 +20,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-class Location_Type_Test extends _StringColumnEnum_Test<Location_Type> {
+class Location_Type_Test
+        extends _StringColumnEnum_Test<Location_Type> {
 
     // -----------------------------------------------------------------------------------------------------------------
     Location_Type_Test() {

@@ -40,7 +40,8 @@ import java.util.Objects;
  * @see Character#getLocation()
  */
 @Embeddable
-public class Character_NameAndUrl extends __Base {
+public class Character_NameAndUrl
+        extends __Base {
 
     // -----------------------------------------------------------------------------------------------------------------
     private static final String COLUMN_NAME_NAME = "name";

@@ -26,7 +26,8 @@ import jakarta.persistence.Converter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class Character_StatusConverter extends _StringColumnEnumAttributeConverter<Character_Status> {
+public class Character_StatusConverter
+        extends _StringColumnEnumAttributeConverter<Character_Status> {
 
     public Character_StatusConverter() {
         super(Character_Status.class);

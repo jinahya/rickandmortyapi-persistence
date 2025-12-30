@@ -27,6 +27,7 @@ import java.util.List;
 @SuppressWarnings({
         "java:S114" // Interface names should comply with a naming convention
 })
-interface __ListConverter<T, Y> extends AttributeConverter<List<T>, Y> {
+public interface __ListConverter<T, Y>
+        extends AttributeConverter<List<T>, Y> {
 
 }

@@ -29,7 +29,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-class LocationResident_PersistenceTest extends _BaseEntity_PersistenceTest<LocationResident, LocationResidentId> {
+class LocationResident_PersistenceTest
+        extends _BaseEntity_PersistenceTest<LocationResident, LocationResidentId> {
 
     LocationResident_PersistenceTest() {
         super(LocationResident.class, LocationResidentId.class);

@@ -29,7 +29,8 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Character_Species implements _StringColumnEnum<Character_Species> {
+public enum Character_Species
+        implements _StringColumnEnum<Character_Species> {
 
     /**
      * A constant for the {@code "Alien"} column value.

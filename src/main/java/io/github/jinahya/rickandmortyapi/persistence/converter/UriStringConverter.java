@@ -30,7 +30,8 @@ import java.net.URI;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Converter
-public class UriStringConverter extends _StringConverter<URI> {
+public class UriStringConverter
+        extends _StringConverter<URI> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 

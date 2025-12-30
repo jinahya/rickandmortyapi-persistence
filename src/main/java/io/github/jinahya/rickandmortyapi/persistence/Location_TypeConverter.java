@@ -27,7 +27,8 @@ import jakarta.persistence.Converter;
  * &lt;onacit_at_gmail.com&gt;
  */
 @Converter(autoApply = true)
-public class Location_TypeConverter extends _StringColumnEnumAttributeConverter<Location_Type> {
+public class Location_TypeConverter
+        extends _StringColumnEnumAttributeConverter<Location_Type> {
 
     /**
      * Creates a new instance.

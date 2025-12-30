@@ -42,7 +42,8 @@ import java.util.Optional;
 @Deprecated
 @Entity
 @Table(name = EpisodeCharacter.TABLE_NAME)
-public class EpisodeCharacter extends _BaseEntity<EpisodeCharacterId> {
+public class EpisodeCharacter
+        extends _BaseEntity<EpisodeCharacterId> {
 
     /**
      * The name of the database table to which this entity is mapped. The value is {@value}.

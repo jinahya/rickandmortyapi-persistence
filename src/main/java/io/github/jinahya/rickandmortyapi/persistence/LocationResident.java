@@ -39,7 +39,8 @@ import java.util.Optional;
  */
 @Entity
 @Table(name = LocationResident.TABLE_NAME)
-public class LocationResident extends _BaseEntity<LocationResidentId> {
+public class LocationResident
+        extends _BaseEntity<LocationResidentId> {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.

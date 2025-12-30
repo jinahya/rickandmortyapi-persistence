@@ -32,7 +32,8 @@ import java.util.function.Function;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public abstract class _StringConverter<X> extends __BaseConverter<X, String> {
+public abstract class _StringConverter<X>
+        extends __BaseConverter<X, String> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 

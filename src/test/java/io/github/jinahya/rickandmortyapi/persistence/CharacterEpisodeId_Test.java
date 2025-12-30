@@ -35,7 +35,8 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.withSettings;
 
-class CharacterEpisodeId_Test extends __Base_Test<CharacterEpisodeId> {
+class CharacterEpisodeId_Test
+        extends __Base_Test<CharacterEpisodeId> {
 
     @DisplayName("of(characterId, episodeId)")
     @Nested

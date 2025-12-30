@@ -23,7 +23,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 
-class Character_Test extends _BaseEntity_Test<Character, Integer> {
+class Character_Test
+        extends _BaseEntity_Test<Character, Integer> {
 
     static final Character RED = new Character().id(1);
 

@@ -23,7 +23,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 
-class Location_Test extends _BaseEntity_Test<Location, Integer> {
+class Location_Test
+        extends _BaseEntity_Test<Location, Integer> {
 
     static final Location RED = new Location().id(1);
 

@@ -29,7 +29,8 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Character_Gender implements _StringColumnEnum<Character_Gender> {
+public enum Character_Gender
+        implements _StringColumnEnum<Character_Gender> {
 
     /**
      * A constant for the {@code "Female"} column value.

@@ -28,7 +28,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 @Slf4j
-class CharacterEpisode_PersistenceTest extends _BaseEntity_PersistenceTest<CharacterEpisode, CharacterEpisodeId> {
+class CharacterEpisode_PersistenceTest
+        extends _BaseEntity_PersistenceTest<CharacterEpisode, CharacterEpisodeId> {
 
     CharacterEpisode_PersistenceTest() {
         super(CharacterEpisode.class, CharacterEpisodeId.class);

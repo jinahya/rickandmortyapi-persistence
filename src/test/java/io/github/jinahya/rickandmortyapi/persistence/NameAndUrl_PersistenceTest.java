@@ -20,7 +20,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-class NameAndUrl_PersistenceTest extends __Base_PersistenceTest<Character_NameAndUrl> {
+class NameAndUrl_PersistenceTest
+        extends __Base_PersistenceTest<Character_NameAndUrl> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     NameAndUrl_PersistenceTest() {

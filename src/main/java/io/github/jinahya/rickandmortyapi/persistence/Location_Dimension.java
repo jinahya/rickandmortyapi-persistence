@@ -29,7 +29,8 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Location_Dimension implements _StringColumnEnum<Location_Dimension> {
+public enum Location_Dimension
+        implements _StringColumnEnum<Location_Dimension> {
 
     /**
      * A constant for the {@code "Chair Dimension"} column value.
