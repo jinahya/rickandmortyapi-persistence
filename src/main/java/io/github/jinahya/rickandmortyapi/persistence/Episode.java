@@ -1,9 +1,9 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-import io.github.jinahya.rickandmortyapi.persistence.converter.InstantConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -528,7 +528,7 @@ public class Episode extends _BaseEntity<Integer> {
 
     // -----------------------------------------------------------------------------------------------------------------
     @NotNull
-    @Convert(converter = UrlListConverter.class)
+    @Convert(converter = UrlListStringConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_CHARACTERS,
             nullable = false,
@@ -538,7 +538,7 @@ public class Episode extends _BaseEntity<Integer> {
     private List<@NotNull URL> characters;
 
     @NotNull
-    @Convert(converter = UrlConverter.class)
+    @Convert(converter = UrlStringConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_URL,
             nullable = false,
@@ -550,7 +550,7 @@ public class Episode extends _BaseEntity<Integer> {
 
     @Past
     @NotNull
-    @Convert(converter = InstantConverter.class)
+    @Convert(converter = InstantStringConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_CREATED,
             nullable = false,
@@ -562,7 +562,7 @@ public class Episode extends _BaseEntity<Integer> {
     // -----------------------------------------------------------------------------------------------------------------
     @Past
     @NotNull
-    @Convert(converter = LocalDateConverter.class)
+    @Convert(converter = LocalDateStringConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_AIR_DATE_ISO_,
             nullable = false,

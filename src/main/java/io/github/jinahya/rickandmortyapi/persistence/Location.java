@@ -1,8 +1,8 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-import io.github.jinahya.rickandmortyapi.persistence.converter.InstantConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -269,7 +269,7 @@ public class Location extends _BaseEntity<Integer> {
     private Location_Dimension dimension;
 
     @Nullable
-    @Convert(converter = UrlListConverter.class)
+    @Convert(converter = UrlListStringConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_RESIDENTS,
             nullable = true,
@@ -280,7 +280,7 @@ public class Location extends _BaseEntity<Integer> {
 
     // -----------------------------------------------------------------------------------------------------------------
     @NotNull
-    @Convert(converter = UrlConverter.class)
+    @Convert(converter = UrlStringConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_URL,
             nullable = false,
@@ -292,7 +292,7 @@ public class Location extends _BaseEntity<Integer> {
 
     @Past
     @NotNull
-    @Convert(converter = InstantConverter.class)
+    @Convert(converter = InstantStringConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_CREATED,
             nullable = false,

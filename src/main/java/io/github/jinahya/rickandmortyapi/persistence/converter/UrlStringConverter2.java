@@ -12,9 +12,9 @@ import java.net.URL;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UrlConverter2 extends _StringConverter<URL> {
+public class UrlStringConverter2 extends _StringConverter<URL> {
 
-    private static final AttributeConverter<URI, String> CONVERTER = new UriConverter();
+    private static final AttributeConverter<URI, String> CONVERTER = new UriStringConverter();
 
     static String toDatabaseColumn(final URL attribute) {
         assert attribute != null;
@@ -36,7 +36,7 @@ public class UrlConverter2 extends _StringConverter<URL> {
     }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    public UrlConverter2() {
-        super(UrlConverter2::toDatabaseColumn, UrlConverter2::toEntityAttribute);
+    public UrlStringConverter2() {
+        super(UrlStringConverter2::toDatabaseColumn, UrlStringConverter2::toEntityAttribute);
     }
 }
