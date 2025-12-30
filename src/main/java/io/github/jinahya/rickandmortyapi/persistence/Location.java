@@ -504,6 +504,12 @@ public class Location
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * Returns current value of {@value Location_#ID} attribute.
+     *
+     * @return current value of the {@value Location_#ID} attribute.
+     */
     public Integer getId() {
         return id;
     }
@@ -518,6 +524,12 @@ public class Location
     }
 
     // ------------------------------------------------------------------------------------------------------------ name
+
+    /**
+     * Returns current value of {@value Location_#NAME} attribute.
+     *
+     * @return current value of the {@value Location_#NAME} attribute.
+     */
     public String getName() {
         return name;
     }
@@ -527,6 +539,12 @@ public class Location
     }
 
     // ------------------------------------------------------------------------------------------------------------ type
+
+    /**
+     * Returns current value of {@value Location_#TYPE} attribute.
+     *
+     * @return current value of the {@value Location_#TYPE} attribute.
+     */
     @Nullable
     public Location_Type getType() {
         return type;
@@ -537,6 +555,12 @@ public class Location
     }
 
     // ------------------------------------------------------------------------------------------------------- dimension
+
+    /**
+     * Returns current value of {@value Location_#DIMENSION} attribute.
+     *
+     * @return current value of the {@value Location_#DIMENSION} attribute.
+     */
     @Nullable
     public Location_Dimension getDimension() {
         return dimension;
@@ -547,6 +571,12 @@ public class Location
     }
 
     // ------------------------------------------------------------------------------------------------------- residents
+
+    /**
+     * Returns current value of {@value Location_#RESIDENTS} attribute.
+     *
+     * @return current value of the {@value Location_#RESIDENTS} attribute.
+     */
     @Nullable
     public List<URL> getResidents() {
         return residents;
@@ -557,6 +587,12 @@ public class Location
     }
 
     // ------------------------------------------------------------------------------------------------------------- url
+
+    /**
+     * Returns current value of {@value Location_#URL} attribute.
+     *
+     * @return current value of the {@value Location_#URL} attribute.
+     */
     public URL getUrl() {
         return url;
     }
@@ -566,6 +602,12 @@ public class Location
     }
 
     // --------------------------------------------------------------------------------------------------------- created
+
+    /**
+     * Returns current value of {@value Location_#CREATED} attribute.
+     *
+     * @return returns current value of the {@value Location_#CREATED} attribute.
+     */
     public Instant getCreated() {
         return created;
     }
@@ -575,6 +617,12 @@ public class Location
     }
 
     // ------------------------------------------------------------------------------------------------------ residents_
+
+    /**
+     * Returns current value of {@value Location_#RESIDENTS_} attribute.
+     *
+     * @return current value of the {@value Location_#RESIDENTS_} attribute.
+     */
     public List<Character> getResidents_() {
         return residents_;
     }
@@ -584,6 +632,12 @@ public class Location
     }
 
     // ----------------------------------------------------------------------------------------------- originCharacters_
+
+    /**
+     * Returns current value of {@value Location_#ORIGIN_CHARACTERS_} attribute.
+     *
+     * @return current value of the {@value Location_#ORIGIN_CHARACTERS_} attribute.
+     */
     public List<Character> getOriginCharacters_() {
         return originCharacters_;
     }
@@ -593,6 +647,12 @@ public class Location
     }
 
     // --------------------------------------------------------------------------------------------- locationCharacters_
+
+    /**
+     * Returns current value of {@value Location_#LOCATION_CHARACTERS_} attribute.
+     *
+     * @return current value of the {@value Location_#LOCATION_CHARACTERS_} attribute.
+     */
     public List<Character> getLocationCharacters_() {
         return locationCharacters_;
     }
