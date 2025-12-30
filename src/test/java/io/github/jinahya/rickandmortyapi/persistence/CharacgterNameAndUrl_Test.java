@@ -4,21 +4,23 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class NameAndUrl_Test extends __Base_Test<NameAndUrl> {
+class CharacgterNameAndUrl_Test extends __Base_Test<Character_NameAndUrl> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    NameAndUrl_Test() {
-        super(NameAndUrl.class);
+    CharacgterNameAndUrl_Test() {
+        super(Character_NameAndUrl.class);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
     @Test
     void ATTRIBUTE_NAME_NAME__() {
-        assertThat(NameAndUrl.ATTRIBUTE_NAME_NAME).isEqualTo(NameAndUrl_.NAME);
+        assertThat(Character_NameAndUrl.ATTRIBUTE_NAME_NAME)
+                .isEqualTo(Character_NameAndUrl_.NAME);
     }
 
     @Test
     void ATTRIBUTE_NAME_URL__() {
-        assertThat(NameAndUrl.ATTRIBUTE_NAME_URL).isEqualTo(NameAndUrl_.URL);
+        assertThat(Character_NameAndUrl.ATTRIBUTE_NAME_URL)
+                .isEqualTo(Character_NameAndUrl_.URL);
     }
 }

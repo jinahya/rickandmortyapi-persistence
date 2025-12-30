@@ -7,10 +7,10 @@ import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class LocalDateConverter_Test extends _StringConverter_Test<LocalDateConverter, LocalDate> {
+class LocalDateStringConverter_Test extends _StringConverter_Test<LocalDateStringConverter, LocalDate> {
 
-    LocalDateConverter_Test() {
-        super(LocalDateConverter.class, LocalDate.class);
+    LocalDateStringConverter_Test() {
+        super(LocalDateStringConverter.class, LocalDate.class);
     }
 
     // -----------------------------------------------------------------------------------------------------------------

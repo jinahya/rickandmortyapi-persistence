@@ -8,7 +8,6 @@
     <version>1.0.3</version>
   </parent>
 
-  <groupId>io.github.jinahya</groupId>
   <artifactId>rickandmortyapi-persistence</artifactId>
   <version>0.1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -17,11 +16,11 @@
   <description>Entities for rickandmorty-db</description>
   <url>https://github.com/jinahya/${project.artifactId}</url>
   <inceptionYear>2025</inceptionYear>
-  <organization>
-    <name>Jinahya, Inc.</name>
-    <url>https://jinahya.com</url>
-  </organization>
 
+  <!--  <organization>-->
+<!--    <name>Jinahya, Inc.</name>-->
+<!--    <url>https://jinahya.com</url>-->
+<!--  </organization>-->
   <developers>
     <developer>
       <id>onacit</id>
@@ -39,7 +38,6 @@
     <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
     <url>https://github.com:jinahya/${project.artifactId}</url>
-    <tag>rickandmortyapi-persistence-0.0.1</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issues</system>
@@ -104,13 +102,13 @@
         <!--        <version>2.3.232</version>-->
         <version>2.4.240</version>
       </dependency>
-      <dependency><!-- https://central.sonatype.com/artifact/com.fasterxml.jackson/jackson-bom/versions -->
-        <groupId>com.fasterxml.jackson</groupId>
-        <artifactId>jackson-bom</artifactId>
-        <version>2.20.1</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+      <!--      <dependency>&lt;!&ndash; https://central.sonatype.com/artifact/com.fasterxml.jackson/jackson-bom/versions &ndash;&gt;-->
+      <!--        <groupId>com.fasterxml.jackson</groupId>-->
+      <!--        <artifactId>jackson-bom</artifactId>-->
+      <!--        <version>2.20.1</version>-->
+      <!--        <type>pom</type>-->
+      <!--        <scope>import</scope>-->
+      <!--      </dependency>-->
       <dependency><!-- https://central.sonatype.com/artifact/jakarta.platform/jakarta.jakartaee-bom/versions -->
         <groupId>jakarta.platform</groupId>
         <artifactId>jakarta.jakartaee-bom</artifactId>
@@ -194,8 +192,8 @@
       <artifactId>logback-classic</artifactId>
       <!-- https://central.sonatype.com/artifact/ch.qos.logback/logback-classic/versions -->
       <!-- https://central.sonatype.com/artifact/ch.qos.logback/logback-parent/versions -->
-      <!--        <version>1.5.19</version> &lt;!&ndash; slf4j.version: 2.0.17 &ndash;&gt;-->
-      <version>1.5.22</version>
+      <version>1.5.23</version>
+      <!-- slf4j.version: 2.0.17 -->
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -251,6 +249,7 @@
     <dependency>
       <groupId>org.jboss.weld</groupId>
       <artifactId>weld-junit5</artifactId>
+      <!-- https://central.sonatype.com/artifact/org.jboss.weld/weld-junit5/versions -->
       <version>5.0.3.Final</version>
       <scope>test</scope>
     </dependency>
@@ -279,6 +278,7 @@
     <dependency>
       <groupId>org.xerial</groupId>
       <artifactId>sqlite-jdbc</artifactId>
+      <!-- https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc/versions -->
       <version>3.51.1.0</version>
       <scope>test</scope>
     </dependency>
@@ -331,12 +331,12 @@
           <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin/versions -->
           <version>3.12.0</version>
           <configuration>
-<!--            <doclet>nl.talsmasoftware.umldoclet.UMLDoclet</doclet>-->
-<!--            <docletArtifact>-->
-<!--              <groupId>nl.talsmasoftware</groupId>-->
-<!--              <artifactId>umldoclet</artifactId>-->
-<!--              <version>${version.umldoclet}</version>-->
-<!--            </docletArtifact>-->
+            <!--            <doclet>nl.talsmasoftware.umldoclet.UMLDoclet</doclet>-->
+            <!--            <docletArtifact>-->
+            <!--              <groupId>nl.talsmasoftware</groupId>-->
+            <!--              <artifactId>umldoclet</artifactId>-->
+            <!--              <version>${version.umldoclet}</version>-->
+            <!--            </docletArtifact>-->
             <additionalOptions>
               <additionalOption>-Xdoclint:${doclint}</additionalOption>
             </additionalOptions>
@@ -450,15 +450,15 @@
         <executions>
           <execution>
             <id>enforce-dependency-convergence</id>
-            <configuration>
-              <skip>true</skip>
-              <rules>
-                <dependencyConvergence />
-              </rules>
-            </configuration>
             <goals>
               <goal>enforce</goal>
             </goals>
+            <configuration>
+              <!--              <skip>true</skip>-->
+              <rules>
+                <dependencyConvergence/>
+              </rules>
+            </configuration>
           </execution>
           <execution>
             <id>enforce-require-java-version</id>
@@ -468,7 +468,7 @@
             <configuration>
               <rules>
                 <requireJavaVersion>
-                  <version>[21.0.0,)</version>
+                  <version>[25.0.0,)</version>
                 </requireJavaVersion>
               </rules>
             </configuration>

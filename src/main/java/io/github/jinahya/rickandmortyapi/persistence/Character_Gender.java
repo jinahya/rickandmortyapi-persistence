@@ -5,7 +5,7 @@ import jakarta.annotation.Nonnull;
 import java.util.Objects;
 
 /**
- * Constants for the {@value Character_#GENDER} attribute.
+ * Constants for the {@value Character_#GENDER} attribute of the {@link Character} entity.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
@@ -31,11 +31,13 @@ public enum Character_Gender implements _StringColumnEnum<Character_Gender> {
      */
     UNKNOWN("unknown");
 
+    // -----------------------------------------------------------------------------------------------------------------
+
     /**
-     * Returns the constants whose {@link #columnValue() columnValue} matches the specified {@code columnValue}.
+     * Returns the constants whose {@link #columnValue() columnValue} matches the specified value.
      *
      * @param columnValue the value for the {@link #columnValue() columnValue} to match.
-     * @return the constants whose {@link #columnValue()} matches the specified {@code columnValue}.
+     * @return the constants whose {@link #columnValue() columnValue} matches the specified {@code columnValue}.
      */
     public static Character_Gender valueOfColumnValue(final String columnValue) {
         return _StringColumnEnumUtils.valueOfColumnValue(Character_Gender.class, columnValue);

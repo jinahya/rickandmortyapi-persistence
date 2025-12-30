@@ -1,6 +1,6 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -20,7 +20,7 @@ import java.util.Objects;
  * @see Character#getLocation()
  */
 @Embeddable
-public class NameAndUrl extends __Base {
+public class Character_NameAndUrl extends __Base {
 
     // -----------------------------------------------------------------------------------------------------------------
     private static final String COLUMN_NAME_NAME = "name";
@@ -39,7 +39,7 @@ public class NameAndUrl extends __Base {
     /**
      * Creates a new instance.
      */
-    protected NameAndUrl() {
+    protected Character_NameAndUrl() {
         super();
     }
 
@@ -54,7 +54,7 @@ public class NameAndUrl extends __Base {
 
     @Override
     public final boolean equals(final Object obj) {
-        if (!(obj instanceof NameAndUrl that)) {
+        if (!(obj instanceof Character_NameAndUrl that)) {
             return false;
         }
         return Objects.equals(name, that.name)
@@ -81,7 +81,7 @@ public class NameAndUrl extends __Base {
         this.name = name;
     }
 
-    NameAndUrl name(final String name) {
+    Character_NameAndUrl name(final String name) {
         setName(name);
         return this;
     }
@@ -102,7 +102,7 @@ public class NameAndUrl extends __Base {
         this.url = url;
     }
 
-    NameAndUrl url(@Nullable final URL url) {
+    Character_NameAndUrl url(@Nullable final URL url) {
         setUrl(url);
         return this;
     }
@@ -115,7 +115,7 @@ public class NameAndUrl extends __Base {
     private String name;
 
     @Nullable
-    @Convert(converter = UrlConverter.class)
+    @Convert(converter = UrlStringConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_URL, nullable = true, insertable = false, updatable = false)
     private URL url;

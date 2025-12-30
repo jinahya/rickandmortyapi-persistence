@@ -9,20 +9,31 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Optional;
 
+/**
+ * An attribute converter for converting {@link URL} attributes to and from strings.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @see UriListStringConverter
+ * @see UrlStringConverter
+ */
 @Converter
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UrlConverter implements AttributeConverter<URL, String> {
+public class UrlStringConverter implements AttributeConverter<URL, String> {
 
-    private static final AttributeConverter<URI, String> CONVERTER = new UriConverter();
+    private static final AttributeConverter<URI, String> CONVERTER = new UriStringConverter();
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    public UrlConverter() {
+
+    /**
+     * Creates a new instance.
+     */
+    public UrlStringConverter() {
         super();
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------- jakarta.persistence.AttributeConverter
     @Override
     public String convertToDatabaseColumn(final URL attribute) {
         return Optional.ofNullable(attribute)
@@ -30,7 +41,7 @@ public class UrlConverter implements AttributeConverter<URL, String> {
                     try {
                         return a.toURI();
                     } catch (final URISyntaxException urise) {
-                        throw new RuntimeException(urise);
+                        throw new RuntimeException("failed to convert " + attribute + " to URI", urise);
                     }
                 })
                 .map(CONVERTER::convertToDatabaseColumn)
@@ -45,7 +56,7 @@ public class UrlConverter implements AttributeConverter<URL, String> {
                     try {
                         return dd.toURL();
                     } catch (final MalformedURLException murle) {
-                        throw new RuntimeException(murle);
+                        throw new RuntimeException("failed to convert " + dbData + " to URL", murle);
                     }
                 })
                 .orElse(null);

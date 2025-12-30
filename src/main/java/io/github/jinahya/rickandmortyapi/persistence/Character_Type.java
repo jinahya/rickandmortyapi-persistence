@@ -1,5 +1,7 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
+import jakarta.annotation.Nonnull;
+
 import java.util.Objects;
 
 /**
@@ -854,7 +856,7 @@ public enum Character_Type implements _StringColumnEnum<Character_Type> {
      */
     ZOMBODIAN("Zombodian");
 
-    // -------------------------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------------------
     public static Character_Type valueOfColumnValue(final String columnValue) {
         Objects.requireNonNull(columnValue, "columnValue is null");
         for (final var value : values()) {
@@ -865,16 +867,18 @@ public enum Character_Type implements _StringColumnEnum<Character_Type> {
         throw new IllegalArgumentException("no value for column value: " + columnValue);
     }
 
-    // -------------------------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------------------
     Character_Type(final String columnValue) {
         this.columnValue = Objects.requireNonNull(columnValue, "columnValue is null");
     }
 
-    // -------------------------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------------------
+    @Nonnull
+    @Override
     public String columnValue() {
         return columnValue;
     }
 
-    // -------------------------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------------------
     private final String columnValue;
 }

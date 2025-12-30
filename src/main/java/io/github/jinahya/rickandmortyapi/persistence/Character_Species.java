@@ -5,7 +5,7 @@ import jakarta.annotation.Nonnull;
 import java.util.Objects;
 
 /**
- * Constants for {@value Character_#SPECIES} attribute.
+ * Constants for the {@value Character_#SPECIES} attribute.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */

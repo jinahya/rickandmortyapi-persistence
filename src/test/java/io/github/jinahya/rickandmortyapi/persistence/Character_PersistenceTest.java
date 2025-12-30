@@ -1,6 +1,7 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Tuple;
 import jakarta.persistence.criteria.Fetch;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
@@ -169,31 +170,33 @@ class Character_PersistenceTest extends _BaseEntity_PersistenceTest<Character, I
     class Distributions_Test {
 
         static void __(final EntityManager em, final String attribute) {
-            final List<Object[]> results;
             if (ThreadLocalRandom.current().nextBoolean()) {
-                results = em.createQuery(
+                final var query =
                         """
-                                SELECT c.%s,
+                                SELECT c.%1$s,
                                        COUNT(c) AS count
                                 FROM Character c
-                                GROUP BY 1
-                                ORDER BY count DESC""".formatted(attribute),
-                        Object[].class
-                ).getResultList();
+                                GROUP BY c.%1$s
+                                ORDER BY count DESC""".formatted(attribute);
+                final List<Object[]> results = em.createQuery(query, Object[].class).getResultList();
+                for (final var result : results) {
+                    final var value = result[0];
+                    final var count = (Long) result[1];
+                    log.info("{}: {}", String.format("%1$40s", value), String.format("%1$3d", count));
+                }
             } else {
                 final var builder = em.getCriteriaBuilder();
-                final var query = builder.createQuery(Object[].class);
+                final var query = builder.createTupleQuery();
                 final var root = query.from(Character.class);
-                final var count = builder.count(root);
-                query.select(builder.array(root.get(attribute), count));
+                query.select(builder.tuple(root.get(attribute), builder.count(root)));
                 query.groupBy(root.get(attribute));
-                query.orderBy(builder.desc(count));
-                results = em.createQuery(query).getResultList();
-            }
-            for (final var result : results) {
-                final var value = result[0];
-                final var count = (Long) result[1];
-                log.info("{}: {}", String.format("%1$40s", value), String.format("%1$3d", count));
+                query.orderBy(builder.desc(builder.count(root)));
+                final List<Tuple> results = em.createQuery(query).getResultList();
+                for (final var result : results) {
+                    final var value = result.get(0, Object.class);
+                    final var count = result.get(1, Long.class);
+                    log.info("{}: {}", String.format("%1$40s", value), String.format("%1$3d", count));
+                }
             }
         }
 

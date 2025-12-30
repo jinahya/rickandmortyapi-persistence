@@ -1,8 +1,9 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-import io.github.jinahya.rickandmortyapi.persistence.converter.InstantConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Basic;
@@ -351,11 +352,11 @@ public class Character extends _BaseEntity<Integer> {
      * @see #getOrigin_()
      */
     @Nullable
-    public NameAndUrl getOrigin() {
+    public Character_NameAndUrl getOrigin() {
         return origin;
     }
 
-    void setOrigin(@Nullable final NameAndUrl origin) {
+    void setOrigin(@Nullable final Character_NameAndUrl origin) {
         this.origin = origin;
     }
 
@@ -368,11 +369,11 @@ public class Character extends _BaseEntity<Integer> {
      * @see #getLocation_()
      */
     @Nullable
-    public NameAndUrl getLocation() {
+    public Character_NameAndUrl getLocation() {
         return location;
     }
 
-    void setLocation(@Nullable final NameAndUrl location) {
+    void setLocation(@Nullable final Character_NameAndUrl location) {
         this.location = location;
     }
 
@@ -509,7 +510,7 @@ public class Character extends _BaseEntity<Integer> {
     private String name;
 
     @NotNull
-//    @Convert(converter = StatusConverter.class)
+    @Convert(converter = Character_StatusConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_STATUS,
             nullable = false,
@@ -519,7 +520,7 @@ public class Character extends _BaseEntity<Integer> {
     private Character_Status status;
 
     @NotNull
-//    @Convert(converter = SpeciesConverter.class)
+    @Convert(converter = Character_SpeciesConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_SPECIES,
             nullable = false,
@@ -529,7 +530,7 @@ public class Character extends _BaseEntity<Integer> {
     private Character_Species species;
 
     @Nullable
-//    @Convert(converter = TypeConverter.class)
+    @Convert(converter = Character_TypeConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_TYPE,
             nullable = true,
@@ -539,7 +540,7 @@ public class Character extends _BaseEntity<Integer> {
     private Character_Type type;
 
     @NotNull
-//    @Convert(converter = GenderConverter.class)
+    @Convert(converter = Character_GenderConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_GENDER,
             nullable = false,
@@ -551,62 +552,72 @@ public class Character extends _BaseEntity<Integer> {
     @Nullable
     @Valid
     @Embedded
-    @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_NAME,
+    @AttributeOverride(name = Character_NameAndUrl.ATTRIBUTE_NAME_NAME,
                        column = @Column(name = COLUMN_NAME_ORIGIN_NAME,
                                         nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
-    @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_URL,
+    @AttributeOverride(name = Character_NameAndUrl.ATTRIBUTE_NAME_URL,
                        column = @Column(name = COLUMN_NAME_ORIGIN_URL,
                                         nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
-    private NameAndUrl origin;
+    private Character_NameAndUrl origin;
 
     @Nullable
     @Valid
     @Embedded
-    @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_NAME,
+    @AttributeOverride(name = Character_NameAndUrl.ATTRIBUTE_NAME_NAME,
                        column = @Column(name = COLUMN_NAME_LOCATION_NAME,
                                         nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
-    @AttributeOverride(name = NameAndUrl.ATTRIBUTE_NAME_URL,
+    @AttributeOverride(name = Character_NameAndUrl.ATTRIBUTE_NAME_URL,
                        column = @Column(name = COLUMN_NAME_LOCATION_URL,
                                         nullable = true,
                                         insertable = false,
                                         updatable = false
                        )
     )
-    private NameAndUrl location;
+    private Character_NameAndUrl location;
 
+    @Nonnull
     @NotNull
-    @Convert(converter = UrlConverter.class)
+    @Convert(converter = UrlStringConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_IMAGE, nullable = false, insertable = false, updatable = false, unique = true)
+    @Column(name = COLUMN_NAME_IMAGE,
+            nullable = false,
+            insertable = false,
+            updatable = false,
+            unique = true
+    )
     private URL image;
 
     @NotNull
-    @Convert(converter = UrlListConverter.class)
+    @Convert(converter = UrlListStringConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_EPISODE, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_EPISODE,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private List<@NotNull URL> episode;
 
     @NotNull
-    @Convert(converter = UrlConverter.class)
+    @Convert(converter = UrlStringConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false, unique = true)
     private URL url;
 
     @Past
     @NotNull
-    @Convert(converter = InstantConverter.class)
+    @Convert(converter = InstantStringConverter.class)
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_CREATED, nullable = false, insertable = false, updatable = false)
     private Instant created;

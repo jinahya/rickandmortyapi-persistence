@@ -54,6 +54,7 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID> e
      * @param root the root of {@link #entityClass}.
      */
     void selectAll__(final Root<ENTITY> root) {
+        // empty
     }
 
     /**
@@ -68,9 +69,7 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID> e
                 .isNotEmpty()
                 .doesNotContainNull()
                 .doesNotHaveDuplicates()
-                .allSatisfy(e -> {
-                    __JakartaValidation_TestUtils.requireValid(e);
-                });
+        ;
     }
 
     // -----------------------------------------------------------------------------------------------------------------

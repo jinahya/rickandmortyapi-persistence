@@ -25,7 +25,7 @@ public class CharacterEpisodeId
     @Serial
     private static final long serialVersionUID = -8363987227830143686L;
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------- COMPARATORS
 
     /**
      * A comparator compares with {@link CharacterEpisodeId_#CHARACTER_ID} attribute.
@@ -98,7 +98,7 @@ public class CharacterEpisodeId
         );
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------- characterId
 
     /**
      * Returns current value of {@value CharacterEpisodeId_#CHARACTER_ID} attribute.
@@ -118,7 +118,7 @@ public class CharacterEpisodeId
         return this;
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------- episodeId
 
     /**
      * Returns current value of {@value CharacterEpisodeId_#EPISODE_ID} attribute.

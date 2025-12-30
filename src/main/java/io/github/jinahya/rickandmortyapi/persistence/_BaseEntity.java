@@ -5,13 +5,14 @@ import jakarta.persistence.MappedSuperclass;
 /**
  * An abstract mapped superclass for mapping {@code rickandmortyapi.db}.
  *
+ * @param <ID> id type parameter
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @MappedSuperclass
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-abstract class _BaseEntity<ID> extends __Base {
+public abstract class _BaseEntity<ID> extends __Base {
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -20,7 +21,7 @@ abstract class _BaseEntity<ID> extends __Base {
     /**
      * Creates a new instance.
      */
-    _BaseEntity() {
+    protected _BaseEntity() {
         super();
     }
 }

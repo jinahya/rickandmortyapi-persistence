@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UrlListConverter2 implements AttributeConverter<List<URL>, String> {
+public class UrlListStringConverter implements AttributeConverter<List<URL>, String> {
 
-    private static final AttributeConverter<URL, String> CONVERTER = new UrlConverter();
+    private static final AttributeConverter<URL, String> CONVERTER = new UrlStringConverter();
 
     // -----------------------------------------------------------------------------------------------------------------
-    public UrlListConverter2() {
+    public UrlListStringConverter() {
         super();
     }
 
@@ -29,14 +29,14 @@ public class UrlListConverter2 implements AttributeConverter<List<URL>, String> 
         return Optional.ofNullable(attribute)
                 .map(a -> a.stream()
                         .map(CONVERTER::convertToDatabaseColumn)
-                        .collect(Collectors.joining(UriListConverter.DELIMITER)))
+                        .collect(Collectors.joining(UriListStringConverter.DELIMITER)))
                 .orElse(null);
     }
 
     @Override
     public List<URL> convertToEntityAttribute(final String dbData) {
         return Optional.ofNullable(dbData)
-                .map(dd -> Arrays.stream(dd.split(UriListConverter.DELIMITER))
+                .map(dd -> Arrays.stream(dd.split(UriListStringConverter.DELIMITER))
                         .map(CONVERTER::convertToEntityAttribute)
                         .collect(Collectors.toCollection(ArrayList::new))
                 )
