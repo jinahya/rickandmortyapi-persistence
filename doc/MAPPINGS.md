@@ -79,7 +79,8 @@ See [episode_schema] and [episode_1].
 |                | `air_date_iso_` | `TEXT`      | `LocalDate`       | `airDateIso_` |                                       |
 |                |                 |             | `List<Character>` | `characters_` | `@ManyToMany(mappedBy = "episodes_")` |
 
-- `air_date_iso_`: A column storing air date in ISO format for internal operations. / 내부 연산을 위해 ISO 형식으로 방영일을 저장하는 열입니다.
+- `air_date_iso_`: A column storing air date in ISO-8601 format for internal operations. / 내부 연산을 위해 ISO-8601 형식으로 방영일을
+  저장하는 열입니다.
 - `characters_`: A many-to-many relationship with `Character` entity. / `Character` 엔티티와의 다대다(N:M) 연관 관계입니다.
 
 ## location
