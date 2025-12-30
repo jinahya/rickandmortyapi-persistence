@@ -597,6 +597,14 @@ public class Location
         return url;
     }
 
+    /**
+     * Replaces current value of {@value Location_#URL} attribute with the specified value.
+     *
+     * <p>This method allows updating the URL for a location entity. Note that this is one
+     * of the few mutable attributes in the {@link Location} entity.
+     *
+     * @param url the new value for {@value Location_#URL} attribute.
+     */
     public void setUrl(final URL url) {
         this.url = url;
     }

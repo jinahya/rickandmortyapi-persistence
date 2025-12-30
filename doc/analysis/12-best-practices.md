@@ -1,6 +1,6 @@
-# 13. Best Practices & Usage Guidelines
+# 12. Best Practices & Usage Guidelines
 
-[← Previous: Performance Analysis](12-performance-analysis.md) | [Index](index.md)
+[← Previous: Performance Analysis](11-performance-analysis.md) | [Index](index.md) | [Next: Final Verdict →](13-final-verdict.md)
 
 ---
 

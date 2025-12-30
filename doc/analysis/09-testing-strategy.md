@@ -1,6 +1,6 @@
-# 10. Testing Strategy & Coverage Analysis
+# 9. Testing Strategy & Coverage Analysis
 
-[← Previous: Final Verdict](09-final-verdict.md) | [Index](index.md) | [Next: Security Considerations →](11-security-considerations.md)
+[← Previous: Source Code Issues & Recommendations](08-source-code-issues-analysis.md) | [Index](index.md) | [Next: Security Considerations →](10-security-considerations.md)
 
 ---
 

@@ -12,6 +12,19 @@ import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * An entity class for mapping {@value LocationResident#TABLE_NAME} table.
+ *
+ * <p>This entity represents the many-to-many relationship between {@link Location} and
+ * {@link Character} entities, mapping to the {@code location_resident} join table.
+ * It provides explicit control over the relationship and enables bidirectional
+ * navigation between locations and their resident characters.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @see LocationResidentId
+ * @see Location
+ * @see Character
+ */
 @Entity
 @Table(name = LocationResident.TABLE_NAME)
 public class LocationResident
@@ -58,6 +71,15 @@ public class LocationResident
     }
 
     // -------------------------------------------------------------------------------------------------------------- id
+
+    /**
+     * Returns current value of {@value LocationResident_#ID} attribute.
+     *
+     * <p>The ID is a composite primary key containing both the location ID and resident ID
+     * that uniquely identify this relationship.
+     *
+     * @return current value of the {@value LocationResident_#ID} attribute.
+     */
     public LocationResidentId getId() {
         return id;
     }
@@ -72,6 +94,15 @@ public class LocationResident
     }
 
     // -------------------------------------------------------------------------------------------------------- location
+
+    /**
+     * Returns current value of {@value LocationResident_#LOCATION} attribute.
+     *
+     * <p>This method returns the location entity associated with this relationship entry.
+     * The relationship is lazily loaded for performance optimization.
+     *
+     * @return current value of the {@value LocationResident_#LOCATION} attribute.
+     */
     public Location getLocation() {
         return location;
     }
@@ -88,6 +119,15 @@ public class LocationResident
     }
 
     // -------------------------------------------------------------------------------------------------------- resident
+
+    /**
+     * Returns current value of {@value LocationResident_#RESIDENT} attribute.
+     *
+     * <p>This method returns the character entity (resident) associated with this
+     * relationship entry. The relationship is lazily loaded for performance optimization.
+     *
+     * @return current value of the {@value LocationResident_#RESIDENT} attribute.
+     */
     public Character getResident() {
         return resident;
     }

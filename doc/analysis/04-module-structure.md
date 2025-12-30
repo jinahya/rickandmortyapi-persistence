@@ -1,6 +1,6 @@
-# 8. Module Structure
+# 4. Package Structure & Organization
 
-[← Previous: Source Code Issues & Recommendations](07-source-code-issues-analysis.md) | [Index](index.md) | [Next: Final Verdict →](09-final-verdict.md)
+[← Previous: Technical Specifications](03-technical-specifications.md) | [Index](index.md) | [Next: Database Schema & Entity Architecture →](05-persistence-layer-analysis.md)
 
 ---
 
@@ -393,4 +393,4 @@ Explicit Converters
 
 ---
 
-[← Previous: Source Code Issues & Recommendations](07-source-code-issues-analysis.md) | [Index](index.md) | [Next: Final Verdict →](09-final-verdict.md)
+[← Previous: Technical Specifications](03-technical-specifications.md) | [Index](index.md) | [Next: Database Schema & Entity Architecture →](05-persistence-layer-analysis.md)

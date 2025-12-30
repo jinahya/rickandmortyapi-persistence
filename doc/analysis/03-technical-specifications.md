@@ -1,6 +1,6 @@
 # 3. Technical Specifications
 
-[← Previous: Context & Objectives](02-context-objectives.md) | [Index](index.md) | [Next: Persistence Layer Analysis →](04-persistence-layer-analysis.md)
+[← Previous: Context & Objectives](02-context-objectives.md) | [Index](index.md) | [Next: Package Structure & Organization →](04-module-structure.md)
 
 ---
 
@@ -142,7 +142,10 @@ These are provided by the Jakarta EE runtime:
 
 ### Compile Dependencies
 
-- `org.jspecify:jspecify` - JSpecify nullability annotations (`@Nullable` imported from `org.jspecify.annotations`)
+- `org.jspecify:jspecify` (1.0.0) - JSpecify nullability annotations (`@Nullable` imported from `org.jspecify.annotations`)
+  - **Scope**: `compile` (recommended by JSpecify)
+  - **Configuration**: No annotation processor or special JVM arguments needed
+  - **Status**: ✅ Correctly configured (see [JSpecify Configuration Evaluation](../misc/JSPECIFY_CONFIGURATION_EVALUATION.md))
 
 ### Build-Time Dependencies
 
@@ -206,4 +209,4 @@ These are provided by the Jakarta EE runtime:
 
 ---
 
-[← Previous: Context & Objectives](02-context-objectives.md) | [Index](index.md) | [Next: Persistence Layer Analysis →](04-persistence-layer-analysis.md)
+[← Previous: Context & Objectives](02-context-objectives.md) | [Index](index.md) | [Next: Package Structure & Organization →](04-module-structure.md)

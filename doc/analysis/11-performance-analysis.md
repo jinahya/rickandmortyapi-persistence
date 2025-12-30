@@ -1,6 +1,6 @@
-# 12. Performance Analysis & Optimization
+# 11. Performance Analysis & Optimization
 
-[← Previous: Security Considerations](11-security-considerations.md) | [Index](index.md) | [Next: Best Practices →](13-best-practices.md)
+[← Previous: Security Considerations](10-security-considerations.md) | [Index](index.md) | [Next: Best Practices →](12-best-practices.md)
 
 ---
 
@@ -234,5 +234,5 @@ The persistence layer is well-optimized for read-heavy workloads with proper ind
 
 ---
 
-[← Previous: Security Considerations](11-security-considerations.md) | [Index](index.md) | [Next: Best Practices →](13-best-practices.md)
+[← Previous: Security Considerations](10-security-considerations.md) | [Index](index.md) | [Next: Best Practices →](12-best-practices.md)
 

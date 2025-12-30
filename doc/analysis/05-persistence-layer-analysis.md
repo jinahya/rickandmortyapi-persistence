@@ -1,6 +1,6 @@
-# 4. Persistence Layer Analysis
+# 5. Database Schema & Entity Architecture
 
-[← Previous: Technical Specifications](03-technical-specifications.md) | [Index](index.md) | [Next: API-to-Database-to-Entity Mappings →](05-api-database-entity-mappings.md)
+[← Previous: Package Structure & Organization](04-module-structure.md) | [Index](index.md) | [Next: API-to-Database-to-Entity Mappings →](06-api-database-entity-mappings.md)
 
 ---
 
@@ -342,4 +342,4 @@ List<LocationResident> residents = location.getResidents_();
 
 ---
 
-[← Previous: Technical Specifications](03-technical-specifications.md) | [Index](index.md) | [Next: API-to-Database-to-Entity Mappings →](05-api-database-entity-mappings.md)
+[← Previous: Package Structure & Organization](04-module-structure.md) | [Index](index.md) | [Next: API-to-Database-to-Entity Mappings →](06-api-database-entity-mappings.md)

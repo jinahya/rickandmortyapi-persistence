@@ -1,6 +1,6 @@
-# 11. Security Considerations
+# 10. Security Considerations
 
-[← Previous: Testing Strategy](10-testing-strategy.md) | [Index](index.md) | [Next: Performance Analysis →](12-performance-analysis.md)
+[← Previous: Testing Strategy](09-testing-strategy.md) | [Index](index.md) | [Next: Performance Analysis →](11-performance-analysis.md)
 
 ---
 
@@ -198,5 +198,5 @@ The persistence layer follows security best practices for JPA applications. It i
 
 ---
 
-[← Previous: Testing Strategy](10-testing-strategy.md) | [Index](index.md) | [Next: Performance Analysis →](12-performance-analysis.md)
+[← Previous: Testing Strategy](09-testing-strategy.md) | [Index](index.md) | [Next: Performance Analysis →](11-performance-analysis.md)
 

@@ -1,6 +1,6 @@
-# 5. API-to-Database-to-Entity Mappings
+# 6. API-to-Database-to-Entity Mappings
 
-[← Previous: Persistence Layer Analysis](04-persistence-layer-analysis.md) | [Index](index.md) | [Next: Code Quality & Architectural Review →](06-code-quality-architectural-review.md)
+[← Previous: Database Schema & Entity Architecture](05-persistence-layer-analysis.md) | [Index](index.md) | [Next: Code Quality & Architectural Review →](07-code-quality-architectural-review.md)
 
 ---
 
@@ -165,4 +165,4 @@ Join table mapping between locations and residents (characters).
 
 ---
 
-[← Previous: Persistence Layer Analysis](04-persistence-layer-analysis.md) | [Index](index.md) | [Next: Code Quality & Architectural Review →](06-code-quality-architectural-review.md)
+[← Previous: Database Schema & Entity Architecture](05-persistence-layer-analysis.md) | [Index](index.md) | [Next: Code Quality & Architectural Review →](07-code-quality-architectural-review.md)
