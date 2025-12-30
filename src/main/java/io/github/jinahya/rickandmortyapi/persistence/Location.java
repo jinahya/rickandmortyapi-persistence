@@ -3,7 +3,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -545,12 +544,13 @@ public class Location
      *
      * @return current value of the {@value Location_#TYPE} attribute.
      */
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     public Location_Type getType() {
         return type;
     }
 
-    void setType(@Nullable final Location_Type type) {
+    void setType(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final Location_Type type) {
         this.type = type;
     }
 
@@ -561,12 +561,13 @@ public class Location
      *
      * @return current value of the {@value Location_#DIMENSION} attribute.
      */
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     public Location_Dimension getDimension() {
         return dimension;
     }
 
-    void setDimension(@Nullable final Location_Dimension dimension) {
+    void setDimension(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final Location_Dimension dimension) {
         this.dimension = dimension;
     }
 
@@ -577,12 +578,13 @@ public class Location
      *
      * @return current value of the {@value Location_#RESIDENTS} attribute.
      */
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     public List<URL> getResidents() {
         return residents;
     }
 
-    void setResidents(@Nullable final List<URL> residents) {
+    void setResidents(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final List<URL> residents) {
         this.residents = residents;
     }
 
@@ -682,7 +684,8 @@ public class Location
     )
     private String name;
 
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_TYPE,
             nullable = true,
@@ -691,7 +694,8 @@ public class Location
     )
     private Location_Type type;
 
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
 //    @Convert(converter = DimensionConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_DIMENSION,
@@ -701,7 +705,8 @@ public class Location
     )
     private Location_Dimension dimension;
 
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     @Convert(converter = UrlListStringConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_RESIDENTS,

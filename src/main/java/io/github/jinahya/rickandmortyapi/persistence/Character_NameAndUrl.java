@@ -21,7 +21,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  */
 
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -93,9 +92,9 @@ public class Character_NameAndUrl
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * Returns current value of {@value NameAndUrl_#NAME} attribute.
+     * Returns current value of {@value Character_NameAndUrl_#NAME} attribute.
      *
-     * @return current value of the {@value NameAndUrl_#NAME} attribute.
+     * @return current value of the {@value Character_NameAndUrl_#NAME} attribute.
      */
     public String getName() {
         return name;
@@ -113,32 +112,35 @@ public class Character_NameAndUrl
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * Returns current value of {@value NameAndUrl_#URL} attribute.
+     * Returns current value of {@value Character_NameAndUrl_#URL} attribute.
      *
-     * @return current value of the {@value NameAndUrl_#URL} attribute.
+     * @return current value of the {@value Character_NameAndUrl_#URL} attribute.
      */
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     public URL getUrl() {
         return url;
     }
 
-    void setUrl(@Nullable final URL url) {
+    void setUrl(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final URL url) {
         this.url = url;
     }
 
-    Character_NameAndUrl url(@Nullable final URL url) {
+    Character_NameAndUrl url(@org.jspecify.annotations.Nullable @jakarta.annotation.Nullable final URL url) {
         setUrl(url);
         return this;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     @Size(min = 1)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_NAME, nullable = true, insertable = false, updatable = false)
     private String name;
 
-    @Nullable
+    @org.jspecify.annotations.Nullable
+    @jakarta.annotation.Nullable
     @Convert(converter = UrlStringConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_URL, nullable = true, insertable = false, updatable = false)
