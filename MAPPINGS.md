@@ -10,10 +10,10 @@ See [character_schema].
 |-------------------|-----------------|-------------|-----------------------------|------------|---------------|
 | `$.id`            | `id`            | `INTEGER`   | `Integer`                   | `id`       | `primary key` |
 | `$.name`          | `name`          | `TEXT`      | `String`                    | `name`     |               |
-| `$.status`        | `species`       | `TEXT`      | `Character_Species`         | `species`  |               |
-| `$.species`       | `status`        | `TEXT`      | `Character_Status`          | `status`   |               |
-| `$.type`          | `type`          | `TEXT`      | `Character_Type`            | `type`     |               |
-| `$.gender`        | `gender`        | `TEXT`      | `Character_Gender`          | `gender`   |               |
+| `$.status`        | `species`       | `TEXT`      | `Character_Species`         | `species`  | `enum`        |
+| `$.species`       | `status`        | `TEXT`      | `Character_Status`          | `status`   | `enum`        |
+| `$.type`          | `type`          | `TEXT`      | `Character_Type`            | `type`     | `enum`        |
+| `$.gender`        | `gender`        | `TEXT`      | `Character_Gender`          | `gender`   | `enum`        |
 | `$.origin`        |                 |             | `Character_NameAndLocation` | `origin`   | `@Embedded`   |
 | `$.origin.name`   | `origin_name`   | `TEXT`      | `String`                    | `name`     |               |
 | `$.origin.url`    | `origin_url`    | `TEXT`      | `URL`                       | `url`      |               |
