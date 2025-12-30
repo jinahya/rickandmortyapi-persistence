@@ -32,17 +32,17 @@ See [character_schema] and [character_1].
 
 See [episode_schema] and [episode_1].
 
-| schema         | column          | column type | attribute type          | attribute     | notes                                 |
-|----------------|-----------------|-------------|-------------------------|---------------|---------------------------------------|
-| `$.id`         | `id`            | `INTEGER`   | `Integer`               | `id`          | `primary key`                         |
-| `$.name`       | `name`          | `TEXT`      | `String`                | `name`        |                                       |
-| `$.air_date`   | `air_date`      | `TEXT`      | `LocalDate`             | `airDate`     |                                       |
-| `$.episode`    | `episode`       | `TEXT`      | `String`                | `episode`     | `unique`                              |
-| `$.characters` | `characters`    | `TEXT`      | `List&lt;URL&gt;`       | `characters`  |                                       |
-| `$.url`        | `url`           | `TEXT`      | `URL`                   | `url`         | `unique`                              |
-| `$.created`    | `created`       | `TEXT`      | `Instant`               | `created`     |                                       |
-|                | `air_date_iso_` | `TEXT`      | `LocalDate`             | `airDateIso_` |                                       |
-|                |                 |             | `List&lt;Character&gt;` | `characters_` | `@ManyToMany(mappedBy = "episodes_")` |
+| schema         | column          | column type | attribute type     | attribute     | notes                                 |
+|----------------|-----------------|-------------|--------------------|---------------|---------------------------------------|
+| `$.id`         | `id`            | `INTEGER`   | `Integer`          | `id`          | `primary key`                         |
+| `$.name`       | `name`          | `TEXT`      | `String`           | `name`        |                                       |
+| `$.air_date`   | `air_date`      | `TEXT`      | `LocalDate`        | `airDate`     |                                       |
+| `$.episode`    | `episode`       | `TEXT`      | `String`           | `episode`     | `unique`                              |
+| `$.characters` | `characters`    | `TEXT`      | `List&lt;URL&gt;`  | `characters`  |                                       |
+| `$.url`        | `url`           | `TEXT`      | `URL`              | `url`         | `unique`                              |
+| `$.created`    | `created`       | `TEXT`      | `Instant`          | `created`     |                                       |
+|                | `air_date_iso_` | `TEXT`      | `LocalDate`        | `airDateIso_` |                                       |
+|                |                 |             | `List<Character>` | `characters_` | `@ManyToMany(mappedBy = "episodes_")` |
 
 ## location
 
