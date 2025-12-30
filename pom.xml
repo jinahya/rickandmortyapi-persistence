@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>rickandmortyapi-persistence</artifactId>
-  <version>0.1.2-SNAPSHOT</version>
+  <version>0.1.2</version>
   <packaging>jar</packaging>
 
   <name>${project.artifactId}</name>
@@ -38,7 +38,7 @@
     <connection>scm:git:git@github.com:jinahya/${project.artifactId}.git</connection>
     <developerConnection>scm:git:git@github.com:jinahya/${project.artifactId}.git</developerConnection>
     <url>https://github.com:jinahya/${project.artifactId}</url>
-    <tag>HEAD</tag>
+    <tag>0.1.2</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issues</system>
@@ -419,7 +419,7 @@
             </goals>
             <configuration>
               <rules>
-                <dependencyConvergence/>
+                <dependencyConvergence />
               </rules>
             </configuration>
           </execution>
@@ -456,7 +456,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${version.maven-surefire}</version>
         <configuration>
-          <excludes/>
+          <excludes />
           <skipAfterFailureCount>1</skipAfterFailureCount>
           <systemPropertyVariables>
             <eclipselink.woven>${eclipselink.woven}</eclipselink.woven>
