@@ -27,7 +27,7 @@ See [character_schema] and [character_1].
 |----------------------|-----------------------------|
 | Origin API JSON Path | [character_1]               |
 | Table                | `character`                 |
-| Entity               | `[Character]`[character.java] |
+| Entity               | [`Character`][character.java] |
 
 | schema            | column          | column type | attribute type         | attribute       | notes                    |
 |-------------------|-----------------|-------------|------------------------|-----------------|--------------------------|
