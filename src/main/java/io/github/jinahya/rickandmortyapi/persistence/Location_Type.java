@@ -237,6 +237,14 @@ public enum Location_Type implements _StringColumnEnum<Location_Type> {
     UNKNOWN("unknown");
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns the value whose {@link #columnValue() columnValue} property matches to the specified value.
+     *
+     * @param columnValue the value for the {@link #columnValue() columnValue} to match.
+     * @return the matching value
+     */
+    @Nonnull
     public static Location_Type valueOfColumnValue(final String columnValue) {
         return _StringColumnEnumUtils.valueOfColumnValue(Location_Type.class, columnValue);
     }

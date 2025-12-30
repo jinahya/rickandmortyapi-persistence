@@ -120,8 +120,8 @@ public class Character extends _BaseEntity<Integer> {
     static final String PROPERTY_PATH_ORIGIN_NAME = "$.origin.name";
 
     /**
-     * The name of the table column to which the {@value Character_#ORIGIN}.{@value NameAndUrl_#NAME} attribute maps.
-     * The value is {@value}.
+     * The name of the table column to which the {@value Character_#ORIGIN}.{@value Character_NameAndUrl_#NAME}
+     * attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_ORIGIN_NAME = "origin_name";
 
@@ -129,8 +129,8 @@ public class Character extends _BaseEntity<Integer> {
     static final String PROPERTY_PATH_ORIGIN_URL = "$.origin.url";
 
     /**
-     * The name of the table column to which the {@value Character_#ORIGIN}.{@value NameAndUrl_#URL} attribute maps. The
-     * value is {@value}.
+     * The name of the table column to which the {@value Character_#ORIGIN}.{@value Character_NameAndUrl_#URL} attribute
+     * maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_ORIGIN_URL = "origin_url";
 
@@ -138,8 +138,8 @@ public class Character extends _BaseEntity<Integer> {
     static final String PROPERTY_PATH_LOCATION_NAME = "$.location.name";
 
     /**
-     * The name of the table column to which the {@value Character_#LOCATION}.{@value NameAndUrl_#NAME} attribute maps.
-     * The value is {@value}.
+     * The name of the table column to which the {@value Character_#LOCATION}.{@value Character_NameAndUrl_#NAME}
+     * attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_NAME = "location_name";
 

@@ -2,8 +2,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
 
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.LocalDateStringConverter;
-import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -112,7 +112,7 @@ public class Episode extends _BaseEntity<Integer> {
 
     static final String REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER = "episodeNumber";
 
-    public static final String REGEXP_EPISODE = "S(?<%s>\\d{2})E(?<%s>\\d{2})".formatted(
+    static final String REGEXP_EPISODE = "S(?<%s>\\d{2})E(?<%s>\\d{2})".formatted(
             REGEXP_EPISODE_GROUP_NAME_SEASON_NUMBER,
             REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER
     );

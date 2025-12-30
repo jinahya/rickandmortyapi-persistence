@@ -177,6 +177,14 @@ public enum Location_Dimension implements _StringColumnEnum<Location_Dimension> 
     UNKNOWN("unknown");
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns a value whose {@link #columnValue() columnValue} property matches to the specified value.
+     *
+     * @param columnValue the value for the {@link #columnValue() columnValue} to match.
+     * @return the matching value
+     */
+    @Nonnull
     public static Location_Dimension valueOfColumnValue(final String columnValue) {
         return _StringColumnEnumUtils.valueOfColumnValue(Location_Dimension.class, columnValue);
     }

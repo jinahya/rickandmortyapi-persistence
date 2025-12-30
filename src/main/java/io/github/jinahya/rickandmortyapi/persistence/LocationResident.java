@@ -12,6 +12,11 @@ import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * An entity class for the {@value LocationResident#TABLE_NAME} table.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
 @Entity
 @Table(name = LocationResident.TABLE_NAME)
 public class LocationResident extends _BaseEntity<LocationResidentId> {
