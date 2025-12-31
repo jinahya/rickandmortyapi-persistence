@@ -27,7 +27,8 @@ import java.util.List;
 
 @Deprecated
 @Slf4j
-class EpisodeCharacter_PersistenceTest extends _BaseEntity_PersistenceTest<EpisodeCharacter, EpisodeCharacterId> {
+class EpisodeCharacter_PersistenceTest
+        extends _BaseEntity_PersistenceTest<EpisodeCharacter, EpisodeCharacterId> {
 
     // -----------------------------------------------------------------------------------------------------------------
     EpisodeCharacter_PersistenceTest() {

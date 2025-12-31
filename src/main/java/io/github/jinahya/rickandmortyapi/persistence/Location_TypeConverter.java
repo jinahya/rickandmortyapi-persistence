@@ -23,11 +23,17 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import jakarta.persistence.Converter;
 
 /**
- * An attribute converter for converting {@link Location_Type} attributes to and from strings. author Jin Kwon
- * &lt;onacit_at_gmail.com&gt;
+ * An attribute converter for converting {@link Location_Type} attributes to and from strings.
+ *
+ * <p>This converter is automatically applied to all {@link Location_Type} fields due to
+ * the {@code autoApply = true} annotation. It converts enum values to their corresponding
+ * string column values as defined in the enum.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Converter(autoApply = true)
-public class Location_TypeConverter extends _StringColumnEnumAttributeConverter<Location_Type> {
+public class Location_TypeConverter
+        extends _StringColumnEnumAttributeConverter<Location_Type> {
 
     /**
      * Creates a new instance.

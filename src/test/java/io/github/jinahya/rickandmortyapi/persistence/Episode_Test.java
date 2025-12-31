@@ -41,7 +41,8 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
+class Episode_Test
+        extends _BaseEntity_Test<Episode, Integer> {
 
     static final Episode RED = new Episode().id(1);
 
@@ -107,7 +108,8 @@ class Episode_Test extends _BaseEntity_Test<Episode, Integer> {
     }
 
     @Test
-    void __ResetParsingCaches_OnLifecycleMethods() throws Exception {
+    void __ResetParsingCaches_OnLifecycleMethods()
+            throws Exception {
         // ------------------------------------------------------------------------------------------------------- given
         final var episode = new Episode();
         episode.setEpisode("S01E01");

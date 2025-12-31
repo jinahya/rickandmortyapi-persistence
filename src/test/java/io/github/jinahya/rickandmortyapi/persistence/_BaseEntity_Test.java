@@ -28,7 +28,8 @@ import java.util.Objects;
 @SuppressWarnings({
         "java:S119" // Type parameter names should comply with a naming convention
 })
-abstract class _BaseEntity_Test<ENTITY extends _BaseEntity<ID>, ID> extends __Base_Test<ENTITY> {
+abstract class _BaseEntity_Test<ENTITY extends _BaseEntity<ID>, ID>
+        extends __Base_Test<ENTITY> {
 
     _BaseEntity_Test(final Class<ENTITY> typeClass, final Class<ID> idClass) {
         super(typeClass);

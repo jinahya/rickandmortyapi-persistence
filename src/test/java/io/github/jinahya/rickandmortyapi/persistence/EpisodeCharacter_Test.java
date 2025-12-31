@@ -26,7 +26,8 @@ import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 
 @Deprecated
 @Slf4j
-class EpisodeCharacter_Test extends _BaseEntity_Test<EpisodeCharacter, EpisodeCharacterId> {
+class EpisodeCharacter_Test
+        extends _BaseEntity_Test<EpisodeCharacter, EpisodeCharacterId> {
 
     // -----------------------------------------------------------------------------------------------------------------
     EpisodeCharacter_Test() {

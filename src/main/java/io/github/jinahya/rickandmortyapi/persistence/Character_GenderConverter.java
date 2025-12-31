@@ -31,7 +31,8 @@ import jakarta.persistence.Converter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class Character_GenderConverter extends _StringColumnEnumAttributeConverter<Character_Gender> {
+public class Character_GenderConverter
+        extends _StringColumnEnumAttributeConverter<Character_Gender> {
 
     /**
      * Creates a new instance.

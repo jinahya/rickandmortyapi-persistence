@@ -20,10 +20,28 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-class NameAndUrl_PersistenceTest extends __Base_PersistenceTest<Character_NameAndUrl> {
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+class Characgter_NameAndUrl_Test
+        extends __Base_Test<Character_NameAndUrl> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    NameAndUrl_PersistenceTest() {
+    Characgter_NameAndUrl_Test() {
         super(Character_NameAndUrl.class);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @Test
+    void ATTRIBUTE_NAME_NAME__() {
+        assertThat(Character_NameAndUrl.ATTRIBUTE_NAME_NAME)
+                .isEqualTo(Character_NameAndUrl_.NAME);
+    }
+
+    @Test
+    void ATTRIBUTE_NAME_URL__() {
+        assertThat(Character_NameAndUrl.ATTRIBUTE_NAME_URL)
+                .isEqualTo(Character_NameAndUrl_.URL);
     }
 }

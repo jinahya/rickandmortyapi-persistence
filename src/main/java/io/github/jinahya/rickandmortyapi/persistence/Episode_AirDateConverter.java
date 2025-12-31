@@ -37,7 +37,8 @@ import java.util.Locale;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class Episode_AirDateConverter extends _StringConverter<LocalDate> {
+public class Episode_AirDateConverter
+        extends _StringConverter<LocalDate> {
 
     private static final String PATTERN = "MMMM d, uuuu";
 

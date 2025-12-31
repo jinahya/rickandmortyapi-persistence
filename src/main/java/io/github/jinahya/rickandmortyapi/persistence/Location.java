@@ -1,29 +1,8 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-/*-
- * #%L
- * rickandmortyapi-persistence
- * %%
- * Copyright (C) 2025 GitHub, Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
-
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
@@ -39,6 +18,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.time.Instant;
@@ -57,7 +37,8 @@ import java.util.Objects;
         "java:S116", // Field names should comply with a naming convention
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
-public class Location extends _BaseEntity<Integer> {
+public class Location
+        extends _BaseEntity<Integer> {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.
@@ -74,42 +55,42 @@ public class Location extends _BaseEntity<Integer> {
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@value Location_#NAME} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#NAME} attributes maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_NAME = "name";
 
     // ------------------------------------------------------------------------------------------------------------ type
 
     /**
-     * The name of the table column to which the {@value Location_#TYPE} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#TYPE} attributes maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_TYPE = "type";
 
     // ------------------------------------------------------------------------------------------------------- dimension
 
     /**
-     * The name of the table column to which the {@value Location_#DIMENSION} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#NAME} attributes maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_DIMENSION = "dimension";
 
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@value Location_#RESIDENTS} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#RESIDENTS} attributes maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_RESIDENTS = "residents";
 
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@value Location_#URL} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#URL} attributes maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_URL = "url";
 
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@value Location_#CREATED} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#CREATED} attributes maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_CREATED = "created";
 
@@ -124,7 +105,7 @@ public class Location extends _BaseEntity<Integer> {
         super();
     }
 
-    // ------------------------------------------------------------------------------------------------ java.lang.Object
+    // ------------------------------------------------------------------------------------------------ java.lang.Obejct
     @Override
     public String toString() {
         return super.toString() + '{' +
@@ -245,7 +226,15 @@ public class Location extends _BaseEntity<Integer> {
         return url;
     }
 
-    void setUrl(final URL url) {
+    /**
+     * Replaces current value of {@value Location_#URL} attribute with the specified value.
+     *
+     * <p>This method allows updating the URL for a location entity. Note that this is one
+     * of the few mutable attributes in the {@link Location} entity.
+     *
+     * @param url the new value for {@value Location_#URL} attribute.
+     */
+    public void setUrl(final URL url) {
         this.url = url;
     }
 
@@ -254,7 +243,7 @@ public class Location extends _BaseEntity<Integer> {
     /**
      * Returns current value of {@value Location_#CREATED} attribute.
      *
-     * @return current value of the {@value Location_#CREATED} attribute.
+     * @return returns current value of the {@value Location_#CREATED} attribute.
      */
     public Instant getCreated() {
         return created;
@@ -338,8 +327,12 @@ public class Location extends _BaseEntity<Integer> {
     )
     private Location_Type type;
 
+    /**
+     * An attribute maps to the {@value #COLUMN_NAME_DIMENSION} column.
+     *
+     * @see Location_DimensionConverter
+     */
     @Nullable
-//    @Convert(converter = DimensionConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_DIMENSION,
             nullable = true,
@@ -356,7 +349,7 @@ public class Location extends _BaseEntity<Integer> {
             insertable = false,
             updatable = false
     )
-    private List<URL> residents;
+    private List<@NotNull URL> residents;
 
     // -----------------------------------------------------------------------------------------------------------------
     @NotNull

@@ -46,7 +46,7 @@
   </issueManagement>
   <ciManagement>
     <system>GitHub Actions</system>
-    <url>https://github.com/jinahya/rickandmortyapi-persistence/actions/workflows/maven.yml</url>
+    <url>https://github.com/jinahya/${project.artifactId]actions/workflows/maven.yml</url>
   </ciManagement>
 
   <properties>
@@ -66,6 +66,8 @@
     <version.lombok>1.18.42</version.lombok>
     <version.maven-failsafe>${version.maven-surefire}</version.maven-failsafe>
     <version.maven-surefire>3.5.4</version.maven-surefire>
+    <version.com.google.errorprone>2.45.0</version.com.google.errorprone>
+    <version.com.uber.nullaway>0.12.15</version.com.uber.nullaway>
     <version.jakarta.jakartaee-api>11.0.0</version.jakarta.jakartaee-api>
     <!-- https://search.maven.org/artifact/org.eclipse.persistence/eclipselink -->
     <!-- https://central.sonatype.com/artifact/org.eclipse.persistence/eclipselink/versions -->
@@ -97,6 +99,30 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.google.errorprone</groupId>
+        <artifactId>error_prone_parent</artifactId>
+        <version>${version.com.google.errorprone}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!--      <dependency>-->
+      <!--        <groupId>com.google.errorprone</groupId>-->
+      <!--        <artifactId>error_prone_core</artifactId>-->
+      <!--        <version>${version.com.google.errorprone}</version>-->
+      <!--      </dependency>-->
+      <dependency>
+        <groupId>com.uber.nullaway</groupId>
+        <artifactId>nullaway-bom</artifactId>
+        <version>${version.com.uber.nullaway}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!--      <dependency>-->
+      <!--        <groupId>com.uber.nullaway</groupId>-->
+      <!--        <artifactId>nullaway</artifactId>-->
+      <!--        <version>0.12.12</version>-->
+      <!--      </dependency>-->
       <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
@@ -196,7 +222,7 @@
     <dependency>
       <groupId>nl.jqno.equalsverifier</groupId>
       <artifactId>equalsverifier-nodep</artifactId>
-      <version>4.2.5</version>
+      <version>4.2.6</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -224,6 +250,14 @@
       <!-- https://central.sonatype.com/artifact/org.jboss.weld/weld-junit5/versions -->
       <version>5.0.3.Final</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jspecify</groupId>
+      <artifactId>jspecify</artifactId>
+      <version>1.0.0</version>
+      <!-- https://jspecify.dev/docs/using/ -->
+      <!-- they're saying: Avoid using provided or optional scope. -->
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
@@ -390,6 +424,16 @@
               <artifactId>lombok</artifactId>
               <version>${version.lombok}</version>
             </path>
+            <path>
+              <groupId>com.google.errorprone</groupId>
+              <artifactId>error_prone_core</artifactId>
+              <version>${version.com.google.errorprone}</version>
+            </path>
+            <path>
+              <groupId>com.uber.nullaway</groupId>
+              <artifactId>nullaway</artifactId>
+              <version>${version.com.uber.nullaway}</version>
+            </path>
           </annotationProcessorPaths>
           <compilerArgs>
             <arg>-Xlint</arg>
@@ -402,7 +446,7 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <Automatic-Module-Name>com.github.jinahya.oracle.employees.persistence</Automatic-Module-Name>
+              <Automatic-Module-Name>com.github.jinahya.rickandmortyapi.persistence</Automatic-Module-Name>
             </manifestEntries>
           </archive>
         </configuration>
@@ -419,7 +463,7 @@
             </goals>
             <configuration>
               <rules>
-                <dependencyConvergence />
+                <dependencyConvergence/>
               </rules>
             </configuration>
           </execution>
@@ -456,7 +500,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${version.maven-surefire}</version>
         <configuration>
-          <excludes />
+          <excludes/>
           <skipAfterFailureCount>1</skipAfterFailureCount>
           <systemPropertyVariables>
             <eclipselink.woven>${eclipselink.woven}</eclipselink.woven>
@@ -518,7 +562,7 @@
         <version>3.28.0</version>
         <configuration>
           <!-- Unsupported targetJdk value '21'. -->
-<!--          <skip>true</skip>-->
+          <!--          <skip>true</skip>-->
         </configuration>
       </plugin>
       <plugin>

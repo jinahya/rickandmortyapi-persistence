@@ -35,7 +35,8 @@ import java.time.Instant;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class InstantStringConverter extends _StringConverter<Instant> {
+public class InstantStringConverter
+        extends _StringConverter<Instant> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 

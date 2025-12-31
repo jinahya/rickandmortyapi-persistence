@@ -1,25 +1,5 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-/*-
- * #%L
- * rickandmortyapi-persistence
- * %%
- * Copyright (C) 2025 GitHub, Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
-
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -37,12 +17,11 @@ import java.util.Optional;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @see EpisodeCharacterId
- * @deprecated use {@link CharacterEpisode} instead
  */
-@Deprecated
 @Entity
 @Table(name = EpisodeCharacter.TABLE_NAME)
-public class EpisodeCharacter extends _BaseEntity<EpisodeCharacterId> {
+public class EpisodeCharacter
+        extends _BaseEntity<EpisodeCharacterId> {
 
     /**
      * The name of the database table to which this entity is mapped. The value is {@value}.
@@ -52,16 +31,14 @@ public class EpisodeCharacter extends _BaseEntity<EpisodeCharacterId> {
     // ------------------------------------------------------------------------------------------------------ episode_id
 
     /**
-     * The name of the table column to which the {@value EpisodeCharacter_#EPISODE} attribute maps. The value is
-     * {@value}.
+     * The name of the column to which the {@value EpisodeCharacterId_#EPISODE_ID} attribute maps.
      */
     public static final String COLUMN_NAME_EPISODE_ID = "episode_id";
 
     // ---------------------------------------------------------------------------------------------------- character_id
 
     /**
-     * The name of the table column to which the {@value EpisodeCharacter_#CHARACTER} attribute maps. The value is
-     * {@value}.
+     * The name of the column to which the {@value EpisodeCharacterId_#CHARACTER_ID} attribute maps.
      */
     public static final String COLUMN_NAME_CHARACTER_ID = "character_id";
 
@@ -172,6 +149,7 @@ public class EpisodeCharacter extends _BaseEntity<EpisodeCharacterId> {
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_EPISODE_ID,
+                referencedColumnName = Episode.COLUMN_NAME_ID,
                 nullable = false,
                 insertable = false,
                 updatable = false
@@ -183,6 +161,7 @@ public class EpisodeCharacter extends _BaseEntity<EpisodeCharacterId> {
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_CHARACTER_ID,
+                referencedColumnName = Character.COLUMN_NAME_ID,
                 nullable = false,
                 insertable = false,
                 updatable = false

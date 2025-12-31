@@ -36,7 +36,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-class Location_PersistenceTest extends _BaseEntity_PersistenceTest<Location, Integer> {
+class Location_PersistenceTest
+        extends _BaseEntity_PersistenceTest<Location, Integer> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     Location_PersistenceTest() {

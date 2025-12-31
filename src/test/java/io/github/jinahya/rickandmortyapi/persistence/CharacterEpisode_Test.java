@@ -23,7 +23,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
 
-class CharacterEpisode_Test extends _BaseEntity_Test<CharacterEpisode, CharacterEpisodeId> {
+class CharacterEpisode_Test
+        extends _BaseEntity_Test<CharacterEpisode, CharacterEpisodeId> {
 
     // -----------------------------------------------------------------------------------------------------------------
     CharacterEpisode_Test() {

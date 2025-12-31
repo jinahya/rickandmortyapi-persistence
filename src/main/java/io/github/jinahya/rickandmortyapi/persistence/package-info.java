@@ -11,6 +11,7 @@
  * @see io.github.jinahya.rickandmortyapi.persistence.LocationResident
  * @see <a href="https://github.com/jinahya/rickandmortyapi-db">rickandmortyapi-db</a>
  */
+@org.jspecify.annotations.NullMarked
 package io.github.jinahya.rickandmortyapi.persistence;
 /*-
  * #%L

@@ -1,25 +1,5 @@
 package io.github.jinahya.rickandmortyapi.persistence;
 
-/*-
- * #%L
- * rickandmortyapi-persistence
- * %%
- * Copyright (C) 2025 GitHub, Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * #L%
- */
-
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -33,13 +13,21 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * An entity class for the {@value LocationResident#TABLE_NAME} table.
+ * An entity class for mapping {@value LocationResident#TABLE_NAME} table.
+ *
+ * <p>This entity represents the many-to-many relationship between {@link Location} and
+ * {@link Character} entities, mapping to the {@code location_resident} join table. It provides explicit control over
+ * the relationship and enables bidirectional navigation between locations and their resident characters.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ * @see LocationResidentId
+ * @see Location
+ * @see Character
  */
 @Entity
 @Table(name = LocationResident.TABLE_NAME)
-public class LocationResident extends _BaseEntity<LocationResidentId> {
+public class LocationResident
+        extends _BaseEntity<LocationResidentId> {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.
@@ -49,7 +37,7 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@value LocationResident_#LOCATION} attribute maps. The value is
+     * The name of the table column to which the {@link LocationResident_#LOCATION} attributes maps. The value is
      * {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_ID = "location_id";
@@ -57,8 +45,8 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@value LocationResident_#RESIDENT} attribute maps. The value is
-     * {@value}.
+     * The name of the table column to which the {@link LocationResident_#RESIDENT} attributes maps. The value is
+     * {@value}.}
      */
     public static final String COLUMN_NAME_RESIDENT_ID = "resident_id";
 
@@ -133,8 +121,7 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
                         Optional.ofNullable(this.location)
                                 .map(Location::getId)
                                 .orElse(null)
-                )
-        ;
+                );
     }
 
     // -------------------------------------------------------------------------------------------------------- resident
@@ -156,8 +143,7 @@ public class LocationResident extends _BaseEntity<LocationResidentId> {
                         Optional.ofNullable(this.resident)
                                 .map(Character::getId)
                                 .orElse(null)
-                )
-        ;
+                );
     }
 
     // -----------------------------------------------------------------------------------------------------------------

@@ -21,12 +21,12 @@ package io.github.jinahya.rickandmortyapi.persistence;
  */
 
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.Size;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.util.Objects;
@@ -40,7 +40,11 @@ import java.util.Objects;
  * @see Character#getLocation()
  */
 @Embeddable
-public class Character_NameAndUrl extends __Base {
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
+public class Character_NameAndUrl
+        extends __Base {
 
     // -----------------------------------------------------------------------------------------------------------------
     private static final String COLUMN_NAME_NAME = "name";
@@ -89,9 +93,9 @@ public class Character_NameAndUrl extends __Base {
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * Returns current value of {@value NameAndUrl_#NAME} attribute.
+     * Returns current value of {@value Character_NameAndUrl_#NAME} attribute.
      *
-     * @return current value of the {@value NameAndUrl_#NAME} attribute.
+     * @return current value of the {@value Character_NameAndUrl_#NAME} attribute.
      */
     public String getName() {
         return name;
@@ -101,17 +105,12 @@ public class Character_NameAndUrl extends __Base {
         this.name = name;
     }
 
-    Character_NameAndUrl name(final String name) {
-        setName(name);
-        return this;
-    }
-
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * Returns current value of {@value NameAndUrl_#URL} attribute.
+     * Returns current value of {@value Character_NameAndUrl_#URL} attribute.
      *
-     * @return current value of the {@value NameAndUrl_#URL} attribute.
+     * @return current value of the {@value Character_NameAndUrl_#URL} attribute.
      */
     @Nullable
     public URL getUrl() {
@@ -122,21 +121,24 @@ public class Character_NameAndUrl extends __Base {
         this.url = url;
     }
 
-    Character_NameAndUrl url(@Nullable final URL url) {
-        setUrl(url);
-        return this;
-    }
-
     // -----------------------------------------------------------------------------------------------------------------
     @Nullable
     @Size(min = 1)
     @Basic(optional = true)
-    @Column(name = COLUMN_NAME_NAME, nullable = true, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_NAME,
+            nullable = true,
+            insertable = false,
+            updatable = false
+    )
     private String name;
 
     @Nullable
     @Convert(converter = UrlStringConverter.class)
     @Basic(optional = true)
-    @Column(name = COLUMN_NAME_URL, nullable = true, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_URL,
+            nullable = true,
+            insertable = false,
+            updatable = false
+    )
     private URL url;
 }

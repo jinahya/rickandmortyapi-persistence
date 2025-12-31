@@ -36,7 +36,8 @@ import java.util.function.Function;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public abstract class __BaseConverter<X, Y> implements AttributeConverter<X, Y> {
+public abstract class __BaseConverter<X, Y>
+        implements AttributeConverter<X, Y> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 

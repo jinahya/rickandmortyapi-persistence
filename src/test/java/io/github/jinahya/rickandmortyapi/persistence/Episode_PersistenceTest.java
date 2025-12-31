@@ -35,7 +35,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-class Episode_PersistenceTest extends _BaseEntity_PersistenceTest<Episode, Integer> {
+class Episode_PersistenceTest
+        extends _BaseEntity_PersistenceTest<Episode, Integer> {
 
     // -----------------------------------------------------------------------------------------------------------------
     Episode_PersistenceTest() {

@@ -31,7 +31,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class __ColumnEnumUtils_Test {
 
-    private enum Sample implements __ColumnEnum<Sample, Object> {
+    private enum Sample
+            implements __ColumnEnum<Sample, Object> {
         A(new Object()),
         B(new Object());
 

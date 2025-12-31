@@ -20,8 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.annotation.Nonnull;
-
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -39,7 +37,7 @@ final class __ColumnEnumUtils {
             E extends Enum<E> & __ColumnEnum<E, T>,
             T
             >
-    E valueOfColumnValue(@Nonnull final Class<E> enumClass, @Nonnull final T columnValue) {
+    E valueOfColumnValue(final Class<E> enumClass, final T columnValue) {
         if (!Objects.requireNonNull(enumClass, "enumClass is null").isEnum()) {
             throw new IllegalArgumentException("not an enum: " + enumClass);
         }

@@ -20,8 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.annotation.Nonnull;
-
 import java.util.Objects;
 
 /**
@@ -29,7 +27,8 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Location_Type implements _StringColumnEnum<Location_Type> {
+public enum Location_Type
+        implements _StringColumnEnum<Location_Type> {
 
     /**
      * A constant for the {@code "Acid Plant"} column value.
@@ -264,7 +263,6 @@ public enum Location_Type implements _StringColumnEnum<Location_Type> {
      * @param columnValue the value for the {@link #columnValue() columnValue} to match.
      * @return the matching value
      */
-    @Nonnull
     public static Location_Type valueOfColumnValue(final String columnValue) {
         return _StringColumnEnumUtils.valueOfColumnValue(Location_Type.class, columnValue);
     }
@@ -275,7 +273,6 @@ public enum Location_Type implements _StringColumnEnum<Location_Type> {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @Nonnull
     @Override
     public String columnValue() {
         return columnValue;

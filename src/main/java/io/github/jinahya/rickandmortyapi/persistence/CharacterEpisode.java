@@ -85,7 +85,7 @@ public class CharacterEpisode
     }
 
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         if (!(obj instanceof CharacterEpisode that)) {
             return false;
         }
@@ -93,7 +93,7 @@ public class CharacterEpisode
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return Objects.hashCode(getId());
     }
 
@@ -174,6 +174,7 @@ public class CharacterEpisode
     @NotNull
     @ManyToOne(optional = false, fetch = LAZY)
     @JoinColumn(name = COLUMN_NAME_CHARACTER_ID,
+                referencedColumnName = Character.COLUMN_NAME_ID,
                 nullable = false,
                 insertable = false,
                 updatable = false
@@ -185,6 +186,7 @@ public class CharacterEpisode
     @NotNull
     @ManyToOne(optional = false, fetch = LAZY)
     @JoinColumn(name = COLUMN_NAME_EPISODE_ID,
+                referencedColumnName = Episode.COLUMN_NAME_ID,
                 nullable = false,
                 insertable = false,
                 updatable = false

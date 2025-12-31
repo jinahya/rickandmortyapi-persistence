@@ -23,8 +23,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -44,6 +42,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.time.Instant;
@@ -79,7 +78,8 @@ import java.util.Objects;
         "java:S116", // Field names should comply with a naming convention
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
-public class Character extends _BaseEntity<Integer> {
+public class Character
+        extends _BaseEntity<Integer> {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.
@@ -167,8 +167,8 @@ public class Character extends _BaseEntity<Integer> {
     static final String PROPERTY_PATH_LOCATION_URL = "$.location.url";
 
     /**
-     * The name of the table column to which the {@value Character_#LOCATION}.{@value NameAndUrl_#URL} attribute maps.
-     * The value is {@value}.
+     * The name of the table column to which the {@value Character_#LOCATION}.{@value Character_NameAndUrl_#URL}
+     * attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_URL = "location_url";
 
@@ -514,9 +514,9 @@ public class Character extends _BaseEntity<Integer> {
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_ID,
             nullable = false,
-//            insertable = false,
-            insertable = true, // eclipselink
-            updatable = false)
+            insertable = false,
+            updatable = false
+    )
     private Integer id;
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -529,8 +529,12 @@ public class Character extends _BaseEntity<Integer> {
     )
     private String name;
 
+    /**
+     * An attribute for the {@value #COLUMN_NAME_STATUS} column.
+     *
+     * @see Character_StatusConverter
+     */
     @NotNull
-    @Convert(converter = Character_StatusConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_STATUS,
             nullable = false,
@@ -539,8 +543,12 @@ public class Character extends _BaseEntity<Integer> {
     )
     private Character_Status status;
 
+    /**
+     * An attribute for the {@value #COLUMN_NAME_SPECIES} column.
+     *
+     * @see Character_SpeciesConverter
+     */
     @NotNull
-    @Convert(converter = Character_SpeciesConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_SPECIES,
             nullable = false,
@@ -549,8 +557,12 @@ public class Character extends _BaseEntity<Integer> {
     )
     private Character_Species species;
 
+    /**
+     * An attribute for the {@value #COLUMN_NAME_TYPE} column.
+     *
+     * @see Character_TypeConverter
+     */
     @Nullable
-    @Convert(converter = Character_TypeConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_TYPE,
             nullable = true,
@@ -559,8 +571,12 @@ public class Character extends _BaseEntity<Integer> {
     )
     private Character_Type type;
 
+    /**
+     * An attribute for the {@value #COLUMN_NAME_GENDER} column.
+     *
+     * @see Character_GenderConverter
+     */
     @NotNull
-    @Convert(converter = Character_GenderConverter.class) // TODO: remove; the converter is an auto-applying one
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_GENDER,
             nullable = false,
@@ -607,7 +623,6 @@ public class Character extends _BaseEntity<Integer> {
     )
     private Character_NameAndUrl location;
 
-    @Nonnull
     @NotNull
     @Convert(converter = UrlStringConverter.class)
     @Basic(optional = false)
@@ -632,20 +647,33 @@ public class Character extends _BaseEntity<Integer> {
     @NotNull
     @Convert(converter = UrlStringConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false, unique = true)
+    @Column(name = COLUMN_NAME_URL,
+            nullable = false,
+            insertable = false,
+            updatable = false,
+            unique = true
+    )
     private URL url;
 
     @Past
     @NotNull
     @Convert(converter = InstantStringConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_CREATED, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_CREATED,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private Instant created;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Nullable
     @Valid
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true,
+               fetch = FetchType.LAZY,
+               cascade = {
+               }
+    )
     @JoinColumn(name = COLUMN_NAME_ORIGIN_ID_,
                 referencedColumnName = Location.COLUMN_NAME_ID,
                 nullable = true,
@@ -656,7 +684,11 @@ public class Character extends _BaseEntity<Integer> {
 
     @Nullable
     @Valid
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true,
+               fetch = FetchType.LAZY,
+               cascade = {
+               }
+    )
     @JoinColumn(name = COLUMN_NAME_LOCATION_ID_,
                 referencedColumnName = Location.COLUMN_NAME_ID,
                 nullable = true,

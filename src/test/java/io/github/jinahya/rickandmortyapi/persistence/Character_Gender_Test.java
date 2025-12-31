@@ -20,7 +20,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-class Character_Gender_Test extends _StringColumnEnum_Test<Character_Gender> {
+class Character_Gender_Test
+        extends _StringColumnEnum_Test<Character_Gender> {
 
     // -----------------------------------------------------------------------------------------------------------------
     Character_Gender_Test() {

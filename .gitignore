@@ -78,4 +78,6 @@ buildNumber.properties
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-ai
+# Analysis output and generated documents
+test_analysis_output/
+doc/reports/PERSISTENCE_ANALYSIS.md

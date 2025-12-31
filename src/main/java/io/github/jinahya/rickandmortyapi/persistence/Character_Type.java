@@ -20,8 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.annotation.Nonnull;
-
 import java.util.Objects;
 
 /**
@@ -29,7 +27,8 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Character_Type implements _StringColumnEnum<Character_Type> {
+public enum Character_Type
+        implements _StringColumnEnum<Character_Type> {
 
     /**
      * A constant for the {@code "Alligator-Person"} column value.
@@ -893,7 +892,6 @@ public enum Character_Type implements _StringColumnEnum<Character_Type> {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    @Nonnull
     @Override
     public String columnValue() {
         return columnValue;

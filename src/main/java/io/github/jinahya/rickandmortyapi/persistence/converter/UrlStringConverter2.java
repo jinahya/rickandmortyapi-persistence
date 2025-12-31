@@ -32,7 +32,8 @@ import java.net.URL;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class UrlStringConverter2 extends _StringConverter<URL> {
+public class UrlStringConverter2
+        extends _StringConverter<URL> {
 
     private static final AttributeConverter<URI, String> CONVERTER = new UriStringConverter();
 

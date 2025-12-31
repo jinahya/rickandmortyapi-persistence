@@ -32,7 +32,8 @@ import jakarta.persistence.MappedSuperclass;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public abstract class _BaseEntity<ID> extends __Base {
+public abstract class _BaseEntity<ID>
+        extends __Base {
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 

@@ -33,7 +33,8 @@ import java.time.LocalDate;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class LocalDateStringConverter extends _StringConverter<LocalDate> {
+public class LocalDateStringConverter
+        extends _StringConverter<LocalDate> {
 
     // -----------------------------------------------------------------------------------------------------------------
 
