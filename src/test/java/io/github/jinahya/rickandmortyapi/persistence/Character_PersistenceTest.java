@@ -21,7 +21,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  */
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Tuple;
 import jakarta.persistence.criteria.Fetch;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Root;
@@ -40,6 +39,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.ObjLongConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -191,6 +191,9 @@ class Character_PersistenceTest
     class Distributions_Test {
 
         static void __(final EntityManager em, final String attribute) {
+            final ObjLongConsumer<Object> printer = (v, c) -> {
+                log.info("{}: {}", String.format("%1$40s", v), String.format("%1$3d", c));
+            };
             if (ThreadLocalRandom.current().nextBoolean()) {
                 final var query =
                         """
@@ -199,58 +202,42 @@ class Character_PersistenceTest
                                 FROM Character c
                                 GROUP BY c.%1$s
                                 ORDER BY count DESC""".formatted(attribute);
-                final List<Object[]> results = em.createQuery(query, Object[].class).getResultList();
-                for (final var result : results) {
-                    final var value = result[0];
-                    final var count = (Long) result[1];
-                    log.info("{}: {}", String.format("%1$40s", value), String.format("%1$3d", count));
-                }
+                final var results = em.createQuery(query, Object[].class).getResultList();
+                results.forEach(r -> printer.accept(r[0], (Long) r[1]));
             } else {
                 final var builder = em.getCriteriaBuilder();
                 final var query = builder.createTupleQuery();
                 final var root = query.from(Character.class);
-                query.select(builder.tuple(root.get(attribute), builder.count(root)));
+                final var count = builder.count(root);
+                query.select(builder.tuple(root.get(attribute), count));
                 query.groupBy(root.get(attribute));
-                query.orderBy(builder.desc(builder.count(root)));
-                final List<Tuple> results = em.createQuery(query).getResultList();
-                for (final var result : results) {
-                    final var value = result.get(0, Object.class);
-                    final var count = result.get(1, Long.class);
-                    log.info("{}: {}", String.format("%1$40s", value), String.format("%1$3d", count));
-                }
+                query.orderBy(builder.desc(count));
+                final var results = em.createQuery(query).getResultList();
+                results.forEach(r -> printer.accept(
+                        r.get(0, Object.class),
+                        r.get(1, Long.class)
+                ));
             }
         }
 
         @Test
         void status() {
-            applyEntityManager(em -> {
-                __(em, Character_.STATUS);
-                return null;
-            });
+            acceptEntityManager(em -> __(em, Character_.STATUS));
         }
 
         @Test
         void species() {
-            applyEntityManager(em -> {
-                __(em, Character_.SPECIES);
-                return null;
-            });
+            acceptEntityManager(em -> __(em, Character_.SPECIES));
         }
 
         @Test
         void type() {
-            applyEntityManager(em -> {
-                __(em, Character_.TYPE);
-                return null;
-            });
+            acceptEntityManager(em -> __(em, Character_.TYPE));
         }
 
         @Test
         void gender() {
-            applyEntityManager(em -> {
-                __(em, Character_.GENDER);
-                return null;
-            });
+            acceptEntityManager(em -> __(em, Character_.GENDER));
         }
     }
 

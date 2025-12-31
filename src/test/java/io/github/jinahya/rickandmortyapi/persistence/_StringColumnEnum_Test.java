@@ -20,7 +20,9 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-abstract class _StringColumnEnum_Test<E extends Enum<E> & __ColumnEnum<E, String>>
+abstract class _StringColumnEnum_Test<
+        E extends Enum<E> & __ColumnEnum<E, String>
+        >
         extends __ColumnEnum_Test<E, String> {
 
     _StringColumnEnum_Test(final Class<E> enumClass) {

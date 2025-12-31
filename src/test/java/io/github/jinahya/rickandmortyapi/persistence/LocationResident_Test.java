@@ -33,10 +33,14 @@ class LocationResident_Test
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+    @Override
+    SingleTypeEqualsVerifierApi<LocationResident> createEqualsVerifier() {
+        return super.createEqualsVerifier();
+    }
 
     @Override
     SingleTypeEqualsVerifierApi<LocationResident> configureEqualsVerifier(
-            SingleTypeEqualsVerifierApi<LocationResident> verifier) {
+            final SingleTypeEqualsVerifierApi<LocationResident> verifier) {
         return super.configureEqualsVerifier(verifier)
                 .suppress(Warning.SURROGATE_KEY)
                 .withPrefabValues(Character.class, Character_Test.RED, Character_Test.BLUE)

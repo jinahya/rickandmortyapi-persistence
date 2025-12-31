@@ -22,6 +22,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
 
 import jakarta.annotation.Nonnull;
 import org.jspecify.annotations.NonNull;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
@@ -51,9 +52,11 @@ class _StringColumnEnumUtils_Test {
         private final String columnValue;
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+    @DisplayName("valueOfColumnValue(enumClass, columnValue)")
     @EnumSource(Sample.class)
     @ParameterizedTest
-    void __(final Sample sample) {
+    void valueOfColumnValue__(final Sample sample) {
         final var value = _StringColumnEnumUtils.valueOfColumnValue(Sample.class, sample.columnValue());
         assertThat(value).isSameAs(sample);
     }

@@ -26,9 +26,11 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
 import org.jboss.weld.junit5.auto.WeldJunit5AutoExtension;
+import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 @AddBeanClasses({
@@ -60,9 +62,28 @@ abstract class __Base_PersistenceTest<T extends __Base> {
      * @param <R>      result type parameter
      * @return the result of the {@code function}.
      * @see __JakartaPersistence_TestUtils#applyEntityManager(EntityManagerFactory, Function)
+     * @see #acceptEntityManager(Consumer)
      */
-    final <R> R applyEntityManager(final @Nonnull Function<? super EntityManager, ? extends R> function) {
-        return __JakartaPersistence_TestUtils.applyEntityManager(entityManagerFactory, function);
+    final <R> R applyEntityManager(@Nonnull final Function<? super EntityManager, ? extends R> function) {
+        Objects.requireNonNull(function, "function is null");
+        return __JakartaPersistence_TestUtils.applyEntityManager(
+                entityManagerFactory,
+                function
+        );
+    }
+
+    /**
+     * Accepts an entity manager to the specified consumer.
+     *
+     * @param consumer the consumer.
+     * @see #applyEntityManager(Function)
+     */
+    final void acceptEntityManager(@NonNull final Consumer<? super EntityManager> consumer) {
+        Objects.requireNonNull(consumer, "consumer is null");
+        applyEntityManager(em -> {
+            consumer.accept(em);
+            return null;
+        });
     }
 
     // -----------------------------------------------------------------------------------------------------------------

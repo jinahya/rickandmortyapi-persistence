@@ -31,6 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LocationResidentId_Test
         extends __Base_Test<LocationResidentId> {
 
+    @DisplayName("of(locationId, residentId)")
     @Test
     void of__() {
         // ------------------------------------------------------------------------------------------------------- given
@@ -50,6 +51,7 @@ class LocationResidentId_Test
         super(LocationResidentId.class);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     @DisplayName("compareTo(o)")
     @Nested
     class CompareTo_Test {
