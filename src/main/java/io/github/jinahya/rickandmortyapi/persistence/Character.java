@@ -46,6 +46,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.time.Instant;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -57,14 +58,21 @@ import java.util.Objects;
  * @see Episode
  * @see Location
  */
-@NamedQuery(name = "Character.selectList_NameEqual_",
+@NamedQuery(name = "Character.SelectList_NameLike_OrderByIdAsc",
+            query = """
+                    SELECT c
+                    FROM Character c
+                    WHERE c.name LIKE :namePattern
+                    ORDER BY c.id ASC"""
+)
+@NamedQuery(name = "Character.SelectList_NameEqual_OrderByIdAsc",
             query = """
                     SELECT c
                     FROM Character c
                     WHERE c.name = :name
                     ORDER BY c.id ASC"""
 )
-@NamedQuery(name = "Character.selectList__OrderByIdAsc",
+@NamedQuery(name = "Character.SelectList__OrderByIdAsc",
             query = """
                     SELECT c
                     FROM Character c
@@ -213,6 +221,13 @@ public class Character
      * The name of the table column to which the {@value Character_#LOCATION_} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_ID_ = "location_id_";
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * A comparator comparing {@link Character} instances by their {@link Character_#ID} attribute.
+     */
+    public static final Comparator<Character> COMPARING_ID = Comparator.comparingInt(Character::getId);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 

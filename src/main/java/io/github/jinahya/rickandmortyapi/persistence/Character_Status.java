@@ -69,6 +69,7 @@ public enum Character_Status
      *
      * @return the column value of this constant.
      */
+    @Override
     public String columnValue() {
         return columnValue;
     }

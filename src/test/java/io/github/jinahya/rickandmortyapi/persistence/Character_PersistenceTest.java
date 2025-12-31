@@ -27,7 +27,6 @@ import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -39,6 +38,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.IntFunction;
 import java.util.function.ObjLongConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -51,6 +51,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 })
 class Character_PersistenceTest
         extends _BaseEntity_PersistenceTest<Character, Integer> {
+
+    private static <R> R applyFirstResultAndMaxResults(final IntFunction<? extends IntFunction<? extends R>> function) {
+        Objects.requireNonNull(function, "function is null");
+        final var firstResult = ThreadLocalRandom.current().nextInt(0, _PersistenceConstants.NUMBER_OF_ALL_CHARACTERS);
+        final var maxResults = ThreadLocalRandom.current().nextInt(1, 100);
+        return function.apply(firstResult).apply(maxResults);
+    }
+
+    private static Stream<Arguments> getFirstResultAndMaxResultsArgumentsStream() {
+        return applyFirstResultAndMaxResults(fr -> mr -> Stream.of(Arguments.of(fr, mr)));
+    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     Character_PersistenceTest() {
@@ -187,13 +198,166 @@ class Character_PersistenceTest
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+    @DisplayName("SelectList__OrderByIdAsc")
     @Nested
-    class Distributions_Test {
+    class SelectList__OrderByIdAsc_Test {
 
-        static void __(final EntityManager em, final String attribute) {
-            final ObjLongConsumer<Object> printer = (v, c) -> {
-                log.info("{}: {}", String.format("%1$40s", v), String.format("%1$3d", c));
-            };
+        private static Stream<Arguments> arguments() {
+            return getFirstResultAndMaxResultsArgumentsStream();
+        }
+
+        private static void verify(final int firstResult, final int maxResults, final List<Character> entityList) {
+            assertThat(entityList)
+                    .isNotNull()
+                    .isNotEmpty()
+                    .doesNotContainNull()
+                    .doesNotHaveDuplicates()
+                    .hasSizeLessThanOrEqualTo(maxResults)
+                    .isSortedAccordingTo(Character.COMPARING_ID)
+                    .satisfies(l -> {
+                        assertThat(l.getFirst().getId()).isEqualTo(firstResult + 1);
+                    })
+                    .extracting(Character::getId)
+                    .isSorted()
+            ;
+        }
+
+        @MethodSource({"arguments"})
+        @ParameterizedTest(name = "[{index}] firstResult: {0}, maxResults: {1}")
+        void namedQuery__(final int firstResult, final int maxResults) {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var entityList = applyEntityManager(em -> {
+                final var query = em.createNamedQuery("Character.SelectList__OrderByIdAsc", entityClass);
+                query.setFirstResult(firstResult);
+                query.setMaxResults(maxResults);
+                return query.getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            verify(firstResult, maxResults, entityList);
+        }
+
+        @MethodSource({"arguments"})
+        @ParameterizedTest(name = "[{index}] firstResult: {0}, maxResults: {1}")
+        void queryLanguage__(final int firstResult, final int maxResults) {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var entityList = applyEntityManager(em -> {
+                final var query = em.createQuery("SELECT c FROM Character c ORDER BY c.id ASC", entityClass);
+                query.setFirstResult(firstResult);
+                query.setMaxResults(maxResults);
+                return query.getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            verify(firstResult, maxResults, entityList);
+        }
+
+        @MethodSource({"arguments"})
+        @ParameterizedTest(name = "[{index}] firstResult: {0}, maxResults: {1}")
+        void criteriaApi__(final int firstResult, final int maxResults) {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var entityList = applyEntityManager(em -> {
+                final var builder = em.getCriteriaBuilder();
+                final var query = builder.createQuery(entityClass);
+                final var root = query.from(entityClass);
+                query.select(root);
+                query.orderBy(builder.asc(root.get(Character_.id)));
+                return em.createQuery(query)
+                        .setFirstResult(firstResult)
+                        .setMaxResults(maxResults)
+                        .getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            verify(firstResult, maxResults, entityList);
+        }
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @DisplayName("SelectList_NameEqual_OrderByIdAsc")
+    @Nested
+    class SelectList_NameEqual_OrderByIdAsc_Test {
+
+        private static Stream<String> arguments() {
+            return Stream.of(
+                    "Rick Sanchez",
+                    "Morty Smith"
+            );
+        }
+
+        private static void verify(final String name, final List<Character> entityList) {
+            assertThat(entityList)
+                    .isNotNull()
+                    .isNotEmpty()
+                    .doesNotContainNull()
+                    .doesNotHaveDuplicates()
+                    .isSortedAccordingTo(Character.COMPARING_ID)
+                    .extracting(Character::getName)
+                    .containsOnly(name)
+            ;
+        }
+
+        @MethodSource({"arguments"})
+        @ParameterizedTest(name = "[{index}] name: {0}")
+        void namedQuery__(final String name) {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var entityList = applyEntityManager(em -> {
+                final var query = em.createNamedQuery("Character.SelectList_NameEqual_OrderByIdAsc", entityClass);
+                query.setParameter("name", name);
+                return query.getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            verify(name, entityList);
+        }
+
+        @MethodSource({"arguments"})
+        @ParameterizedTest(name = "[{index}] name: {0}")
+        void queryLanguage__(final String name) {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var entityList = applyEntityManager(em -> {
+                final var query = em.createQuery(
+                        """
+                                SELECT c
+                                FROM Character c
+                                WHERE c.name = :name
+                                ORDER BY c.id ASC""",
+                        entityClass
+                );
+                query.setParameter("name", name);
+                return query.getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            verify(name, entityList);
+        }
+
+        @MethodSource({"arguments"})
+        @ParameterizedTest(name = "[{index}] name: {0}")
+        void criteriaApi__(final String name) {
+            // ---------------------------------------------------------------------------------------------------- when
+            final var entityList = applyEntityManager(em -> {
+                final var builder = em.getCriteriaBuilder();
+                final var query = builder.createQuery(entityClass);
+                final var root = query.from(entityClass);
+                query.select(root);
+                query.where(builder.equal(root.get(Character_.name), name));
+                query.orderBy(builder.asc(root.get(Character_.id)));
+                return em.createQuery(query).getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            verify(name, entityList);
+        }
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    @ValueSource(strings = {
+            Character_.STATUS,
+            Character_.SPECIES,
+            Character_.TYPE,
+            Character_.GENDER
+    })
+    @ParameterizedTest
+    void distribution__(final String attribute) {
+        final ObjLongConsumer<Object> printer = (v, c) -> {
+            log.info("{}: {}", String.format("%1$40s", v), String.format("%1$3d", c));
+        };
+        acceptEntityManager(em -> {
             if (ThreadLocalRandom.current().nextBoolean()) {
                 final var query =
                         """
@@ -218,27 +382,7 @@ class Character_PersistenceTest
                         r.get(1, Long.class)
                 ));
             }
-        }
-
-        @Test
-        void status() {
-            acceptEntityManager(em -> __(em, Character_.STATUS));
-        }
-
-        @Test
-        void species() {
-            acceptEntityManager(em -> __(em, Character_.SPECIES));
-        }
-
-        @Test
-        void type() {
-            acceptEntityManager(em -> __(em, Character_.TYPE));
-        }
-
-        @Test
-        void gender() {
-            acceptEntityManager(em -> __(em, Character_.GENDER));
-        }
+        });
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -268,8 +412,7 @@ class Character_PersistenceTest
                 return em.createQuery(
                                 """
                                         SELECT c
-                                        FROM Character c
-                                        JOIN c.episodes_ ce
+                                        FROM Character c JOIN c.episodes_ ce
                                         WHERE ce IN (:episodeList)
                                         GROUP BY c
                                         HAVING COUNT(DISTINCT ce) = :episodeSize
