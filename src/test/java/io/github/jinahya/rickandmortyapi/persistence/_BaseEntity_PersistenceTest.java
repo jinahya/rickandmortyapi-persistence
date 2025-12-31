@@ -60,9 +60,9 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID>
     void selectAll__() {
         applyEntityManager(em -> {
             final var entityList = __JakartaPersistence_TestUtils.selectAll(
-                    em,
-                    entityClass,
-                    this::selectAll__
+                    em,               // <entityManager>
+                    entityClass,      // <entityClass>
+                    this::selectAll__ // <rootConsumer>
             );
             selectAll__(em, entityList);
             return entityList;

@@ -108,6 +108,11 @@ public class Episode
      */
     public static final String COLUMN_NAME_ID = "id";
 
+    /**
+     * The name of the entity attribute from which the {@value COLUMN_NAME_ID} column maps. The value is {@value}.
+     */
+    public static final String ATTRIBUTE_NAME_ID = "id";
+
     // ------------------------------------------------------------------------------------------------------------ name
 
     /**

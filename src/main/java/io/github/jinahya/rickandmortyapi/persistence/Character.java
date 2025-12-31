@@ -36,6 +36,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -713,6 +714,7 @@ public class Character
     private Location location_;
 
     // -----------------------------------------------------------------------------------------------------------------
+    @OrderBy(Episode.ATTRIBUTE_NAME_ID + " ASC")
     @ManyToMany(fetch = FetchType.LAZY,
                 cascade = {
                 }

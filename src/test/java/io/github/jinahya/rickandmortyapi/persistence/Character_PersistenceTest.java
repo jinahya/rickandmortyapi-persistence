@@ -72,8 +72,9 @@ class Character_PersistenceTest
     @Override
     void selectAll__(final Root<Character> root) {
         super.selectAll__(root);
-        final Fetch<Character, Location> origin_Fetch = root.fetch(Character_.origin_, JoinType.LEFT);
-        final Fetch<Character, Location> location_Fetch = root.fetch(Character_.location_, JoinType.LEFT);
+        final Fetch<Character, Location> origin__Fetch = root.fetch(Character_.origin_, JoinType.LEFT);
+        final Fetch<Character, Location> location__Fetch = root.fetch(Character_.location_, JoinType.LEFT);
+        final Fetch<Character, Episode> episodes__Fetch = root.fetch(Character_.episodes_, JoinType.LEFT);
     }
 
     @Override
@@ -86,68 +87,59 @@ class Character_PersistenceTest
             final var defined = EnumSet.allOf(Character_Status.class);
             final var selected = entityList.stream()
                     .map(Character::getStatus)
-                    .distinct()
-                    .collect(Collectors.toCollection(
-                            () -> EnumSet.noneOf(Character_Status.class)));
+                    .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character_Status.class)));
             assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Species.class);
             final var selected = entityList.stream()
                     .map(Character::getSpecies)
-                    .distinct()
-                    .collect(Collectors.toCollection(
-                            () -> EnumSet.noneOf(Character_Species.class)));
+                    .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character_Species.class)));
             assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Type.class);
             final var selected = entityList.stream()
-                    .map(Character::getType).filter(Objects::nonNull)
-                    .distinct()
-                    .collect(
-                            Collectors.toCollection(() -> EnumSet.noneOf(Character_Type.class)));
+                    .map(Character::getType)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character_Type.class)));
             assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Gender.class);
             final var selected = entityList.stream()
                     .map(Character::getGender)
-                    .distinct()
-                    .collect(Collectors.toCollection(
-                            () -> EnumSet.noneOf(Character_Gender.class)));
+                    .collect(Collectors.toCollection(() -> EnumSet.noneOf(Character_Gender.class)));
             assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
-        entityList.forEach(character -> {
-            Optional.ofNullable(character.getOrigin()).ifPresent(origin -> {
-                assertThat(character.getOrigin_()).isNotNull().satisfies(origin_ -> {
-                    assertThat(origin_.getName()).isEqualTo(origin.getName());
-                    assertThat(origin_.getUrl()).isEqualTo(origin.getUrl());
-                })
-                ;
+        entityList.forEach(c -> {
+            // origin != null ? -> origin_ != null && name/url equals
+            Optional.ofNullable(c.getOrigin()).ifPresent(o -> {
+                assertThat(c.getOrigin_()).isNotNull().satisfies(o_ -> {
+                    assertThat(o_.getName()).isEqualTo(o.getName());
+                    assertThat(o_.getUrl()).isEqualTo(o.getUrl());
+                });
             });
-            Optional.ofNullable(character.getOrigin_()).ifPresent(origin_ -> {
-                assertThat(character.getOrigin()).isNotNull().satisfies(origin -> {
-                    assertThat(origin.getName()).isEqualTo(origin_.getName());
-                    assertThat(origin.getUrl()).isEqualTo(origin_.getUrl());
-                })
-                ;
+            // origin_ != null ? -> origin != null && name/url equals
+            Optional.ofNullable(c.getOrigin_()).ifPresent(o_ -> {
+                assertThat(c.getOrigin()).isNotNull().satisfies(o -> {
+                    assertThat(o.getName()).isEqualTo(o_.getName());
+                    assertThat(o.getUrl()).isEqualTo(o_.getUrl());
+                });
             });
-        });
-        entityList.forEach(character -> {
-            Optional.ofNullable(character.getLocation()).ifPresent(location -> {
-                assertThat(character.getLocation_()).isNotNull().satisfies(location_ -> {
-                    assertThat(location_.getName()).isEqualTo(location.getName());
-                    assertThat(location_.getUrl()).isEqualTo(location.getUrl());
-                })
-                ;
+            // location != null ? -> location_ != null && name/url equals
+            Optional.ofNullable(c.getLocation()).ifPresent(l -> {
+                assertThat(c.getLocation_()).isNotNull().satisfies(l_ -> {
+                    assertThat(l_.getName()).isEqualTo(l.getName());
+                    assertThat(l_.getUrl()).isEqualTo(l.getUrl());
+                });
             });
-            Optional.ofNullable(character.getLocation_()).ifPresent(location_ -> {
-                assertThat(character.getLocation()).isNotNull().satisfies(location -> {
-                    assertThat(location.getName()).isEqualTo(location_.getName());
-                    assertThat(location.getUrl()).isEqualTo(location_.getUrl());
-                })
-                ;
+            // location_ != null ? -> location != null && name/url equals
+            Optional.ofNullable(c.getLocation_()).ifPresent(l_ -> {
+                assertThat(c.getLocation()).isNotNull().satisfies(l -> {
+                    assertThat(l.getName()).isEqualTo(l_.getName());
+                    assertThat(l.getUrl()).isEqualTo(l_.getUrl());
+                });
             });
         });
     }
@@ -162,16 +154,14 @@ class Character_PersistenceTest
     })
     @ParameterizedTest
     void _originIsNull_BothOriginNameAndOriginUrlAreNull(final int id) {
-        applyEntityManager(em -> {
+        acceptEntityManager(em -> {
             final var found = em.find(entityClass, id);
             assertThat(found)
                     .isNotNull()
                     .satisfies(v -> {
                         assertThat(v.getOrigin()).isNull();
                         assertThat(v.getOrigin_()).isNull();
-                    })
-            ;
-            return null;
+                    });
         });
     }
 
@@ -184,16 +174,14 @@ class Character_PersistenceTest
     })
     @ParameterizedTest
     void _locationIsNull_BothLocationNameAndLocationUrlAreNull(final int id) {
-        applyEntityManager(em -> {
+        acceptEntityManager(em -> {
             final var found = em.find(entityClass, id);
             assertThat(found)
                     .isNotNull()
                     .satisfies(v -> {
                         assertThat(v.getLocation()).isNull();
                         assertThat(v.getLocation_()).isNull();
-                    })
-            ;
-            return null;
+                    });
         });
     }
 

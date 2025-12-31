@@ -49,6 +49,12 @@ class Episode_Test
     static final Episode BLUE = new Episode().id(2);
 
     // -----------------------------------------------------------------------------------------------------------------
+    @Test
+    void ATTRIBUTE_NAME_ID__() {
+        assertThat(Episode.ATTRIBUTE_NAME_ID).isEqualTo(Episode_.ID);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
     @DisplayName("episodeOf(seasonNumber, episodeNumber)")
     @Nested
     class EpisodeOf_Test {
