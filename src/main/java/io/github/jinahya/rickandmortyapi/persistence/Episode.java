@@ -104,12 +104,16 @@ public class Episode
     // -------------------------------------------------------------------------------------------------------------- id
 
     /**
-     * The name of the table column to which the {@value Episode_#ID} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@value #ATTRIBUTE_NAME_ID} attribute maps. The value is {@value}.
+     *
+     * @see Episode_#ID
      */
     public static final String COLUMN_NAME_ID = "id";
 
     /**
      * The name of the entity attribute from which the {@value COLUMN_NAME_ID} column maps. The value is {@value}.
+     *
+     * @see Episode_#ID
      */
     public static final String ATTRIBUTE_NAME_ID = "id";
 
