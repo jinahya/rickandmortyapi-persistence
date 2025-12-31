@@ -8,9 +8,9 @@ This section provides a detailed analysis of code quality issues found in the `s
 
 ### Summary
 
-- **Total Issues Found**: 5
+- **Total Issues Found**: 4
 - **Critical Issues**: 0 ✅
-- **Warnings**: 5
+- **Warnings**: 4
 
 ---
 
@@ -96,37 +96,7 @@ private void doOnPostRemove() {
 
 ---
 
-### 4. Commented-Out Code (Episode.java)
-
-**Location**: `src/main/java/io/github/jinahya/rickandmortyapi/persistence/Episode.java`
-
-**Lines**: 600-605 (approximately)
-
-**Issue**: There's commented-out code related to `@JoinTable` using `EpisodeCharacter.TABLE_NAME`:
-
-```java
-//    @JoinTable(name = EpisodeCharacter.TABLE_NAME,
-//               joinColumns = {
-//                       @JoinColumn(name = EpisodeCharacter.COLUMN_NAME_EPISODE_ID)
-//               },
-//               inverseJoinColumns = {
-//                       @JoinColumn(name = EpisodeCharacter.COLUMN_NAME_CHARACTER_ID)
-//               }
-//    )
-```
-
-**Impact**: Low - Commented code can be confusing
-
-**Recommendation**: 
-- Remove if no longer needed
-- Or add a comment explaining why it's kept
-- Or uncomment if it should be active
-
-**Status**: ⚠️ **WARNING**
-
----
-
-### 5. Unused Converter Classes
+### 4. Unused Converter Classes
 
 **Location**: 
 - `src/main/java/io/github/jinahya/rickandmortyapi/persistence/converter/UrlStringConverter2.java`
@@ -153,24 +123,13 @@ private void doOnPostRemove() {
 #### Warnings
 1. Empty utility class (_PersistenceUtils)
 2. Deprecated class still in use (EpisodeCharacter)
-3. Commented-out code (Episode.java)
-4. Empty lifecycle callback methods (4 methods in Episode.java)
-5. Unused converter classes (UrlStringConverter2, UrlListStringConverter2)
+3. Empty lifecycle callback methods (4 methods in Episode.java)
+4. Unused converter classes (UrlStringConverter2, UrlListStringConverter2)
 
 #### Documentation Status
 ✅ **Complete**: All active public and protected classes, interfaces, and methods have comprehensive Javadoc documentation.
 
-**Completed Items**:
-- ✅ `LocationResident` - Entity class and all public methods (`getId()`, `getLocation()`, `getResident()`)
-- ✅ `Location.setUrl()` - Public setter method with usage context
-- ✅ `UrlListStringConverter` - Class, constructor, and both converter methods (`convertToDatabaseColumn`, `convertToEntityAttribute`)
-- ✅ `UriListStringConverter` - Class, constructor, and both converter methods
-- ✅ `__ListConverter` - Interface with type parameter documentation
-- ✅ `Location_TypeConverter` - Fixed malformed Javadoc (corrected `@author` tag)
-
-**Remaining Items** (Unused - should be removed):
-- ⚠️ `UrlStringConverter2` - Unused class, should be removed
-- ⚠️ `UrlListStringConverter2` - Unused class, should be removed
+**Note**: Unused classes (`UrlStringConverter2`, `UrlListStringConverter2`) should be removed rather than documented.
 
 ---
 
@@ -183,24 +142,13 @@ private void doOnPostRemove() {
    - Method-level Javadoc with parameter and return descriptions
    - Converter method documentation explaining conversion behavior and null handling
    - Relationship documentation noting lazy loading where applicable
-   
-   **Documented Items**:
-   - ✅ `LocationResident` entity class and all public methods
-   - ✅ `Location.setUrl()` public setter method
-   - ✅ `UrlListStringConverter` class, constructor, and all methods
-   - ✅ `UriListStringConverter` class, constructor, and all methods
-   - ✅ `__ListConverter` interface with type parameter documentation
-   - ✅ `Location_TypeConverter` (fixed malformed Javadoc)
-   
-   **Note**: Unused classes (`UrlStringConverter2`, `UrlListStringConverter2`) should be removed rather than documented.
 
 ### Architecture Improvements
 
 1. **Resolve Deprecated Classes**: Either fully deprecate `EpisodeCharacter` or document why it's still needed (see [Issue #2](#2-deprecated-class-still-in-use-episodecharacterjava)).
-2. **Clean Up Commented Code**: Remove or document commented-out `@JoinTable` code in Episode.java (see [Issue #4](#4-commented-out-code-episodejava)).
-3. **Remove Unused Code**: Clean up unused converter classes (`UrlStringConverter2`, `UrlListStringConverter2`) or document their purpose (see [Issue #5](#5-unused-converter-classes)).
-4. **Consolidate Join Tables**: Evaluate if both `character_episode` and `episode_character` are necessary. Consider deprecating `EpisodeCharacter` if `CharacterEpisode` is preferred.
-5. **Implement Optimistic Locking**: Add `@Version` fields if write operations are planned.
+2. **Remove Unused Code**: Clean up unused converter classes (`UrlStringConverter2`, `UrlListStringConverter2`) or document their purpose (see [Issue #4](#4-unused-converter-classes)).
+3. **Consolidate Join Tables**: Evaluate if both `character_episode` and `episode_character` are necessary. Consider deprecating `EpisodeCharacter` if `CharacterEpisode` is preferred.
+4. **Implement Optimistic Locking**: Add `@Version` fields if write operations are planned.
 
 ### Performance Optimizations
 

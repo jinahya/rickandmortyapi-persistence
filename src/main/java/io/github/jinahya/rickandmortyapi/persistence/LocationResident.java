@@ -16,9 +16,8 @@ import java.util.Optional;
  * An entity class for mapping {@value LocationResident#TABLE_NAME} table.
  *
  * <p>This entity represents the many-to-many relationship between {@link Location} and
- * {@link Character} entities, mapping to the {@code location_resident} join table.
- * It provides explicit control over the relationship and enables bidirectional
- * navigation between locations and their resident characters.
+ * {@link Character} entities, mapping to the {@code location_resident} join table. It provides explicit control over
+ * the relationship and enables bidirectional navigation between locations and their resident characters.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @see LocationResidentId
@@ -30,12 +29,25 @@ import java.util.Optional;
 public class LocationResident
         extends _BaseEntity<LocationResidentId> {
 
+    /**
+     * The name of the database table to which this entity class maps. The value is {@value}.
+     */
     public static final String TABLE_NAME = "location_resident";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@link LocationResident_#LOCATION} attributes maps. The value is
+     * {@value}.
+     */
     public static final String COLUMN_NAME_LOCATION_ID = "location_id";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@link LocationResident_#RESIDENT} attributes maps. The value is
+     * {@value}.}
+     */
     public static final String COLUMN_NAME_RESIDENT_ID = "resident_id";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -75,9 +87,6 @@ public class LocationResident
     /**
      * Returns current value of {@value LocationResident_#ID} attribute.
      *
-     * <p>The ID is a composite primary key containing both the location ID and resident ID
-     * that uniquely identify this relationship.
-     *
      * @return current value of the {@value LocationResident_#ID} attribute.
      */
     public LocationResidentId getId() {
@@ -97,9 +106,6 @@ public class LocationResident
 
     /**
      * Returns current value of {@value LocationResident_#LOCATION} attribute.
-     *
-     * <p>This method returns the location entity associated with this relationship entry.
-     * The relationship is lazily loaded for performance optimization.
      *
      * @return current value of the {@value LocationResident_#LOCATION} attribute.
      */
@@ -122,9 +128,6 @@ public class LocationResident
 
     /**
      * Returns current value of {@value LocationResident_#RESIDENT} attribute.
-     *
-     * <p>This method returns the character entity (resident) associated with this
-     * relationship entry. The relationship is lazily loaded for performance optimization.
      *
      * @return current value of the {@value LocationResident_#RESIDENT} attribute.
      */

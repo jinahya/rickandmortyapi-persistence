@@ -4,7 +4,6 @@ import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConv
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import jakarta.persistence.Basic;
-import org.jspecify.annotations.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -19,6 +18,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.time.Instant;
@@ -53,416 +53,45 @@ public class Location
     public static final String COLUMN_NAME_ID = "id";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@link Location_#NAME} attributes maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_NAME = "name";
 
     // ------------------------------------------------------------------------------------------------------------ type
+
+    /**
+     * The name of the table column to which the {@link Location_#TYPE} attributes maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_TYPE = "type";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_ACID_PLANT = "Acid Plant";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_ARCADE = "Arcade";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_ARTIFICIALLY_GENERATED_WORLD = "Artificially generated world";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_ASTEROID = "Asteroid";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_BASE = "Base";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_BOX = "Box";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_CLUSTER = "Cluster";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_CONSCIOUSNESS = "Consciousness";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_CONVENTION = "Convention";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_COUNTRY = "Country";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_CUSTOMS = "Customs";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_DAYCARE = "Daycare";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_DEATH_STAR = "Death Star";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_DIEGESIS = "Diegesis";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_DIMENSION = "Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_DREAM = "Dream";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_DWARF_PLANET_CELESTIAL_DWARF = "Dwarf planet (Celestial Dwarf)";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_ELEMENTAL_RINGS = "Elemental Rings";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_FANTASY_TOWN = "Fantasy town";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_GAME = "Game";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_HELL = "Hell";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_HUMAN = "Human";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_LIQUID = "Liquid";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_MACHINE = "Machine";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_MEMORY = "Memory";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_MENAGERIE = "Menagerie";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_MICROVERSE = "Microverse";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_MINIVERSE = "Miniverse";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_MOUNT = "Mount";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_NIGHTMARE = "Nightmare";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_NON_DIEGETIC_ALTERNATIVE_REALITY = "Non-Diegetic Alternative Reality";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_PLANET = "Planet";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_POLICE_DEPARTMENT = "Police Department";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_QUADRANT = "Quadrant";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_QUASAR = "Quasar";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_REALITY = "Reality";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_RESORT = "Resort";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_SPA = "Spa";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_SPACE = "Space";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_SPACE_STATION = "Space station";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_SPACECRAFT = "Spacecraft";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_TV = "TV";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_TEENYVERSE = "Teenyverse";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_WOODS = "Woods";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_TYPE} column.
-     */
-    public static final String COLUMN_VALUE_TYPE_UNKNOWN = "unknown";
 
     // ------------------------------------------------------------------------------------------------------- dimension
 
     /**
-     * The name of the table column to which the {@link Location_#NAME} attributes maps.
+     * The name of the table column to which the {@link Location_#NAME} attributes maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_DIMENSION = "dimension";
 
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_CHAIR_DIMENSION = "Chair Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_CROMULON_DIMENSION = "Cromulon Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_CRONENBERG_DIMENSION = "Cronenberg Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_5_126 = "Dimension 5-126";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_C_137 = "Dimension C-137";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_C_35 = "Dimension C-35";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_C_500A = "Dimension C-500A";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_D_99 = "Dimension D-99";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_D716 = "Dimension D716";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_D716_B = "Dimension D716-B";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_D716_C = "Dimension D716-C";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_J_22 = "Dimension J-22";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_J19_ZETA_7 = "Dimension J19ζ7";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_K_22 = "Dimension K-22";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_DIMENSION_K_83 = "Dimension K-83";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_ERIC_STOLTZ_MASK_DIMENSION = "Eric Stoltz Mask Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_EVIL_RICKS_TARGET_DIMENSION = "Evil Rick's Target Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_FANTASY_DIMENSION = "Fantasy Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_FASCIST_DIMENSION = "Fascist Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_FASCIST_SHRIMP_DIMENSION = "Fascist Shrimp Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_FASCIST_TEDDY_BEAR_DIMENSION = "Fascist Teddy Bear Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_GIANT_TELEPATHIC_SPIDERS_DIMENSION =
-            "Giant Telepathic Spiders Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_MAGIC_DIMENSION = "Magic Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_MERGED_DIMENSION = "Merged Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_PHONE_DIMENSION = "Phone Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_PIZZA_DIMENSION = "Pizza Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_POST_APOCALYPTIC_DIMENSION = "Post-Apocalyptic Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_REPLACEMENT_DIMENSION = "Replacement Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_TESTICLE_MONSTER_DIMENSION = "Testicle Monster Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_TUSK_DIMENSION = "Tusk Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_UNKNOWN_DIMENSION = "Unknown dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_WASP_DIMENSION = "Wasp Dimension";
-
-    /**
-     * A column value of {@value} for the {@value #COLUMN_NAME_DIMENSION} column.
-     */
-    public static final String COLUMN_VALUE_DIMENSION_UNKNOWN = "unknown";
-
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@link Location_#RESIDENTS} attributes maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_RESIDENTS = "residents";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@link Location_#URL} attributes maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_URL = "url";
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * The name of the table column to which the {@link Location_#CREATED} attributes maps. The value is {@value}.
+     */
     public static final String COLUMN_NAME_CREATED = "created";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -698,8 +327,12 @@ public class Location
     )
     private Location_Type type;
 
+    /**
+     * An attribute maps to the {@value #COLUMN_NAME_DIMENSION} column.
+     *
+     * @see Location_DimensionConverter
+     */
     @Nullable
-//    @Convert(converter = DimensionConverter.class)
     @Basic(optional = true)
     @Column(name = COLUMN_NAME_DIMENSION,
             nullable = true,
@@ -716,7 +349,7 @@ public class Location
             insertable = false,
             updatable = false
     )
-    private List<URL> residents;
+    private List<@NotNull URL> residents;
 
     // -----------------------------------------------------------------------------------------------------------------
     @NotNull

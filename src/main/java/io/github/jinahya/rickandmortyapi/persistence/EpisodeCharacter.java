@@ -149,6 +149,7 @@ public class EpisodeCharacter
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_EPISODE_ID,
+                referencedColumnName = Episode.COLUMN_NAME_ID,
                 nullable = false,
                 insertable = false,
                 updatable = false
@@ -160,6 +161,7 @@ public class EpisodeCharacter
     @NotNull
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = COLUMN_NAME_CHARACTER_ID,
+                referencedColumnName = Character.COLUMN_NAME_ID,
                 nullable = false,
                 insertable = false,
                 updatable = false

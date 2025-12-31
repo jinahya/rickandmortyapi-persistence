@@ -647,20 +647,33 @@ public class Character
     @NotNull
     @Convert(converter = UrlStringConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_URL, nullable = false, insertable = false, updatable = false, unique = true)
+    @Column(name = COLUMN_NAME_URL,
+            nullable = false,
+            insertable = false,
+            updatable = false,
+            unique = true
+    )
     private URL url;
 
     @Past
     @NotNull
     @Convert(converter = InstantStringConverter.class)
     @Basic(optional = false)
-    @Column(name = COLUMN_NAME_CREATED, nullable = false, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_CREATED,
+            nullable = false,
+            insertable = false,
+            updatable = false
+    )
     private Instant created;
 
     // -----------------------------------------------------------------------------------------------------------------
     @Nullable
     @Valid
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true,
+               fetch = FetchType.LAZY,
+               cascade = {
+               }
+    )
     @JoinColumn(name = COLUMN_NAME_ORIGIN_ID_,
                 referencedColumnName = Location.COLUMN_NAME_ID,
                 nullable = true,
@@ -671,7 +684,11 @@ public class Character
 
     @Nullable
     @Valid
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true,
+               fetch = FetchType.LAZY,
+               cascade = {
+               }
+    )
     @JoinColumn(name = COLUMN_NAME_LOCATION_ID_,
                 referencedColumnName = Location.COLUMN_NAME_ID,
                 nullable = true,

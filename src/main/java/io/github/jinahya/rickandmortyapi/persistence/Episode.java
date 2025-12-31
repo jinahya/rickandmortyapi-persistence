@@ -495,8 +495,6 @@ public class Episode
 
     // -----------------------------------------------------------------------------------------------------------------
     @Positive
-    @Valid
-    @NotNull
     @Id
     @Basic(optional = false)
     @Column(name = COLUMN_NAME_ID,
@@ -593,19 +591,7 @@ public class Episode
     private LocalDate airDateIso_;
 
     // -----------------------------------------------------------------------------------------------------------------
-//    @ManyToMany(fetch = FetchType.LAZY,
-//                cascade = {
-//                }
-//    )
-//    @JoinTable(name = EpisodeCharacter.TABLE_NAME,
-//               joinColumns = {
-//                       @JoinColumn(name = EpisodeCharacter.COLUMN_NAME_EPISODE_ID)
-//               },
-//               inverseJoinColumns = {
-//                       @JoinColumn(name = EpisodeCharacter.COLUMN_NAME_CHARACTER_ID)
-//               }
-//    )
-    @ManyToMany(mappedBy = Character_.EPISODES_,
+    @ManyToMany(mappedBy = Character_.EPISODES_, // <<-- this side is an inverse(non-owning) side
                 fetch = FetchType.LAZY,
                 cascade = {
                 }

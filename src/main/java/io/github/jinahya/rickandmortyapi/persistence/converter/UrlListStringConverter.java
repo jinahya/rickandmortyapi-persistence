@@ -22,6 +22,7 @@ package io.github.jinahya.rickandmortyapi.persistence.converter;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,12 +32,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * An attribute converter for converting {@link List}{@code <}{@link URL}{@code >} attributes
- * to and from strings.
+ * An attribute converter for converting {@link List}{@code <}{@link URL}{@code >} attributes to and from strings.
  *
  * <p>This converter serializes a list of URLs into a comma-separated string for database
- * storage and deserializes it back to a list when reading from the database. The conversion
- * uses {@link UriListStringConverter#DELIMITER} as the separator between URLs.
+ * storage and deserializes it back to a list when reading from the database. The conversion uses
+ * {@link UriListStringConverter#DELIMITER} as the separator between URLs.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @see UrlStringConverter
@@ -66,15 +66,15 @@ public class UrlListStringConverter
      * Converts the given list of URLs to a database column value (comma-separated string).
      *
      * <p>This method serializes a list of URLs into a single string by converting each URL
-     * to its string representation and joining them with {@link UriListStringConverter#DELIMITER}.
-     * If the input list is {@code null}, this method returns {@code null}.
+     * to its string representation and joining them with {@link UriListStringConverter#DELIMITER}. If the input list is
+     * {@code null}, this method returns {@code null}.
      *
      * @param attribute the entity attribute value to be converted
-     * @return the converted data to be stored in the database column, or {@code null} if
-     *         the input is {@code null}
+     * @return the converted data to be stored in the database column, or {@code null} if the input is {@code null}
      */
+    @Nullable
     @Override
-    public String convertToDatabaseColumn(final List<URL> attribute) {
+    public String convertToDatabaseColumn(@Nullable final List<URL> attribute) {
         return Optional.ofNullable(attribute)
                 .map(a -> a.stream()
                         .map(CONVERTER::convertToDatabaseColumn)
@@ -86,16 +86,15 @@ public class UrlListStringConverter
      * Converts the given database column value (comma-separated string) to a list of URLs.
      *
      * <p>This method deserializes a comma-separated string from the database into a list
-     * of URLs by splitting on {@link UriListStringConverter#DELIMITER} and converting each
-     * segment to a URL object. If the input string is {@code null}, this method returns
-     * {@code null}.
+     * of URLs by splitting on {@link UriListStringConverter#DELIMITER} and converting each segment to a URL object. If
+     * the input string is {@code null}, this method returns {@code null}.
      *
      * @param dbData the data from the database column to be converted
-     * @return the converted value to be stored in the entity attribute, or {@code null} if
-     *         the input is {@code null}
+     * @return the converted value to be stored in the entity attribute, or {@code null} if the input is {@code null}
      */
+    @Nullable
     @Override
-    public List<URL> convertToEntityAttribute(final String dbData) {
+    public List<URL> convertToEntityAttribute(@Nullable final String dbData) {
         return Optional.ofNullable(dbData)
                 .map(dd -> Arrays.stream(dd.split(UriListStringConverter.DELIMITER))
                         .map(CONVERTER::convertToEntityAttribute)
