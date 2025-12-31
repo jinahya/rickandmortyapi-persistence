@@ -89,7 +89,7 @@ class Character_PersistenceTest
                     .distinct()
                     .collect(Collectors.toCollection(
                             () -> EnumSet.noneOf(Character_Status.class)));
-            assertThat(selected).isEqualTo(defined);
+            assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Species.class);
@@ -98,7 +98,7 @@ class Character_PersistenceTest
                     .distinct()
                     .collect(Collectors.toCollection(
                             () -> EnumSet.noneOf(Character_Species.class)));
-            assertThat(selected).isEqualTo(defined);
+            assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Type.class);
@@ -107,7 +107,7 @@ class Character_PersistenceTest
                     .distinct()
                     .collect(
                             Collectors.toCollection(() -> EnumSet.noneOf(Character_Type.class)));
-            assertThat(selected).isEqualTo(defined);
+            assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         {
             final var defined = EnumSet.allOf(Character_Gender.class);
@@ -116,7 +116,7 @@ class Character_PersistenceTest
                     .distinct()
                     .collect(Collectors.toCollection(
                             () -> EnumSet.noneOf(Character_Gender.class)));
-            assertThat(selected).isEqualTo(defined);
+            assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         entityList.forEach(character -> {
             Optional.ofNullable(character.getOrigin()).ifPresent(origin -> {
