@@ -22,11 +22,11 @@ package io.github.jinahya.rickandmortyapi.persistence;
 
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import jakarta.persistence.Basic;
-import org.jspecify.annotations.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.Size;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.util.Objects;
@@ -105,11 +105,6 @@ public class Character_NameAndUrl
         this.name = name;
     }
 
-    Character_NameAndUrl name(final String name) {
-        setName(name);
-        return this;
-    }
-
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
@@ -126,21 +121,24 @@ public class Character_NameAndUrl
         this.url = url;
     }
 
-    Character_NameAndUrl url(@Nullable final URL url) {
-        setUrl(url);
-        return this;
-    }
-
     // -----------------------------------------------------------------------------------------------------------------
     @Nullable
     @Size(min = 1)
     @Basic(optional = true)
-    @Column(name = COLUMN_NAME_NAME, nullable = true, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_NAME,
+            nullable = true,
+            insertable = false,
+            updatable = false
+    )
     private String name;
 
     @Nullable
     @Convert(converter = UrlStringConverter.class)
     @Basic(optional = true)
-    @Column(name = COLUMN_NAME_URL, nullable = true, insertable = false, updatable = false)
+    @Column(name = COLUMN_NAME_URL,
+            nullable = true,
+            insertable = false,
+            updatable = false
+    )
     private URL url;
 }
