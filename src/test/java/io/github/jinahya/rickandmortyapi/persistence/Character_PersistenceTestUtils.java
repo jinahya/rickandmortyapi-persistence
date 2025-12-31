@@ -52,15 +52,17 @@ final class Character_PersistenceTestUtils {
         return entityManager.createQuery(query).getResultList();
     }
 
-    static List<Character> getAllCharacters(final EntityManager entityManager, final Collection<Integer> characterIds) {
+    static List<Character> getAllCharactersIdIn(final EntityManager entityManager,
+                                                final Collection<Integer> characterIds) {
         if (ThreadLocalRandom.current().nextBoolean()) {
             return entityManager
-                    .createQuery("""
-                                         SELECT c
-                                         FROM Character c
-                                         WHERE c.id IN :characterIds
-                                         ORDER BY c.id ASC""",
-                                 Character.class
+                    .createQuery(
+                            """
+                                    SELECT c
+                                    FROM Character c
+                                    WHERE c.id IN :characterIds
+                                    ORDER BY c.id ASC""",
+                            Character.class
                     )
                     .setParameter("characterIds", characterIds)
                     .getResultList();

@@ -21,6 +21,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
  */
 
 import jakarta.persistence.AttributeConverter;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -52,15 +53,17 @@ public abstract class __ColumnEnumAttributeConverter<E extends Enum<E> & __Colum
     }
 
     // -------------------------------------------------------------------------- jakarta.persistence.AttributeConverter
+    @Nullable
     @Override
-    public final T convertToDatabaseColumn(final E attribute) {
+    public final T convertToDatabaseColumn(@Nullable final E attribute) {
         return Optional.ofNullable(attribute)
                 .map(__ColumnEnum::columnValue)
                 .orElse(null);
     }
 
+    @Nullable
     @Override
-    public final E convertToEntityAttribute(final T dbData) {
+    public final E convertToEntityAttribute(@Nullable final T dbData) {
         return Optional.ofNullable(dbData)
                 .map(v -> __ColumnEnumUtils.valueOfColumnValue(enumClass, v))
                 .orElse(null);
