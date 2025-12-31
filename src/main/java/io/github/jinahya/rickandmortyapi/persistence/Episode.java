@@ -168,6 +168,8 @@ public class Episode
      * @param episodeNumber the episode number between {@value #MIN_VALUE_EPISODE_NUMBER} and
      *                      {@value #MAX_VALUE_EPISODE_NUMBER}.
      * @return an episode string.
+     * @throws IllegalArgumentException either {@code seasonNumber} or {@code episodeNumber} is not between
+     *                                  {@value #MIN_VALUE_EPISODE_NUMBER} and {@value #MAX_VALUE_EPISODE_NUMBER}.
      */
     public static String episodeOf(final int seasonNumber, final int episodeNumber) {
         if (seasonNumber < MIN_VALUE_SEASON_NUMBER || seasonNumber > MAX_VALUE_SEASON_NUMBER) {
