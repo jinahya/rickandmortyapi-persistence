@@ -24,7 +24,7 @@ abstract class _StringEnumConverter_Test<
         C extends _StringColumnEnumAttributeConverter<E>,
         E extends Enum<E> & _StringColumnEnum<E>
         >
-        extends __ColumnEnumConverter_Test<C, E, String> {
+        extends __ColumnEnumAttributeConverter_Test<C, E, String> {
 
     _StringEnumConverter_Test(final Class<C> converterClass, final Class<E> enumClass) {
         super(converterClass, enumClass, String.class);

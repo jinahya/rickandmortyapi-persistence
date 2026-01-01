@@ -32,7 +32,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
 public abstract class _StringColumnEnumAttributeConverter<E extends Enum<E> & _StringColumnEnum<E>>
         extends __ColumnEnumAttributeConverter<E, String> {
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
      * Creates a new instance for converting the specified enum class.

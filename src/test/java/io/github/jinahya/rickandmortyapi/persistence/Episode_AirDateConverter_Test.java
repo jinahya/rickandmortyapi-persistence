@@ -30,10 +30,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class Episode_AirDateConverter_Test
         extends _StringConverter_Test<Episode_AirDateConverter, LocalDate> {
 
+    // -----------------------------------------------------------------------------------------------------------------
     Episode_AirDateConverter_Test() {
         super(Episode_AirDateConverter.class, LocalDate.class);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
     @Test
     void convertToEntityAttribute__() {
         // ------------------------------------------------------------------------------------------------------- given
