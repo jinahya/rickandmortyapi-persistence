@@ -11,6 +11,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
@@ -22,6 +23,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.time.Instant;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,6 +32,27 @@ import java.util.Objects;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
+@NamedQuery(name = "Location.SelectList__OrderByTypeAscNullsLastIdAsc",
+            query = """
+                    SELECT l
+                    FROM Location l
+                    ORDER BY l.type ASC NULLS LAST,
+                             l.id ASC"""
+)
+@NamedQuery(name = "Location.SelectList__OrderByTypeAscNullsFirstIdAsc",
+            query = """
+                    SELECT l
+                    FROM Location l
+                    ORDER BY l.type ASC NULLS FIRST,
+                             l.id ASC"""
+)
+@NamedQuery(name = "Location.SelectList__OrderByIdAsc",
+            query = """
+                    SELECT l
+                    FROM Location l
+                    ORDER BY l.type ASC NULLS FIRST,
+                             l.id ASC"""
+)
 @Entity
 @Table(name = Location.TABLE_NAME)
 @SuppressWarnings({
@@ -94,6 +117,13 @@ public class Location
      */
     public static final String COLUMN_NAME_CREATED = "created";
 
+    // -----------------------------------------------------------------------------------------------------------------
+    public static final Comparator<Location> COMPARING_ID = Comparator.comparing(Location::getId);
+
+    public static Comparator<Location> comparingType(final Comparator<? super Location_Type> comparator) {
+        return Comparator.comparing(Location::getType, comparator);
+    }
+
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
@@ -112,10 +142,10 @@ public class Location
                "id=" + id +
                ",name=" + name +
                ",type=" + type +
-               ",dimension=" + dimension +
-               ",residents=" + residents +
-               ",url=" + url +
-               ",created=" + created +
+//               ",dimension=" + dimension +
+//               ",residents=" + residents +
+//               ",url=" + url +
+//               ",created=" + created +
                '}';
     }
 

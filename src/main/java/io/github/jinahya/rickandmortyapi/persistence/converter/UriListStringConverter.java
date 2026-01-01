@@ -31,12 +31,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * An attribute converter for converting {@link List}{@code <}{@link URI}{@code >} attributes
- * to and from strings.
+ * An attribute converter for converting {@link List}{@code <}{@link URI}{@code >} attributes to and from strings.
  *
  * <p>This converter serializes a list of URIs into a comma-separated string for database
- * storage and deserializes it back to a list when reading from the database. The delimiter
- * used is {@value #DELIMITER}.
+ * storage and deserializes it back to a list when reading from the database. The delimiter used is
+ * {@value #DELIMITER}.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @see UriStringConverter
@@ -66,12 +65,11 @@ public class UriListStringConverter
      * Converts the given list of URIs to a database column value (comma-separated string).
      *
      * <p>This method serializes a list of URIs into a single string by converting each URI
-     * to its string representation and joining them with {@value #DELIMITER}. If the input
-     * list is {@code null}, this method returns {@code null}.
+     * to its string representation and joining them with {@value #DELIMITER}. If the input list is {@code null}, this
+     * method returns {@code null}.
      *
      * @param attribute the entity attribute value to be converted
-     * @return the converted data to be stored in the database column, or {@code null} if
-     *         the input is {@code null}
+     * @return the converted data to be stored in the database column, or {@code null} if the input is {@code null}
      */
     @Override
     public String convertToDatabaseColumn(final List<URI> attribute) {
@@ -87,12 +85,11 @@ public class UriListStringConverter
      * Converts the given database column value (comma-separated string) to a list of URIs.
      *
      * <p>This method deserializes a comma-separated string from the database into a list
-     * of URIs by splitting on {@value #DELIMITER} and converting each segment to a URI
-     * object. If the input string is {@code null}, this method returns {@code null}.
+     * of URIs by splitting on {@value #DELIMITER} and converting each segment to a URI object. If the input string is
+     * {@code null}, this method returns {@code null}.
      *
      * @param dbData the data from the database column to be converted
-     * @return the converted value to be stored in the entity attribute, or {@code null} if
-     *         the input is {@code null}
+     * @return the converted value to be stored in the entity attribute, or {@code null} if the input is {@code null}
      */
     @Override
     public List<URI> convertToEntityAttribute(final String dbData) {
