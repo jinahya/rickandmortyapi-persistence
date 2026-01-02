@@ -142,7 +142,14 @@ class Location_PersistenceQueryTest
                     .doesNotContainNull()
                     .doesNotHaveDuplicates()
                     .isSortedAccordingTo(
-                            Location.comparingType(Comparator.nullsLast(Comparator.naturalOrder()))
+                            Comparator.comparing(
+                                            Location::getType,
+                                            Comparator.nullsLast(
+                                                    __ColumnEnumComparator.comparingColumnValue(
+                                                            Comparator.naturalOrder()
+                                                    )
+                                            )
+                                    )
                                     .thenComparing(Location.COMPARING_ID)
                     );
         }

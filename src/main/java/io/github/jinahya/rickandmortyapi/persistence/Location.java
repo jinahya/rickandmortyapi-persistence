@@ -88,61 +88,61 @@ public class Location
      */
     public static final String TABLE_NAME = "location";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------------------------- id
 
     /**
      * The name of the table column to which the {@value Location_#ID} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_ID = "id";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------ name
 
     /**
-     * The name of the table column to which the {@link Location_#NAME} attributes maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#NAME} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_NAME = "name";
 
     // ------------------------------------------------------------------------------------------------------------ type
 
     /**
-     * The name of the table column to which the {@link Location_#TYPE} attributes maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#TYPE} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_TYPE = "type";
 
     // ------------------------------------------------------------------------------------------------------- dimension
 
     /**
-     * The name of the table column to which the {@link Location_#NAME} attributes maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#DIMENSION} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_DIMENSION = "dimension";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------- residents
 
     /**
-     * The name of the table column to which the {@link Location_#RESIDENTS} attributes maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#RESIDENTS} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_RESIDENTS = "residents";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------- url
 
     /**
-     * The name of the table column to which the {@link Location_#URL} attributes maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#URL} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_URL = "url";
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------- created
 
     /**
-     * The name of the table column to which the {@link Location_#CREATED} attributes maps. The value is {@value}.
+     * The name of the table column to which the {@link Location_#CREATED} attribute maps. The value is {@value}.
      */
     public static final String COLUMN_NAME_CREATED = "created";
 
     // -----------------------------------------------------------------------------------------------------------------
-    public static final Comparator<Location> COMPARING_ID = Comparator.comparing(Location::getId);
 
-    public static Comparator<Location> comparingType(final Comparator<? super Location_Type> comparator) {
-        return Comparator.comparing(Location::getType, comparator);
-    }
+    /**
+     * A comparator compares with {@value Location_#ID} attribute.
+     */
+    public static final Comparator<Location> COMPARING_ID = Comparator.comparing(Location::getId);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -155,7 +155,7 @@ public class Location
         super();
     }
 
-    // ------------------------------------------------------------------------------------------------ java.lang.Obejct
+    // ------------------------------------------------------------------------------------------------ java.lang.Object
     @Override
     public String toString() {
         return super.toString() + '{' +
