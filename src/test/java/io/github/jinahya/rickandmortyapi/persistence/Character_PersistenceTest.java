@@ -27,13 +27,17 @@ import jakarta.persistence.criteria.Root;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.IntFunction;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -43,6 +47,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 })
 class Character_PersistenceTest
         extends _BaseEntity_PersistenceTest<Character, Integer> {
+
+    private static <R> R applyFirstResultAndMaxResults(final IntFunction<? extends IntFunction<? extends R>> function) {
+        Objects.requireNonNull(function, "function is null");
+        final var firstResult = ThreadLocalRandom.current().nextInt(0, _PersistenceConstants.NUMBER_OF_ALL_CHARACTERS);
+        final var maxResults = ThreadLocalRandom.current().nextInt(1, 100);
+        return function.apply(firstResult).apply(maxResults);
+    }
+
+    private static Stream<Arguments> getFirstResultAndMaxResultsArgumentsStream() {
+        return applyFirstResultAndMaxResults(fr -> mr -> Stream.of(Arguments.of(fr, mr)));
+    }
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     Character_PersistenceTest() {
