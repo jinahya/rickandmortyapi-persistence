@@ -21,7 +21,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  */
 
 import java.util.Comparator;
-import java.util.Objects;
 
 @SuppressWarnings({
         "java:S114" // Interface names should comply with a naming convention
@@ -30,19 +29,12 @@ public interface _StringColumnEnumComparator<E extends Enum<E> & _StringColumnEn
         extends __ColumnEnumComparator<E, String> {
 
     /**
-     * Returns a comparator comparing {@link __ColumnEnum#columnValue() columnValue} ignoring case.
+     * Returns a comparator comparing {@link _StringColumnEnum#columnValue() columnValue} ignoring case.
      *
      * @param <E> enum type parameter
-     * @return a comparator comparing {@link __ColumnEnum#columnValue() columnValue} ignoring case.
+     * @return a comparator comparing {@link _StringColumnEnum#columnValue() columnValue} ignoring case.
      */
-    static <E extends Enum<E> & _StringColumnEnum<E>> Comparator<E> comparingColumnValueIgnoreCase() {
-        return new _StringColumnEnumComparator<>() {
-            @Override
-            public int compare(final E o1, final E o2) {
-                Objects.requireNonNull(o1, "o1 is null");
-                Objects.requireNonNull(o2, "o2 is null");
-                return o1.columnValue().compareToIgnoreCase(o2.columnValue());
-            }
-        };
+    static <E extends _StringColumnEnum<?>> Comparator<E> comparingColumnValueIgnoreCase() {
+        return __ColumnEnumComparator.comparingColumnValue(String::compareToIgnoreCase);
     }
 }

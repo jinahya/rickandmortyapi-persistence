@@ -142,10 +142,10 @@ public class Location
                "id=" + id +
                ",name=" + name +
                ",type=" + type +
-//               ",dimension=" + dimension +
-//               ",residents=" + residents +
-//               ",url=" + url +
-//               ",created=" + created +
+               ",dimension=" + dimension +
+               ",residents=" + residents +
+               ",url=" + url +
+               ",created=" + created +
                '}';
     }
 
