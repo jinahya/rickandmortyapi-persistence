@@ -62,7 +62,7 @@ import java.util.Optional;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  * @see EpisodeCharacter
  */
-@NamedQuery(name = "Episode.SelectList__OrderByAirDateIso_Asc",
+@NamedQuery(name = "Episode.SelectList__OrderByAirDateIsoAsc",
             query = """
                     SELECT e
                     FROM Episode e
@@ -74,17 +74,17 @@ import java.util.Optional;
                     FROM Episode e
                     ORDER BY e.episode ASC"""
 )
-@NamedQuery(name = "Episode.SelectList__OrderByIdAsc",
-            query = """
-                    SELECT e
-                    FROM Episode e
-                    ORDER BY e.id ASC"""
-)
 @NamedQuery(name = "Episode.SelectSingle_WhereEpisodeEqual_",
             query = """
                     SELECT e
                     FROM Episode e
                     WHERE e.episode = :episode"""
+)
+@NamedQuery(name = "Episode.SelectList__OrderByIdAsc",
+            query = """
+                    SELECT e
+                    FROM Episode e
+                    ORDER BY e.id ASC"""
 )
 @Entity
 @Table(name = Episode.TABLE_NAME)
@@ -557,12 +557,12 @@ public class Episode
     private String episode;
 
     @Nullable
-    @Transient
-    private volatile Integer episodeNumber_;
+    @jakarta.persistence.Transient
+    private volatile Integer seasonNumber_;
 
     @Nullable
-    @Transient
-    private volatile Integer seasonNumber_;
+    @jakarta.persistence.Transient
+    private volatile Integer episodeNumber_;
 
     // -----------------------------------------------------------------------------------------------------------------
     @NotNull

@@ -195,7 +195,7 @@ class Episode_PersistenceTest
         void NamedQuery__() {
             // ---------------------------------------------------------------------------------------------------- when
             final List<Episode> result = applyEntityManager(em -> {
-                final var query = em.createNamedQuery("Episode.SelectList__OrderByAirDateIso_Asc", entityClass);
+                final var query = em.createNamedQuery("Episode.SelectList__OrderByAirDateIsoAsc", entityClass);
                 return query.getResultList();
             });
             // ---------------------------------------------------------------------------------------------------- then

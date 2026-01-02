@@ -40,7 +40,7 @@ public class __PersistenceUnitProducer {
 
     private static final System.Logger logger = System.getLogger(MethodHandles.lookup().lookupClass().getName());
 
-    private static final String PERSISTENCE_UNIT_NAME = "rickandmortyPU";
+    private static final String PERSISTENCE_UNIT_NAME = "rickandmortyapiPU";
 
     @PersistenceUnit
     @Produces

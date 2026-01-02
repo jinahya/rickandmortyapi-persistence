@@ -29,6 +29,9 @@ import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings({
+        "java:S3577" // Test classes should comply with a naming convention
+})
 class __ColumnEnumUtils_Test {
 
     private enum Sample
