@@ -46,6 +46,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
+import org.jspecify.annotations.Nullable;
 
 import java.net.URL;
 import java.time.Instant;
@@ -104,9 +105,18 @@ public class Episode
     // -------------------------------------------------------------------------------------------------------------- id
 
     /**
-     * The name of the table column to which the {@value Episode_#ID} attribute maps. The value is {@value}.
+     * The name of the table column to which the {@value #ATTRIBUTE_NAME_ID} attribute maps. The value is {@value}.
+     *
+     * @see Episode_#ID
      */
     public static final String COLUMN_NAME_ID = "id";
+
+    /**
+     * The name of the entity attribute from which the {@value COLUMN_NAME_ID} column maps. The value is {@value}.
+     *
+     * @see Episode_#ID
+     */
+    public static final String ATTRIBUTE_NAME_ID = "id";
 
     // ------------------------------------------------------------------------------------------------------------ name
 
@@ -140,7 +150,7 @@ public class Episode
 
     static final java.util.regex.Pattern PATTERN_EPISODE = java.util.regex.Pattern.compile(REGEXP_EPISODE);
 
-    static final String FORMAT_EPISODE = "S%02dE%02d";
+    private static final String FORMAT_EPISODE = "S%02dE%02d";
 
     private static final int MIN_VALUE_SEASON_NUMBER = 1;
 
@@ -158,6 +168,8 @@ public class Episode
      * @param episodeNumber the episode number between {@value #MIN_VALUE_EPISODE_NUMBER} and
      *                      {@value #MAX_VALUE_EPISODE_NUMBER}.
      * @return an episode string.
+     * @throws IllegalArgumentException either {@code seasonNumber} or {@code episodeNumber} is not between
+     *                                  {@value #MIN_VALUE_EPISODE_NUMBER} and {@value #MAX_VALUE_EPISODE_NUMBER}.
      */
     public static String episodeOf(final int seasonNumber, final int episodeNumber) {
         if (seasonNumber < MIN_VALUE_SEASON_NUMBER || seasonNumber > MAX_VALUE_SEASON_NUMBER) {
@@ -261,6 +273,7 @@ public class Episode
 
     @PostPersist
     private void doOnPostPersist() {
+        // empty
     }
 
     @PostLoad
@@ -275,14 +288,17 @@ public class Episode
 
     @PostUpdate
     private void doOnPostUpdate() {
+        // empty
     }
 
     @PreRemove
     private void doOnPreRemove() {
+        // empty
     }
 
     @PostRemove
     private void doOnPostRemove() {
+        // empty
     }
 
     // ---------------------------------------------------------------------------------------------- Jakarta-Validation
@@ -375,6 +391,7 @@ public class Episode
      * @return the season number between {@value #MIN_VALUE_SEASON_NUMBER}, and {@value #MAX_VALUE_SEASON_NUMBER};
      *         {@code null} if the current value of the {@value Episode_#EPISODE} attribute is {@code null}.
      */
+    @Nullable
     @Transient
     public Integer getSeasonNumber_() {
         var result = seasonNumber_;
@@ -399,6 +416,7 @@ public class Episode
      * @return the episode number between {@value #MIN_VALUE_EPISODE_NUMBER}, and {@value #MAX_VALUE_EPISODE_NUMBER};
      *         {@code null} if the current value of the {@value Episode_#EPISODE} attribute is {@code null}.
      */
+    @Nullable
     @Transient
     public Integer getEpisodeNumber_() {
         var result = episodeNumber_;
@@ -409,8 +427,7 @@ public class Episode
                         if (!matcher.matches()) {
                             throw new IllegalStateException("invalid episode: " + v);
                         }
-                        return matcher.group(
-                                REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
+                        return matcher.group(REGEXP_EPISODE_GROUP_NAME_EPISODE_NUMBER);
                     })
                     .map(Integer::valueOf)
                     .orElse(null);
@@ -539,9 +556,11 @@ public class Episode
     })
     private String episode;
 
+    @Nullable
     @Transient
     private volatile Integer episodeNumber_;
 
+    @Nullable
     @Transient
     private volatile Integer seasonNumber_;
 

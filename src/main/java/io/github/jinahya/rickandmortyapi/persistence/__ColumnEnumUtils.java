@@ -43,15 +43,16 @@ final class __ColumnEnumUtils {
         }
         Objects.requireNonNull(columnValue, "columnValue is null");
         return enumClass.cast(
-                CACHE.computeIfAbsent(enumClass, k -> new ConcurrentHashMap<>())
-                        .computeIfAbsent(columnValue, k -> {
+//                CACHE.computeIfAbsent(enumClass, ec -> Collections.synchronizedMap(new EnumMap<>(enumClass)))
+                CACHE.computeIfAbsent(enumClass, ec -> new ConcurrentHashMap<>())
+                        .computeIfAbsent(columnValue, cv -> {
                             for (final var enumConstants : enumClass.getEnumConstants()) {
-                                if (enumConstants.columnValue().equals(k)) {
+                                if (enumConstants.columnValue().equals(cv)) {
                                     return enumConstants;
                                 }
                             }
                             throw new IllegalArgumentException(
-                                    "no enum constant found for column value: " + k + " in " + enumClass
+                                    "no enum constant found for column value: " + cv + " in " + enumClass
                             );
                         })
         );

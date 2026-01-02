@@ -20,27 +20,21 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-/**
- * An abstract attribute converter for {@link _StringColumnEnum}s.
- *
- * @param <E> enum type parameter
- * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- */
-@SuppressWarnings({
-        "java:S101" // Class names should comply with a naming convention
-})
-public abstract class _StringColumnEnumAttributeConverter<E extends Enum<E> & _StringColumnEnum<E>>
-        extends __ColumnEnumAttributeConverter<E, String> {
+import java.util.Comparator;
 
-    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+@SuppressWarnings({
+        "java:S114" // Interface names should comply with a naming convention
+})
+public interface _StringColumnEnumComparator<E extends Enum<E> & _StringColumnEnum<E>>
+        extends __ColumnEnumComparator<E, String> {
 
     /**
-     * Creates a new instance for converting the specified enum class.
+     * Returns a comparator comparing {@link _StringColumnEnum#columnValue() columnValue} ignoring case.
      *
-     * @param enumClass the enum class.
-     * @see #enumClass
+     * @param <E> enum type parameter
+     * @return a comparator comparing {@link _StringColumnEnum#columnValue() columnValue} ignoring case.
      */
-    protected _StringColumnEnumAttributeConverter(final Class<E> enumClass) {
-        super(enumClass);
+    static <E extends _StringColumnEnum<?>> Comparator<E> comparingColumnValueIgnoreCase() {
+        return __ColumnEnumComparator.comparingColumnValue(String::compareToIgnoreCase);
     }
 }

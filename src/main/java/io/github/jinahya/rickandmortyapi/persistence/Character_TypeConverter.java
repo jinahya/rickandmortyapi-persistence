@@ -34,7 +34,7 @@ import jakarta.persistence.Converter;
 public class Character_TypeConverter
         extends _StringColumnEnumAttributeConverter<Character_Type> {
 
-    // -----------------------------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
      * creates a new instance.

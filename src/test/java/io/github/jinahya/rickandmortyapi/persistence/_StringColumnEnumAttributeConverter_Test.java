@@ -20,13 +20,13 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-abstract class _StringColumnEnumConverter_Test<
+abstract class _StringColumnEnumAttributeConverter_Test<
         C extends _StringColumnEnumAttributeConverter<E>,
         E extends Enum<E> & _StringColumnEnum<E>
         >
-        extends __ColumnEnumConverter_Test<C, E, String> {
+        extends __ColumnEnumAttributeConverter_Test<C, E, String> {
 
-    _StringColumnEnumConverter_Test(final Class<C> converterClass, final Class<E> enumClass) {
-        super(converterClass, enumClass, String.class);
+    _StringColumnEnumAttributeConverter_Test(final Class<C> converterClass, final Class<E> attributeClass) {
+        super(converterClass, attributeClass, String.class);
     }
 }

@@ -28,7 +28,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
-import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -40,7 +39,7 @@ import static org.assertj.core.api.Assertions.assertThat;
         "java:S119" // Type parameter names should comply with a naming convention
 })
 abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID>
-        extends __Base_PersistenceTest<ENTITY> {
+        extends _BaseEntity_Persistence_<ENTITY, ID> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
@@ -51,8 +50,7 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID>
      * @param idClass     the id class of the {@code entityClass}.
      */
     _BaseEntity_PersistenceTest(final Class<ENTITY> entityClass, final Class<ID> idClass) {
-        super(entityClass);
-        this.idClass = Objects.requireNonNull(idClass, "idClass is null");
+        super(entityClass, idClass);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -60,9 +58,9 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID>
     void selectAll__() {
         applyEntityManager(em -> {
             final var entityList = __JakartaPersistence_TestUtils.selectAll(
-                    em,
-                    entityClass,
-                    this::selectAll__
+                    em,               // <entityManager>
+                    entityClass,      // <entityClass>
+                    this::selectAll__ // <rootConsumer>
             );
             selectAll__(em, entityList);
             return entityList;
@@ -92,7 +90,4 @@ abstract class _BaseEntity_PersistenceTest<ENTITY extends _BaseEntity<ID>, ID>
                 .doesNotHaveDuplicates()
         ;
     }
-
-    // -----------------------------------------------------------------------------------------------------------------
-    final Class<ID> idClass;
 }

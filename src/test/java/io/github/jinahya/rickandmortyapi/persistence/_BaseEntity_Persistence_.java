@@ -20,27 +20,31 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-/**
- * An abstract attribute converter for {@link _StringColumnEnum}s.
- *
- * @param <E> enum type parameter
- * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- */
+import java.util.Objects;
+
+//@AddBeanClasses({
+//        __PersistenceUnitProducer.class
+//})
+//@ExtendWith(WeldJunit5AutoExtension.class)
 @SuppressWarnings({
-        "java:S101" // Class names should comply with a naming convention
+        "java:S119" // Type parameter names should comply with a naming convention
 })
-public abstract class _StringColumnEnumAttributeConverter<E extends Enum<E> & _StringColumnEnum<E>>
-        extends __ColumnEnumAttributeConverter<E, String> {
+abstract class _BaseEntity_Persistence_<ENTITY extends _BaseEntity<ID>, ID>
+        extends __Base_PersistenceTest<ENTITY> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
-     * Creates a new instance for converting the specified enum class.
+     * Creates a new instance for testing the specified entity class and it's id class.
      *
-     * @param enumClass the enum class.
-     * @see #enumClass
+     * @param entityClass the entity class.
+     * @param idClass     the id class of the {@code entityClass}.
      */
-    protected _StringColumnEnumAttributeConverter(final Class<E> enumClass) {
-        super(enumClass);
+    _BaseEntity_Persistence_(final Class<ENTITY> entityClass, final Class<ID> idClass) {
+        super(entityClass);
+        this.idClass = Objects.requireNonNull(idClass, "idClass is null");
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    final Class<ID> idClass;
 }

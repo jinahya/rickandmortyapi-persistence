@@ -22,8 +22,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
 import java.util.List;
@@ -70,13 +68,12 @@ final class __JakartaPersistence_TestUtils {
         Objects.requireNonNull(entityClass, "entityClass is null");
         Objects.requireNonNull(entityClass, "entityClass is null");
         Objects.requireNonNull(resultMapper, "resultMapper is null");
-        final List<T> entityList;
-        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        final CriteriaQuery<T> query = builder.createQuery(entityClass);
-        final Root<T> root = query.from(entityClass);
+        final var builder = entityManager.getCriteriaBuilder();
+        final var query = builder.createQuery(entityClass);
+        final var root = query.from(entityClass);
         rootConsumer.accept(root);
         query.select(root).distinct(true);
-        entityList = entityManager.createQuery(query).getResultList();
+        final var entityList = entityManager.createQuery(query).getResultList();
         return resultMapper.apply(entityList);
     }
 

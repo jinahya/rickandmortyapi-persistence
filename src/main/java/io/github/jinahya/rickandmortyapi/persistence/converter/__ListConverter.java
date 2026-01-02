@@ -28,8 +28,8 @@ import java.util.List;
  * An interface for list converters.
  *
  * <p>This interface extends {@link AttributeConverter} to provide a type-safe contract
- * for converters that work with lists. It serves as a marker interface for converters
- * that handle conversions between {@link List} collections and database column types.
+ * for converters that work with lists. It serves as a marker interface for converters that handle conversions between
+ * {@link List} collections and database column types.
  *
  * @param <T> element type parameter - the type of elements in the list
  * @param <Y> database column type parameter - the type stored in the database column
