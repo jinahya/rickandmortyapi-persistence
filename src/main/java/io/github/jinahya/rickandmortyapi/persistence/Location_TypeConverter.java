@@ -39,6 +39,7 @@ public class Location_TypeConverter
         extends _StringColumnEnumAttributeConverter<Location_Type> {
 
     // -----------------------------------------------------------------------------------------------------------------
+
     /**
      * Creates a new instance.
      */
