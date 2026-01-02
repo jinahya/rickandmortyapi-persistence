@@ -29,6 +29,9 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
 final class __ColumnEnumUtils {
 
     private static final Map<Class<?>, Map<Object, Enum<?>>> CACHE = new ConcurrentHashMap<>();
@@ -43,7 +46,6 @@ final class __ColumnEnumUtils {
         }
         Objects.requireNonNull(columnValue, "columnValue is null");
         return enumClass.cast(
-//                CACHE.computeIfAbsent(enumClass, ec -> Collections.synchronizedMap(new EnumMap<>(enumClass)))
                 CACHE.computeIfAbsent(enumClass, ec -> new ConcurrentHashMap<>())
                         .computeIfAbsent(columnValue, cv -> {
                             for (final var enumConstants : enumClass.getEnumConstants()) {
