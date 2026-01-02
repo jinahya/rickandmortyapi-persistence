@@ -57,7 +57,7 @@ public class LocationResident
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@link LocationResident_#LOCATION} attributes maps. The value is
+     * The name of the table column to which the {@link LocationResident_#LOCATION} attribute maps. The value is
      * {@value}.
      */
     public static final String COLUMN_NAME_LOCATION_ID = "location_id";
@@ -65,8 +65,8 @@ public class LocationResident
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * The name of the table column to which the {@link LocationResident_#RESIDENT} attributes maps. The value is
-     * {@value}.}
+     * The name of the table column to which the {@link LocationResident_#RESIDENT} attribute maps. The value is
+     * {@value}.
      */
     public static final String COLUMN_NAME_RESIDENT_ID = "resident_id";
 

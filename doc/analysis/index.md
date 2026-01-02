@@ -38,6 +38,7 @@ schema and provides recommendations for future improvements.
 | **Indexes**           | 15 performance indexes      |
 | **Nullability Match** | ✅ 100% (39/39 fields)       |
 | **Critical Issues**   | 0 ✅                         |
+| **Warnings**         | 4 minor code quality issues  |
 | **Test Files**        | 41 comprehensive tests       |
 | **Analysis Sections** | 13 detailed sections         |
 | **Overall Rating**    | ⭐⭐⭐⭐⭐ (5/5)                 |
@@ -96,6 +97,7 @@ schema and provides recommendations for future improvements.
 - **Code Coverage**: Comprehensive test suite with JUnit 6, Mockito, EqualsVerifier
 - **Documentation**: ✅ Comprehensive Javadoc for all entities, converters, and public methods
 - **Standards Compliance**: Jakarta EE 11, Java 25, JPA 3.2
+- **Code Quality Warnings**: 4 minor non-blocking issues (see [Source Code Issues](08-source-code-issues-analysis.md))
 
 ---
 

@@ -26,6 +26,7 @@ annotations.
 | **Validation Coverage**     | Bean Validation + JPA constraints     | ✅ Comprehensive |
 | **Code Quality**            | Architecture, patterns, documentation | ✅ Excellent     |
 | **Critical Issues**         | 0                                     | ✅ None          |
+| **Warnings**                | 4 minor code quality issues            | ⚠️ Non-blocking  |
 
 ### Production Readiness
 
@@ -36,13 +37,17 @@ ready for production use.
 
 **Non-Blockers**:
 
-- ⚠️ Minor code quality improvements (unused code, empty utility class)
+- ⚠️ 4 minor code quality warnings (see [Source Code Issues](08-source-code-issues-analysis.md)):
+  - Empty utility class (_PersistenceUtils)
+  - Deprecated class still in use (EpisodeCharacter)
+  - Empty lifecycle callback methods (Episode.java)
+  - Unused converter classes (UrlStringConverter2, UrlListStringConverter2)
 - ✅ Documentation complete - All active classes and methods have Javadoc
 
 **Recent Improvements**:
 
 - ✅ Nullability annotations standardized (JSpecify with imports)
-- ✅ Comprehensive analysis documentation (15 sections)
+- ✅ Comprehensive analysis documentation (13 sections)
 - ✅ Testing strategy documented
 - ✅ Security considerations analyzed
 - ✅ Performance analysis completed

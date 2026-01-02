@@ -81,10 +81,14 @@ All critical issues have been resolved. The module is ready for immediate produc
 ### Minor Issues
 
 1. ✅ **Documentation**: All active classes and methods now have complete Javadoc
+    - **Status**: Completed
     - **Impact**: Low - code is self-documenting
-    - **Priority**: Medium
 
-2. **Code Cleanup**: Remove unused code and empty utility class
+2. **Code Cleanup**: 4 minor warnings remain (see [Source Code Issues](08-source-code-issues-analysis.md))
+   - Empty utility class (_PersistenceUtils)
+   - Deprecated class still in use (EpisodeCharacter)
+   - Empty lifecycle callback methods (Episode.java)
+   - Unused converter classes (UrlStringConverter2, UrlListStringConverter2)
    - **Impact**: Low - no functional impact
    - **Priority**: Low
 
@@ -148,12 +152,12 @@ The module is:
 - [x] Relationships correctly mapped
 - [x] Type safety implemented
 - [x] Validation configured
-- [x] Critical issues resolved
+- [x] Critical issues resolved ✅
 - [x] Redundant annotations removed ✅
 - [x] Nullability annotations standardized (JSpecify with imports) ✅
 - [x] Comprehensive analysis documentation created ✅
-- [ ] Unused code cleaned up (optional)
 - [x] Documentation gaps filled ✅
+- [ ] Minor code quality warnings addressed (4 warnings, optional - see [Source Code Issues](08-source-code-issues-analysis.md))
 
 ---
 

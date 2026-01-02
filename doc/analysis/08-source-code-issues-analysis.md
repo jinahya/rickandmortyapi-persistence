@@ -12,6 +12,15 @@ This section provides a detailed analysis of code quality issues found in the `s
 - **Critical Issues**: 0 ✅
 - **Warnings**: 4
 
+### Quick Reference
+
+| Issue | Type | Impact | Status |
+|-------|------|--------|--------|
+| [Empty Utility Class](#1-empty-utility-class-_persistenceutilsjava) | Code Quality | Low | ⚠️ Warning |
+| [Deprecated Class Still in Use](#2-deprecated-class-still-in-use-episodecharacterjava) | Architecture | Medium | ⚠️ Warning |
+| [Empty Lifecycle Callbacks](#3-empty-lifecycle-callback-methods-episodejava) | Code Quality | Low | ⚠️ Warning |
+| [Unused Converter Classes](#4-unused-converter-classes) | Code Quality | Low | ⚠️ Warning |
+
 ---
 
 ### 1. Empty Utility Class (_PersistenceUtils.java)
