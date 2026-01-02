@@ -40,12 +40,13 @@ import java.util.Locale;
 public class Episode_AirDateConverter
         extends _StringConverter<LocalDate> {
 
+    // -----------------------------------------------------------------------------------------------------------------
     private static final String PATTERN = "MMMM d, uuuu";
 
     /**
      * A date time formatter for parsing {@value #PATTERN} pattern.
      */
-    static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(PATTERN, Locale.ENGLISH);
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(PATTERN, Locale.ENGLISH);
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
