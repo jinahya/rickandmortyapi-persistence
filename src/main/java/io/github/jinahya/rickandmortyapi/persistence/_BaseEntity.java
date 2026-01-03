@@ -33,7 +33,7 @@ import jakarta.persistence.MappedSuperclass;
         "java:S101", // Class names should comply with a naming convention
         "java:S119"  // Type parameter names should comply with a naming convention
 })
-abstract class _BaseEntity<ID>
+public abstract class _BaseEntity<ID>
         extends __Base {
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
@@ -43,7 +43,7 @@ abstract class _BaseEntity<ID>
     /**
      * Creates a new instance.
      */
-    _BaseEntity() {
+    protected _BaseEntity() {
         super();
     }
 }
