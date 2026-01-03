@@ -23,7 +23,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-final class _PersistenceConstants {
+public final class _PersistenceConstants {
 
     /**
      * The number of all characters which is {@value}.
