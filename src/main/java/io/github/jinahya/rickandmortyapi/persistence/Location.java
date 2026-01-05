@@ -33,6 +33,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -339,11 +340,14 @@ public class Location
      * Returns current value of {@value Location_#LOCATION_CHARACTERS_} attribute.
      *
      * @return current value of the {@value Location_#LOCATION_CHARACTERS_} attribute.
+     * @deprecated use {@link #getResidents_()} instead.
      */
+    @Deprecated(forRemoval = true)
     public List<Character> getLocationCharacters_() {
         return locationCharacters_;
     }
 
+    @Deprecated(forRemoval = true)
     void setLocationCharacters_(final List<Character> locationCharacters_) {
         this.locationCharacters_ = locationCharacters_;
     }
@@ -425,6 +429,7 @@ public class Location
     private Instant created;
 
     // -----------------------------------------------------------------------------------------------------------------
+    @OrderBy(Character.ATTRIBUTE_NAME_ID + " ASC")
     @OneToMany(fetch = FetchType.LAZY,
                cascade = {
                },
@@ -447,6 +452,7 @@ public class Location
     private List<@Valid @NotNull Character> residents_;
 
     // -----------------------------------------------------------------------------------------------------------------
+    @OrderBy(Character.ATTRIBUTE_NAME_ID + " ASC")
     @OneToMany(mappedBy = Character_.ORIGIN_,
                fetch = FetchType.LAZY,
                cascade = {
@@ -455,6 +461,8 @@ public class Location
     )
     private List<@Valid @NotNull Character> originCharacters_;
 
+    @Deprecated(forRemoval = true)
+    @OrderBy(Character.ATTRIBUTE_NAME_ID + " ASC")
     @OneToMany(mappedBy = Character_.LOCATION_,
                fetch = FetchType.LAZY,
                cascade = {

@@ -102,6 +102,8 @@ public class Character
      */
     public static final String COLUMN_NAME_ID = "id";
 
+    public static final String ATTRIBUTE_NAME_ID = "id";
+
     // ------------------------------------------------------------------------------------------------------------ name
 
     /**

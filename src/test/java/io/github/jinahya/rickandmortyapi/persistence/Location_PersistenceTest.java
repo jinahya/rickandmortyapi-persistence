@@ -60,6 +60,20 @@ class Location_PersistenceTest
                 .as("all locations")
                 .hasSize(_PersistenceConstants.NUMBER_OF_ALL_LOCATIONS);
         {
+            // fetch location.originCharacters_
+            final var locationIds = entityList.stream().map(Location::getId).distinct().toList();
+            entityManager.createQuery(
+                            """
+                                    SELECT l
+                                    FROM Location l
+                                    LEFT JOIN FETCH l.originCharacters_
+                                    WHERE l.id IN :locationIds""",
+                            Location.class
+                    )
+                    .setParameter("locationIds", locationIds)
+                    .getResultList();
+        }
+        {
             // fetch location.locationCharacters_
             // and assert that location.residents_ is equal to location.locationCharacters_
             final var locationIds = entityList.stream().map(Location::getId).distinct().toList();
@@ -75,24 +89,26 @@ class Location_PersistenceTest
                     .getResultList();
             entityList.forEach(l -> {
                 assertThat(l.getResidents_()).hasSameElementsAs(l.getLocationCharacters_());
+                // both attributes are annotated with @OrderBy("id ASC")
+                assertThat(l.getResidents_()).containsExactlyElementsOf(l.getLocationCharacters_());
             });
         }
         {
-            final var defined = EnumSet.allOf(Location_Type.class);
             final var selected = entityList.stream()
                     .map(Location::getType)
                     .filter(Objects::nonNull)
                     .distinct()
                     .toList();
+            final var defined = EnumSet.allOf(Location_Type.class);
             assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         {
-            final var defined = EnumSet.allOf(Location_Dimension.class);
             final var selected = entityList.stream()
                     .map(Location::getDimension)
                     .filter(Objects::nonNull)
                     .distinct()
                     .toList();
+            final var defined = EnumSet.allOf(Location_Dimension.class);
             assertThat(selected).containsExactlyInAnyOrderElementsOf(defined);
         }
         entityList.forEach(e -> {

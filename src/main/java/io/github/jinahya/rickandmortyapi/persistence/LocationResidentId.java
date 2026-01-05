@@ -32,7 +32,7 @@ import java.util.Comparator;
 import java.util.Objects;
 
 /**
- * The primary key class for {@link LocationResident}.
+ * The primary key class for the {@link LocationResident} entity.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
