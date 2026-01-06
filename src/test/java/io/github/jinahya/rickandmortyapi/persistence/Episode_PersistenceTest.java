@@ -29,6 +29,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
@@ -59,15 +61,56 @@ class Episode_PersistenceTest
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+    @DisplayName("SelectList__OrderByIdAsc")
+    @Nested
+    class SelectList__OrderByIdAsc_Test {
+
+        @Test
+        void NamedQuery__() {
+            // ---------------------------------------------------------------------------------------------------- when
+            final List<Episode> result = applyEntityManager(em -> {
+                final var query = em.createNamedQuery("Episode.SelectList__OrderByIdAsc", entityClass);
+                return query.getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            assertThat(result)
+                    .isNotEmpty()
+                    .isSortedAccordingTo(Episode.COMPARING_ID);
+        }
+
+        @Test
+        void QueryLanguage__() {
+        }
+
+        @Test
+        void CriteriaApi__() {
+            // ---------------------------------------------------------------------------------------------------- when
+            final List<Episode> result = applyEntityManager(em -> {
+                final var builder = em.getCriteriaBuilder();
+                final var query = builder.createQuery(entityClass);
+                final var root = query.from(entityClass);
+                query.select(root);
+                query.orderBy(builder.asc(root.get(Episode_.id)));
+                return em.createQuery(query).getResultList();
+            });
+            // ---------------------------------------------------------------------------------------------------- then
+            assertThat(result)
+                    .isNotEmpty()
+                    .isSortedAccordingTo(Episode.COMPARING_ID);
+        }
+    }
+
     @DisplayName("SelectSingle_WhereEpisodeEqual_")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     @Nested
     class SelectSingle_WhereEpisodeEqual__Test {
 
-        @Test
-        void NamedQuery__() {
+        @ValueSource(strings = {"S01E01", "S01E02"})
+        @ParameterizedTest
+        void NamedQuery__(final String episode) {
             applyEntityManager(em -> {
                 final var query = em.createNamedQuery("Episode.SelectSingle_WhereEpisodeEqual_", entityClass);
+                query.setParameter("episode", episode);
                 for (final var episodeValue : Episode_PersistenceTestUtils.getEpisodeList(em)) {
                     query.setParameter("episode", episodeValue);
                     // -------------------------------------------------------------------------------------------- when
@@ -106,45 +149,6 @@ class Episode_PersistenceTest
                 }
                 return null;
             });
-        }
-    }
-
-    @DisplayName("SelectList__OrderByIdAsc")
-    @Nested
-    class SelectList__OrderByIdAsc_Test {
-
-        @Test
-        void NamedQuery__() {
-            // ---------------------------------------------------------------------------------------------------- when
-            final List<Episode> result = applyEntityManager(em -> {
-                final var query = em.createNamedQuery("Episode.SelectList__OrderByIdAsc", entityClass);
-                return query.getResultList();
-            });
-            // ---------------------------------------------------------------------------------------------------- then
-            assertThat(result)
-                    .isNotEmpty()
-                    .isSortedAccordingTo(Episode.COMPARING_ID);
-        }
-
-        @Test
-        void QueryLanguage__() {
-        }
-
-        @Test
-        void CriteriaApi__() {
-            // ---------------------------------------------------------------------------------------------------- when
-            final List<Episode> result = applyEntityManager(em -> {
-                final var builder = em.getCriteriaBuilder();
-                final var query = builder.createQuery(entityClass);
-                final var root = query.from(entityClass);
-                query.select(root);
-                query.orderBy(builder.asc(root.get(Episode_.id)));
-                return em.createQuery(query).getResultList();
-            });
-            // ---------------------------------------------------------------------------------------------------- then
-            assertThat(result)
-                    .isNotEmpty()
-                    .isSortedAccordingTo(Episode.COMPARING_ID);
         }
     }
 
@@ -189,7 +193,7 @@ class Episode_PersistenceTest
 
     @DisplayName("SelectList__OrderByAirDateIso_Asc")
     @Nested
-    class SelectList__OrderByIdAriDateIso_Asc_Test {
+    class SelectList__OrderByAriDateIso_Asc_Test {
 
         @Test
         void NamedQuery__() {
