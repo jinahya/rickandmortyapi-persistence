@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,21 +20,16 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import java.util.Comparator;
-
+/**
+ * An interface for string column enums.
+ *
+ * @param <E> enum type parameter
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
 @SuppressWarnings({
         "java:S114" // Interface names should comply with a naming convention
 })
-public interface _StringColumnEnumComparator<E extends Enum<E> & _StringColumnEnum<E>>
-        extends __ColumnEnumComparator<E, String> {
+public interface _StringColumnEnum<E extends Enum<E> & _StringColumnEnum<E>>
+        extends __ColumnEnum<E, String> {
 
-    /**
-     * Returns a comparator comparing {@link _StringColumnEnum#columnValue() columnValue} ignoring case.
-     *
-     * @param <E> enum type parameter
-     * @return a comparator comparing {@link _StringColumnEnum#columnValue() columnValue} ignoring case.
-     */
-    static <E extends _StringColumnEnum<?>> Comparator<E> comparingColumnValueIgnoreCase() {
-        return __ColumnEnumComparator.comparingColumnValue(String::compareToIgnoreCase);
-    }
 }

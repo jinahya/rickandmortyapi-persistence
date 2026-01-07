@@ -20,6 +20,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__ColumnEnum;
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__ColumnEnumUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

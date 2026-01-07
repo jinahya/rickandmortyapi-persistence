@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -32,11 +32,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-final class __ColumnEnumUtils {
+public final class __ColumnEnumUtils {
 
     private static final Map<Class<?>, Map<Object, Enum<?>>> CACHE = new ConcurrentHashMap<>();
 
-    static <
+    public static <
             E extends Enum<E> & __ColumnEnum<E, T>,
             T
             >

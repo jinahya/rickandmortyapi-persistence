@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,6 +20,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.Character;
+import io.github.jinahya.rickandmortyapi.persistence.Character_;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -33,10 +35,10 @@ import java.util.Objects;
 
 /**
  * An embeddable class for {@link Character_#origin origin} and {@link Character_#location location} attributes of the
- * {@link Character} entity.
+ * {@link io.github.jinahya.rickandmortyapi.persistence.Character} entity.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see Character#getOrigin()
+ * @see io.github.jinahya.rickandmortyapi.persistence.Character#getOrigin()
  * @see Character#getLocation()
  */
 @Embeddable
@@ -44,17 +46,17 @@ import java.util.Objects;
         "java:S101" // Class names should comply with a naming convention
 })
 public class Character_NameAndUrl
-        extends __Base {
+        extends __BaseMapped {
 
     // -----------------------------------------------------------------------------------------------------------------
     private static final String COLUMN_NAME_NAME = "name";
 
-    static final String ATTRIBUTE_NAME_NAME = "name";
+    public static final String ATTRIBUTE_NAME_NAME = "name";
 
     // -----------------------------------------------------------------------------------------------------------------
     private static final String COLUMN_NAME_URL = "url";
 
-    static final String ATTRIBUTE_NAME_URL = "url";
+    public static final String ATTRIBUTE_NAME_URL = "url";
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 

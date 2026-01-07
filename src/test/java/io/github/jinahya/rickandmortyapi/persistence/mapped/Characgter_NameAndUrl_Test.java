@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,13 +20,28 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Gender;
+import org.junit.jupiter.api.Test;
 
-class Character_Gender_Test
-        extends _StringColumnEnum_Test<Character_Gender> {
+import static org.assertj.core.api.Assertions.assertThat;
+
+class Characgter_NameAndUrl_Test
+        extends __BaseMapped_Test<Character_NameAndUrl> {
+
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+    Characgter_NameAndUrl_Test() {
+        super(Character_NameAndUrl.class);
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
-    Character_Gender_Test() {
-        super(Character_Gender.class);
+    @Test
+    void ATTRIBUTE_NAME_NAME__() {
+        assertThat(Character_NameAndUrl.ATTRIBUTE_NAME_NAME)
+                .isEqualTo(Character_NameAndUrl_.NAME);
+    }
+
+    @Test
+    void ATTRIBUTE_NAME_URL__() {
+        assertThat(Character_NameAndUrl.ATTRIBUTE_NAME_URL)
+                .isEqualTo(Character_NameAndUrl_.URL);
     }
 }

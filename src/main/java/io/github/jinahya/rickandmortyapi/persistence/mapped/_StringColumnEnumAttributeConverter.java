@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,25 +20,27 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.mapped._StringColumnEnumAttributeConverter;
-import jakarta.persistence.Converter;
-
 /**
- * An attribute converter for converting {@link Location_Dimension} attributes to and from strings.
+ * An abstract attribute converter for {@link _StringColumnEnum}s.
  *
+ * @param <E> enum type parameter
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-@Converter(autoApply = true)
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class Location_DimensionConverter
-        extends _StringColumnEnumAttributeConverter<Location_Dimension> {
+public abstract class _StringColumnEnumAttributeConverter<E extends Enum<E> & _StringColumnEnum<E>>
+        extends __ColumnEnumAttributeConverter<E, String> {
+
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
-     * Creates a new instance.
+     * Creates a new instance for converting the specified enum class.
+     *
+     * @param enumClass the enum class.
+     * @see #enumClass
      */
-    public Location_DimensionConverter() {
-        super(Location_Dimension.class);
+    protected _StringColumnEnumAttributeConverter(final Class<E> enumClass) {
+        super(enumClass);
     }
 }

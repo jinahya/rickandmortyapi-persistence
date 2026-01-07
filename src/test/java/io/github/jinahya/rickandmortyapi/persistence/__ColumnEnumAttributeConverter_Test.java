@@ -20,6 +20,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__ColumnEnum;
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__ColumnEnumAttributeConverter;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

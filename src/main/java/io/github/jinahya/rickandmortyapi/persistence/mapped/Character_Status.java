@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,30 +20,27 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.Character_;
+
 import java.util.Objects;
 
 /**
- * Constants for the {@value Character_#GENDER} attribute of the {@link Character} entity.
+ * Constants for the {@value Character_#STATUS} attribute.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-public enum Character_Gender
-        implements _StringColumnEnum<Character_Gender> {
+public enum Character_Status
+        implements _StringColumnEnum<Character_Status> {
 
     /**
-     * A constant for the {@code "Female"} column value.
+     * A constant for the {@code "Alive"} column value.
      */
-    FEMALE("Female"),
+    ALIVE("Alive"),
 
     /**
-     * A constant for the {@code "Genderless"} column value.
+     * A constant for the {@code "Dead"} column value.
      */
-    GENDERLESS("Genderless"),
-
-    /**
-     * A constant for the {@code "Male"} column value.
-     */
-    MALE("Male"),
+    DEAD("Dead"),
 
     /**
      * A constant for the {@code "unknown"} column value.
@@ -53,21 +50,27 @@ public enum Character_Gender
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * Returns the constants whose {@link #columnValue() columnValue} matches the specified value.
+     * Returns the value whose {@link #columnValue() columnValue} property matches to the specified value.
      *
      * @param columnValue the value for the {@link #columnValue() columnValue} to match.
-     * @return the constants whose {@link #columnValue() columnValue} matches the specified {@code columnValue}.
+     * @return the value whose {@link #columnValue() columnValue} property matches to the specified value.
      */
-    public static Character_Gender valueOfColumnValue(final String columnValue) {
-        return _StringColumnEnumUtils.valueOfColumnValue(Character_Gender.class, columnValue);
+    public static Character_Status valueOfColumnValue(final String columnValue) {
+        return _StringColumnEnumUtils.valueOfColumnValue(Character_Status.class, columnValue);
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
-    Character_Gender(final String columnValue) {
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+    Character_Status(final String columnValue) {
         this.columnValue = Objects.requireNonNull(columnValue, "columnValue is null");
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns the column value of this constant.
+     *
+     * @return the column value of this constant.
+     */
     @Override
     public String columnValue() {
         return columnValue;

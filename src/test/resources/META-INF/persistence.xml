@@ -30,11 +30,11 @@
     <!--    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
     <provider>${persistence-unit.provider}</provider>
     <class>io.github.jinahya.rickandmortyapi.persistence.Character</class>
-    <class>io.github.jinahya.rickandmortyapi.persistence.Character_GenderConverter</class>
-    <class>io.github.jinahya.rickandmortyapi.persistence.Character_NameAndUrl</class>
-    <class>io.github.jinahya.rickandmortyapi.persistence.Character_StatusConverter</class>
-    <class>io.github.jinahya.rickandmortyapi.persistence.Character_SpeciesConverter</class>
-    <class>io.github.jinahya.rickandmortyapi.persistence.Character_TypeConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.mapped.Character_GenderConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.mapped.Character_NameAndUrl</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.mapped.Character_StatusConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.mapped.Character_SpeciesConverter</class>
+    <class>io.github.jinahya.rickandmortyapi.persistence.mapped.Character_TypeConverter</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.CharacterEpisode</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.Episode</class>
     <class>io.github.jinahya.rickandmortyapi.persistence.EpisodeCharacter</class>

@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,16 +20,27 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import jakarta.persistence.MappedSuperclass;
+
 /**
- * An interface for string column enums.
+ * An abstract mapped superclass for mapping {@code rickandmortyapi.db}.
  *
- * @param <E> enum type parameter
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
+@MappedSuperclass
 @SuppressWarnings({
-        "java:S114" // Interface names should comply with a naming convention
+        "java:S101" // Class names should comply with a naming convention
 })
-public interface _StringColumnEnum<E extends Enum<E> & _StringColumnEnum<E>>
-        extends __ColumnEnum<E, String> {
+abstract class __BaseMapped {
 
+    // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
+
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+
+    /**
+     * Creates a new instance.
+     */
+    __BaseMapped() {
+        super();
+    }
 }

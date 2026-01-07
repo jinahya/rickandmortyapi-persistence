@@ -20,6 +20,9 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.mapped._StringColumnEnum;
+import io.github.jinahya.rickandmortyapi.persistence.mapped._StringColumnEnumAttributeConverter;
+
 abstract class _StringColumnEnumAttributeConverter_Test<
         C extends _StringColumnEnumAttributeConverter<E>,
         E extends Enum<E> & _StringColumnEnum<E>

@@ -20,6 +20,7 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__ColumnEnumComparator;
 import jakarta.persistence.criteria.Nulls;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;

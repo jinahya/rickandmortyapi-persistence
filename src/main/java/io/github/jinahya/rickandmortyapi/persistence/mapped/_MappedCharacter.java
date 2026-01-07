@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,34 +20,21 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.Character_;
+import io.github.jinahya.rickandmortyapi.persistence.Location;
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Gender;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_GenderConverter;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_NameAndUrl;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_NameAndUrl_;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Species;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_SpeciesConverter;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Status;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_StatusConverter;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Type;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_TypeConverter;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQuery;
-import jakarta.persistence.OrderBy;
-import jakarta.persistence.Table;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -61,44 +48,15 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * An entity class for mapping {@value Character#TABLE_NAME} table.
- *
- * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
- * @see CharacterEpisode
- * @see Episode
- * @see Location
- */
-@NamedQuery(name = "Character.SelectList_NameLike_OrderByIdAsc",
-            query = """
-                    SELECT c
-                    FROM Character c
-                    WHERE c.name LIKE :namePattern
-                    ORDER BY c.id ASC"""
-)
-@NamedQuery(name = "Character.SelectList_NameEqual_OrderByIdAsc",
-            query = """
-                    SELECT c
-                    FROM Character c
-                    WHERE c.name = :name
-                    ORDER BY c.id ASC"""
-)
-@NamedQuery(name = "Character.SelectList__OrderByIdAsc",
-            query = """
-                    SELECT c
-                    FROM Character c
-                    ORDER BY c.id ASC"""
-)
-@Entity
-@Table(name = Character.TABLE_NAME)
+@MappedSuperclass
 @SuppressWarnings({
         "java:S100", // Method names should comply with a naming convention
         "java:S115", // Constant names should comply with a naming convention
         "java:S116", // Field names should comply with a naming convention
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
-public class Character
-        extends _BaseEntity<Integer> {
+public abstract class _MappedCharacter
+        extends __BaseMappedEntity<Integer> {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.
@@ -238,9 +196,10 @@ public class Character
     // -----------------------------------------------------------------------------------------------------------------
 
     /**
-     * A comparator comparing {@link Character} instances by their {@link Character_#ID} attribute.
+     * A comparator comparing {@link _MappedCharacter} instances by their {@link Character_#ID} attribute.
      */
-    public static final Comparator<Character> COMPARING_ID = Comparator.comparingInt(Character::getId);
+    public static final Comparator<_MappedCharacter> COMPARING_ID = Comparator.comparingInt(
+            _MappedCharacter::getId);
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -249,7 +208,7 @@ public class Character
     /**
      * Creates a new instance.
      */
-    protected Character() {
+    protected _MappedCharacter() {
         super();
     }
 
@@ -273,7 +232,7 @@ public class Character
 
     @Override
     public final boolean equals(final Object obj) {
-        if (!(obj instanceof Character that)) {
+        if (!(obj instanceof _MappedCharacter that)) {
             return false;
         }
         return Objects.equals(getId(), that.getId());
@@ -310,7 +269,7 @@ public class Character
      * @param id the new value for {@value Character_#ID} attribute.
      * @return {@code this} for method chaining.
      */
-    Character id(final Integer id) {
+    _MappedCharacter id(final Integer id) {
         setId(id);
         return this;
     }
@@ -446,7 +405,6 @@ public class Character
      * Returns current value of {@value Character_#EPISODE} attribute.
      *
      * @return current value of the {@value Character_#EPISODE} attribute.
-     * @see #getEpisodes_()
      */
     public List<URL> getEpisode() {
         return episode;
@@ -518,22 +476,6 @@ public class Character
 
     void setLocation_(@Nullable final Location locationLocation_) {
         this.location_ = locationLocation_;
-    }
-
-    // ------------------------------------------------------------------------------------------------------- episodes_
-
-    /**
-     * Returns current value of {@value Character_#EPISODES_} attribute.
-     *
-     * @return current value of the {@value Character_#EPISODES_} attribute.
-     * @see #getEpisode()
-     */
-    public List<Episode> getEpisodes_() {
-        return episodes_;
-    }
-
-    void setEpisodes_(final List<Episode> episodes_) {
-        this.episodes_ = episodes_;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -724,20 +666,4 @@ public class Character
                 updatable = false
     )
     private Location location_;
-
-    // -----------------------------------------------------------------------------------------------------------------
-    @OrderBy(Episode.ATTRIBUTE_NAME_ID + " ASC")
-    @ManyToMany(fetch = FetchType.LAZY,
-                cascade = {
-                }
-    )
-    @JoinTable(name = CharacterEpisode.TABLE_NAME,
-               joinColumns = {
-                       @JoinColumn(name = CharacterEpisode.COLUMN_NAME_CHARACTER_ID)
-               },
-               inverseJoinColumns = {
-                       @JoinColumn(name = CharacterEpisode.COLUMN_NAME_EPISODE_ID)
-               }
-    )
-    private List<@Valid @NotNull Episode> episodes_;
 }

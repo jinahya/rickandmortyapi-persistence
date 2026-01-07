@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,28 +20,26 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import org.junit.jupiter.api.Test;
+import jakarta.persistence.Converter;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-class Characgter_NameAndUrl_Test
-        extends __Base_Test<Character_NameAndUrl> {
+/**
+ * An attribute converter for converting {@link Character_Species}s to and from strings.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
+@Converter(autoApply = true)
+@SuppressWarnings({
+        "java:S101" // Class names should comply with a naming convention
+})
+public class Character_SpeciesConverter
+        extends _StringColumnEnumAttributeConverter<Character_Species> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    Characgter_NameAndUrl_Test() {
-        super(Character_NameAndUrl.class);
-    }
 
-    // -----------------------------------------------------------------------------------------------------------------
-    @Test
-    void ATTRIBUTE_NAME_NAME__() {
-        assertThat(Character_NameAndUrl.ATTRIBUTE_NAME_NAME)
-                .isEqualTo(Character_NameAndUrl_.NAME);
-    }
-
-    @Test
-    void ATTRIBUTE_NAME_URL__() {
-        assertThat(Character_NameAndUrl.ATTRIBUTE_NAME_URL)
-                .isEqualTo(Character_NameAndUrl_.URL);
+    /**
+     * Creates a new instance.
+     */
+    public Character_SpeciesConverter() {
+        super(Character_Species.class);
     }
 }

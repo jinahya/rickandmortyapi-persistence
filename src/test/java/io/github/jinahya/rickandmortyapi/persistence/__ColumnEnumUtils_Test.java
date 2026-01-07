@@ -20,6 +20,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__ColumnEnum;
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__ColumnEnumUtils;
 import jakarta.annotation.Nonnull;
 import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.params.ParameterizedTest;

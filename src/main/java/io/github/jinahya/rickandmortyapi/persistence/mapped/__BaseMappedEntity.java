@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,26 +20,30 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.persistence.Converter;
+import jakarta.persistence.MappedSuperclass;
 
 /**
- * An attribute converter for converting {@link Character_Gender} attribute to/from strings.
+ * An abstract mapped superclass for mapping {@code rickandmortyapi.db}.
  *
+ * @param <ID> id type parameter
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-@Converter(autoApply = true)
+@MappedSuperclass
 @SuppressWarnings({
-        "java:S101" // Class names should comply with a naming convention
+        "java:S101", // Class names should comply with a naming convention
+        "java:S119"  // Type parameter names should comply with a naming convention
 })
-public class Character_GenderConverter
-        extends _StringColumnEnumAttributeConverter<Character_Gender> {
+public abstract class __BaseMappedEntity<ID>
+        extends __BaseMapped {
+
+    // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
      * Creates a new instance.
      */
-    public Character_GenderConverter() {
-        super(Character_Gender.class);
+    protected __BaseMappedEntity() {
+        super();
     }
 }

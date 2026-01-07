@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,20 +20,26 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
+import jakarta.persistence.Converter;
+
+/**
+ * An attribute converter for converting {@link Character_Gender} attribute to/from strings.
+ *
+ * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
+ */
+@Converter(autoApply = true)
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-final class _StringColumnEnumUtils {
+public class Character_GenderConverter
+        extends _StringColumnEnumAttributeConverter<Character_Gender> {
 
-    static <
-            E extends Enum<E> & _StringColumnEnum<E>
-            >
-    E valueOfColumnValue(final Class<E> enumClass, final String columnValue) {
-        return __ColumnEnumUtils.valueOfColumnValue(enumClass, columnValue);
-    }
+    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
-    // -----------------------------------------------------------------------------------------------------------------
-    private _StringColumnEnumUtils() {
-        throw new AssertionError("instantiation is not allowed");
+    /**
+     * Creates a new instance.
+     */
+    public Character_GenderConverter() {
+        super(Character_Gender.class);
     }
 }

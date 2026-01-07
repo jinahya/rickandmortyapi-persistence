@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -20,26 +20,25 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import jakarta.persistence.Converter;
+import jakarta.validation.constraints.NotNull;
 
 /**
- * An attribute converter for converting {@link Character_Species}s to and from strings.
+ * An interface for column enums.
  *
+ * @param <E> enum type parameter
+ * @param <T> column type parameter
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
-@Converter(autoApply = true)
 @SuppressWarnings({
-        "java:S101" // Class names should comply with a naming convention
+        "java:S114" // Interface names should comply with a naming convention
 })
-public class Character_SpeciesConverter
-        extends _StringColumnEnumAttributeConverter<Character_Species> {
-
-    // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
+public interface __ColumnEnum<E extends Enum<E> & __ColumnEnum<E, T>, T> {
 
     /**
-     * Creates a new instance.
+     * Returns the column value of this constant.
+     *
+     * @return the column value of this constant.
      */
-    public Character_SpeciesConverter() {
-        super(Character_Species.class);
-    }
+    @NotNull
+    T columnValue();
 }

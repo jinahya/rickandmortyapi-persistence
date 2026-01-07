@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence;
+package io.github.jinahya.rickandmortyapi.persistence.mapped;
 
 /*-
  * #%L
@@ -19,6 +19,8 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * limitations under the License.
  * #L%
  */
+
+import io.github.jinahya.rickandmortyapi.persistence.Character_;
 
 import java.util.Objects;
 
