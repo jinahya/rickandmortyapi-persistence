@@ -708,6 +708,7 @@ public class Character
                 insertable = false,
                 updatable = false
     )
+    // "0명 이상의(MANY) [인물]들이 한(ONE) [장소]에 처음 등장했을 수 있다."
     private Location origin_;
 
     @Nullable
@@ -723,6 +724,7 @@ public class Character
                 insertable = false,
                 updatable = false
     )
+    // "0명 이상의(MANY) [인물]들이 한(ONE) [장소]에 마지막으로 등장했을 수 있다."
     private Location location_;
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -739,5 +741,6 @@ public class Character
                        @JoinColumn(name = CharacterEpisode.COLUMN_NAME_EPISODE_ID)
                }
     )
+    // "0명 이상의(MANY) [인물]들이 0개 이상의(MANY) [에피소드]에 등장했을 수 있다."
     private List<@Valid @NotNull Episode> episodes_;
 }
