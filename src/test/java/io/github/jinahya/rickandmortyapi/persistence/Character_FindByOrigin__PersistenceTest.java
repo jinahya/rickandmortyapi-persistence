@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+// 명권님
 @Slf4j
 @SuppressWarnings({
         "java:S117" // Local variable and method parameter names should comply with a naming convention
