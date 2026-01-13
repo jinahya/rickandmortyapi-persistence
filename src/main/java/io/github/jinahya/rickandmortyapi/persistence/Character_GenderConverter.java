@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence.mapped;
+package io.github.jinahya.rickandmortyapi.persistence;
 
 /*-
  * #%L
@@ -20,10 +20,11 @@ package io.github.jinahya.rickandmortyapi.persistence.mapped;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.mapped._StringColumnEnumAttributeConverter;
 import jakarta.persistence.Converter;
 
 /**
- * An attribute converter for converting {@link Character_Type} attributes to and from strings.
+ * An attribute converter for converting {@link Character_Gender} attribute to/from strings.
  *
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
@@ -31,15 +32,15 @@ import jakarta.persistence.Converter;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-public class Character_TypeConverter
-        extends _StringColumnEnumAttributeConverter<Character_Type> {
+public class Character_GenderConverter
+        extends _StringColumnEnumAttributeConverter<Character_Gender> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
-     * creates a new instance.
+     * Creates a new instance.
      */
-    public Character_TypeConverter() {
-        super(Character_Type.class);
+    public Character_GenderConverter() {
+        super(Character_Gender.class);
     }
 }

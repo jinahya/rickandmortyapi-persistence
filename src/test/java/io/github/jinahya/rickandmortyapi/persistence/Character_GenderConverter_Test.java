@@ -20,9 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Gender;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_GenderConverter;
-
 class Character_GenderConverter_Test
         extends _StringColumnEnumAttributeConverter_Test<Character_GenderConverter, Character_Gender> {
 

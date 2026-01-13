@@ -20,7 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Species;
 import io.github.jinahya.rickandmortyapi.persistence.mapped.__ColumnEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Nested;

@@ -20,8 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Species;
-
 class Character_Species_Test
         extends _StringColumnEnum_Test<Character_Species> {
 

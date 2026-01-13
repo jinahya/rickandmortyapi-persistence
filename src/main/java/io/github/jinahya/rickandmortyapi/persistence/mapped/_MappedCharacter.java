@@ -21,6 +21,15 @@ package io.github.jinahya.rickandmortyapi.persistence.mapped;
  */
 
 import io.github.jinahya.rickandmortyapi.persistence.Character_;
+import io.github.jinahya.rickandmortyapi.persistence.Character_Gender;
+import io.github.jinahya.rickandmortyapi.persistence.Character_GenderConverter;
+import io.github.jinahya.rickandmortyapi.persistence.Character_NameAndUrl;
+import io.github.jinahya.rickandmortyapi.persistence.Character_Species;
+import io.github.jinahya.rickandmortyapi.persistence.Character_SpeciesConverter;
+import io.github.jinahya.rickandmortyapi.persistence.Character_Status;
+import io.github.jinahya.rickandmortyapi.persistence.Character_StatusConverter;
+import io.github.jinahya.rickandmortyapi.persistence.Character_Type;
+import io.github.jinahya.rickandmortyapi.persistence.Character_TypeConverter;
 import io.github.jinahya.rickandmortyapi.persistence.Location;
 import io.github.jinahya.rickandmortyapi.persistence.converter.InstantStringConverter;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlListStringConverter;

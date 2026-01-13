@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence.mapped;
+package io.github.jinahya.rickandmortyapi.persistence;
 
 /*-
  * #%L
@@ -20,7 +20,7 @@ package io.github.jinahya.rickandmortyapi.persistence.mapped;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.Character_;
+import io.github.jinahya.rickandmortyapi.persistence.mapped._StringColumnEnum;
 
 import java.util.Objects;
 

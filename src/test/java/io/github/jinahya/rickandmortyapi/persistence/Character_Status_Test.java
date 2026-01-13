@@ -20,8 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Status;
-
 // -----------------------------------------------------------------------------------------------------------------
 class Character_Status_Test
         extends _StringColumnEnum_Test<Character_Status> {

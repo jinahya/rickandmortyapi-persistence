@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence.mapped;
+package io.github.jinahya.rickandmortyapi.persistence;
 
 /*-
  * #%L
@@ -20,15 +20,17 @@ package io.github.jinahya.rickandmortyapi.persistence.mapped;
  * #L%
  */
 
+import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_NameAndUrl_;
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__Mapped_Test;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class Characgter_NameAndUrl_Test
+class Character_NameAndUrl_Test
         extends __Mapped_Test<Character_NameAndUrl> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
-    Characgter_NameAndUrl_Test() {
+    Character_NameAndUrl_Test() {
         super(Character_NameAndUrl.class);
     }
 

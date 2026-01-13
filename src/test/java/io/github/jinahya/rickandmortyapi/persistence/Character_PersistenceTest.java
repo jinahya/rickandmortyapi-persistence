@@ -20,10 +20,6 @@ package io.github.jinahya.rickandmortyapi.persistence;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Gender;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Species;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Status;
-import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_Type;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.Fetch;
 import jakarta.persistence.criteria.JoinType;

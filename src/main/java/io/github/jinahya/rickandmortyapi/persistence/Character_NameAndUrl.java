@@ -1,4 +1,4 @@
-package io.github.jinahya.rickandmortyapi.persistence.mapped;
+package io.github.jinahya.rickandmortyapi.persistence;
 
 /*-
  * #%L
@@ -20,9 +20,9 @@ package io.github.jinahya.rickandmortyapi.persistence.mapped;
  * #L%
  */
 
-import io.github.jinahya.rickandmortyapi.persistence.Character;
-import io.github.jinahya.rickandmortyapi.persistence.Character_;
 import io.github.jinahya.rickandmortyapi.persistence.converter.UrlStringConverter;
+import io.github.jinahya.rickandmortyapi.persistence.mapped.Character_NameAndUrl_;
+import io.github.jinahya.rickandmortyapi.persistence.mapped.__Mapped;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;

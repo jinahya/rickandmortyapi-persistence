@@ -38,7 +38,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Slf4j
-abstract class __Mapped_Test<T extends __Mapped> {
+public abstract class __Mapped_Test<T extends __Mapped> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
@@ -47,7 +47,7 @@ abstract class __Mapped_Test<T extends __Mapped> {
      *
      * @param mappedClass the type class to test.
      */
-    __Mapped_Test(final Class<T> mappedClass) {
+    protected __Mapped_Test(final Class<T> mappedClass) {
         super();
         this.mappedClass = Objects.requireNonNull(mappedClass, "mappedClass is null");
     }
