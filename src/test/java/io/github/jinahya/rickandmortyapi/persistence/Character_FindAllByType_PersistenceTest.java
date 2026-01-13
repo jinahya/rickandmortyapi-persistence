@@ -27,6 +27,8 @@ import org.junit.jupiter.params.provider.EnumSource;
 
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -41,6 +43,29 @@ class Character_FindAllByType_PersistenceTest
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     Character_FindAllByType_PersistenceTest() {
         super(Character.class, Integer.class);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    private <R> R applyFirstResultAndMaxResults(
+            final Function<? super Integer, ? extends Function<? super Integer, ? extends R>> function) {
+        final var firstResult = ThreadLocalRandom.current().nextBoolean()
+                ? null
+                : ThreadLocalRandom.current().nextInt(1, 5);
+        final var maxResults =
+                ThreadLocalRandom.current().nextBoolean()
+                        ? null
+                        : ThreadLocalRandom.current().nextInt(1, 10);
+        return function
+                .apply(firstResult)
+                .apply(maxResults);
+    }
+
+    private void acceptFirstResultAndMaxResults(
+            final Function<? super Integer, ? extends Consumer<? super Integer>> function) {
+        applyFirstResultAndMaxResults(fr -> mr -> {
+            function.apply(fr).accept(mr);
+            return null;
+        });
     }
 
     // -----------------------------------------------------------------------------------------------------------------
