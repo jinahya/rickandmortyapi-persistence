@@ -25,6 +25,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
@@ -68,80 +70,61 @@ class Character_FindAllByType_PersistenceTest
         });
     }
 
-    // -----------------------------------------------------------------------------------------------------------------
+    private void verify(final Character_Type type, final Integer firstResult, final Integer maxResults,
+                        final List<Character> results) {
+        if (firstResult != null && results.isEmpty()) {
+            return;
+        }
+        assertThat(results)
+                .isNotNull()
+                .doesNotContainNull()
+                .doesNotHaveDuplicates()
+                .isSortedAccordingTo(Character.COMPARING_ID)
+                .extracting(Character::getType)
+                .filteredOn(Objects::nonNull)
+                .containsOnly(type)
+        ;
+    }
 
+    // -----------------------------------------------------------------------------------------------------------------
     @EnumSource(Character_Type.class)
     @ParameterizedTest
     void _QueryLanguage_(final Character_Type type) {
-        // --------------------------------------------------------------------------------------------------- given
-        final var firstResult = ThreadLocalRandom.current().nextBoolean()
-                ? null
-                : ThreadLocalRandom.current().nextInt(1, 10);
-        final var maxResults =
-                ThreadLocalRandom.current().nextBoolean()
-                        ? null
-                        : ThreadLocalRandom.current().nextInt(1, 10);
-        // ---------------------------------------------------------------------------------------------------- when
-        final var result = applyEntityManager(em -> {
-            final var query = em.createQuery(
-                    """
-                            SELECT c
-                            FROM Character c
-                            WHERE c.type = :type
-                            ORDER BY c.id ASC""",
-                    Character.class
-            );
-            query.setParameter("type", type);
-            Optional.ofNullable(firstResult).ifPresent(query::setFirstResult);
-            Optional.ofNullable(maxResults).ifPresent(query::setMaxResults);
-            return query.getResultList();
+        acceptEntityManager(em -> {
+            acceptFirstResultAndMaxResults(fr -> mr -> {
+                final var query = em.createQuery(
+                        """
+                                SELECT c
+                                FROM Character c
+                                WHERE c.type = :type
+                                ORDER BY c.id ASC""",
+                        entityClass
+                );
+                query.setParameter("type", type);
+                Optional.ofNullable(fr).ifPresent(query::setFirstResult);
+                Optional.ofNullable(mr).ifPresent(query::setMaxResults);
+                final var result = query.getResultList();
+                verify(type, fr, mr, result);
+            });
         });
-        // ---------------------------------------------------------------------------------------------------- then
-        if (firstResult != null && result.isEmpty()) {
-            return;
-        }
-        assertThat(result)
-                .isSortedAccordingTo(Character.COMPARING_ID)
-                .extracting(Character::getType)
-                .containsOnly(type);
-        if (maxResults != null) {
-            assertThat(result).hasSizeLessThanOrEqualTo(maxResults);
-        }
     }
 
     @EnumSource(Character_Type.class)
     @ParameterizedTest
     void _CriteriaApi_(final Character_Type type) {
-        // --------------------------------------------------------------------------------------------------- given
-        final var firstResult = ThreadLocalRandom.current().nextBoolean()
-                ? null
-                : ThreadLocalRandom.current().nextInt(1, 10);
-        final var maxResults =
-                ThreadLocalRandom.current().nextBoolean()
-                        ? null
-                        : ThreadLocalRandom.current().nextInt(1, 10);
-        // ---------------------------------------------------------------------------------------------------- when
-        final var result = applyEntityManager(em -> {
-            final var builder = em.getCriteriaBuilder();
-            final var query = builder.createQuery(Character.class);
-            final var root = query.from(Character.class);
-            query.where(builder.equal(root.get(Character_.type), type));
-            query.orderBy(builder.asc(root.get(Character_.id)));
-            final var typed = em.createQuery(query);
-            Optional.ofNullable(firstResult).ifPresent(typed::setFirstResult);
-            Optional.ofNullable(maxResults).ifPresent(typed::setMaxResults);
-            return typed.getResultList();
+        acceptFirstResultAndMaxResults(fr -> mr -> {
+            acceptEntityManager(em -> {
+                final var builder = em.getCriteriaBuilder();
+                final var query = builder.createQuery(Character.class);
+                final var root = query.from(Character.class);
+                query.where(builder.equal(root.get(Character_.type), type));
+                query.orderBy(builder.asc(root.get(Character_.id)));
+                final var typed = em.createQuery(query);
+                Optional.ofNullable(fr).ifPresent(typed::setFirstResult);
+                Optional.ofNullable(mr).ifPresent(typed::setMaxResults);
+                final var result = typed.getResultList();
+                verify(type, fr, mr, result);
+            });
         });
-        // ---------------------------------------------------------------------------------------------------- then
-        if (firstResult != null && result.isEmpty()) {
-            return;
-        }
-        assertThat(result)
-                .isSortedAccordingTo(Character.COMPARING_ID)
-                .extracting(Character::getType)
-                .containsOnly(type);
-        if (maxResults != null) {
-            assertThat(result).hasSizeLessThanOrEqualTo(maxResults);
-        }
     }
 }
