@@ -46,7 +46,7 @@ import java.util.Objects;
         "java:S101" // Class names should comply with a naming convention
 })
 public class Character_NameAndUrl
-        extends __BaseMapped {
+        extends __Mapped {
 
     // -----------------------------------------------------------------------------------------------------------------
     private static final String COLUMN_NAME_NAME = "name";

@@ -31,7 +31,7 @@ import jakarta.persistence.MappedSuperclass;
 @SuppressWarnings({
         "java:S101" // Class names should comply with a naming convention
 })
-abstract class __BaseMapped {
+abstract class __Mapped {
 
     // ------------------------------------------------------------------------------------------ STATIC_FACTORY_METHODS
 
@@ -40,7 +40,7 @@ abstract class __BaseMapped {
     /**
      * Creates a new instance.
      */
-    __BaseMapped() {
+    __Mapped() {
         super();
     }
 }

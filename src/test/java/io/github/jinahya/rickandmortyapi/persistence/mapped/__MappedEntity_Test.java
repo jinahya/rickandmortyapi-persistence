@@ -28,11 +28,11 @@ import java.util.Objects;
 @SuppressWarnings({
         "java:S119" // Type parameter names should comply with a naming convention
 })
-abstract class __BaseMappedEntity_Test<ENTITY extends __BaseMappedEntity<ID>, ID>
-        extends __BaseMapped_Test<ENTITY> {
+abstract class __MappedEntity_Test<ENTITY extends __MappedEntity<ID>, ID>
+        extends __Mapped_Test<ENTITY> {
 
-    __BaseMappedEntity_Test(final Class<ENTITY> typeClass, final Class<ID> idClass) {
-        super(typeClass);
+    __MappedEntity_Test(final Class<ENTITY> mappedClass, final Class<ID> idClass) {
+        super(mappedClass);
         this.idClass = Objects.requireNonNull(idClass, "idClass is null");
     }
 

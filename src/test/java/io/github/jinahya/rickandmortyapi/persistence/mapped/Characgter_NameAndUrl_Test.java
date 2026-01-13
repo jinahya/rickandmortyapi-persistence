@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class Characgter_NameAndUrl_Test
-        extends __BaseMapped_Test<Character_NameAndUrl> {
+        extends __Mapped_Test<Character_NameAndUrl> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
     Characgter_NameAndUrl_Test() {

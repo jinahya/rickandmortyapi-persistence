@@ -56,7 +56,7 @@ import java.util.Objects;
         "java:S117"  // Local variable and method parameter names should comply with a naming convention
 })
 public abstract class _MappedCharacter
-        extends __BaseMappedEntity<Integer> {
+        extends __MappedEntity<Integer> {
 
     /**
      * The name of the database table to which this entity class maps. The value is {@value}.

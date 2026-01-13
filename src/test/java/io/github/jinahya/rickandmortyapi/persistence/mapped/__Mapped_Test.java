@@ -32,31 +32,31 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * An abstract class for testing classes extends {@link __BaseMapped} class.
+ * An abstract class for testing classes extends {@link __Mapped} class.
  *
  * @param <T> base type parameter
  * @author Jin Kwon &lt;onacit_at_gmail.com&gt;
  */
 @Slf4j
-abstract class __BaseMapped_Test<T extends __BaseMapped> {
+abstract class __Mapped_Test<T extends __Mapped> {
 
     // ---------------------------------------------------------------------------------------------------- CONSTRUCTORS
 
     /**
      * Creates a new instance for testing the specified type class.
      *
-     * @param typeClass the type class to test.
+     * @param mappedClass the type class to test.
      */
-    __BaseMapped_Test(final Class<T> typeClass) {
+    __Mapped_Test(final Class<T> mappedClass) {
         super();
-        this.typeClass = Objects.requireNonNull(typeClass, "typeClass is null");
+        this.mappedClass = Objects.requireNonNull(mappedClass, "mappedClass is null");
     }
 
     // -------------------------------------------------------------------------------------------------------- toString
     @Test
     void toString_NotBlank_() {
         // ------------------------------------------------------------------------------------------------------- given
-        final var instance = newTypeInstance();
+        final var instance = newMappedInstance();
         // -------------------------------------------------------------------------------------------------------- when
         final var string = instance.toString();
         // -------------------------------------------------------------------------------------------------------- then
@@ -72,7 +72,7 @@ abstract class __BaseMapped_Test<T extends __BaseMapped> {
     }
 
     SingleTypeEqualsVerifierApi<T> createEqualsVerifier() {
-        return EqualsVerifier.forClass(typeClass);
+        return EqualsVerifier.forClass(mappedClass);
     }
 
     SingleTypeEqualsVerifierApi<T> configureEqualsVerifier(final SingleTypeEqualsVerifierApi<T> verifier) {
@@ -81,17 +81,16 @@ abstract class __BaseMapped_Test<T extends __BaseMapped> {
 
     // -----------------------------------------------------------------------------------------------------------------
     @Test
-    void accessors__()
-            throws Exception {
-        final var instance = newTypeInstance();
-        final var info = Introspector.getBeanInfo(typeClass, Introspector.USE_ALL_BEANINFO);
+    void accessors__() throws Exception {
+        final var instance = newMappedInstance();
+        final var info = Introspector.getBeanInfo(mappedClass, Introspector.USE_ALL_BEANINFO);
         for (final var descriptor : info.getPropertyDescriptors()) {
             final var type = descriptor.getPropertyType();
             final var name = descriptor.getName();
             final var capitalized = name.substring(0, 1).toUpperCase() + name.substring(1);
             final var reader = Optional.ofNullable(descriptor.getReadMethod()).orElseGet(() -> {
                 try {
-                    return typeClass.getDeclaredMethod("get" + capitalized, type);
+                    return mappedClass.getDeclaredMethod("get" + capitalized, type);
                 } catch (final NoSuchMethodException nsme) {
                     return null;
                 }
@@ -105,7 +104,7 @@ abstract class __BaseMapped_Test<T extends __BaseMapped> {
             final var value = reader.invoke(instance);
             final var writer = Optional.ofNullable(descriptor.getWriteMethod()).orElseGet(() -> {
                 try {
-                    return typeClass.getDeclaredMethod("set" + capitalized, type);
+                    return mappedClass.getDeclaredMethod("set" + capitalized, type);
                 } catch (final NoSuchMethodException nsme) {
                     return null;
                 }
@@ -120,19 +119,19 @@ abstract class __BaseMapped_Test<T extends __BaseMapped> {
         }
     }
 
-    // ------------------------------------------------------------------------------------------------------- typeClass
-    T newTypeInstance() {
+    // ----------------------------------------------------------------------------------------------------- mappedClass
+    T newMappedInstance() {
         try {
-            final var constructor = typeClass.getDeclaredConstructor();
+            final var constructor = mappedClass.getDeclaredConstructor();
             if (!constructor.canAccess(null)) {
                 constructor.setAccessible(true);
             }
             return constructor.newInstance();
         } catch (final ReflectiveOperationException roe) {
-            throw new RuntimeException("failed to instantiate " + typeClass, roe);
+            throw new RuntimeException("failed to instantiate " + mappedClass, roe);
         }
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    final Class<T> typeClass;
+    final Class<T> mappedClass;
 }
